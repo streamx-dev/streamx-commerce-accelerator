@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/SXProduct",
+  "definitions": {
+    "SXProduct": {
+      "type": "object",
+      "title": "SXProduct",
+      "required": [
+        "id",
+        "sku",
+        "slug",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "primaryImage": {
+          "$ref": "#/definitions/SXImage"
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SXImage"
+          }
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SXCategory"
+          }
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SXAttribute"
+          }
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SXProductVariant"
+          }
+        }
+      }
+    },
+    "SXImage": {
+      "type": "object",
+      "title": "SXImage",
+      "required": [
+        "url"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "alt": {
+          "type": "string"
+        }
+      }
+    },
+    "SXCategory": {
+      "type": "object",
+      "title": "SXCategory",
+      "required": [
+        "id",
+        "slug",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "parent": {
+          "$ref": "#/definitions/SXCategory"
+        },
+        "subcategories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SXCategory"
+          }
+        }
+      }
+    },
+    "SXAttribute": {
+      "type": "object",
+      "title": "SXAttribute",
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "valueLabel": {
+          "type": "string"
+        },
+        "isFacet": {
+          "type": "boolean",
+          "default": false
+        },
+        "isSelected": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "SXProductVariant": {
+      "type": "object",
+      "title": "SXProductVariant",
+      "required": [
+        "id",
+        "slug",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SXAttribute"
+          }
+        }
+      }
+    }
+  }
+}
