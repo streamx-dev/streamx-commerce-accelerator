@@ -1,12 +1,12 @@
 # **StreamX Commerce Data Model**
 
-## **SXProduct**
+## **SxProduct**
 
 Representation of a base product item in the eCommerce system.
 
 ### JSON-Schema
 
-ref: "#/definitions/SXProduct"
+ref: "#/definitions/SxProduct"
 
 ### Model properties
 
@@ -19,19 +19,19 @@ ref: "#/definitions/SXProduct"
 | name         | String *               | title of the product                                 |
 | label        | String                 | label of the product                                 |
 | description  | String                 | detail information about the product                 |
-| primaryImage | SXImage                | main picture of the product                          |
-| gallery      | \[ SXImage \]          | product visual medias                                |
-| categories   | \[ SXCategory \]       | product categorisation information                   |
-| attributes   | \[ SXAttribute \]      | additional product characteristic data               |
-| variants     | \[ SXProductVariant \] | base product different variant                       |
+| primaryImage | SxImage                | main picture of the product                          |
+| gallery      | \[ SxImage \]          | product visual medias                                |
+| categories   | \[ SxCategory \]       | product categorisation information                   |
+| attributes   | \[ SxAttribute \]      | additional product characteristic data               |
+| variants     | \[ SxProductVariant \] | base product different variant                       |
 
-## **SXProductVariant**
+## **SxProductVariant**
 
 Represents different unique version of the base product.
 
 ### JSON-Schema
 
-ref: "#/definitions/SXProductVariant"
+ref: "#/definitions/SxProductVariant"
 
 ### Model properties
 
@@ -42,15 +42,15 @@ ref: "#/definitions/SXProductVariant"
 | slug       | String *          | URL friendly name, uniquely identifying product item |
 | name       | String *          | title of the product variant                         |
 | label      | String            | label of the product variant                         |
-| attributes | \[ SXAttribute \] | additional product variant characteristic data       |
+| attributes | \[ SxAttribute \] | additional product variant characteristic data       |
 
-## **SXImage**
+## **SxImage**
 
 Element represents digital media information, defined by required _url_ value and optionally media _alt_ data.
 
 ### JSON-Schema
 
-ref: "#/definitions/SXImage"
+ref: "#/definitions/SxImage"
 
 ### Model properties
 
@@ -59,13 +59,13 @@ ref: "#/definitions/SXImage"
 | url   | String * | media URL             |
 | alt   | String   | media alt information |    
 
-## **SXCategory**
+## **SxCategory**
 
 Element defined product categories and subcategories, that represents organized structure of eCommerce product catalog.
 
 ### JSON-Schema
 
-ref: "#/definitions/SXCategory"
+ref: "#/definitions/SxCategory"
 
 ### Model properties
 
@@ -75,16 +75,16 @@ ref: "#/definitions/SXCategory"
 | slug          | String *         | URL friendly name, uniquely identifying category item                   |    
 | name          | String *         | title of the category                                                   |
 | label         | String           | label of the category                                                   |
-| parent        | SXCategory       | parent category data, limited to required values only                   |
-| subcategories | \[ SXCategory \] | actual item sub-elements data (if any), limited to required values only |
+| parent        | SxCategory       | parent category data, limited to required values only                   |
+| subcategories | \[ SxCategory \] | actual item sub-elements data (if any), limited to required values only |
 
-## **SXAttribute**
+## **SxAttribute**
 
 It is defined additional product information data, that is characteristic to it.
 
 ### JSON-Schema
 
-ref: "#/definitions/SXAttribute"
+ref: "#/definitions/SxAttribute"
 
 ### Model properties
 
@@ -95,5 +95,4 @@ ref: "#/definitions/SXAttribute"
 | value      | String * | value of the attribute                     |
 | valueLabel | String   | attribute value label                      |
 | isFacet    | Boolean  | property enable filter criteria for search |
-| isSelected | Boolean  | property toggle element as preselected     |
 

@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$ref": "#/definitions/SXProduct",
+  "$ref": "#/definitions/SxProduct",
   "definitions": {
-    "SXProduct": {
+    "SxProduct": {
       "type": "object",
-      "title": "SXProduct",
+      "title": "SxProduct",
       "required": [
         "id",
         "sku",
@@ -34,37 +34,37 @@
           "type": "string"
         },
         "primaryImage": {
-          "$ref": "#/definitions/SXImage"
+          "$ref": "#/definitions/SxImage"
         },
         "gallery": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SXImage"
+            "$ref": "#/definitions/SxImage"
           }
         },
         "categories": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SXCategory"
+            "$ref": "#/definitions/SxCategory"
           }
         },
         "attributes": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SXAttribute"
+            "$ref": "#/definitions/SxAttribute"
           }
         },
         "variants": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SXProductVariant"
+            "$ref": "#/definitions/SxProductVariant"
           }
         }
       }
     },
-    "SXImage": {
+    "SxImage": {
       "type": "object",
-      "title": "SXImage",
+      "title": "SxImage",
       "required": [
         "url"
       ],
@@ -78,9 +78,9 @@
         }
       }
     },
-    "SXCategory": {
+    "SxCategory": {
       "type": "object",
-      "title": "SXCategory",
+      "title": "SxCategory",
       "required": [
         "id",
         "slug",
@@ -100,19 +100,19 @@
           "type": "string"
         },
         "parent": {
-          "$ref": "#/definitions/SXCategory"
+          "$ref": "#/definitions/SxCategory"
         },
         "subcategories": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SXCategory"
+            "$ref": "#/definitions/SxCategory"
           }
         }
       }
     },
-    "SXAttribute": {
+    "SxAttribute": {
       "type": "object",
-      "title": "SXAttribute",
+      "title": "SxAttribute",
       "required": [
         "name",
         "value"
@@ -133,16 +133,12 @@
         "isFacet": {
           "type": "boolean",
           "default": false
-        },
-        "isSelected": {
-          "type": "boolean",
-          "default": false
         }
       }
     },
-    "SXProductVariant": {
+    "SxProductVariant": {
       "type": "object",
-      "title": "SXProductVariant",
+      "title": "SxProductVariant",
       "required": [
         "id",
         "slug",
@@ -167,7 +163,7 @@
         "attributes": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SXAttribute"
+            "$ref": "#/definitions/SxAttribute"
           }
         }
       }
