@@ -5,9 +5,11 @@
   <meta charset="UTF-8"/>
   <title>Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" href="../assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Roboto&display=swap"/>
-  <link rel="stylesheet" href="./web-resources/css/materialdesignicons@7.2.96.min.css"/>
+  <link rel="stylesheet" href="../web-resources/css/materialdesignicons@7.2.96.min.css"/>
+  <link rel="stylesheet" href="../web-resources/css/main.css" type="text/css">
   
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -32,7 +34,7 @@
           </div>
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <a href="/homepage.html" class="flex lg:grow items-center">
-              <img class="w-auto" src="./assets/PureSightLogoBig.webp" alt="PureSight">
+              <img class="w-auto" src="../assets/PureSightLogoBig.webp" alt="PureSight">
             </a>
             <div class="hidden sm:ml-6 lg:block">
               <div class="h-24 flex space-x-4 items-center justify-center gap-8">
@@ -42,13 +44,13 @@
                 <a href="/blog.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Blog</a>
 
                 <!-- Search Input -->
-                <!-- <div id="autocomplete"></div> -->
-                <div class="flex items-center rounded bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-gray-400">
+                <div id="autocomplete"></div>
+                <!-- <div class="flex items-center rounded bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-gray-400">
                   <svg class="text-gray-400" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                     <path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
                   </svg>
                   <input type="text" class="block min-w-0 grow px-3 py-2.5 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6 md:text-base" placeholder="Search...">
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -86,7 +88,7 @@
             </a>
           </section>
           <picture class="md:basis-0 md:grow md:shrink">
-            <img class="" width="1280" height="720" src="./assets/room.webp" loading="eager"/>
+            <img class="" width="1280" height="720" src="../assets/room.webp" loading="eager"/>
           </picture>
         </div>
       </div>
@@ -707,7 +709,7 @@
         <div class="grid sm:grid-cols-2 gap-6 px-8">
           <div class="bg-white flex flex-col items-start">
             <img 
-              src="./assets/minimalist-design.webp" 
+              src="../assets/minimalist-design.webp" 
               alt="EOJqV9lZNDk-unsplash" 
               class="w-full aspect-[2/3] object-cover rounded mb-5"
             />
@@ -729,7 +731,7 @@
 
           <div class="bg-white flex flex-col items-start">
             <img 
-              src="./assets/element-5-digital.webp"
+              src="../assets/element-5-digital.webp"
               alt="Image 1" 
               class="w-full aspect-[2/3] object-cover rounded mb-5"
             />
@@ -846,7 +848,7 @@
       <div class="mx-auto w-full container p-8  lg:py-24">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div class="mb-6 md:mb-0">
-              <img src="./assets/PureSightLogo.webp" class="w-12 mb-6" alt="Logo" />
+              <img src="../assets/PureSightLogo.webp" class="w-12 mb-6" alt="Logo" />
               <a target="_blank" rel="noopener noreferrer nofollow" href="/policies-licences.html" class="text-[#b8b8b8] text-base mb-6 block">
                 Source: Amazon Berkeley Objects (ABO) Dataset
               </a>
@@ -939,7 +941,8 @@
       </div>
     </footer>
 
-    <script defer src="./web-resources/js/main.published.js"></script>
+    <script defer src="../web-resources/js/main.js"></script>
+    <script defer src="../web-resources/js/main.published.js"></script>
   </body>
 
 </html>
