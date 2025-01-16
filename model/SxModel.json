@@ -59,6 +59,44 @@
           "items": {
             "$ref": "#/definitions/SxProductVariant"
           }
+        },
+        "quantity":  {
+          "type": "number"
+        }
+      }
+    },
+    "SxProductVariant": {
+      "type": "object",
+      "title": "SxProductVariant",
+      "required": [
+        "id",
+        "slug",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SxAttribute"
+          }
+        },
+        "quantity":  {
+          "type": "number"
         }
       }
     },
@@ -133,38 +171,6 @@
         "isFacet": {
           "type": "boolean",
           "default": false
-        }
-      }
-    },
-    "SxProductVariant": {
-      "type": "object",
-      "title": "SxProductVariant",
-      "required": [
-        "id",
-        "slug",
-        "name"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "sku": {
-          "type": "string"
-        },
-        "slug": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "label": {
-          "type": "string"
-        },
-        "attributes": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SxAttribute"
-          }
         }
       }
     }

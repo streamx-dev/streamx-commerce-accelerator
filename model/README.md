@@ -24,6 +24,7 @@ ref: "#/definitions/SxProduct"
 | categories   | \[ SxCategory \]       | product categorisation information                   |
 | attributes   | \[ SxAttribute \]      | additional product characteristic data               |
 | variants     | \[ SxProductVariant \] | base product different variant                       |
+| quantity     | Number                 | property defines product stock information           |
 
 ## **SxProductVariant**
 
@@ -43,6 +44,7 @@ ref: "#/definitions/SxProductVariant"
 | name       | String *          | title of the product variant                         |
 | label      | String            | label of the product variant                         |
 | attributes | \[ SxAttribute \] | additional product variant characteristic data       |
+| quantity   | Number            | property defines product stock information           |
 
 ## **SxImage**
 
