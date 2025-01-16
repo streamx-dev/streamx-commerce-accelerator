@@ -4,7 +4,7 @@ echo "Ingesting assets..."
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-INPUT_DIR="$SCRIPT_DIR/../../pages/assets"
+INPUT_DIR="$SCRIPT_DIR/../../assets"
 
 for asset in $(find "$INPUT_DIR" -type f ); do
     if [[ "$(basename "$asset")" =~ ^\..* ]]; then

@@ -3,7 +3,7 @@
 echo "Ingesting web-resources..."
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-INPUT_DIR="$SCRIPT_DIR/../../pages/web-resources"
+INPUT_DIR="$SCRIPT_DIR/../../web-resources"
 
 for webResource in $(find "$INPUT_DIR" -type f ); do
     if [[ "$(basename "$webResource")" =~ ^\..* ]]; then
