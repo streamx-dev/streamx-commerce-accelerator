@@ -26,8 +26,17 @@ if [ -n "$TOKEN" ]; then
 else
     echo "TOKEN not provided: Authorization header will be omitted"
 fi
-echo "$2"
-# Send the request
-curl -w " - status: %{response_code} \n" -X POST "${INGESTION_URL}/ingestion/v1/channels/$1/messages" \
-     "${HEADERS[@]}" \
-     -d "$2"
+
+if [ -f "$2" ]; then
+  if [ -z "$3" ]; then
+      echo "You must provide a key"
+      exit 1
+  fi
+  streamx publish -b "content.bytes=file://$2" "$1" "$3"
+else
+  curl -w " - status: %{response_code} \n" -X POST "${INGESTION_URL}/ingestion/v1/channels/$1/messages" \
+       "${HEADERS[@]}" \
+       -d "$2"
+fi
+
+

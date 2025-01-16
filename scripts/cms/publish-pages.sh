@@ -1,32 +1,35 @@
-pdpRenderer='{
-  "key" : "pdp-renderer",
-  "action" : "publish",
-  "eventTime" : null,
-  "properties" : { },
-  "payload" : {
-    "dev.streamx.blueprints.data.Renderer" : {
-      "template": {
-        "bytes": "{{name}} - {{slug}}"
-      }
-    }
-  }
-}'
-
-categoryRenderer='{
-  "key" : "category-renderer",
-  "action" : "publish",
-  "eventTime" : null,
-  "properties" : { },
-  "payload" : {
-    "dev.streamx.blueprints.data.Renderer" : {
-      "template": {
-        "bytes": "{{name}} - {{slug}}"
-      }
-    }
-  }
-}'
+#!/bin/bash
 
 echo "Ingesting pages..."
-sh ingestion/publish.sh renderers "$pdpRenderer" > /dev/null 2>&1
-sh ingestion/publish.sh renderers "$categoryRenderer" > /dev/null 2>&1
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+INPUT_DIR="$SCRIPT_DIR/../../pages"
+
+for HTML_FILE in "$INPUT_DIR"/*.html; do
+    if [ ! -e "$HTML_FILE" ]; then
+        exit 0
+    fi
+
+    BASENAME=$(basename "$HTML_FILE")
+    HTML_CONTENT=$(cat "$HTML_FILE" | jq -Rs .)
+
+    OUTPUT_JSON=$(jq -n --arg key "$BASENAME" --arg bytes "$HTML_CONTENT" '{
+        "key": $key,
+        "action": "publish",
+        "eventTime": null,
+        "properties": {},
+        "payload": {
+            "dev.streamx.blueprints.data.Page": {
+                "content": {
+                    "bytes": ($bytes | fromjson)
+                }
+            }
+        }
+    }')
+
+    echo "$BASENAME"
+    sh "$SCRIPT_DIR/../ingestion/publish.sh" pages "$OUTPUT_JSON" #> /dev/null 2>&1
+done
+
 echo "Pages successfully ingested"
