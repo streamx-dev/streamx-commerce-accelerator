@@ -12,3 +12,4 @@ auth/*
 .env/*
 /secrets/generated/
 /target
+/repository
