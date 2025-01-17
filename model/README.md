@@ -19,6 +19,7 @@ ref: "#/definitions/SxProduct"
 | name         | String *               | title of the product                                 |
 | label        | String                 | label of the product                                 |
 | description  | String                 | detail information about the product                 |
+| price        | Number                 | product price value                                  |
 | primaryImage | SxImage                | main picture of the product                          |
 | gallery      | \[ SxImage \]          | product visual medias                                |
 | categories   | \[ SxCategory \]       | product categorisation information                   |
@@ -43,6 +44,7 @@ ref: "#/definitions/SxProductVariant"
 | slug       | String *          | URL friendly name, uniquely identifying product item |
 | name       | String *          | title of the product variant                         |
 | label      | String            | label of the product variant                         |
+| price      | Number            | product price value                                  |
 | attributes | \[ SxAttribute \] | additional product variant characteristic data       |
 | quantity   | Number            | property defines product stock information           |
 
@@ -90,11 +92,27 @@ ref: "#/definitions/SxAttribute"
 
 ### Model properties
 
-| Field      | Type     | Description                                |
-|------------|----------|--------------------------------------------|
-| name       | String * | unique identifier of the attribute         |
-| label      | String   | attribute label                            |
-| value      | String * | value of the attribute                     |
-| valueLabel | String   | attribute value label                      |
-| isFacet    | Boolean  | property enable filter criteria for search |
+| Field      | Type                    | Description                                |
+|------------|-------------------------|--------------------------------------------|
+| name       | String *                | unique identifier of the attribute         |
+| label      | String                  | attribute label                            |
+| value      | String *                | value of the attribute                     |
+| valueLabel | String                  | attribute value label                      |
+| isFacet    | Boolean                 | property enable filter criteria for search |
+| options    | \[ SxAttributeOption \] | additional attribute metadata              |
+
+## **SxAttributeOption**
+
+Additional metadata informations for an attribute.
+
+### JSON-Schema
+
+ref: "#/definitions/SxAttributeOption"
+
+### Model properties
+
+| Field      | Type     | Description                   |
+|------------|----------|-------------------------------|
+| value      | String * | value of the attribute option |
+| label      | String   | attribute option label        |
 

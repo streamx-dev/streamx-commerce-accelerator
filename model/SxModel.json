@@ -60,7 +60,7 @@
             "$ref": "#/definitions/SxProductVariant"
           }
         },
-        "quantity":  {
+        "quantity": {
           "type": "number"
         }
       }
@@ -95,7 +95,7 @@
             "$ref": "#/definitions/SxAttribute"
           }
         },
-        "quantity":  {
+        "quantity": {
           "type": "number"
         }
       }
@@ -171,6 +171,27 @@
         "isFacet": {
           "type": "boolean",
           "default": false
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SxAttributeOption"
+          }
+        }
+      }
+    },
+    "SxAttributeOption": {
+      "type": "object",
+      "title": "SxAttributeOption",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
         }
       }
     }
