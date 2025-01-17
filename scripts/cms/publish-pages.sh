@@ -3,18 +3,17 @@
 echo "Ingesting pages..."
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 INPUT_DIR="$SCRIPT_DIR/../../pages"
 
-for HTML_FILE in "$INPUT_DIR"/*.html; do
-    if [ ! -e "$HTML_FILE" ]; then
+for htmlFile in "$INPUT_DIR"/*.html; do
+    if [ ! -e "$htmlFile" ]; then
         exit 0
     fi
 
-    BASENAME=$(basename "$HTML_FILE")
-    HTML_CONTENT=$(cat "$HTML_FILE" | jq -Rs .)
+    BASENAME=$(basename "$htmlFile")
+    content=$(cat "$htmlFile" | jq -Rs .)
 
-    OUTPUT_JSON=$(jq -n --arg key "$BASENAME" --arg bytes "$HTML_CONTENT" '{
+    outputJson=$(jq -n --arg key "$BASENAME" --arg bytes "$content" '{
         "key": $key,
         "action": "publish",
         "eventTime": null,
@@ -29,7 +28,7 @@ for HTML_FILE in "$INPUT_DIR"/*.html; do
     }')
 
     echo "$BASENAME"
-    sh "$SCRIPT_DIR/../ingestion/publish.sh" pages "$OUTPUT_JSON" #> /dev/null 2>&1
+    sh "$SCRIPT_DIR/../ingestion/publish.sh" pages "$outputJson" > /dev/null 2>&1
 done
 
 echo "Pages successfully ingested"

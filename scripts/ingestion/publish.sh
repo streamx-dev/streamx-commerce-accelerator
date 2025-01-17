@@ -1,6 +1,4 @@
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-source "$SCRIPT_DIR/ingestion.env"
+#!/bin/bash
 
 # Set default INGESTION_URL if not provided
 if [ -z "$STREAMX_INGESTION_URL" ]; then
@@ -21,10 +19,10 @@ fi
 
 # Prepare headers
 HEADERS=("-H" "Content-Type: application/json")
-if [ -n "$TOKEN" ]; then
-    HEADERS+=("-H" "Authorization: Bearer ${TOKEN}")
+if [ -n "$STREAMX_INGESTION_AUTH_TOKEN" ]; then
+    HEADERS+=("-H" "Authorization: Bearer ${STREAMX_INGESTION_AUTH_TOKEN}")
 else
-    echo "TOKEN not provided: Authorization header will be omitted"
+    echo "STREAMX_INGESTION_AUTH_TOKEN not provided: Authorization header will be omitted"
 fi
 
 if [ -f "$2" ]; then

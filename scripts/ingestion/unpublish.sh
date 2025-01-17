@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Set default INGESTION_URL if not provided
-if [ -z "$INGESTION_URL" ]; then
-    INGESTION_URL="http://localhost:8080"
-    echo "INGESTION_URL not provided: Using default URL - $INGESTION_URL"
+if [ -z "$STREAMX_INGESTION_URL" ]; then
+    STREAMX_INGESTION_URL="http://localhost:8080"
+    echo "STREAMX_INGESTION_URL not provided: Using default URL - $STREAMX_INGESTION_URL"
 fi
 
 # Check for required parameters
@@ -19,14 +18,14 @@ fi
 
 # Prepare headers
 HEADERS=("-H" "Content-Type: application/json")
-if [ -n "$TOKEN" ]; then
-    HEADERS+=("-H" "Authorization: Bearer ${TOKEN}")
+if [ -n "$STREAMX_INGESTION_AUTH_TOKEN" ]; then
+    HEADERS+=("-H" "Authorization: Bearer ${STREAMX_INGESTION_AUTH_TOKEN}")
 else
-    echo "TOKEN not provided: Authorization header will be omitted"
+    echo "STREAMX_INGESTION_AUTH_TOKEN not provided: Authorization header will be omitted"
 fi
 
 # Send the request
-curl -w " - status: %{response_code} \n" -X POST "${INGESTION_URL}/ingestion/v1/channels/$1/messages" \
+curl -w " - status: %{response_code} \n" -X POST "${STREAMX_INGESTION_URL}/ingestion/v1/channels/$1/messages" \
      "${HEADERS[@]}" \
      -d "{
                 \"key\" : \"$2\",

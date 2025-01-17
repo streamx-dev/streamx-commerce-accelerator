@@ -5,7 +5,7 @@
 
 <head>
   <meta charset="UTF-8"/>
-  <title>Product Example</title>
+  <title>{{name}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="icon" href="../assets/static/favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -88,43 +88,17 @@
          <h1 id="dunvik-bed" class="text-4xl font-bold tracking-tight text-gray-800 mb-6">{{name}}</h1>
          <div class="lg:grid lg:grid-cols-5 lg:gap-5">
           <div class="col-span-3 w-full p-4">
-            <img class="w-full" src="../assets/big-bed.webp" alt="Dunvik bed" />
+            <img class="w-full" src="{{primaryImage.url}}" alt="{{primaryImage.alt}}" />
             <div class="flex flex-row gap-5 m-auto w-fit p-6">
-               <figure class="">
+              {% for image in gallery %}
+                {% if loop.index <= 5 %}
+                <figure>
                   <picture>
-                    <img class="" src="../assets/bed1-small.webp" loading="eager">
+                    <img class="" src="{{ image.url }}" alt="{{ image.alt }}" loading="eager">
                   </picture>
-               </figure>
-               <figure class="">
-                <picture>
-                  <img class="" src="../assets/bed2-small.webp" loading="eager">
-                </picture>
-               </figure>
-               <figure class="">
-                <picture>
-                  <img class="" src="../assets/bed3-small.webp" loading="eager">
-                </picture>
-               </figure>
-               <figure class="">
-                <picture>
-                  <img class="" src="../assets/bed4-small.webp" loading="eager">
-                </picture>
-               </figure>
-               <figure class="">
-                <picture>
-                  <img class="" src="../assets/bed5-small.webp" loading="eager">
-                </picture>
-               </figure>
-               <figure class="">
-                <picture>
-                  <img class="" src="../assets/bed6-small.webp" loading="eager">
-                </picture>
-               </figure>
-               <figure class="">
-                <picture>
-                  <img class="" src="../assets/bed7-small.webp" loading="eager">
-                </picture>
-               </figure>
+                </figure>
+                {% endif %}
+              {% endfor %}
              </div>
           </div>
   
@@ -133,25 +107,31 @@
               Pure Sight co.
             </p>
             <p class="text-base text-zinc-300">
-              AB5013-R22-10
+              {{id}}
             </p>
             <hr class="my-6 md:my-8 border-gray-200" />
             <p class="text-gray-500">
-              This mid-century love seat with removable and reversible down-filled cushions offers comfort, while the hardwood frame and tapered legs increase its daily wear-and-tear durability. Whether used as a focus piece or a foundational piece, tufted back cushions add a touch of eleganc...
+              {{description}}
             </p>
             <hr class="my-6 md:my-8 border-gray-200" />
             <div class="flex flex-row py-4 items-center gap-3">
-              <p class="text-lg font-bold">
-                <span class="text-zinc-700">from</span>
-              </p>
-              <h2 class="text-[#B89D6F] text-5xl font-bold">450€</h2>
+              {% if price.value %}
+                <p class="text-lg font-bold">
+                  <span class="text-zinc-700">from</span>
+                </p>
+                <h2 class="text-[#B89D6F] text-5xl font-bold">{{price.value}}&euro;</h2>
+              {% endif %}
             </div>
             <button type="submit" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 py-[6px] rounded-sm font-xl font-medium items-center">
               <span>Buy now</span>
               <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
               </span>
             </button>
-            <p class="text-base text-zinc-300 mt-6">Bed Sets, Beds, Mattresses And Headboards, Divan Bed Sets, Ottoman Bed Sets, Beds, Single Beds, Double Beds, Bunk Beds, Bed Hire, Folding Bed Hire, Domestic Bed Hire, Commercial Bed Hire, Bed Hire For Hotels, Home Decor, Bedroom Furniture Store, Mattresses, Divan Beds, Bed Frames, Beds, Mattresses, Sleep, Comfort, Health</p>
+            <p class="text-base text-zinc-300 mt-6">
+              {% for attribute in attributes %}
+                {{ attribute.label | default(attribute.name | capitalize) }}: {{ attribute.value }}{{ attribute.valueLabel | default('') }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </p>
           </div>
          </div>
       </div>
