@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="" lang="en">
+<html class="be-vietnam-pro" lang="en">
 
 <head>
   <meta charset="UTF-8"/>
@@ -80,23 +80,24 @@
       <div class="pb-16 sm:pb-24 px-8 mt-16">
         <nav class="flex mb-6" aria-label="Breadcrumb">
           <nav class="breadcrumb  is-medium" aria-label="breadcrumbs">
-           <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-            <li><a> <span>Products</span> </a></li>
-           </ul>
+            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+              <li><a> <span>Products</span> </a></li>
+            </ol>
           </nav>
          </nav>
-         <h1 id="{{id}}" class="text-4xl font-bold text-gray-800 mb-6">{{name}}</h1>
+         <h1 class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6">{{name}}</h1>
          <div class="lg:grid lg:grid-cols-5 lg:gap-5">
           <div class="col-span-3 w-full p-4">
             <figure>
               <picture class="aspec-[5/3]">
                 <img class="m-auto max-h-[500px] object-contain" src="{{primaryImage.url}}" alt="{{primaryImage.alt}}" loading="eager"/>
               </picture>
-            <div class="flex flex-row gap-5 m-auto w-fit p-6">
+            </figure>
+            <div class="flex flex-row gap-4 m-auto w-fit p-6">
               {% for image in gallery %}
                 {% if loop.index <= 5 %}
                 <figure>
-                  <picture>
+                  <picture class="aspect-square w-20 flex">
                     <img class="m-auto w-full object-contain" src="{{ image.url }}" alt="{{ image.alt }}" loading="eager">
                   </picture>
                 </figure>
@@ -112,11 +113,11 @@
             <p class="text-base text-zinc-300">
               {{id}}
             </p>
-            <hr class="my-6 md:my-8 border-gray-200" />
+            <hr class="my-4 md:my-6 border-gray-200" />
             <p class="text-gray-500">
               {{description}}
             </p>
-            <hr class="my-6 md:my-8 border-gray-200" />
+            <hr class="my-4 md:my-6 border-gray-200" />
             <div class="flex flex-row py-4 items-center gap-3">
               {% if price.value %}
                 <p class="text-lg font-bold">
@@ -125,12 +126,12 @@
                 <h2 class="text-[#B89D6F] text-5xl font-bold">{{price.value}}&euro;</h2>
               {% endif %}
             </div>
-            <button type="submit" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 py-[6px] rounded-sm font-xl font-medium items-center">
-              <span>Buy now</span>
+            <button type="submit" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center">
+              <span class="leading-[40px]">Buy now</span>
               <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
               </span>
             </button>
-            <p class="text-base text-zinc-300 mt-6">
+            <p class="text-base text-zinc-300 mt-4">
               {% for attribute in attributes %}
                 {{ attribute.label | default(attribute.name | capitalize) }}: {{ attribute.value }}{{ attribute.valueLabel | default('') }}{% if not loop.last %}, {% endif %}
               {% endfor %}
@@ -142,39 +143,106 @@
 
     <!-- Articles section -->
     <section class="container bg-white mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-16 sm:pb-24">
-        <div class="grid grid-row-2 px-8 gap-6">
-          <h4 class="text-3xl font-bold text-gray-800">Reviews</h2>
-          <div class="grid gap-4">
-            <ul class="flex flex-col w-full bg-white flex flex-col items-start">
-              <li class="w-full p-5 mb-6 shadow-md rounded-xl">
-                <div class="grid sm:grid-cols-2 gap-4 text-neutral-700">
-                  <div class="">
-                    <div class="flex items-center flex-shrink-0">
-                      <i class="mdi mdi-star " aria-hidden="true"></i>
-                      <i class="mdi mdi-star " aria-hidden="true"></i>
-                      <i class="mdi mdi-star " aria-hidden="true"></i>
-                      <i class="mdi mdi-star " aria-hidden="true"></i>
-                      <i class="mdi mdi-star " aria-hidden="true"></i>
-                    </div>
-                    <p class="text-base font-bold">A Dreamy Slumber</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 pb-16 sm:pb-24">
+        <div class="px-8">
+          <h4 class="text-3xl font-bold text-gray-800 mb-6">Reviews</h2>
+          <ul class="flex flex-col w-full bg-white flex flex-col items-start">
+            <li class="w-full p-5 mb-6 shadow-md rounded-xl border-zinc-100 border">
+              <div class="grid sm:grid-cols-2 gap-4 text-neutral-700">
+                <div class="">
+                  <div class="flex items-center flex-shrink-0">
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
                   </div>
-                  <div>
-                    <span>
-                      Sarah Johnson
-                    </span>
-                    <span>
-                      July 15, 2023
-                    </span>
-                  </div>
+                  <p class="text-sm font-bold">A Dreamy Slumber</p>
                 </div>
-                <p class="text-gray-500 mt-6">This bed has been a game-changer for my sleep quality. The comfort level is unmatched, and it feels like I'm sleeping on a cloud. I wake up refreshed and ready to tackle the day. Worth every penny!</p>
-              </li>
-            </ul>
-          </div>
+                <div class="flex flex-col text-right mr-3 text-sm">
+                  <span class="mb-3">
+                    Sarah Johnson
+                  </span>
+                  <span>
+                    July 15, 2023
+                  </span>
+                </div>
+              </div>
+              <p class="text-gray-500 mt-6">This bed has been a game-changer for my sleep quality. The comfort level is unmatched, and it feels like I'm sleeping on a cloud. I wake up refreshed and ready to tackle the day. Worth every penny!</p>
+            </li>
+            <li class="w-full p-5 mb-6 shadow-md rounded-xl border-zinc-100 border">
+              <div class="grid sm:grid-cols-2 gap-4 text-neutral-700">
+                <div class="">
+                  <div class="flex items-center flex-shrink-0">
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star-outline" aria-hidden="true"></i>
+                    <i class="mdi mdi-star-outline" aria-hidden="true"></i>
+                  </div>
+                  <p class="text-sm font-bold">Cozy and Supportive</p>
+                </div>
+                <div class="flex flex-col text-right mr-3 text-sm">
+                  <span class="mb-3">
+                    Michael Thompson
+                  </span>
+                  <span>
+                    August 3, 2023
+                  </span>
+                </div>
+              </div>
+              <p class="text-gray-500 mt-6">The bed provides a cozy nest-like feeling, and the support is excellent for my back. While it's a bit pricier than I'd like, the comfort it offers makes it a solid investment for a good night's sleep.</p>
+            </li>
+            <li class="w-full p-5 mb-6 shadow-md rounded-xl border-zinc-100 border">
+              <div class="grid sm:grid-cols-2 gap-4 text-neutral-700">
+                <div class="">
+                  <div class="flex items-center flex-shrink-0">
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+                  </div>
+                  <p class="text-sm font-bold">Mixed Feelings</p>
+                </div>
+                <div class="flex flex-col text-right mr-3 text-sm">
+                  <span class="mb-3">
+                    Emily Roberts
+                  </span>
+                  <span>
+                    June 21, 2023
+                  </span>
+                </div>
+              </div>
+              <p class="text-gray-500 mt-6">This bed is alright, but it hasn't quite lived up to my expectations. The initial comfort is decent, but after a while, I've noticed some sagging in certain areas. It's an okay choice for the price point.</p>
+            </li>
+            <li class="w-full p-5 mb-6 shadow-md rounded-xl border-zinc-100 border">
+              <div class="grid sm:grid-cols-2 gap-4 text-neutral-700">
+                <div class="">
+                  <div class="flex items-center flex-shrink-0">
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+                  </div>
+                  <p class="text-sm font-bold">Sleek Design, Restful Sleep</p>
+                </div>
+                <div class="flex flex-col text-right mr-3 text-sm">
+                  <span class="mb-3">
+                    David Anderson
+                  </span>
+                  <span>
+                    September 8, 2023
+                  </span>
+                </div>
+              </div>
+              <p class="text-gray-500 mt-6">The minimalist design of this bed caught my eye, and it complements my bedroom decor perfectly. As for comfort, it's mostly satisfying, though I wish the mattress were slightly softer. Overall, a solid purchase.</p>
+            </li>
+          </ul>
         </div>
-        <div class="grid grid-row-2 px-8 gap-6">
-          <h4 class="text-3xl font-bold text-gray-800">Related Articles</h2>
+        <div class="px-8">
+          <h4 class="text-3xl font-bold text-gray-800 mb-6">Related Articles</h2>
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="bg-white flex flex-col items-start">
               <img 
