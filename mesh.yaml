@@ -173,7 +173,7 @@ delivery:
         - "opensearch/service-init:/deployments/opensearch/service-init"
     environment:
       QUARKUS_ELASTICSEARCH_USERNAME: "admin"
-      QUARKUS_ELASTICSEARCH_HOSTS: "blueprint-search.opensearch:9200"
+      QUARKUS_ELASTICSEARCH_HOSTS: "blueprint-search.opensearch:9201"
       STREAMX_BLUEPRINTS_OPENSEARCH-DELIVERY-SERVICE_MIGRATION-SCRIPT-LOCATIONS: "classpath:opensearch/service-init,file:opensearch/service-init"
     environmentFrom:
       secrets:
@@ -182,9 +182,10 @@ delivery:
       opensearch:
         image: "docker.io/opensearchproject/opensearch:2.16.0"
         ports:
-          - 9200:9200
-          - 9300:9300
+          - 9201:9201
         environment:
+          network.host: "0.0.0.0"
+          http.port: "9201"
           discovery.type: "single-node"
           DISABLE_SECURITY_PLUGIN: "true"
         environmentFrom:
