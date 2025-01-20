@@ -33,6 +33,9 @@
         "description": {
           "type": "string"
         },
+        "price": {
+          "type": "string"
+        },
         "primaryImage": {
           "$ref": "#/definitions/SxImage"
         },
