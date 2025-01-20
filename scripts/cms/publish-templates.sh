@@ -40,7 +40,7 @@ categoryRenderer='{
   "key" : "category-renderer",
   "action" : "publish",
   "eventTime" : null,
-  "properties" : { },
+  "properties" : {},
   "payload" : {
     "dev.streamx.blueprints.data.Renderer" : {
       "template": {
@@ -51,6 +51,6 @@ categoryRenderer='{
 }'
 
 
-sh ingestion/publish.sh renderers "$categoryRenderer" > /dev/null 2>&1
+sh "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$categoryRenderer" > /dev/null 2>&1
 
 echo "Templates successfully ingested"
