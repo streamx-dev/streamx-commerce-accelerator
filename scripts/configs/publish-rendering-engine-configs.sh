@@ -11,7 +11,7 @@ pdpRenderingContext='{
     "dev.streamx.blueprints.data.RenderingContext": {
       "rendererKey": { "string": "templates/pdp.html" },
       "dataKeyMatchPattern": { "string": "product:.*" },
-      "outputKeyTemplate": { "string": "products/{{slug}}.html" },
+      "outputKeyTemplate": { "string": "/products/{{slug}}.html" },
       "outputType": { "dev.streamx.blueprints.data.RenderingContext.OutputType": "PAGE" }
     }
   }

@@ -48,14 +48,20 @@ This documentation outlines the components of the project, the purpose of each f
 - Stores service configuration files for the mesh.
 - These define the operational settings of various services used by the project.
 
-### 8. **`secrets/`**
+### 8. **`model/`**
+- Unified data model schema
+- All integrations should use this as the base
+
+
+### 9. **`secrets/`**
 - Contains sensitive secrets for the mesh, such as:
    - API keys.
    - Authentication credentials.
 
-### 9. **`mesh.yaml`**
+### 10. **`mesh.yaml`**
 - Defines the overall structure and configuration of the mesh services.
 - This file acts as the central configuration point for the mesh.
+
 
 ---
 
