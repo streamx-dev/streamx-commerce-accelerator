@@ -34,7 +34,7 @@
           "type": "string"
         },
         "price": {
-          "type": "string"
+          "type": "numberś"
         },
         "primaryImage": {
           "$ref": "#/definitions/SxImage"
