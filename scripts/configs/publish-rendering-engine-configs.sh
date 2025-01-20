@@ -26,7 +26,7 @@ categoryRenderingContext='{
     "dev.streamx.blueprints.data.RenderingContext": {
       "rendererKey": { "string": "category-renderer" },
       "dataKeyMatchPattern": { "string": "category:.*" },
-      "outputKeyTemplate": { "string": "categories/{{slug}}.html" },
+      "outputKeyTemplate": { "string": "/categories/{{slug}}.html" },
       "outputType": { "dev.streamx.blueprints.data.RenderingContext.OutputType": "PAGE" }
     }
   }
