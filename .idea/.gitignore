@@ -1,0 +1,14 @@
+**/.streamx/*
+
+### IntelliJ IDEA ###
+.idea/*
+*.iws
+*.iml
+*.ipr
+
+
+# Ignore auth scripts
+auth/*
+.env/*
+/secrets/generated/
+/target
