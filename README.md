@@ -27,5 +27,5 @@ This documentation outlines the components of the project, the purpose of each f
 3. **Publish All Resources:**
    - Use the `publish-all` script to deploy all necessary data to StreamX:
      ```bash
-     sh scripts/publish-all.sh
+     sh reference-data/scripts/publish-all.sh
      ```
