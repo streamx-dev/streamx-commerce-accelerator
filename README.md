@@ -14,6 +14,7 @@ This documentation outlines the components of the project, the purpose of each f
 1. **Start StreamX:**
    - Run the StreamX instance:
      ```bash
+     export QUARKUS_PROFILE=LOCAL
      streamx run
      ```
 
