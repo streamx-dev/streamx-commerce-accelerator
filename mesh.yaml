@@ -5,7 +5,7 @@ sources:
   pim:
     outgoing:
       - "data"
-  websight:
+  cms:
     outgoing:
       - "pages"
       - "fragments"
@@ -143,7 +143,7 @@ processing:
         topic: outboxes/web-resources
     environment:
       # local test domain, see readme
-      STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_BASE-URL: "http://puresight.${STREAMX_INGRESS_IP}.nip.io"
+      STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_BASE-URL: "${WEB_DOMAIN}"
       STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_OUTPUT-KEY: "/sitemap.xml"
 
   blueprint-indexable-resource-extractor:

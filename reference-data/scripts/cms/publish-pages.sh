@@ -1,8 +1,11 @@
 #!/bin/bash
 
 echo "Ingesting pages..."
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
+echo "$STREAMX_INGESTION_AUTH_TOKEN"
+
 INPUT_DIR="$SCRIPT_DIR/../../pages"
 
 for htmlFile in "$INPUT_DIR"/*.html; do
@@ -31,4 +34,4 @@ for htmlFile in "$INPUT_DIR"/*.html; do
     sh "$SCRIPT_DIR/../ingestion/publish.sh" pages "$outputJson" > /dev/null 2>&1
 done
 
-echo "Pages successfully ingested"
+echo "Pages ingestion finished"

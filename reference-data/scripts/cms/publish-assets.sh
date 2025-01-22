@@ -1,7 +1,9 @@
 #!/bin/bash
 echo "Ingesting assets..."
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
+
 INPUT_DIR="$SCRIPT_DIR/../../assets"
 
 for asset in $(find "$INPUT_DIR" -type f ); do
@@ -18,4 +20,4 @@ for asset in $(find "$INPUT_DIR" -type f ); do
     sh "$SCRIPT_DIR/../ingestion/publish.sh" assets "$asset" "assets/$RELATIVE_PATH"  > /dev/null 2>&1
 done
 
-echo "Web resources successfully ingested"
+echo "Web resources ingestion finished"

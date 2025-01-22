@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Set default INGESTION_URL if not provided
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+echo "$STREAMX_INGESTION_URL"
 if [ -z "$STREAMX_INGESTION_URL" ]; then
     STREAMX_INGESTION_URL="http://localhost:8080"
     echo "STREAMX_INGESTION_URL not provided: Using default URL - $STREAMX_INGESTION_URL"
@@ -36,5 +38,3 @@ else
        "${HEADERS[@]}" \
        -d "$2"
 fi
-
-

@@ -1,6 +1,8 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
 
 pdpRenderingContext='{
   "key": "pdp-rendering-context",
@@ -35,4 +37,4 @@ categoryRenderingContext='{
 echo "Ingesting rendering engine configurations..."
 sh "$SCRIPT_DIR/../ingestion/publish.sh" rendering-contexts "$pdpRenderingContext"  > /dev/null 2>&1
 sh "$SCRIPT_DIR/../ingestion/publish.sh" rendering-contexts "$categoryRenderingContext" > /dev/null 2>&1
-echo "Rendering engine configs successfully ingested"
+echo "Rendering engine configs ingestion finished"
