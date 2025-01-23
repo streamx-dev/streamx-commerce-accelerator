@@ -1,7 +1,6 @@
 !function() {
     const classToggle = (el, ...args) => args.map(e => el.classList.toggle(e));
     const SEARCH_RESULTS_COUNT = 40;
-    const PREDEFINED_RESULTS_COUNT = 2;
     const K_SPACE = ' ';
     const C_SPACE = 32;
     const K_ENTER = 'Enter';
