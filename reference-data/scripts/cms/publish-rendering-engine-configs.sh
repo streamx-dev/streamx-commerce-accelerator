@@ -35,6 +35,6 @@ categoryRenderingContext='{
 }'
 
 echo "Ingesting rendering engine configurations..."
-sh "$SCRIPT_DIR/../ingestion/publish.sh" rendering-contexts "$pdpRenderingContext"  > /dev/null 2>&1
-sh "$SCRIPT_DIR/../ingestion/publish.sh" rendering-contexts "$categoryRenderingContext" > /dev/null 2>&1
+sh "$SCRIPT_DIR/../ingestion/publish.sh" rendering-contexts "$pdpRenderingContext"
+sh "$SCRIPT_DIR/../ingestion/publish.sh" rendering-contexts "$categoryRenderingContext"
 echo "Rendering engine configs ingestion finished"

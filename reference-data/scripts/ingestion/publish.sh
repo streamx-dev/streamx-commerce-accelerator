@@ -2,7 +2,6 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "$STREAMX_INGESTION_URL"
 if [ -z "$STREAMX_INGESTION_URL" ]; then
     STREAMX_INGESTION_URL="http://localhost:8080"
     echo "STREAMX_INGESTION_URL not provided: Using default URL - $STREAMX_INGESTION_URL"
@@ -23,8 +22,6 @@ fi
 HEADERS=("-H" "Content-Type: application/json")
 if [ -n "$STREAMX_INGESTION_AUTH_TOKEN" ]; then
     HEADERS+=("-H" "Authorization: Bearer ${STREAMX_INGESTION_AUTH_TOKEN}")
-else
-    echo "STREAMX_INGESTION_AUTH_TOKEN not provided: Authorization header will be omitted"
 fi
 
 if [ -f "$2" ]; then
@@ -32,9 +29,26 @@ if [ -f "$2" ]; then
       echo "You must provide a key"
       exit 1
   fi
-  streamx publish -b "content.bytes=file://$2" "$1" "$3"
+
+  result=$(streamx publish -b "content.bytes=file://$2" "$1" "$3")
+
+  if [[ $result != Registered* ]]; then
+      echo "$result"
+      exit 1
+  fi
 else
-  curl -w " - status: %{response_code} \n" -X POST "${STREAMX_INGESTION_URL}/ingestion/v1/channels/$1/messages" \
-       "${HEADERS[@]}" \
-       -d "$2"
+  response=$(curl -s -w " - status: %{response_code}" -X POST "${STREAMX_INGESTION_URL}/ingestion/v1/channels/$1/messages" \
+         "${HEADERS[@]}" \
+         -d "$2")
+
+  status=$(echo "$response" | awk -F " - status: " '{print $2}')
+  body=$(echo "$response" | sed -E 's/ - status: [0-9]+$//')
+
+  if [[ $status -ne 202 ]]; then
+      echo "Error: Received HTTP status $status"
+      echo "Response body: $body"
+      exit 1
+  fi
+
+
 fi

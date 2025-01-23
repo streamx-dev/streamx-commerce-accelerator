@@ -52,6 +52,6 @@ categoryRenderer='{
 }'
 
 
-sh "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$categoryRenderer" > /dev/null 2>&1
+sh "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$categoryRenderer"
 
 echo "Templates ingestion finished"
