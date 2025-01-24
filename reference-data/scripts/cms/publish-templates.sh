@@ -1,8 +1,9 @@
 #!/bin/bash
 
 echo "Ingesting templates..."
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
 
 INPUT_DIR="$SCRIPT_DIR/../../templates"
 
@@ -51,6 +52,6 @@ categoryRenderer='{
 }'
 
 
-sh "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$categoryRenderer" > /dev/null 2>&1
+sh "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$categoryRenderer"
 
-echo "Templates successfully ingested"
+echo "Templates ingestion finished"

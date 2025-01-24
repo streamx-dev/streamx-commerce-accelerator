@@ -1,9 +1,6 @@
 #!/bin/bash
 
-if [ -z "$STREAMX_INGESTION_URL" ]; then
-    STREAMX_INGESTION_URL="http://localhost:8080"
-    echo "STREAMX_INGESTION_URL not provided: Using default URL - $STREAMX_INGESTION_URL"
-fi
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Check for required parameters
 if [ -z "$1" ]; then

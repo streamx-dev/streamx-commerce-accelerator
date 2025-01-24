@@ -1,7 +1,9 @@
 #!/bin/bash
 echo "Ingesting products set into StreamX it can take a while..."
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_PIM"
+
 input_file="$SCRIPT_DIR/products.json"
 
 json_data=$(cat "$input_file")
@@ -38,10 +40,11 @@ for ((i=0; i<products_count; i+=batch_size)); do
         next_batch_end=$((i + batch_size))
 
         if [ $counter -eq $batch_size ] || [ $next_batch_end -ge $products_count ]; then
-          sh "$SCRIPT_DIR/../ingestion/publish.sh" data "$processed_products"  > /dev/null 2>&1
+          echo "Products batch starting with product id $id"
+          sh "$SCRIPT_DIR/../ingestion/publish.sh" data "$processed_products"
           counter=0
           processed_product=0
         fi
     done
 done
-echo "Products successfully ingested"
+echo "Products ingestion finished"
