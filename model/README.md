@@ -92,14 +92,28 @@ ref: "#/definitions/SxAttribute"
 
 ### Model properties
 
-| Field      | Type                    | Description                                |
-|------------|-------------------------|--------------------------------------------|
-| name       | String *                | unique identifier of the attribute         |
-| label      | String                  | attribute label                            |
-| value      | String *                | value of the attribute                     |
-| valueLabel | String                  | attribute value label                      |
-| isFacet    | Boolean                 | property enable filter criteria for search |
-| options    | \[ SxAttributeOption \] | additional attribute metadata              |
+| Field      | Type                     | Description                                |
+|------------|--------------------------|--------------------------------------------|
+| name       | String *                 | unique identifier of the attribute         |
+| label      | String                   | attribute label                            |
+| isFacet    | Boolean                  | property enable filter criteria for search |
+| values     | \[ SxAttributeValue \]   | values of the attribute                    |
+| options    | \[ SxAttributeOption \]  | additional attribute metadata              |
+
+## **SxAttributeValue**
+
+Additional metadata informations for an attribute.
+
+### JSON-Schema
+
+ref: "#/definitions/SxAttributeValue"
+
+### Model properties
+
+| Field      | Type     | Description                  |
+|------------|----------|------------------------------|
+| value      | String * | value of the attribute value |
+| label      | String   | attribute value label        |
 
 ## **SxAttributeOption**
 

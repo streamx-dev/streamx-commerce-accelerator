@@ -165,21 +165,36 @@
         "label": {
           "type": "string"
         },
-        "value": {
-          "type": "string"
-        },
-        "valueLabel": {
-          "type": "string"
-        },
         "isFacet": {
           "type": "boolean",
           "default": false
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SxAttributeValue"
+          }
         },
         "options": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/SxAttributeOption"
           }
+        }
+      }
+    },
+    "SxAttributeValue": {
+      "type": "object",
+      "title": "SxAttributeValue",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "valueLabel": {
+          "type": "string"
         }
       }
     },
