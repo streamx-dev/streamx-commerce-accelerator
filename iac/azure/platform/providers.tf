@@ -1,5 +1,3 @@
-
-
 provider "kubernetes" {
   host                   = module.azure_platform.kubeconfig.host
   client_certificate     = base64decode(module.azure_platform.kubeconfig.client_certificate)

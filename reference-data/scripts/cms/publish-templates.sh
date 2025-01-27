@@ -33,7 +33,7 @@ for template in $(find "$INPUT_DIR" -type f ); do
        }')
 
        echo "$BASENAME"
-       "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$outputJson" > /dev/null 2>&1
+       "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$outputJson"
 done
 
 
