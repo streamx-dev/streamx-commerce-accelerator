@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 if [ -z "$STREAMX_INGESTION_URL" ]; then
     STREAMX_INGESTION_URL="http://localhost:8080"
     echo "STREAMX_INGESTION_URL not provided: Using default URL - $STREAMX_INGESTION_URL"
@@ -13,7 +11,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-if [ -z "$2" ]; then
+if [ -z "$2" ] && [ ! -p /dev/stdin ]; then
     echo "You must provide an ingestion payload"
     exit 1
 fi
@@ -37,11 +35,16 @@ if [ -f "$2" ]; then
       exit 1
   fi
 else
-  response=$(curl -s -w " - status: %{response_code}" -X POST "${STREAMX_INGESTION_URL}/ingestion/v1/channels/$1/messages" \
+  if [ -z "$2" ]; then
+    data=$(</dev/stdin)
+  else
+    data=$2
+  fi
+  response=$(echo "$data" | curl -s -w " - status: %{response_code}" -X POST "${STREAMX_INGESTION_URL}/ingestion/v1/channels/$1/messages" \
          "${HEADERS[@]}" \
-         -d "$2")
+         --data @-)
 
-  status=$(echo "$response" | awk -F " - status: " '{print $2}')
+  status=$(echo "$response" | awk -F " - status: " '{print $2}' | grep -v '^$')
   body=$(echo "$response" | sed -E 's/ - status: [0-9]+$//')
 
   if [[ $status -ne 202 ]]; then

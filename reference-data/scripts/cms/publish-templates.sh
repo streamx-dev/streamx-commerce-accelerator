@@ -33,7 +33,7 @@ for template in $(find "$INPUT_DIR" -type f ); do
        }')
 
        echo "$BASENAME"
-       sh "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$outputJson" > /dev/null 2>&1
+       "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$outputJson" > /dev/null 2>&1
 done
 
 
@@ -52,6 +52,6 @@ categoryRenderer='{
 }'
 
 
-sh "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$categoryRenderer"
+"$SCRIPT_DIR/../ingestion/publish.sh" renderers "$categoryRenderer"
 
 echo "Templates ingestion finished"

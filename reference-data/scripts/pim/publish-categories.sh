@@ -39,7 +39,7 @@ for ((i=0; i<categories_count; i+=batch_size)); do
         next_batch_end=$((i + batch_size))
 
         if [ $counter -eq $batch_size ] || [ $next_batch_end -ge $categories_count ]; then
-            sh "$SCRIPT_DIR/../ingestion/publish.sh" data "$processed_categories"
+            "$SCRIPT_DIR/../ingestion/publish.sh" data "$processed_categories"
             processed_categories=0
             counter=0
         fi

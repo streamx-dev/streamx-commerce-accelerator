@@ -17,7 +17,7 @@ for asset in $(find "$INPUT_DIR" -type f ); do
     RELATIVE_PATH=$(echo "$asset" | sed "s|^$INPUT_DIR/||")
 
     echo "$RELATIVE_PATH"
-    sh "$SCRIPT_DIR/../ingestion/publish.sh" assets "$asset" "assets/$RELATIVE_PATH"
+    "$SCRIPT_DIR/../ingestion/publish.sh" assets "$asset" "assets/$RELATIVE_PATH"
 done
 
 echo "Web resources ingestion finished"

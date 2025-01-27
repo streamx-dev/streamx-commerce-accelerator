@@ -30,7 +30,7 @@ for htmlFile in "$INPUT_DIR"/*.html; do
     }')
 
     echo "$BASENAME"
-    sh "$SCRIPT_DIR/../ingestion/publish.sh" pages "$outputJson"
+    "$SCRIPT_DIR/../ingestion/publish.sh" pages "$outputJson"
 done
 
 echo "Pages ingestion finished"

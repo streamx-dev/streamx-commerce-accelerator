@@ -1,0 +1,58 @@
+# Copyright 2025 Dynamic Solutions Sp. z o.o. sp.k.
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: "CI: Terraform verify"
+on:
+  - pull_request
+
+jobs:
+  fmt:
+    name: "fmt"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 0.15.x
+
+      - name: Terraform fmt
+        run: terraform fmt -recursive -write=false -check -diff .
+
+  validate:
+    name: "validate"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        terraform_version: [1.0.x, 1.10.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform ${{ matrix.terraform_version }}
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ matrix.terraform_version }}
+
+      - name: Validate platform
+        run: cd "${GITHUB_WORKSPACE}/iac/azure/platform" && terraform init -backend=false && terraform validate -no-color
+
+      - name: Validate resource-group
+        run: cd "${GITHUB_WORKSPACE}/iac/azure/resource-group" && terraform init -backend=false && terraform validate -no-color
+
+      - name: Validate state-backend
+        run: cd "${GITHUB_WORKSPACE}/iac/azure/state-backend" && terraform init -backend=false && terraform validate -no-color

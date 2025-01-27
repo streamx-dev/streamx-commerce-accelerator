@@ -18,7 +18,7 @@ for webResource in $(find "$INPUT_DIR" -type f ); do
     RELATIVE_PATH=$(echo "$webResource" | sed "s|^$INPUT_DIR/||")
 
     echo "$RELATIVE_PATH"
-    sh "$SCRIPT_DIR/../ingestion/publish.sh" web-resources "$webResource" "web-resources/$RELATIVE_PATH"
+    "$SCRIPT_DIR/../ingestion/publish.sh" web-resources "$webResource" "web-resources/$RELATIVE_PATH"
 done
 
 echo "Web resources ingestion finished"
