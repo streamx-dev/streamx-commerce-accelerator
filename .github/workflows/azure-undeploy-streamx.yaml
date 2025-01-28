@@ -1,4 +1,4 @@
-name: 'Undeploy StreamX'
+name: 'Azure: Undeploy StreamX'
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  destroy:
+  undeploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

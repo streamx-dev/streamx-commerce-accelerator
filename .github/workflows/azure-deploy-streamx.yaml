@@ -1,4 +1,4 @@
-name: 'Deploy StreamX'
+name: 'Azure: Deploy StreamX'
 
 on:
   workflow_dispatch:
