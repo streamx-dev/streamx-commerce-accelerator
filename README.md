@@ -10,11 +10,16 @@ This documentation outlines the components of the project, the purpose of each f
 
 ## Local Setup
 
+Prerequisites:
+* StreamX CLI in preview version:
+  ```shell
+  brew install streamx-dev/preview-tap/streamx
+  ```
 
 1. **Start StreamX:**
-   - Run the StreamX instance:
+   - Run the StreamX instance (current setup requires `preview` version of StreamX CLI see prerequisites):
      ```bash
-     streamx run
+     streamx run -f ./mesh/mesh.yaml
      ```
 
 2. **Run the Proxy:**
@@ -26,5 +31,5 @@ This documentation outlines the components of the project, the purpose of each f
 3. **Publish All Resources:**
    - Use the `publish-all` script to deploy all necessary data to StreamX:
      ```bash
-     ./reference-data/scripts/publish-all.sh
+     ./data/scripts/publish-all.sh
      ```

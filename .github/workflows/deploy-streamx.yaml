@@ -21,7 +21,7 @@ jobs:
         env:
           ARM_ACCESS_KEY:
             ${{ secrets.ARM_ACCESS_KEY }}
-        run: terraform -chdir=./iac/azure/platform init
+        run: terraform -chdir=./terraform/azure/platform init
 
       - name: "Terraform workspace setup"
         env:
@@ -29,7 +29,7 @@ jobs:
             ${{ secrets.ARM_ACCESS_KEY }}
         run: |
           TF_WORKSPACE=$(bash .github/scripts/tf_workspace_name.sh '${{ github.ref_name }}')
-          terraform -chdir=./iac/azure/platform workspace select -or-create $TF_WORKSPACE
+          terraform -chdir=./terraform/azure/platform workspace select -or-create $TF_WORKSPACE
 
       - name: "Terraform apply"
         id: "terraform_apply"
@@ -51,9 +51,9 @@ jobs:
           TF_VAR_streamx_operator_image_pull_secret_registry_password:
             ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
         run: |
-          terraform -chdir=./iac/azure/platform apply -auto-approve
-          echo "kubeconfig_path=$(terraform -chdir=./iac/azure/platform output -raw kubeconfig_path)" >> $GITHUB_OUTPUT
-          echo "streamx_ingress_ip=$(terraform -chdir=./iac/azure/platform output -raw loadbalancer_ip)" >> $GITHUB_OUTPUT
+          terraform -chdir=./terraform/azure/platform apply -auto-approve
+          echo "kubeconfig_path=$(terraform -chdir=./terraform/azure/platform output -raw kubeconfig_path)" >> $GITHUB_OUTPUT
+          echo "streamx_ingress_ip=$(terraform -chdir=./terraform/azure/platform output -raw loadbalancer_ip)" >> $GITHUB_OUTPUT
           
 
       - name: Set up JDK 17
@@ -98,7 +98,7 @@ jobs:
         run: |
           echo "_GH_CD_STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS=$(kubectl get secrets sx-sec-auth-jwt-cms -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)" >> .env
           echo "_GH_CD_STREAMX_TOKEN_INGESTION_AUTH_TOKEN_PIM=$(kubectl get secrets sx-sec-auth-jwt-pim -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)" >> .env
-          ./reference-data/scripts/publish-all.sh
+          ./data/scripts/publish-all.sh
 
       - name: "Create Job Summary"
         run: |

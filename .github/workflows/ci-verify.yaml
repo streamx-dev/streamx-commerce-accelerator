@@ -34,10 +34,10 @@ jobs:
           terraform_version: ${{ matrix.terraform_version }}
 
       - name: Validate platform
-        run: cd "${GITHUB_WORKSPACE}/iac/azure/platform" && terraform init -backend=false && terraform validate -no-color
+        run: cd "${GITHUB_WORKSPACE}/terraform/azure/platform" && terraform init -backend=false && terraform validate -no-color
 
       - name: Validate resource-group
-        run: cd "${GITHUB_WORKSPACE}/iac/azure/resource-group" && terraform init -backend=false && terraform validate -no-color
+        run: cd "${GITHUB_WORKSPACE}/terraform/azure/resource-group" && terraform init -backend=false && terraform validate -no-color
 
       - name: Validate state-backend
-        run: cd "${GITHUB_WORKSPACE}/iac/azure/state-backend" && terraform init -backend=false && terraform validate -no-color
+        run: cd "${GITHUB_WORKSPACE}/terraform/azure/state-backend" && terraform init -backend=false && terraform validate -no-color
