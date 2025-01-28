@@ -4,7 +4,7 @@
         perView: 2,
         gap: 40,
         breakpoints: {
-            1024: {
+            1023: {
                 perView: 1
             },
         }

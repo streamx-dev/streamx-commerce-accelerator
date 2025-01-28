@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Roboto&display=swap"/>
   <link rel="stylesheet" href="../web-resources/css/materialdesignicons@7.2.96.min.css"/>
   <link rel="stylesheet" href="../web-resources/css/main.css" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic@1.17.9/dist/theme.min.css" integrity="sha256-7xmjOBJDAoCNWP1SMykTUwfikKl5pHkl2apKOyXLqYM=" crossorigin="anonymous"/>
 
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -36,7 +37,7 @@
           </div>
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <a href="/homepage.html" class="flex lg:grow items-center">
-              <img src="../assets/logoFooter.svg" class="w-12 mb-6" alt="Logo" />
+              <img class="w-auto" src="../assets/logo.svg" alt="logo">
             </a>
             <div class="hidden sm:ml-6 lg:block">
               <div class="h-24 flex space-x-4 items-center justify-center gap-8">
@@ -117,7 +118,7 @@
                 <p class="text-lg font-bold">
                   <span class="text-zinc-700">from</span>
                 </p>
-                <h2 class="text-[#B89D6F] text-5xl font-bold">{{price}}&euro;</h2>
+                <h2 class="price-text-color text-5xl font-bold">{{price}}&euro;</h2>
               </div>
             {% endif %}
             <button type="submit" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center">
@@ -240,7 +241,7 @@
         <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8">
           <li>
             <div class="flex flex-col">
-              <figure class="w-full border-[#F2ECE4] border aspect-[3/4] flex">
+              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
                 <picture class="m-auto w-full object-contain">
                   <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
                   <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
@@ -265,7 +266,7 @@
                   </div>
                 </div>
                 <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-[#B89E6F] truncate flex-grow">
+                  <p class="text-base font-bold price-text-color truncate flex-grow">
                     4500€
                   </p>
                   <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
@@ -279,7 +280,7 @@
           </li>
           <li>
             <div class="flex flex-col">
-              <figure class="w-full border-[#F2ECE4] border aspect-[3/4] flex">
+              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
                 <picture class="m-auto w-full object-contain">
                   <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
                   <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
@@ -304,7 +305,7 @@
                   </div>
                 </div>
                 <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-[#B89E6F] truncate flex-grow">
+                  <p class="text-base font-bold price-text-color truncate flex-grow">
                     6700€
                   </p>
                   <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
@@ -318,7 +319,7 @@
           </li>
           <li>
             <div class="flex flex-col">
-              <figure class="w-full border-[#F2ECE4] border aspect-[3/4] flex">
+              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
                 <picture class="m-auto w-full object-contain">
                   <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
                   <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
@@ -343,7 +344,7 @@
                   </div>
                 </div>
                 <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-[#B89E6F] truncate flex-grow">
+                  <p class="text-base font-bold price-text-color truncate flex-grow">
                     2500€
                   </p>
                   <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
@@ -357,7 +358,7 @@
           </li>
           <li>
             <div class="flex flex-col">
-              <figure class="w-full border-[#F2ECE4] border aspect-[3/4] flex">
+              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
                 <picture class="m-auto w-full object-contain">
                   <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
                   <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
@@ -382,7 +383,7 @@
                   </div>
                 </div>
                 <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-[#B89E6F] truncate flex-grow">
+                  <p class="text-base font-bold price-text-color truncate flex-grow">
                     12500€
                   </p>
                   <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
@@ -404,28 +405,28 @@
       <div class="py-16 sm:py-24 px-8">
         <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
           <div class="items-center flex flex-col">
-            <span class="text-[#B89E6F]">
+            <span class="price-text-color">
               <i class="mdi mdi-36px mdi-hand-coin-outline" aria-hidden="true"></i>
             </span>
             <p class="text-center text-base font-bold text-gray-600 mb-5">Finance</p>
             <p class="text-center text-base text-gray-600 mb-5">Get 0% APR credit on purchases over €99</p>
           </div>
           <div class="items-center flex flex-col">
-            <span class="text-[#B89E6F]">
+            <span class="price-text-color">
               <i class="mdi mdi-36px mdi-truck-outline" aria-hidden="true"></i>
             </span>
             <p class="text-center text-base font-bold text-gray-600 mb-5">Delivery</p>
             <p class="text-center text-base text-gray-600 mb-5">We offer delivery methods for all your purchases</p>
           </div>
           <div class="items-center flex flex-col">
-            <span class="text-[#B89E6F]">
+            <span class="price-text-color">
               <i class="mdi mdi-36px mdi-store-outline" aria-hidden="true"></i>
             </span>
             <p class="text-center text-base font-bold text-gray-600 mb-5">Free Click and Collect</p>
             <p class="text-center text-base text-gray-600 mb-5">Orders that you can pickup up yourself</p>
           </div>
           <div class="items-center flex flex-col">
-            <span class="text-[#B89E6F]">
+            <span class="price-text-color">
               <i class="mdi mdi-36px mdi-table-chair" aria-hidden="true"></i>
             </span>
             <p class="text-center text-base font-bold text-gray-600 mb-5">Pre-loved furnitures</p>
@@ -437,7 +438,7 @@
     <!-- Levels with icons End -->
 
     <!-- Newsletter Start -->
-    <section class="bg-[#B89D6F] w-full h-auto">
+    <section class="secondary-banner-bg w-full h-auto">
       <div class="container mx-auto p-8 lg:py-14">    
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div class="grid grid-row-2 gap-4">
@@ -466,12 +467,12 @@
     </section>
     <!-- Newsletter End -->
 
-    <footer class="bg-[#363D51]">
+    <footer class="footer-bg">
       <div class="mx-auto w-full container p-8  lg:py-24">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div class="mb-6 md:mb-0">
               <img src="../assets/logoFooter.svg" class="w-12 mb-6" alt="Logo" />
-              <a target="_blank" rel="noopener noreferrer nofollow" href="/policies-licences.html" class="text-[#b8b8b8] text-base mb-6 block">
+              <a target="_blank" rel="noopener noreferrer nofollow" href="/policies-licences.html" class="text-gray-400 text-base mb-6 block">
                 Source: Amazon Berkeley Objects (ABO) Dataset
               </a>
               <p class="text-white text-sm">Built with WebSight CMS. © Copyright by Dynamic Solutions sp. z. o.o. All rights reserved.</p>
@@ -563,7 +564,7 @@
       </div>
     </footer>
 
-    <script defer src="../web-resources/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
     <script defer src="../web-resources/js/main.published.js"></script>
   </body>
 
