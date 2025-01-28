@@ -79,7 +79,7 @@ jobs:
           echo '_GH_CD_STREAMX_INGESTION_URL=http://ingestion.${{ steps.terraform_apply.outputs.streamx_ingress_ip }}.nip.io' >> .env
           echo '_GH_CD_STREAMX_INTERNAL_INGESTION_URL=http://ingestion.${{ steps.terraform_apply.outputs.streamx_ingress_ip }}.nip.io' >> .env
           echo '_GH_CD_WEB_URL=https://puresight.${{ steps.terraform_apply.outputs.streamx_ingress_ip }}.nip.io' >> .env
-          streamx --accept-license deploy
+          streamx --accept-license deploy -f ./mesh/mesh.yaml
 
       - name: "Wait for StreamX Mesh to be ready"
         env:
