@@ -19,7 +19,7 @@ ref: "#/definitions/SxProduct"
 | name         | String *               | title of the product                                 |
 | label        | String                 | label of the product                                 |
 | description  | String                 | detail information about the product                 |
-| price        | Number                 | product price value                                  |
+| price        | \[ SxPrice \]          | product price                                        |
 | primaryImage | SxImage                | main picture of the product                          |
 | gallery      | \[ SxImage \]          | product visual medias                                |
 | categories   | \[ SxCategory \]       | product categorisation information                   |
@@ -37,20 +37,23 @@ ref: "#/definitions/SxProductVariant"
 
 ### Model properties
 
-| Field      | Type              | Description                                          |
-|------------|-------------------|------------------------------------------------------|
-| id         | String *          | product unique identifier                            |
-| sku        | String            | product variant business stock-keeping unit          |
-| slug       | String *          | URL friendly name, uniquely identifying product item |
-| name       | String *          | title of the product variant                         |
-| label      | String            | label of the product variant                         |
-| price      | Number            | product price value                                  |
-| attributes | \[ SxAttribute \] | additional product variant characteristic data       |
-| quantity   | Number            | property defines product stock information           |
+| Field        | Type              | Description                                          |
+|--------------|-------------------|------------------------------------------------------|
+| id           | String *          | product unique identifier                            |
+| sku          | String            | product variant business stock-keeping unit          |
+| slug         | String *          | URL friendly name, uniquely identifying product item |
+| name         | String *          | title of the product variant                         |
+| label        | String            | label of the product variant                         |
+| price        | \[ SxPrice \]     | product variant price value                          |
+| primaryImage | SxImage           | main picture of the product                          |
+| gallery      | \[ SxImage \]     | product visual medias                                |
+| attributes   | \[ SxAttribute \] | additional product variant characteristic data       |
+| quantity     | Number            | property defines product stock information           |
 
 ## **SxImage**
 
-Element represents digital media information, defined by required _url_ value and optionally media _alt_ data.
+Element represents digital media information, defined by required _url_ value and optionally media
+_alt_ data.
 
 ### JSON-Schema
 
@@ -65,7 +68,8 @@ ref: "#/definitions/SxImage"
 
 ## **SxCategory**
 
-Element defined product categories and subcategories, that represents organized structure of eCommerce product catalog.
+Element defined product categories and subcategories, that represents organized structure of
+eCommerce product catalog.
 
 ### JSON-Schema
 
@@ -82,6 +86,21 @@ ref: "#/definitions/SxCategory"
 | parent        | SxCategory       | parent category data, limited to required values only                   |
 | subcategories | \[ SxCategory \] | actual item sub-elements data (if any), limited to required values only |
 
+## **SxPrice**
+
+Product price
+
+### JSON-Schema
+
+ref: "#/definitions/SxPrice"
+
+### Model properties
+
+| Field           | Type     | Description                   |
+|-----------------|----------|-------------------------------|
+| value           | Number * | vaolue of the price           |
+| discountedValue | Number * | value of the discounted price |
+
 ## **SxAttribute**
 
 It is defined additional product information data, that is characteristic to it.
@@ -92,14 +111,28 @@ ref: "#/definitions/SxAttribute"
 
 ### Model properties
 
-| Field      | Type                    | Description                                |
-|------------|-------------------------|--------------------------------------------|
-| name       | String *                | unique identifier of the attribute         |
-| label      | String                  | attribute label                            |
-| value      | String *                | value of the attribute                     |
-| valueLabel | String                  | attribute value label                      |
-| isFacet    | Boolean                 | property enable filter criteria for search |
-| options    | \[ SxAttributeOption \] | additional attribute metadata              |
+| Field   | Type                    | Description                                |
+|---------|-------------------------|--------------------------------------------|
+| name    | String *                | unique identifier of the attribute         |
+| label   | String                  | attribute label                            |
+| isFacet | Boolean                 | property enable filter criteria for search |
+| values  | \[ SxAttributeValue \]  | values of the attribute                    |
+| options | \[ SxAttributeOption \] | additional attribute metadata              |
+
+## **SxAttributeValue**
+
+Additional metadata informations for an attribute.
+
+### JSON-Schema
+
+ref: "#/definitions/SxAttributeValue"
+
+### Model properties
+
+| Field | Type     | Description                  |
+|-------|----------|------------------------------|
+| value | String * | value of the attribute value |
+| label | String   | attribute value label        |
 
 ## **SxAttributeOption**
 
@@ -111,8 +144,8 @@ ref: "#/definitions/SxAttributeOption"
 
 ### Model properties
 
-| Field      | Type     | Description                   |
-|------------|----------|-------------------------------|
-| value      | String * | value of the attribute option |
-| label      | String   | attribute option label        |
+| Field | Type     | Description                   |
+|-------|----------|-------------------------------|
+| value | String * | value of the attribute option |
+| label | String   | attribute option label        |
 

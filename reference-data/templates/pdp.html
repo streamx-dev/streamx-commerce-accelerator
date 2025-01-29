@@ -118,12 +118,12 @@
               {{description | raw}}
             </p>
             <hr class="my-4 md:my-6 border-gray-200" />
-            {% if price %}
+            {% if price.value %}
               <div class="flex flex-row py-4 items-center gap-3">
                 <p class="text-lg font-bold">
                   <span class="text-zinc-700">from</span>
                 </p>
-                <h2 class="text-[#B89D6F] text-5xl font-bold">{{price}}&euro;</h2>
+                <h2 class="text-[#B89D6F] text-5xl font-bold">{{price.value}}&euro;</h2>
               </div>
             {% endif %}
             <button type="submit" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center">
@@ -133,7 +133,10 @@
             </button>
             <p class="text-base text-zinc-300 mt-4">
               {% for attribute in attributes %}
-                {{ attribute.label | default(attribute.name | capitalize) }}: {{ attribute.value }}{{ attribute.valueLabel | default('') }}{% if not loop.last %}, {% endif %}
+                {{ attribute.label | default(attribute.name | capitalize) }}:
+                {% for value in attribute.values %}
+                {{ value.value }}{{ value.valueLabel | default('') }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
               {% endfor %}
             </p>
           </div>

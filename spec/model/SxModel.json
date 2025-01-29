@@ -34,7 +34,7 @@
           "type": "string"
         },
         "price": {
-          "type": "numberś"
+          "$ref": "#/definitions/SxPrice"
         },
         "primaryImage": {
           "$ref": "#/definitions/SxImage"
@@ -91,6 +91,18 @@
         },
         "label": {
           "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/SxPrice"
+        },
+        "primaryImage": {
+          "$ref": "#/definitions/SxImage"
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SxImage"
+          }
         },
         "attributes": {
           "type": "array",
@@ -165,21 +177,36 @@
         "label": {
           "type": "string"
         },
-        "value": {
-          "type": "string"
-        },
-        "valueLabel": {
-          "type": "string"
-        },
         "isFacet": {
           "type": "boolean",
           "default": false
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SxAttributeValue"
+          }
         },
         "options": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/SxAttributeOption"
           }
+        }
+      }
+    },
+    "SxAttributeValue": {
+      "type": "object",
+      "title": "SxAttributeValue",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "valueLabel": {
+          "type": "string"
         }
       }
     },
@@ -195,6 +222,21 @@
         },
         "label": {
           "type": "string"
+        }
+      }
+    },
+    "SxPrice": {
+      "type": "object",
+      "title": "SxPrice",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "discountedValue": {
+          "type": "number"
         }
       }
     }

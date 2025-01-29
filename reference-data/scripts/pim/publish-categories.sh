@@ -9,7 +9,7 @@ input_file="$SCRIPT_DIR/categories.json"
 json_data=$(cat "$input_file")
 
 categories_count=$(echo "$json_data" | jq 'length')
-batch_size=100
+batch_size=20
 
 for ((i=0; i<categories_count; i+=batch_size)); do
     batch=$(echo "$json_data" | jq ".[$i:$(($i + $batch_size))]")
@@ -40,7 +40,7 @@ for ((i=0; i<categories_count; i+=batch_size)); do
 
         if [ $counter -eq $batch_size ] || [ $next_batch_end -ge $categories_count ]; then
             sh "$SCRIPT_DIR/../ingestion/publish.sh" data "$processed_categories"
-            processed_categories=0
+            processed_categories=""
             counter=0
         fi
     done
