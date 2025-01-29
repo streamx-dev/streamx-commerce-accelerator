@@ -14,6 +14,8 @@ sources:
       - "data"
       - "renderers"
       - "rendering-contexts"
+      - "layouts"
+      - "compositions"
 
 ingestion:
   rest-ingestion:
@@ -117,6 +119,21 @@ processing:
         topic: inboxes/pages
       fragments:
         topic: inboxes/fragments
+
+  blueprint-composition-engine:
+    image: composition-engine-processing-service
+    incoming:
+      layouts:
+        topic: inboxes/layouts
+      compositions:
+        topic: inboxes/compositions
+      incoming-page-compose-requests:
+        topic: relays/page-compose-requests
+    outgoing:
+      pages:
+        topic: inboxes/pages
+      outgoing-page-compose-requests:
+        topic: relays/page-compose-requests
 
   blueprint-data-collector:
     image: data-collector-processing-service

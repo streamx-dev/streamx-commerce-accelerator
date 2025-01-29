@@ -1,80 +1,7 @@
-<!DOCTYPE html>
-<html class="" lang="en">
+{{#define name="metaTitle"}}
+<title>Homepage</title>
 
-<head>
-  <meta charset="UTF-8"/>
-  <title>Homepage</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="icon" href="../assets/static/favicon.ico">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Roboto&display=swap"/>
-  <link rel="stylesheet" href="../web-resources/css/materialdesignicons@7.2.96.min.css"/>
-  <link rel="stylesheet" href="../web-resources/css/main.css" type="text/css">
-  <link rel="stylesheet" href="../web-resources/css/glide.core.min.css" type="text/css">
-  <link rel="stylesheet" href="../web-resources/css/glide.theme.min.css" type="text/css">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-  <body class="pt-24">
-    <!-- NAV Start -->
-    <nav class="bg-white fixed top-0 left-0 right-0 h-24 z-50">
-      <div class="container mx-auto px-8">
-        <div class="relative flex h-24 items-center justify-between">
-          <div class="absolute inset-y-0 right-0 flex items-center lg:hidden">
-            <!-- Mobile menu button-->
-            <button type="button" id="mobile-nav-button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
-              <span class="absolute -inset-0.5"></span>
-              <span class="sr-only">Open main menu</span>
-              <svg class="block size-6 mb-0 nav-menu-icon__burger" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-              <svg class="hidden size-6 mb-0 nav-menu-icon__close" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <a href="/homepage.html" class="flex lg:grow items-center">
-              <img class="w-auto" src="../assets/PureSightLogoBig.webp" alt="PureSight">
-            </a>
-            <div class="hidden sm:ml-6 lg:block">
-              <div class="h-24 flex space-x-4 items-center justify-center gap-8">
-                <a href="/products.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]" aria-current="page">Products</a>
-                <a href="/blog/simplify-your-space.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Spaces</a>
-                <a href="/blog/from-chaos-to-calm.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Inspiration</a>
-                <a href="/blog.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Blog</a>
-
-                <!-- Search Input -->
-                <div id="autocomplete"></div>
-                <!-- <div class="flex items-center rounded bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-gray-400">
-                  <svg class="text-gray-400" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
-                  </svg>
-                  <input type="text" class="block min-w-0 grow px-3 py-2.5 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6 md:text-base" placeholder="Search...">
-                </div> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hidden lg:hidden" id="mobile-menu">
-        <div class="space-y-1 px-2 pb-3 pt-2 bg-white flex flex-col">
-          <a href="#" class="p-3 text-m font-bold text-gray-800" aria-current="page">Dashboard</a>
-          <a href="#" class="p-3 text-m font-bold text-gray-800">Team</a>
-          <a href="#" class="p-3 text-m font-bold text-gray-800">Projects</a>
-          <a href="#" class="p-3 text-m font-bold text-gray-800">Calendar</a>
-          <div class="md:w-1/2 flex items-center rounded bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-gray-400">
-            <svg class="text-gray-400" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
-            </svg>
-            <input type="text" class="block min-w-0 grow px-3 py-2.5 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6 md:text-base" placeholder="Search...">
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- NAV End -->
-
+{{#define name="content.html"}}
     <!-- Hero banner Start -->
     <section class="bg-[#efede6] flex flex-col justify-between items-stretch overflow-x-hidden">
       <div class="container mx-auto px-8">
@@ -416,7 +343,7 @@
     <section class="container bg-white mx-auto">
       <div class="pb-16 sm:pb-24 px-8">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900">Picked for you</h2>
-    
+
         <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8">
           <li>
             <div class="flex flex-col">
@@ -807,9 +734,9 @@
         </div>
         <div class="grid sm:grid-cols-2 gap-6 px-8">
           <div class="bg-white flex flex-col items-start">
-            <img 
-              src="../assets/minimalist-design.webp" 
-              alt="EOJqV9lZNDk-unsplash" 
+            <img
+              src="../assets/minimalist-design.webp"
+              alt="EOJqV9lZNDk-unsplash"
               class="w-full aspect-[2/3] object-cover rounded mb-5"
             />
             <p class="text-lg font-bold text-gray-800 mb-5">
@@ -829,9 +756,9 @@
           </div>
 
           <div class="bg-white flex flex-col items-start">
-            <img 
+            <img
               src="../assets/element-5-digital.webp"
-              alt="Image 1" 
+              alt="Image 1"
               class="w-full aspect-[2/3] object-cover rounded mb-5"
             />
             <p class="text-lg font-bold text-gray-800 mb-5">
@@ -856,17 +783,17 @@
 
     <!-- Hero banner with background Start -->
     <section class="bg-[url('./assets/blue-chair.webp')] w-full h-auto bg-center bg-cover">
-      <div class="container mx-auto p-8 lg:py-14">    
+      <div class="container mx-auto p-8 lg:py-14">
         <div class="grid grid-cols-1 sm:grid-cols-2">
           <div>
             <h6 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-5 lg:mb-10">
               Buy office furniture for min. EUR 600 and you will pay 15% less for them
-            </h6> 
+            </h6>
             <div class="mb-5 sm:mb-6 lg:mb-8">
               <p class="text-white text-base">
                 <span>Offer for Club Members Pure Sight Network. Equipment offer from 1/08/2023 to 16/09/2023 or while stocks last. Terms and Conditions at </span><a target="_blank" rel="noopener noreferrer nofollow" href="http://PureSight.io/terms"><span>PureSight.io/terms</span></a>
               </p>
-            </div>    
+            </div>
             <a href="/blog.html" class="inline-block w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 py-2 rounded-sm font-xl font-medium">
               <span>Learn more</span>
             </a>
@@ -875,177 +802,3 @@
       </div>
     </section>
     <!-- Hero banner with background End -->
-
-    <!-- Levels with icons Start -->
-    <section class="container bg-white mx-auto">
-      <div class="py-16 sm:py-24 px-8">
-        <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
-          <div class="items-center flex flex-col">
-            <span class="text-[#B89E6F]">
-              <i class="mdi mdi-36px mdi-hand-coin-outline" aria-hidden="true"></i>
-            </span>
-            <p class="text-center text-base font-bold text-gray-600 mb-5">Finance</p>
-            <p class="text-center text-base text-gray-600 mb-5">Get 0% APR credit on purchases over €99</p>
-          </div>
-          <div class="items-center flex flex-col">
-            <span class="text-[#B89E6F]">
-              <i class="mdi mdi-36px mdi-truck-outline" aria-hidden="true"></i>
-            </span>
-            <p class="text-center text-base font-bold text-gray-600 mb-5">Delivery</p>
-            <p class="text-center text-base text-gray-600 mb-5">We offer delivery methods for all your purchases</p>
-          </div>
-          <div class="items-center flex flex-col">
-            <span class="text-[#B89E6F]">
-              <i class="mdi mdi-36px mdi-store-outline" aria-hidden="true"></i>
-            </span>
-            <p class="text-center text-base font-bold text-gray-600 mb-5">Free Click and Collect</p>
-            <p class="text-center text-base text-gray-600 mb-5">Orders that you can pickup up yourself</p>
-          </div>
-          <div class="items-center flex flex-col">
-            <span class="text-[#B89E6F]">
-              <i class="mdi mdi-36px mdi-table-chair" aria-hidden="true"></i>
-            </span>
-            <p class="text-center text-base font-bold text-gray-600 mb-5">Pre-loved furnitures</p>
-            <p class="text-center text-base text-gray-600 mb-5">Get second-hand furniture for less</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Levels with icons End -->
-
-    <!-- Newsletter Start -->
-    <section class="bg-[#B89D6F] w-full h-auto">
-      <div class="container mx-auto p-8 lg:py-14">    
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div class="grid grid-row-2 gap-4">
-            <h6 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-5 lg:mb-10">
-              Sign in to our newsletter
-            </h6> 
-            <div class="mb-5 sm:mb-6 lg:mb-8">
-              <p class="text-white text-base">
-                Ready to transform your living space? Sign up for Puresight’s newsletter now for exclusive deals and fresh design inspirations.
-              </p>
-            </div>
-          </div>
-          <div class="grid grid-row-2 gap-4">
-            <div class="hidden lg:block mb-5 sm:mb-6 lg:mb-8"></div>
-            <form action="/bin/newsletter" method="post" class="flex flex-col sm:flex-row gap-6">
-              <div class="flex-1">
-                <input type="email" name="email" id="email" autocomplete="email" required class="block w-full rounded-sm bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Type your e-mail..."/>
-              </div>
-              <div class="flex-0">
-                <button type="submit" class="inline-block w-full sm:w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 py-[6px] rounded-sm font-xl font-medium">Sign in</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Newsletter End -->
-
-    <footer class="bg-[#363D51]">
-      <div class="mx-auto w-full container p-8  lg:py-24">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div class="mb-6 md:mb-0">
-              <img src="../assets/PureSightLogo.webp" class="w-12 mb-6" alt="Logo" />
-              <a target="_blank" rel="noopener noreferrer nofollow" href="/policies-licences.html" class="text-[#b8b8b8] text-base mb-6 block">
-                Source: Amazon Berkeley Objects (ABO) Dataset
-              </a>
-              <p class="text-white text-sm">Built with WebSight CMS. © Copyright by Dynamic Solutions sp. z. o.o. All rights reserved.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <ul class="text-white font-medium">
-                <li class="mb-6">
-                  <a href="/products.html" class="hover:underline">
-                    <span>Products</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/blog/simplify-your-space.html" class="hover:underline">
-                    <span>Spaces</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/blog.html" class="hover:underline">
-                    <span>Blog</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/blog/from-chaos-to-calm.htm" class="hover:underline">
-                    <span>Inspiration</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/homepage.html" class="hover:underline">
-                    <span>Offers</span>
-                  </a>
-                </li>
-              </ul>
-              <ul class="text-white font-medium">
-                <li class="mb-6">
-                  <a href="/products.html" class="hover:underline">
-                    <span>Delivery</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/blog/simplify-your-space.html" class="hover:underline">
-                    <span>Finance</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/blog.html" class="hover:underline">
-                    <span>Planning services</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/blog/from-chaos-to-calm.htm" class="hover:underline">
-                    <span>Pre-loved furniture</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/homepage.html" class="hover:underline">
-                    <span>Buyback</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/homepage.html" class="hover:underline">
-                    <span>Interior design services</span>
-                  </a>
-                </li>
-              </ul>
-              <ul class="text-white font-medium">
-                <li class="mb-6">
-                  <a href="/products.html" class="hover:underline">
-                    <span>Stores</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/blog/simplify-your-space.html" class="hover:underline">
-                    <span>About us</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/blog.html" class="hover:underline">
-                    <span>Careers</span>
-                  </a>
-                </li>
-                <li class="mb-6">
-                  <a href="/blog/from-chaos-to-calm.htm" class="hover:underline">
-                    <span>Newsroom</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- glide slider -->
-    <script defer src="../web-resources/js/glide.min.js"></script>
-    <script defer src="../web-resources/js/glide-init.js"></script>
-
-    <script defer src="../web-resources/js/main.js"></script>
-    <script defer src="../web-resources/js/main.published.js"></script>
-  </body>
-
-</html>
