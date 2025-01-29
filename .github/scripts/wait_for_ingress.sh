@@ -31,7 +31,7 @@ while true; do
   ELAPSED_TIME=$((CURRENT_TIME - START_TIME))
 
   if [ "$ELAPSED_TIME" -ge "$TIMEOUT" ]; then
-    echo "Timeout reached. Ingress $INGRESS_NAME is not ready."
+    echo "Timeout reached. Ingress $INGRESS_NAME is not ready." >&2
     exit 1
   fi
 

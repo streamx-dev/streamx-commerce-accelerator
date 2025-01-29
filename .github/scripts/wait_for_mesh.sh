@@ -38,7 +38,7 @@ while true; do
   ELAPSED_TIME=$((CURRENT_TIME - START_TIME))
 
   if [ "$ELAPSED_TIME" -ge "$TIMEOUT" ]; then
-    echo "Timeout reached. $CR_KIND/$CR_NAME is not ready."
+    echo "Timeout reached. $CR_KIND/$CR_NAME is not ready." >&2
     exit 1
   fi
 

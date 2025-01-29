@@ -12,7 +12,7 @@ web_host=$($SCRIPT_DIR/replace_ingress_ip.sh "$streamx_ingress_ip" "$web_host_te
 ingestion_host=$($SCRIPT_DIR/replace_ingress_ip.sh "$streamx_ingress_ip" "$ingestion_host_template")
 
 if [ -z "$QUARKUS_PROFILE" ]; then
-  echo "QUARKUS_PROFILE env variable is required."
+  echo "QUARKUS_PROFILE env variable is required." >&2
   exit 1;
 else
   quarkus_profile_prefix="_${QUARKUS_PROFILE}_"

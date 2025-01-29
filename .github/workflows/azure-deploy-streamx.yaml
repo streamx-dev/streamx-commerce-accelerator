@@ -75,7 +75,7 @@ jobs:
         run: |
           streamx_ingress_ip="${{ steps.terraform_apply.outputs.streamx_ingress_ip }}"
           streamx_hosts=$(.github/scripts/echo_env_hosts.sh "$streamx_ingress_ip" "${{ vars.WEB_HOST }}" "${{ vars.INGESTION_HOST }}")
-          export $( echo "$streamx_hosts")
+          export $(echo "$streamx_hosts")
           echo "$streamx_hosts" >> .env
           streamx_urls=$(.github/scripts/echo_env_urls.sh)
           echo "$streamx_urls" >> $GITHUB_ENV
