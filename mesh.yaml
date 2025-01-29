@@ -143,7 +143,7 @@ processing:
         topic: outboxes/web-resources
     environment:
       # local test domain, see readme
-      STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_BASE-URL: "${WEB_DOMAIN}"
+      STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_BASE-URL: "puresight.127.0.0.1.nip.io"
       STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_OUTPUT-KEY: "/sitemap.xml"
 
   blueprint-indexable-resource-extractor:
