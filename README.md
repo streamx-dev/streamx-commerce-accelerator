@@ -61,7 +61,7 @@ It's a simple and isolated plugin with minimal setup. In orderd for it to work w
     <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js@1.18.0/dist/umd/index.production.js" integrity="sha256-Aav0vWau7GAZPPaOM/j8Jm5ySx1f4BCIlUFIPyTRkUM=" crossorigin="anonymous"></script>
 ```
 
-- Attach our custom main.publish.js to initialize it:
+- Attach our custom autocomplete-init.js to initialize it:
 ```bash
     <script defer src="../web-resources/js/autocomplete-init.js"></script>
 ```

@@ -36,6 +36,7 @@ for htmlFile in $(find "$INPUT_DIR" -type f ); do
                 }
             }
           }')
+
         "$SCRIPT_DIR/../ingestion/publish.sh" compositions "$outputJson"
     else
       outputJson=$(jq -n --arg key "$RELATIVE_PATH" --arg bytes "$content" '{
