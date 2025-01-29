@@ -54,7 +54,7 @@ jobs:
           terraform -chdir=./terraform/azure/platform apply -auto-approve
           echo "kubeconfig_path=$(terraform -chdir=./terraform/azure/platform output -raw kubeconfig_path)" >> $GITHUB_OUTPUT
           echo "streamx_ingress_ip=$(terraform -chdir=./terraform/azure/platform output -raw loadbalancer_ip)" >> $GITHUB_OUTPUT
-          
+
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -69,17 +69,23 @@ jobs:
         run: |
           brew install streamx-dev/preview-tap/streamx
 
+      - name: Setup StreamX URLs
+        env:
+          QUARKUS_PROFILE: GH_CD
+        run: |
+          streamx_ingress_ip="${{ steps.terraform_apply.outputs.streamx_ingress_ip }}"
+          streamx_hosts=$(.github/scripts/echo_env_hosts.sh "$streamx_ingress_ip" "${{ vars.WEB_HOST }}" "${{ vars.INGESTION_HOST }}")
+          export $( echo "$streamx_hosts")
+          echo "$streamx_hosts" >> .env
+          streamx_urls=$(.github/scripts/echo_env_urls.sh)
+          echo "$streamx_urls" >> $GITHUB_ENV
+          echo "$streamx_urls" >> .env
+
       - name: "Deploy mesh"
         env:
           KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
           QUARKUS_PROFILE: GH_CD
-        run: |
-          echo '_GH_CD_STREAMX_INGESTION_HOST=ingestion.${{ steps.terraform_apply.outputs.streamx_ingress_ip }}.nip.io' >> .env
-          echo '_GH_CD_WEB_HOST=puresight.${{ steps.terraform_apply.outputs.streamx_ingress_ip }}.nip.io' >> .env
-          echo '_GH_CD_STREAMX_INGESTION_URL=http://ingestion.${{ steps.terraform_apply.outputs.streamx_ingress_ip }}.nip.io' >> .env
-          echo '_GH_CD_STREAMX_INTERNAL_INGESTION_URL=http://ingestion.${{ steps.terraform_apply.outputs.streamx_ingress_ip }}.nip.io' >> .env
-          echo '_GH_CD_WEB_URL=https://puresight.${{ steps.terraform_apply.outputs.streamx_ingress_ip }}.nip.io' >> .env
-          streamx --accept-license deploy -f ./mesh/mesh.yaml
+        run: streamx --accept-license deploy -f ./mesh/mesh.yaml
 
       - name: "Wait for StreamX Mesh to be ready"
         env:
@@ -91,18 +97,25 @@ jobs:
           KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
         run: .github/scripts/wait_for_ingress.sh sx-ing-rest-ingestion
 
-      - name: "Ingest content"
+      - name: Setup StreamX ingestion tokens
         env:
           KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
           QUARKUS_PROFILE: GH_CD
         run: |
-          echo "_GH_CD_STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS=$(kubectl get secrets sx-sec-auth-jwt-cms -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)" >> .env
-          echo "_GH_CD_STREAMX_TOKEN_INGESTION_AUTH_TOKEN_PIM=$(kubectl get secrets sx-sec-auth-jwt-pim -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)" >> .env
-          ./data/scripts/publish-all.sh
+          streamx_tokens=$(.github/scripts/echo_env_tokens.sh)
+          .github/scripts/mask_sensitive_envs.sh "$streamx_tokens"
+          echo "$streamx_tokens" >> .env
+
+      - name: "Ingest content"
+        env:
+          QUARKUS_PROFILE: GH_CD
+        run: ./data/scripts/publish-all.sh
 
       - name: "Create Job Summary"
+        env:
+          QUARKUS_PROFILE: GH_CD
         run: |
           echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
           echo "- Deployment Status: Success ✅" >> $GITHUB_STEP_SUMMARY
-          echo "- Demo URL: https://puresight.${{ steps.terraform_apply.outputs.streamx_ingress_ip }}.nip.io" >> $GITHUB_STEP_SUMMARY
+          echo "- Demo URL: $(./.github/scripts/echo_web_url.sh)" >> $GITHUB_STEP_SUMMARY
           echo "- Load balancer IP: ${{ steps.terraform_apply.outputs.streamx_ingress_ip }}" >> $GITHUB_STEP_SUMMARY

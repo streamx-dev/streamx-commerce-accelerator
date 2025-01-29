@@ -58,7 +58,7 @@
                 <p class="text-lg font-bold">
                   <span class="text-zinc-700">from</span>
                 </p>
-                <h2 class="text-[#B89D6F] text-5xl font-bold">{{price.value}}&euro;</h2>
+                <h2 class="price-text-color text-5xl font-bold">{{price.value}}&euro;</h2>
               </div>
             {% endif %}
             <button type="submit" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center">
@@ -116,11 +116,17 @@
           <h4 class="text-3xl font-bold text-gray-800 mb-6">Related Articles</h2>
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="bg-white flex flex-col items-start">
-              <img 
-                src="../assets/minimalist-design.webp" 
-                alt="EOJqV9lZNDk-unsplash" 
-                class="w-full aspect-[2/3] object-cover rounded mb-5"
-              />
+              <figure class="w-full mb-5">
+                <picture class="aspect-[2/3] object-cover">
+                  <source media="(max-width: 639px)" srcset="../assets/575x863.webp">
+                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/276x414.webp">
+                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/340x510.webp">
+                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/204x306.webp">
+                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/268x402.webp">
+                  <source media="(min-width: 1536px)" srcset="../assets/332x498.webp">
+                  <img class="rounded" src="../assets/575x863.webp" loading="lazy" alt=""/>
+                </picture>
+              </figure>
               <p class="text-lg font-bold text-gray-800 mb-5">
                 Make it feel like home
               </p>
@@ -137,11 +143,17 @@
               </a>
             </div>
             <div class="bg-white flex flex-col items-start">
-              <img 
-                src="../assets/element-5-digital.webp"
-                alt="Image 1" 
-                class="w-full aspect-[2/3] object-cover rounded mb-5"
-              />
+              <figure class="w-full mb-5">
+                <picture class="aspect-[2/3] object-cover">
+                  <source media="(max-width: 639px)" srcset="../assets/575x863.webp">
+                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/276x414.webp">
+                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/340x510.webp">
+                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/204x306.webp">
+                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/268x402.webp">
+                  <source media="(min-width: 1536px)" srcset="../assets/332x498.webp">
+                  <img class="rounded" src="../assets/575x863.webp" loading="lazy" alt=""/>
+                </picture>
+              </figure>
               <p class="text-lg font-bold text-gray-800 mb-5">
                 Make it feel like home
               </p>
@@ -172,8 +184,16 @@
         <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8">
           <li>
             <div class="flex flex-col">
-              <figure class="w-full border-[#F2ECE4] border aspect-[3/4] flex">
-                <img src="../assets/bed1.webp" alt="Marin Studded" class="h-full object-cover" loading="lazy">
+              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
+                <picture class="m-auto w-full object-contain">
+                  <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
+                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
+                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
+                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+                  <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+                  <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+                </picture>
               </figure>
               <div class="mt-4 flex gap-y-2 flex-wrap">
                 <div class="flex flex-row items-center flex-grow w-full">
@@ -189,7 +209,7 @@
                   </div>
                 </div>
                 <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-[#B89E6F] truncate flex-grow">
+                  <p class="text-base font-bold price-text-color truncate flex-grow">
                     4500€
                   </p>
                   <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
@@ -203,8 +223,16 @@
           </li>
           <li>
             <div class="flex flex-col">
-              <figure class="w-full border-[#F2ECE4] border aspect-[3/4] flex">
-                <img src="../assets/bed2.webp" alt="Marin Studded" class="h-full object-cover" loading="lazy">
+              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
+                <picture class="m-auto w-full object-contain">
+                  <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
+                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
+                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
+                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+                  <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+                  <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+                </picture>
               </figure>
               <div class="mt-4 flex gap-y-2 flex-wrap">
                 <div class="flex flex-row items-center flex-grow w-full">
@@ -220,7 +248,7 @@
                   </div>
                 </div>
                 <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-[#B89E6F] truncate flex-grow">
+                  <p class="text-base font-bold price-text-color truncate flex-grow">
                     6700€
                   </p>
                   <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
@@ -234,8 +262,16 @@
           </li>
           <li>
             <div class="flex flex-col">
-              <figure class="w-full border-[#F2ECE4] border aspect-[3/4] flex">
-                <img src="../assets/bed3.webp" alt="Marin Studded" class="h-full object-cover" loading="lazy">
+              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
+                <picture class="m-auto w-full object-contain">
+                  <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
+                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
+                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
+                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+                  <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+                  <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+                </picture>
               </figure>
               <div class="mt-4 flex gap-y-2 flex-wrap">
                 <div class="flex flex-row items-center flex-grow w-full">
@@ -251,7 +287,7 @@
                   </div>
                 </div>
                 <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-[#B89E6F] truncate flex-grow">
+                  <p class="text-base font-bold price-text-color truncate flex-grow">
                     2500€
                   </p>
                   <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
@@ -265,8 +301,16 @@
           </li>
           <li>
             <div class="flex flex-col">
-              <figure class="w-full border-[#F2ECE4] border aspect-[3/4] flex">
-                <img src="../assets/bed4.webp" alt="Marin Studded" class="h-full object-cover" loading="lazy">
+              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
+                <picture class="m-auto w-full object-contain">
+                  <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
+                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
+                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
+                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+                  <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+                  <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+                </picture>
               </figure>
               <div class="mt-4 flex gap-y-2 flex-wrap">
                 <div class="flex flex-row items-center flex-grow w-full">
@@ -282,7 +326,7 @@
                   </div>
                 </div>
                 <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-[#B89E6F] truncate flex-grow">
+                  <p class="text-base font-bold price-text-color truncate flex-grow">
                     12500€
                   </p>
                   <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">

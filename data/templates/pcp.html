@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<html class="be-vietnam-pro" lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>{{name}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" href="../assets/static/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Roboto&display=swap"/>
+  <link rel="stylesheet" href="../web-resources/css/materialdesignicons@7.2.96.min.css"/>
+  <link rel="stylesheet" href="../web-resources/css/main.css" type="text/css"/>
+  <link rel="stylesheet" href="../web-resources/css/algolia.theme.min.css" type="text/css"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+  <body class="pt-24 overflow-scroll">
+    <!-- NAV Start -->
+    <nav class="bg-white fixed top-0 left-0 right-0 h-24 z-50">
+      <div class="container mx-auto px-8">
+        <div class="relative flex h-24 items-center justify-between">
+          <div class="absolute inset-y-0 right-0 flex items-center lg:hidden">
+            <!-- Mobile menu button-->
+            <button type="button" id="mobile-nav-button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <svg class="block size-6 mb-0 nav-menu-icon__burger" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <svg class="hidden size-6 mb-0 nav-menu-icon__close" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <a href="/homepage.html" class="flex lg:grow items-center">
+              <img class="w-auto" src="../assets/logo.svg" alt="logo">
+            </a>
+            <div class="hidden sm:ml-6 lg:block">
+              <div class="h-24 flex space-x-4 items-center justify-center gap-8">
+                <a href="/products.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]" aria-current="page">Products</a>
+                <a href="/blog/simplify-your-space.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Spaces</a>
+                <a href="/blog/from-chaos-to-calm.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Inspiration</a>
+                <a href="/blog.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Blog</a>
+
+                <!-- Search Input -->
+                <div id="autocomplete" style="--aa-primary-color-rgb: black;" class="w-40 max-w-40"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2 bg-white flex flex-col">
+          <a href="#" class="p-3 text-m font-bold text-gray-800" aria-current="page">Dashboard</a>
+          <a href="#" class="p-3 text-m font-bold text-gray-800">Team</a>
+          <a href="#" class="p-3 text-m font-bold text-gray-800">Projects</a>
+          <a href="#" class="p-3 text-m font-bold text-gray-800">Calendar</a>
+          <div class="md:w-1/2 flex items-center rounded bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-gray-400">
+            <svg class="text-gray-400" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
+            </svg>
+            <input type="text" class="block min-w-0 grow px-3 py-2.5 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6 md:text-base" placeholder="Search...">
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- NAV End -->
+
+    <section class="container bg-white mx-auto">
+      <div class="pb-16 sm:pb-24 px-8 mt-16">
+        <nav class="flex mb-6" aria-label="Breadcrumb">
+          <nav class="breadcrumb  is-medium" aria-label="breadcrumbs">
+            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+              <li><a> <span>Products</span> </a></li>
+              <li><a> <span>New Arrivals</span> </a></li>
+            </ol>
+          </nav>
+         </nav>
+         <div class="w-full" >
+           <h1 class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6">New Arrivals</h1>
+           <p class="text-gray-600">Checkout out the latest release of Basic Tees, new and improved with four openings!</p>
+           <hr class="my-4 md:my-6 border-gray-200"/>
+        </div>
+        <div class="pt-6 lg:grid lg:grid-cols-4 lg:gap-4">
+          <aside>
+            <!-- <h2 class="hidden">Filters</h2>
+            <button type="button" class="hidden">
+              <span class="">Filters</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="ke om ww bar">
+                <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"></path>
+              </svg>
+            </button> -->
+            <div class="hidden lg:block">
+              <form class="">
+                <div>
+                  <fieldset>
+                    <legend class="font-medium text-gray-700">Color</legend>
+                    <div class="pt-2">
+                      <div class="flex gap-2">
+                        <div class="flex items-center mb-4">
+                          <input id="color-0" name="color[]" type="checkbox" class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="white">
+                          <label for="color-0" class="ms-2 text-sm font-medium text-gray-400 font-thin">White</label>
+                        </div>
+                      </div>
+                      <div class="flex gap-2">
+                        <div class="flex items-center mb-4">
+                          <input id="color-1" name="color[]" type="checkbox" class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="beige">
+                          <label for="color-1" class="ms-2 text-sm font-medium text-gray-400 font-thin">Beige</label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <hr class="my-4 md:my-6 border-gray-200"/>
+                </div>
+                <div class="pt-4">
+                  <fieldset>
+                    <legend class="font-medium text-gray-700">Category</legend>
+                    <div class="pt-2">
+                      <div class="flex gap-2">
+                        <div class="flex items-center mb-4">
+                          <input id="category-0" name="category[]" type="checkbox" class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="new-arrivals">
+                          <label for="category-0" class="ms-2 text-sm font-medium text-gray-400 font-thin">All New Arrivals</label>
+                        </div>
+                      </div>
+                      <div class="flex gap-2">
+                        <div class="flex items-center mb-4">
+                          <input id="category-1" name="category[]" type="checkbox" class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="pants">
+                          <label for="category-1" class="ms-2 text-sm font-medium text-gray-400 font-thin">Pants</label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <hr class="my-4 md:my-6 border-gray-200"/>
+                </div>
+              </form>
+            </div>
+          </aside>
+          <ul class="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-3 xl:gap-x-8 lg:col-span-3">
+            <li class="border-neutral-200 border items-center rounded-md truncate">
+              <div class="flex flex-col">
+                <figure class="w-full aspect-[3/4] flex">
+                  <picture class="w-full object-cover">
+                    <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+                    <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/124x166.webp">
+                    <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/156x209.webp">
+                    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/220x294.webp">
+                    <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+                    <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+                    <img class="w-full" src="../assets/342x457.webp" loading="lazy" alt=""/>
+                  </picture>
+                </figure>
+                <div class="mt-4 flex gap-y-2 flex-wrap">
+                  <div class="flex flex-col flex-grow w-full p-4">
+                    <p class="text-base font-bold text-gray-700 truncate mb-4">
+                      Basic Tee 8-Pack
+                    </p>
+                    <p class="text-sm text-gray-500 text-wrap mb-4">
+                      Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.
+                    </p>
+                    <p class="text-sm text-gray-500 text-wrap italic">
+                      White
+                    </p>
+                    <p class="text-base font-bold text-gray-700">
+                      450€
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="border-neutral-200 border items-center rounded-md truncate">
+              <div class="flex flex-col">
+                <figure class="w-full aspect-[3/4] flex">
+                  <picture class="w-full object-cover">
+                    <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+                    <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/124x166.webp">
+                    <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/156x209.webp">
+                    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/220x294.webp">
+                    <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+                    <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+                    <img class="w-full" src="../assets/342x457.webp" loading="lazy" alt=""/>
+                  </picture>
+                </figure>
+                <div class="mt-4 flex gap-y-2 flex-wrap">
+                  <div class="flex flex-col flex-grow w-full p-4">
+                    <p class="text-base font-bold text-gray-700 truncate mb-4">
+                      Basic Tee 8-Pack
+                    </p>
+                    <p class="text-sm text-gray-500 text-wrap mb-4">
+                      Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.
+                    </p>
+                    <p class="text-sm text-gray-500 text-wrap italic">
+                      White
+                    </p>
+                    <p class="text-base font-bold text-gray-700">
+                      450€
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="border-neutral-200 border items-center rounded-md truncate">
+              <div class="flex flex-col">
+                <figure class="w-full aspect-[3/4] flex">
+                  <picture class="w-full object-cover">
+                    <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+                    <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/124x166.webp">
+                    <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/156x209.webp">
+                    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/220x294.webp">
+                    <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+                    <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+                    <img class="w-full" src="../assets/342x457.webp" loading="lazy" alt=""/>
+                  </picture>
+                </figure>
+                <div class="mt-4 flex gap-y-2 flex-wrap">
+                  <div class="flex flex-col flex-grow w-full p-4">
+                    <p class="text-base font-bold text-gray-700 truncate mb-4">
+                      Basic Tee 8-Pack
+                    </p>
+                    <p class="text-sm text-gray-500 text-wrap mb-4">
+                      Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.
+                    </p>
+                    <p class="text-sm text-gray-500 text-wrap italic">
+                      White
+                    </p>
+                    <p class="text-base font-bold text-gray-700">
+                      450€
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-bg">
+      <div class="mx-auto w-full container p-8  lg:py-24">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div class="mb-6 md:mb-0">
+              <img src="../assets/logoFooter.svg" class="w-12 mb-6" alt="Logo" />
+              <a target="_blank" rel="noopener noreferrer nofollow" href="/policies-licences.html" class="text-gray-400 text-base mb-6 block">
+                Source: Amazon Berkeley Objects (ABO) Dataset
+              </a>
+              <p class="text-white text-sm">Built with WebSight CMS. © Copyright by Dynamic Solutions sp. z. o.o. All rights reserved.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <ul class="text-white font-medium">
+                <li class="mb-6">
+                  <a href="/products.html" class="hover:underline">
+                    <span>Products</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/simplify-your-space.html" class="hover:underline">
+                    <span>Spaces</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog.html" class="hover:underline">
+                    <span>Blog</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/from-chaos-to-calm.htm" class="hover:underline">
+                    <span>Inspiration</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/homepage.html" class="hover:underline">
+                    <span>Offers</span>
+                  </a>
+                </li>
+              </ul>
+              <ul class="text-white font-medium">
+                <li class="mb-6">
+                  <a href="/products.html" class="hover:underline">
+                    <span>Delivery</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/simplify-your-space.html" class="hover:underline">
+                    <span>Finance</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog.html" class="hover:underline">
+                    <span>Planning services</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/from-chaos-to-calm.htm" class="hover:underline">
+                    <span>Pre-loved furniture</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/homepage.html" class="hover:underline">
+                    <span>Buyback</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/homepage.html" class="hover:underline">
+                    <span>Interior design services</span>
+                  </a>
+                </li>
+              </ul>
+              <ul class="text-white font-medium">
+                <li class="mb-6">
+                  <a href="/products.html" class="hover:underline">
+                    <span>Stores</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/simplify-your-space.html" class="hover:underline">
+                    <span>About us</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog.html" class="hover:underline">
+                    <span>Careers</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/from-chaos-to-calm.htm" class="hover:underline">
+                    <span>Newsroom</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </footer>
+
+    <script defer src="../web-resources/js/main.published.js"></script>
+    <script defer src="../web-resources/js/autocomplete-js.js"></script>
+    <script defer src="../web-resources/js/autocomplete-init.js"></script>
+  </body>
+
+</html>
