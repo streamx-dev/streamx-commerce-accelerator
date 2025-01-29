@@ -2,8 +2,12 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 streamx_ingress_ip="$1"
-web_host_template="$2"
-ingestion_host_template="$3"
+
+web_host_template='puresight.{STREAMX_INGRESS_IP}.nip.io}'
+ingestion_host_template='ingestion.{STREAMX_INGRESS_IP}.nip.io}'
+web_host_template="${2:-${web_host_template}}"
+ingestion_host_template="${3:-${ingestion_host_template}}"
+
 web_host=$($SCRIPT_DIR/replace_ingress_ip.sh "$streamx_ingress_ip" "$web_host_template")
 ingestion_host=$($SCRIPT_DIR/replace_ingress_ip.sh "$streamx_ingress_ip" "$ingestion_host_template")
 
