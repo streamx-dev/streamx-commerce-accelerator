@@ -76,10 +76,10 @@ jobs:
           streamx_ingress_ip="${{ steps.terraform_apply.outputs.streamx_ingress_ip }}"
           streamx_hosts=$(.github/scripts/echo_env_hosts.sh "$streamx_ingress_ip" "${{ vars.WEB_HOST }}" "${{ vars.INGESTION_HOST }}")
           export $( echo "$streamx_hosts")
-          echo "$streamx_hosts" >> $GITHUB_ENV
+          echo "$streamx_hosts" >> .env
           streamx_urls=$(.github/scripts/echo_env_urls.sh)
-          export $( echo "$streamx_urls")
           echo "$streamx_urls" >> $GITHUB_ENV
+          echo "$streamx_urls" >> .env
 
       - name: "Deploy mesh"
         env:
@@ -104,7 +104,7 @@ jobs:
         run: |
           streamx_tokens=$(.github/scripts/echo_env_tokens.sh)
           .github/scripts/mask_sensitive_envs.sh "$streamx_tokens"
-          echo "$streamx_tokens" >> $GITHUB_ENV
+          echo "$streamx_tokens" >> .env
 
       - name: "Ingest content"
         env:
