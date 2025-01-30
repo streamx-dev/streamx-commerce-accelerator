@@ -3,7 +3,7 @@
 # Variables
 NAMESPACE=${1:-default}    # Namespace, default is "default"
 TIMEOUT=${2:-600}          # Timeout in seconds, default is 300 (5 minutes)
-INTERVAL=5                 # Time between checks in seconds
+INTERVAL=15                # Time between checks in seconds
 CR_NAME="sx"               # The name of the custom resource
 CR_KIND="ServiceMesh"
 CONDITION_TYPE="Ready"
@@ -33,6 +33,7 @@ while true; do
     exit 0
   fi
 
+  echo "Waiting... Mesh still not ready."
   # Check for timeout
   CURRENT_TIME=$(date +%s)
   ELAPSED_TIME=$((CURRENT_TIME - START_TIME))

@@ -14,8 +14,13 @@ ingestion:
       ingressClassName: "nginx"
       annotations:
         nginx.ingress.kubernetes.io/proxy-body-size: "500m"
+        cert-manager.io/cluster-issuer: "letsencrypt-cert-cluster-issuer"
       hosts:
         - host: ${STREAMX_INGESTION_HOST}
+      tls:
+        - hosts:
+            - ${STREAMX_INGESTION_HOST}
+          secretName: rest-ingestion.crt
 delivery:
   blueprint-web:
     ingress:

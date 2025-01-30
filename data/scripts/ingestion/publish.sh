@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 if [ -z "$STREAMX_INGESTION_URL" ]; then
     STREAMX_INGESTION_URL="http://localhost:8080"
     echo "STREAMX_INGESTION_URL not provided: Using default URL - $STREAMX_INGESTION_URL"
@@ -27,7 +29,7 @@ if [ -f "$2" ]; then
       echo "You must provide a key"
       exit 1
   fi
-
+  export STREAMX_INGESTION_INSECURE=true
   result=$(streamx publish -b "content.bytes=file://$2" "$1" "$3")
 
   if [[ $result != Registered* ]]; then
@@ -40,7 +42,7 @@ else
   else
     data=$2
   fi
-  response=$(echo "$data" | curl -s -w " - status: %{response_code}" -X POST "${STREAMX_INGESTION_URL}/ingestion/v1/channels/$1/messages" \
+  response=$(echo "$data" | curl --capath "$SCRIPT_DIR/../cert" -s -w " - status: %{response_code}" -X POST "${STREAMX_INGESTION_URL}/ingestion/v1/channels/$1/messages" \
          "${HEADERS[@]}" \
          --data @-)
 

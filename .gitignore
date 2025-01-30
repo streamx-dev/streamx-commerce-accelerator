@@ -47,3 +47,6 @@ auth/*
 /secrets/generated/
 /target
 /repository
+
+# Ignore trusted cers symlinks
+data/scripts/cert/*.0

@@ -97,6 +97,11 @@ jobs:
           KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
         run: .github/scripts/wait_for_ingress.sh sx-ing-rest-ingestion
 
+      - name: "Wait for Cert Manager to generate Ingestion Service certificate"
+        env:
+          KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
+        run: .github/scripts/wait_for_tls_secret.sh sx-ing-rest-ingestion
+
       - name: Setup StreamX ingestion tokens
         env:
           KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
@@ -107,7 +112,7 @@ jobs:
           echo "$streamx_tokens" >> .env
 
       - name: "Configure trusted certificates"
-        run: echo "SSL_CERT_DIR=$(realpath data/scripts/cert)" >> $GITHUB_ENV
+        run: .github/scripts/generate_certs_hashed_symlinks.sh
 
       - name: "Ingest content"
         env:

@@ -20,7 +20,7 @@ if [ -z "${!ingestion_host}" ]; then
 fi
 
 web_url="https://${!web_host}"
-ingestion_url="http://${!ingestion_host}"
+ingestion_url="https://${!ingestion_host}"
 
 echo "${quarkus_profile_prefix}STREAMX_INGESTION_URL=$ingestion_url"
 echo "${quarkus_profile_prefix}STREAMX_INTERNAL_INGESTION_URL=$ingestion_url"
