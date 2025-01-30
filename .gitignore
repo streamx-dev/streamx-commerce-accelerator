@@ -38,6 +38,8 @@ terraform.rc
 *.iml
 *.ipr
 
+### Mac OS ###
+.DS_Store
 
 # Ignore auth scripts
 auth/*

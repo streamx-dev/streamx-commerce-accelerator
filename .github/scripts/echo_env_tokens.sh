@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$QUARKUS_PROFILE" ]; then
-  echo "QUARKUS_PROFILE env variable is required."
+  echo "QUARKUS_PROFILE env variable is required." >&2
   exit 1;
 else
   QUARKUS_PROFILE_PREFIX="_${QUARKUS_PROFILE}_"
