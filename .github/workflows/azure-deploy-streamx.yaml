@@ -106,6 +106,9 @@ jobs:
           .github/scripts/mask_sensitive_envs.sh "$streamx_tokens"
           echo "$streamx_tokens" >> .env
 
+      - name: "Configure trusted certificates"
+        run: echo "SSL_CERT_DIR=$(realpath data/scripts/cert)" >> $GITHUB_ENV
+
       - name: "Ingest content"
         env:
           QUARKUS_PROFILE: GH_CD
