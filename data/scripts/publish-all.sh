@@ -2,6 +2,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 "$SCRIPT_DIR/cms/publish-rendering-engine-configs.sh"
+"$SCRIPT_DIR/cms/publish-fragments.sh"
 "$SCRIPT_DIR/cms/publish-pages.sh"
 "$SCRIPT_DIR/cms/publish-assets.sh"
 "$SCRIPT_DIR/cms/publish-templates.sh"

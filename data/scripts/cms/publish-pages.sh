@@ -13,7 +13,7 @@ for htmlFile in $(find "$INPUT_DIR" -type f ); do
     fi
 
     RELATIVE_PATH=$(echo "$htmlFile" | sed "s|^$INPUT_DIR/||")
-    if [[ "$RELATIVE_PATH" == layouts/* ]]; then
+    if [[ "$RELATIVE_PATH" == layouts/* || "$RELATIVE_PATH" == fragments/* ]]; then
         continue
     fi
 
