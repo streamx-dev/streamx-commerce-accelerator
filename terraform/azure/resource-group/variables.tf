@@ -1,5 +1,5 @@
 variable "resource_group_name" {
-  default     = "streamx-example"
+  default     = "rg-adobe-summit-demo"
   description = "Azure resources group name."
   type        = string
 }
