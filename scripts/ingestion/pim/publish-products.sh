@@ -43,7 +43,7 @@ for ((i=0; i<products_count; i+=batch_size)); do
           echo "Products batch starting with product id $id"
           echo "$processed_products" | "$SCRIPT_DIR/../publish.sh" data
           counter=0
-          processed_product=0
+          processed_product=
         fi
     done
 done
