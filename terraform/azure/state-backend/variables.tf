@@ -1,17 +1,17 @@
 variable "resource_group_name" {
-  default     = "streamx-commerce-accelerator"
+  default     = "rg-adobe-summit-demo"
   description = "Azure resources group name."
   type        = string
 }
 
 variable "location" {
-  default     = "West Europe"
+  default     = "East US"
   description = "Azure location."
   type        = string
 }
 
 variable "azurerm_storage_container_name" {
-  default     = "streamx-commerce-accelerator-tfstate"
+  default     = "streamx-example-tfstate"
   description = "Azure Storage Container name."
   type        = string
 }
