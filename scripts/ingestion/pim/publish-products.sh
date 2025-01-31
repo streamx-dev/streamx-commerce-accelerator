@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Ingesting products set into StreamX it can take a while..."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../ingestion/read-env.sh"
+source "$SCRIPT_DIR/../read-env.sh"
 export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_PIM"
 
 input_file="$SCRIPT_DIR/../../../data/pim/products.json"
