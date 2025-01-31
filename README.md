@@ -6,8 +6,6 @@ StreamX Commerce Accelerator is a project designed to streamline the setup of ne
 
 This documentation outlines the components of the project, the purpose of each folder, and instructions for local setup and deployment.
 
----
-
 ## Local Setup
 
 Prerequisites:
@@ -17,25 +15,70 @@ Prerequisites:
   ```
 
 1. **Start StreamX:**
-   - Run the StreamX instance (current setup requires `preview` version of StreamX CLI see prerequisites):
-     ```bash
-     streamx run -f ./mesh/mesh.yaml
-     ```
+    - Run the StreamX instance (current setup requires `preview` version of StreamX CLI see prerequisites):
+      ```bash
+      streamx run -f ./mesh/mesh.yaml
+      ```
 
 2. **Run the Proxy:**
-   - Start the local proxy for serving the website:
-     ```bash
-     ./gateway/run-proxy.sh
-     ```
+    - Start the local proxy for serving the website:
+      ```bash
+      ./gateway/run-proxy.sh
+      ```
 
 3. **Publish All Resources:**
-   - Use the `publish-all` script to deploy all necessary data to StreamX:
-     ```bash
-     ./scripts/publish-all.sh
-     ```
+    - Use the `publish-all` script to deploy all necessary data to StreamX:
+      ```bash
+      ./scripts/publish-all.sh
+      ```
 
+---
 
-## Setting up autocomplete js
+## 📁 Project Directory Documentation
+
+#### 📂 `data/`
+Contains all the **sample data** needed to be ingested for the website to be functional. It stores:
+- Layouts
+- Dynamic templates
+- Static pages
+- Page fragments
+- **CSS, JS** files
+- Product and category data
+
+This is the **place where we simulate source systems** such as **CMS, PIM, etc.**
+
+---
+
+#### 📂 `gateway/`
+Contains the **configuration and script** for running the proxy that handles the traffic between system components.
+
+---
+
+#### 📂 `mesh/`
+Definition of the **StreamX Mesh** and all its associated **configurations and secrets**.
+
+---
+
+#### 📂 `scripts/`
+Collection of **scripts** responsible for:
+- **Ingesting data**
+- **Setting up environments**
+
+---
+
+#### 📂 `spec/`
+Contains the **data model definition**, which serves as the **contract** between the website and the source systems.
+
+---
+
+#### 📂 `terraform/`
+Everything required to **create the infrastructure** on cloud
+
+---
+
+## How to integrate into your project
+
+### Setting up search
 As part of Streamx Accelerator we deliver an option to setup initial search via Algolia JS plugin called autocomplete-js.
 
 https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/
