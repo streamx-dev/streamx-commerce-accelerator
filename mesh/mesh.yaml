@@ -24,6 +24,7 @@ ingestion:
         - "ingestion.properties"
 
 processing:
+
   blueprint-relay-web-resources:
     image: relay-processing-service
     incoming:
@@ -136,7 +137,7 @@ processing:
         topic: relays/page-compose-requests
 
   blueprint-data-collector:
-    image: data-collector-processing-service
+    image: ghcr.io/streamx-dev/streamx-blueprints/data-collector-processing-service:1.0.4-SNAPSHOT-jvm
     incoming:
       data:
         topic: relays/aggregated-data

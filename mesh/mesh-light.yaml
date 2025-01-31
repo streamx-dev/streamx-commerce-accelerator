@@ -24,6 +24,20 @@ ingestion:
         - "ingestion.properties"
 
 processing:
+  blueprint-data-collector:
+    image: ghcr.io/streamx-dev/streamx-blueprints/data-collector-processing-service:1.0.4-SNAPSHOT-jvm
+    incoming:
+      data:
+        topic: relays/aggregated-data
+    outgoing:
+      collected-data:
+        topic: relays/aggregated-data
+      web-resources:
+        topic: inboxes/web-resources
+    environmentFrom:
+      configs:
+        - "data-collector.properties"
+
   blueprint-relay-web-resources:
     image: relay-processing-service
     incoming:
@@ -109,6 +123,8 @@ processing:
         topic: outboxes/pages
       fragments:
         topic: outboxes/fragments
+
+
 
 delivery:
   blueprint-web:
