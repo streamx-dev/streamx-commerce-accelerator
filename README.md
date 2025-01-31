@@ -31,11 +31,11 @@ Prerequisites:
 3. **Publish All Resources:**
    - Use the `publish-all` script to deploy all necessary data to StreamX:
      ```bash
-     ./data/scripts/publish-all.sh
+     ./scripts/publish-all.sh
      ```
 
 
-### Setting up autocomplete js
+## Setting up autocomplete js
 As part of Streamx Accelerator we deliver an option to setup initial search via Algolia JS plugin called autocomplete-js.
 
 https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/

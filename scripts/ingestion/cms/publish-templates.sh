@@ -2,10 +2,10 @@
 
 echo "Ingesting templates..."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+source "$SCRIPT_DIR/../ingestion/read-env.sh"
 export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
 
-INPUT_DIR="$SCRIPT_DIR/../../templates"
+INPUT_DIR="$SCRIPT_DIR/../../../data/templates"
 
 for template in $(find "$INPUT_DIR" -type f ); do
     if [[ "$(basename "$template")" =~ ^\..* ]]; then
@@ -33,7 +33,7 @@ for template in $(find "$INPUT_DIR" -type f ); do
        }')
 
        echo "$BASENAME"
-       "$SCRIPT_DIR/../ingestion/publish.sh" renderers "$outputJson"
+       "$SCRIPT_DIR/../publish.sh" renderers "$outputJson"
 done
 
 echo "Templates ingestion finished"

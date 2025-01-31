@@ -2,10 +2,10 @@
 
 echo "Ingesting pages..."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+source "$SCRIPT_DIR/../ingestion/read-env.sh"
 export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
 
-INPUT_DIR="$SCRIPT_DIR/../../pages"
+INPUT_DIR="$SCRIPT_DIR/../../../data/pages"
 
 for htmlFile in $(find "$INPUT_DIR" -type f ); do
     if [ ! -e "$htmlFile" ]; then
@@ -37,7 +37,7 @@ for htmlFile in $(find "$INPUT_DIR" -type f ); do
             }
           }')
 
-        "$SCRIPT_DIR/../ingestion/publish.sh" compositions "$outputJson"
+        "$SCRIPT_DIR/../publish.sh" compositions "$outputJson"
     else
       outputJson=$(jq -n --arg key "$RELATIVE_PATH" --arg bytes "$content" '{
                   "key": $key,
@@ -52,7 +52,7 @@ for htmlFile in $(find "$INPUT_DIR" -type f ); do
                       }
                   }
               }')
-        "$SCRIPT_DIR/../ingestion/publish.sh" pages "$outputJson"
+        "$SCRIPT_DIR/../publish.sh" pages "$outputJson"
     fi
 
     echo "$RELATIVE_PATH"

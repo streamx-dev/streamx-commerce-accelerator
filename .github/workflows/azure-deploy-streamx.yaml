@@ -74,10 +74,10 @@ jobs:
           QUARKUS_PROFILE: GH_CD
         run: |
           streamx_ingress_ip="${{ steps.terraform_apply.outputs.streamx_ingress_ip }}"
-          streamx_hosts=$(.github/scripts/echo_env_hosts.sh "$streamx_ingress_ip" "${{ vars.WEB_HOST }}" "${{ vars.INGESTION_HOST }}")
+          streamx_hosts=$(scripts/env/echo_env_hosts.sh "$streamx_ingress_ip" "${{ vars.WEB_HOST }}" "${{ vars.INGESTION_HOST }}")
           export $(echo "$streamx_hosts")
           echo "$streamx_hosts" >> .env
-          streamx_urls=$(.github/scripts/echo_env_urls.sh)
+          streamx_urls=$(scripts/env/echo_env_urls.sh)
           echo "$streamx_urls" >> $GITHUB_ENV
           echo "$streamx_urls" >> .env
 
@@ -90,26 +90,34 @@ jobs:
       - name: "Wait for StreamX Mesh to be ready"
         env:
           KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
-        run: .github/scripts/wait_for_mesh.sh
+        run: scripts/env/wait_for_mesh.sh
 
       - name: "Wait for Ingestion Service to be ready"
         env:
           KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
         run: .github/scripts/wait_for_ingress.sh sx-ing-rest-ingestion
 
+      - name: "Wait for Cert Manager to generate Ingestion Service certificate"
+        env:
+          KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
+        run: scripts/env/wait_for_tls_secret.sh sx-ing-rest-ingestion
+
       - name: Setup StreamX ingestion tokens
         env:
           KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
           QUARKUS_PROFILE: GH_CD
         run: |
-          streamx_tokens=$(.github/scripts/echo_env_tokens.sh)
+          streamx_tokens=$(scripts/env/echo_env_tokens.sh)
           .github/scripts/mask_sensitive_envs.sh "$streamx_tokens"
           echo "$streamx_tokens" >> .env
+
+      - name: "Configure trusted certificates"
+        run: scripts/ingestion/cert/generate_certs_hashed_symlinks.sh
 
       - name: "Ingest content"
         env:
           QUARKUS_PROFILE: GH_CD
-        run: ./data/scripts/publish-all.sh
+        run: scripts/publish-all.sh
 
       - name: "Create Job Summary"
         env:
