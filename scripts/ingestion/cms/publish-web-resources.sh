@@ -2,10 +2,10 @@
 
 echo "Ingesting web-resources..."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+source "$SCRIPT_DIR/../ingestion/read-env.sh"
 export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
 
-INPUT_DIR="$SCRIPT_DIR/../../web-resources"
+INPUT_DIR="$SCRIPT_DIR/../../../data/web-resources"
 
 for webResource in $(find "$INPUT_DIR" -type f ); do
     if [[ "$(basename "$webResource")" =~ ^\..* ]]; then
@@ -18,7 +18,7 @@ for webResource in $(find "$INPUT_DIR" -type f ); do
     RELATIVE_PATH=$(echo "$webResource" | sed "s|^$INPUT_DIR/||")
 
     echo "$RELATIVE_PATH"
-    "$SCRIPT_DIR/../ingestion/publish.sh" web-resources "$webResource" "web-resources/$RELATIVE_PATH"
+    "$SCRIPT_DIR/../publish.sh" web-resources "$webResource" "web-resources/$RELATIVE_PATH"
 done
 
 echo "Web resources ingestion finished"

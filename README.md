@@ -31,5 +31,5 @@ Prerequisites:
 3. **Publish All Resources:**
    - Use the `publish-all` script to deploy all necessary data to StreamX:
      ```bash
-     ./data/scripts/publish-all.sh
+     ./scripts/publish-all.sh
      ```

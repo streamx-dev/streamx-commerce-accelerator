@@ -21,17 +21,17 @@ terraform -chdir="$SCRIPT_DIR"/../../../terraform/azure/platform apply -auto-app
 export KUBECONFIG="$(terraform -chdir="$SCRIPT_DIR"/../../../terraform/azure/platform output -raw kubeconfig_path)"
 streamx_ingress_ip="$(terraform -chdir="$SCRIPT_DIR"/../../../terraform/azure/platform output -raw loadbalancer_ip)"
 
-streamx_hosts=$("$SCRIPT_DIR"/../../../.github/scripts/echo_env_hosts.sh "$streamx_ingress_ip" "${WEB_HOST}" "${INGESTION_HOST}")
+streamx_hosts=$("$SCRIPT_DIR"/../echo_env_hosts.sh "$streamx_ingress_ip" "${WEB_HOST}" "${INGESTION_HOST}")
 export $(echo ${streamx_hosts?})
-streamx_urls=$("$SCRIPT_DIR"/../../../.github/scripts/echo_env_urls.sh)
-"$SCRIPT_DIR"/append_envs.sh "$streamx_hosts
+streamx_urls=$("$SCRIPT_DIR"/../echo_env_urls.sh)
+"$SCRIPT_DIR"/append-envs.sh "$streamx_hosts
 $streamx_urls"
 streamx --accept-license deploy -f "$SCRIPT_DIR/../../../mesh/mesh.yaml"
 echo ""
-"$SCRIPT_DIR"/../../../.github/scripts/wait_for_mesh.sh
-streamx_tokens=$("$SCRIPT_DIR"/../../../.github/scripts/echo_env_tokens.sh)
-"$SCRIPT_DIR"/append_envs.sh "$streamx_hosts
+"$SCRIPT_DIR"/../wait_for_mesh.sh
+streamx_tokens=$("$SCRIPT_DIR"/../echo_env_tokens.sh)
+"$SCRIPT_DIR"/append-envs.sh "$streamx_hosts
 $streamx_urls
 $streamx_tokens"
-"$SCRIPT_DIR"/../../../.github/scripts/wait_for_tls_secret.sh sx-ing-rest-ingestion
+"$SCRIPT_DIR"/../wait_for_tls_secret.sh sx-ing-rest-ingestion
 echo "Cloud environment is ready for data ingestion."

@@ -1,10 +1,10 @@
 #!/bin/bash
 echo "Ingesting categories into StreamX..."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+source "$SCRIPT_DIR/../ingestion/read-env.sh"
 export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_PIM"
 
-input_file="$SCRIPT_DIR/categories.json"
+input_file="$SCRIPT_DIR/../../../data/pim/categories.json"
 
 json_data=$(cat "$input_file")
 
@@ -39,7 +39,7 @@ for ((i=0; i<categories_count; i+=batch_size)); do
         next_batch_end=$((i + batch_size))
 
         if [ $counter -eq $batch_size ] || [ $next_batch_end -ge $categories_count ]; then
-            "$SCRIPT_DIR/../ingestion/publish.sh" data "$processed_categories"
+            "$SCRIPT_DIR/../publish.sh" data "$processed_categories"
             processed_categories=0
             counter=0
         fi

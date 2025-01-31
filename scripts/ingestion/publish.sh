@@ -42,7 +42,7 @@ else
   else
     data=$2
   fi
-  response=$(echo "$data" | curl --capath "$SCRIPT_DIR/../cert" -s -w " - status: %{response_code}" -X POST "${STREAMX_INGESTION_URL}/ingestion/v1/channels/$1/messages" \
+  response=$(echo "$data" | curl --capath "$SCRIPT_DIR/cert" -s -w " - status: %{response_code}" -X POST "${STREAMX_INGESTION_URL}/ingestion/v1/channels/$1/messages" \
          "${HEADERS[@]}" \
          --data @-)
 

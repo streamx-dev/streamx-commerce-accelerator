@@ -49,4 +49,4 @@ auth/*
 /repository
 
 # Ignore trusted cers symlinks
-data/scripts/cert/*.0
+scripts/ingestion/cert/*.0
