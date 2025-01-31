@@ -2,10 +2,10 @@
 
 echo "Ingesting layouts..."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+source "$SCRIPT_DIR/../read-env.sh"
 export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
 
-INPUT_DIR="$SCRIPT_DIR/../../pages/layouts"
+INPUT_DIR="$SCRIPT_DIR/../../../data/pages/layouts"
 
 for htmlFile in $(find "$INPUT_DIR" -type f ); do
     if [ ! -e "$htmlFile" ]; then
@@ -31,7 +31,7 @@ for htmlFile in $(find "$INPUT_DIR" -type f ); do
 
 
      echo "$RELATIVE_PATH"
-    "$SCRIPT_DIR/../ingestion/publish.sh" layouts "$outputJson"
+    "$SCRIPT_DIR/../publish.sh" layouts "$outputJson"
 done
 
 echo "Layouts ingestion finished"

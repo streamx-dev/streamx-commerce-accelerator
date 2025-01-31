@@ -2,10 +2,10 @@
 
 echo "Ingesting page fragments..."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../ingestion/env_setup.sh"
+source "$SCRIPT_DIR/../read-env.sh"
 export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
 
-INPUT_DIR="$SCRIPT_DIR/../../pages/fragments"
+INPUT_DIR="$SCRIPT_DIR/../../../data/pages/fragments"
 
 for htmlFile in $(find "$INPUT_DIR" -type f ); do
     if [ ! -e "$htmlFile" ]; then
@@ -27,7 +27,7 @@ for htmlFile in $(find "$INPUT_DIR" -type f ); do
                     }
                 }
             }')
-      "$SCRIPT_DIR/../ingestion/publish.sh" pages "$outputJson"
+      "$SCRIPT_DIR/../publish.sh" pages "$outputJson"
 
 
     echo "fragments/$RELATIVE_PATH"

@@ -15,6 +15,20 @@
         };
     }
 
+    const mapToPage = (hit) => {
+        const path = hit._id;
+        const score = hit._score;
+        const title = hit.highlight?.["payload.title"]?.[0] || hit._source.payload.title;
+        const bestFragment = hit.highlight?.["payload.content"]?.[0] || title || "";
+
+        return {
+            path,
+            title,
+            bestFragment,
+            score
+        };
+    };
+
     const getPages = async (query) => {
         const response = await fetch(buildUrl(query, SEARCH_RESULTS_COUNT));
         return mapToPagesResponse(response);
