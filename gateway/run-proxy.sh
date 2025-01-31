@@ -1,6 +1,6 @@
 #!/bin/bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../data/scripts/ingestion/env_setup.sh"
+source "$SCRIPT_DIR/../scripts/ingestion/read-env.sh"
 
 # Function to clean up nginx-proxy container
 cleanup() {

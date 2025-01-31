@@ -36,22 +36,4 @@ for template in $(find "$INPUT_DIR" -type f ); do
        "$SCRIPT_DIR/../publish.sh" renderers "$outputJson"
 done
 
-
-categoryRenderer='{
-  "key" : "category-renderer",
-  "action" : "publish",
-  "eventTime" : null,
-  "properties" : {},
-  "payload" : {
-    "dev.streamx.blueprints.data.Renderer" : {
-      "template": {
-        "bytes": "{{name}} - {{slug}}"
-      }
-    }
-  }
-}'
-
-
-"$SCRIPT_DIR/../publish.sh" renderers "$categoryRenderer"
-
 echo "Templates ingestion finished"
