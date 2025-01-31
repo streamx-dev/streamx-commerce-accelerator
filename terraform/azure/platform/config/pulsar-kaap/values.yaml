@@ -1,0 +1,46 @@
+cluster:
+  create: true
+  spec:
+    global:
+      name: pulsar
+      image: apachepulsar/pulsar:4.0.0
+      restartOnConfigMapChange: true
+    zookeeper:
+      replicas: 1
+      dataVolume:
+        name: data
+        size: 100M
+      resources:
+        requests:
+          cpu: "0.1"
+          memory: "256Mi"
+    bookkeeper:
+      replicas: 1
+      volumes:
+        journal:
+          size: 5Gi
+        ledgers:
+          size: 20Gi
+      resources:
+        requests:
+          cpu: "0.4"
+          memory: "2Gi"
+    broker:
+      replicas: 1
+      config:
+        managedLedgerDefaultEnsembleSize: "1"
+        managedLedgerDefaultWriteQuorum: "1"
+        managedLedgerDefaultAckQuorum: "1"
+        compactionServiceFactoryClassName: "org.apache.pulsar.compaction.EventTimeCompactionServiceFactory"
+      resources:
+        requests:
+          cpu: "0.4"
+        memory: "1Gi"
+    proxy:
+      replicas: 0
+    autorecovery:
+      replicas: 0
+    bastion:
+      replicas: 0
+    functionsWorker:
+      replicas: 0

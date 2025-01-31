@@ -1,0 +1,217 @@
+defaultRegistry: ghcr.io/streamx-dev/streamx-blueprints
+defaultImageTag: 1.0.2-jvm
+
+sources:
+  pim:
+    outgoing:
+      - "data"
+  cms:
+    outgoing:
+      - "pages"
+      - "fragments"
+      - "assets"
+      - "web-resources"
+      - "data"
+      - "renderers"
+      - "rendering-contexts"
+
+ingestion:
+  rest-ingestion:
+    environmentFrom:
+      configs:
+        - "ingestion.properties"
+
+processing:
+  blueprint-relay-web-resources:
+    image: relay-processing-service
+    incoming:
+      messages:
+        topic: inboxes/web-resources
+    outgoing:
+      relayed-messages:
+        topic: outboxes/web-resources
+    environment:
+      MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "web-resource-schema"
+      MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "web-resource-schema"
+
+  blueprint-relay-assets:
+    image: relay-processing-service
+    incoming:
+      messages:
+        topic: inboxes/assets
+    outgoing:
+      relayed-messages:
+        topic: outboxes/assets
+    environment:
+      MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "asset-schema"
+      MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "asset-schema"
+
+  blueprint-relay-fragments:
+    image: relay-processing-service
+    incoming:
+      messages:
+        topic: inboxes/fragments
+    outgoing:
+      relayed-messages:
+        topic: outboxes/fragments
+    environment:
+      MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "fragment-schema"
+      MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "fragment-schema"
+
+  blueprint-image-optimization:
+    image: image-optimization-processing-service
+    incoming:
+      incoming-assets:
+        topic: inboxes/assets
+      incoming-pages:
+        topic: inboxes/pages
+    outgoing:
+      optimized-assets:
+        topic: inboxes/assets
+      outgoing-pages:
+        topic: outboxes/pages
+    environmentFrom:
+      configs:
+        - "image-optimization.properties"
+
+  blueprint-json-aggregator:
+    image: json-aggregator-processing-service
+    incoming:
+      data:
+        topic: inboxes/data
+      multivalued-data:
+        topic: inboxes/data
+    outgoing:
+      aggregated-data:
+        topic: relays/aggregated-data
+      aggregated-multivalued-data:
+        topic: inboxes/data
+    environmentFrom:
+      configs:
+        - "aggregator.properties"
+
+  blueprint-data-to-indexable-resource-converter:
+    image: data-to-indexable-resource-converter-processing-service
+    incoming:
+      data:
+        topic: inboxes/data
+    outgoing:
+      indexable-resources:
+        topic: outboxes/indexable-resources
+
+  blueprint-rendering-engine:
+    image: rendering-engine-processing-service
+    incoming:
+      data:
+        topic: relays/aggregated-data
+      renderers:
+        topic: inboxes/renderers
+      rendering-contexts:
+        topic: inboxes/rendering-contexts
+      incoming-rendering-requests:
+        topic: relays/rendering-requests
+    outgoing:
+      outgoing-rendering-requests:
+        topic: relays/rendering-requests
+      pages:
+        topic: inboxes/pages
+      fragments:
+        topic: inboxes/fragments
+
+  blueprint-data-collector:
+    image: data-collector-processing-service
+    incoming:
+      data:
+        topic: relays/aggregated-data
+    outgoing:
+      collected-data:
+        topic: relays/aggregated-data
+      web-resources:
+        topic: inboxes/web-resources
+    environmentFrom:
+      configs:
+        - "data-collector.properties"
+
+
+  blueprint-sitemap-generator:
+    image: sitemap-generator-processing-service
+    incoming:
+      incoming-pages:
+        topic: inboxes/pages
+    outgoing:
+      outgoing-sitemaps:
+        topic: outboxes/web-resources
+    environment:
+      # local test domain, see readme
+      STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_BASE-URL: "${WEB_URL}"
+      STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_OUTPUT-KEY: "/sitemap.xml"
+
+  blueprint-indexable-resource-extractor:
+    image: indexable-resource-producer-processing-service
+    incoming:
+      pages:
+        topic: inboxes/pages
+      fragments:
+        topic: inboxes/fragments
+    outgoing:
+      indexable-resources:
+        topic: outboxes/indexable-resources
+      indexable-resource-fragments:
+        topic: outboxes/indexable-resource-fragments
+
+delivery:
+  blueprint-search:
+    image: opensearch-delivery-service
+    incoming:
+      indexable-resources:
+        topic: outboxes/indexable-resources
+      indexable-resource-fragments:
+        topic: outboxes/indexable-resource-fragments
+    port: 8082
+    volumesFrom:
+      configs:
+        - "opensearch/service-init:/deployments/opensearch/service-init"
+    environment:
+      QUARKUS_ELASTICSEARCH_USERNAME: "admin"
+      QUARKUS_ELASTICSEARCH_HOSTS: "blueprint-search.opensearch:9201"
+      STREAMX_BLUEPRINTS_OPENSEARCH-DELIVERY-SERVICE_MIGRATION-SCRIPT-LOCATIONS: "classpath:opensearch/service-init,file:opensearch/service-init"
+    environmentFrom:
+      secrets:
+        - "opensearch-secrets.properties"
+    components:
+      opensearch:
+        image: "docker.io/opensearchproject/opensearch:2.16.0"
+        ports:
+          - 9201:9201
+        environment:
+          network.host: "0.0.0.0"
+          http.port: "9201"
+          discovery.type: "single-node"
+          DISABLE_SECURITY_PLUGIN: "true"
+        environmentFrom:
+          secrets:
+            - "opensearch-component-secrets.properties"
+  blueprint-web:
+    image: web-delivery-service
+    incoming:
+      pages:
+        topic: outboxes/pages
+      fragments:
+        topic: outboxes/fragments
+      assets:
+        topic: outboxes/assets
+      web-resources:
+        topic: outboxes/web-resources
+    environment:
+      STREAMX_BLUEPRINTS_WEB-DELIVERY-SERVICE_RESOURCES_DIRECTORY: "/srv/www"
+    repositoryVolume: "/srv/www"
+    port: 8083
+    components:
+      webserver:
+        image: "docker.io/library/nginx:1.26.0"
+        ports:
+          - 8084:80
+        repositoryVolume: "/usr/share/nginx/html"
+        volumesFrom:
+          configs:
+            - "nginx_conf/demo.conf:/etc/nginx/conf.d/default.conf"
