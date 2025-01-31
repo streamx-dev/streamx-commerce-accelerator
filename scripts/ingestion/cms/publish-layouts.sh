@@ -5,11 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/../read-env.sh"
 export STREAMX_INGESTION_AUTH_TOKEN="$STREAMX_TOKEN_INGESTION_AUTH_TOKEN_CMS"
 
-<<<<<<<< HEAD:scripts/ingestion/cms/publish-layouts.sh
 INPUT_DIR="$SCRIPT_DIR/../../../data/pages/layouts"
-========
-INPUT_DIR="$SCRIPT_DIR/../../../data/pages"
->>>>>>>> origin/main:scripts/ingestion/cms/publish-pages.sh
 
 for htmlFile in $(find "$INPUT_DIR" -type f ); do
     if [ ! -e "$htmlFile" ]; then
@@ -33,14 +29,9 @@ for htmlFile in $(find "$INPUT_DIR" -type f ); do
         }
     }')
 
-<<<<<<<< HEAD:scripts/ingestion/cms/publish-layouts.sh
 
      echo "$RELATIVE_PATH"
     "$SCRIPT_DIR/../publish.sh" layouts "$outputJson"
-========
-    echo "$BASENAME"
-    "$SCRIPT_DIR/../publish.sh" pages "$outputJson"
->>>>>>>> origin/main:scripts/ingestion/cms/publish-pages.sh
 done
 
 echo "Layouts ingestion finished"
