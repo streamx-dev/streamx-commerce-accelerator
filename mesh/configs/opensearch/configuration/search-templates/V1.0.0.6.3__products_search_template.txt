@@ -32,8 +32,8 @@ Content-Type: application/json
             }{{^last}},{{/last}}
             {{/fields}}{{/filter_query}}
           ],
+          {{#query}}
           \"should\": [
-            {{#query}}
             {
               \"multi_match\": {
                 \"query\": \"{{query}}\",
@@ -87,9 +87,9 @@ Content-Type: application/json
                 \"slop\": 2
               }
             }
-            {{/query}}
           ],
           \"minimum_should_match\": 1,
+          {{/query}}
           \"must_not\": [
 
           ]
