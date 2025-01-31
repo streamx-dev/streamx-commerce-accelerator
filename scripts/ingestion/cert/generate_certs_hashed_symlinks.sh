@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-CERT_DIR="${1:-$SCRIPT_DIR/../}"
+CERT_DIR="${1:-$SCRIPT_DIR}"
 
 for cert_file in "$CERT_DIR"/*.{crt,cer,pem}; do
     [ -e "$cert_file" ] || continue  # Skip if no matching files
