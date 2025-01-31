@@ -15,10 +15,12 @@ Prerequisites:
   ```
 
 1. **Start StreamX:**
-    - Run the StreamX instance (current setup requires `preview` version of StreamX CLI see prerequisites):
-      ```bash
-      streamx run -f ./mesh/mesh.yaml
-      ```
+   - Run the StreamX instance (current setup requires `preview` version of StreamX CLI, see prerequisites):
+     ```bash
+     streamx run -f ./mesh/mesh.yaml
+     ```
+
+   > **Note:** For local development you can also use mesh-light.yaml which comes with the basic functionality only that allows to run on limited resources.
 
 2. **Run the Proxy:**
     - Start the local proxy for serving the website:
