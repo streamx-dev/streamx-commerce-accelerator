@@ -140,11 +140,11 @@ Prerequisites:
     * `INGESTION_HOST`
     * `WEB_HOST`
 
-## Cloud deployment
+## Cloud deploy
 
 Cloud deployment can be done using bash script lunched from local host or GitHub Action. Both options are interchangeable.
 
-### Deployment from local
+### Deploy from local
 Prerequisites:
 
 * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
@@ -169,13 +169,27 @@ Prerequisites:
    ```
 4. After successful ingestion script will print WEB URL with your site.
 
-### Deployment using GH Action
+### Undeploy from local
+
+1. Run [destroy-env.sh](scripts/env/cloud/destroy-env.sh) script.
+   ```shell
+   ./scripts/env/cloud/destroy-env.sh
+   ```
+
+### Deploy using GH Action
 
 1. Select `Azure: Deploy StreamX` GH Action.
 2. Click `Run workflow`
 3. Select branch which should be used for deployment.
 4. Click `Run workflow`
 5. After successful deployment check GH Action Summary for site URL.
+
+### Undeploym using GH Action
+
+1. Select `Azure: Undeploy StreamX` GH Action.
+2. Click `Run workflow`
+3. Select branch which should be used for deployment.
+4. Click `Run workflow`
 ---
 
 ## 📁 Project Directory Documentation
