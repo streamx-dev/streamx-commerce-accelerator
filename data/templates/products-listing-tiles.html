@@ -1,0 +1,50 @@
+<section class="container bg-white mx-auto">
+  <div class="py-16 sm:py-24 px-8">
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900">New arrivals</h2>
+    <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
+      {% for i in range(0, values|length - 1) %}
+      <li>
+        <div class="flex flex-col">
+          <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
+            <picture class="m-auto w-full object-contain">
+              <source media="(max-width: 639px)"  srcset="../assets/573x765.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+              <source media="(min-width: 1536px)" srcset="{{ values[i].primaryImage.url }}">
+              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+            </picture>
+          </figure>
+          <div class="mt-4 flex gap-y-2 flex-wrap">
+            <div class="flex flex-row items-center flex-grow w-full">
+              <p class="text-base font-bold text-gray-700 truncate flex-grow">
+                {{ values[i].name | abbreviate(20) }}
+              </p>
+              <div class="flex items-center flex-shrink-0">
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="flex flex-row items-center flex-grow w-full">
+              {% if values[i].price.value is not empty %}
+              <p class="text-base font-bold price-text-color truncate flex-grow">
+                {{ values[i].price.value }}&euro;
+              </p>
+              {% endif %}
+              <a href="/products/{{ values[i].slug }}.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+                    <span class="inline-block w-auto">
+                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
+                    </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

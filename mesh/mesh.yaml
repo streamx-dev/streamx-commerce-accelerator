@@ -1,5 +1,5 @@
 defaultRegistry: ghcr.io/streamx-dev/streamx-blueprints
-defaultImageTag: 1.0.2-jvm
+defaultImageTag: 1.0.4-jvm
 
 sources:
   pim:
@@ -24,6 +24,7 @@ ingestion:
         - "ingestion.properties"
 
 processing:
+
   blueprint-relay-web-resources:
     image: relay-processing-service
     incoming:
@@ -92,8 +93,8 @@ processing:
       configs:
         - "aggregator.properties"
 
-  blueprint-data-to-indexable-resource-converter:
-    image: data-to-indexable-resource-converter-processing-service
+  blueprint-message-converter:
+    image: message-converter-processing-service
     incoming:
       data:
         topic: inboxes/data
@@ -149,7 +150,6 @@ processing:
       configs:
         - "data-collector.properties"
 
-
   blueprint-sitemap-generator:
     image: sitemap-generator-processing-service
     incoming:
@@ -163,8 +163,10 @@ processing:
       STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_BASE-URL: "${WEB_URL}"
       STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_OUTPUT-KEY: "/sitemap.xml"
 
-  blueprint-indexable-resource-extractor:
-    image: indexable-resource-producer-processing-service
+  blueprint-indexables-producer:
+    image: indexables-producer-processing-service
+    environment:
+      STREAMX_BLUEPRINTS_INDEXABLES_PRODUCER_PROCESSING_SERVICE_INDEX_FRAGMENTS: "true"
     incoming:
       pages:
         topic: inboxes/pages

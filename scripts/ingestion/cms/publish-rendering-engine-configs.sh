@@ -34,7 +34,23 @@ categoryRenderingContext='{
   }
 }'
 
+productListingTilesContext='{
+  "key": "productListingTiles-rendering-context",
+  "action": "publish",
+  "eventTime": null,
+  "properties": { },
+  "payload": {
+    "dev.streamx.blueprints.data.RenderingContext": {
+      "rendererKey": { "string": "templates/products-listing-tiles.html" },
+      "dataKeyMatchPattern": { "string": "collected:products:.*" },
+      "outputKeyTemplate": { "string": "/_fragments/{{key}}.tiles.html" },
+      "outputType": { "dev.streamx.blueprints.data.RenderingContext.OutputType": "FRAGMENT" }
+    }
+  }
+}'
+
 echo "Ingesting rendering engine configurations..."
 "$SCRIPT_DIR/../publish.sh" rendering-contexts "$pdpRenderingContext"
 "$SCRIPT_DIR/../publish.sh" rendering-contexts "$categoryRenderingContext"
+"$SCRIPT_DIR/../publish.sh" rendering-contexts "$productListingTilesContext"
 echo "Rendering engine configs ingestion finished"
