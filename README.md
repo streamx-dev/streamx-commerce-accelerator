@@ -44,7 +44,7 @@ Prerequisites:
 ---
 ## Cloud setup 
 ### Initial setup - Should be done only once
-1. Create `terraform/azure/.env/.env` file and configure [Terraform Azurerm provider authentication data](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#configuring-the-service-principal-in-terraform):
+1. Create [`terraform/azure/.env/.env`](terraform/azure/.env/.env) file and configure [Terraform Azurerm provider authentication data](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#configuring-the-service-principal-in-terraform):
     ```shell
     mkdir -p terraform/azure/.env
     echo "# Azurerm provider authentication
@@ -53,7 +53,7 @@ Prerequisites:
     export ARM_TENANT_ID=\"\"
     export ARM_SUBSCRIPTION_ID=\"\"" > terraform/azure/.env/.env
     ```
-2. Configure common variables values by appending them to `terraform/azure/.env/.env`:
+2. Configure common variables values by appending them to [`terraform/azure/.env/.env`](terraform/azure/.env/.env):
     ```shell
     echo "# Common variables
     export TF_VAR_resource_group_name=\"\"
@@ -93,14 +93,14 @@ Prerequisites:
        ```shell
        terraform -chdir="terraform/azure/state-backend" apply
        ```
-    5. Configure Azure Storage Container's access key for Terraform state backend by appending it to `terraform/azure/.env/.env`:
+    5. Configure Azure Storage Container's access key for Terraform state backend by appending it to [`terraform/azure/.env/.env`](terraform/azure/.env/.env):
        ```shell
        echo "# Azurem Terraform state backend authentication
        export ARM_ACCESS_KEY=\"$(terraform -chdir=terraform/azure/state-backend output -raw arm_access_key)\"" >> terraform/azure/.env/.env
        ```
     6. Commit and push [backend.tf](terraform/azure/platform/backend.tf) file.
-       > **Note:** `backend.tf` file has to be pushed to GitHub origin remote before lunching `Azure: Deploy StreamX` action. Otherwise Terraform will use local state backend which will be deleted together with GH Action runner instance. That will lead to situation in which terraform script will be detached from created resources. That can be fixed by [terraform import](https://developer.hashicorp.com/terraform/cli/import) after successful azure backend setup.
-5. Configure StreamX Platform related variables by appending them to `terraform/azure/.env/.env`:
+       > **Note:** `backend.tf` file has to be pushed to GitHub origin remote before lunching `Azure: Deploy StreamX` action. Otherwise, Terraform will use local state backend which will be deleted together with GH Action runner instance. That will lead to situation in which terraform script will be detached from created resources. That can be fixed by [terraform import](https://developer.hashicorp.com/terraform/cli/import) after successful azure backend setup.
+5. Configure StreamX Platform related variables by appending them to [`terraform/azure/.env/.env`](terraform/azure/.env/.env):
     ```shell
     echo "# StreamX platform Artifact Registry authentication
     export TF_VAR_streamx_operator_image_pull_secret_registry_email=\"\"
@@ -122,7 +122,7 @@ Prerequisites:
 6. Setup required GH
       Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
       and [secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
-      on repository level. Values should be taken from `terraform/azure/.env/.env`.
+      on repository level. Values should be taken from [`terraform/azure/.env/.env`](terraform/azure/.env/.env).
     * variables:
         * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL`
         * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_EMAIL`
@@ -136,7 +136,7 @@ Prerequisites:
         * `ARM_TENANT_ID`
         * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_PASSWORD`
 7. Setup optional GH Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
-   on repository level. Values should be taken from `terraform/azure/.env/.env`
+   on repository level. Values should be taken from [`terraform/azure/.env/.env`](terraform/azure/.env/.env)
     * `INGESTION_HOST`
     * `WEB_HOST`
 
