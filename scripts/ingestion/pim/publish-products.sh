@@ -40,7 +40,7 @@ for ((i=0; i<products_count; i+=batch_size)); do
         next_batch_end=$((i + batch_size))
 
         if [ $counter -eq $batch_size ] || [ $next_batch_end -ge $products_count ]; then
-          echo "Products batch starting with product id $id"
+          echo "$i / $products_count"
           echo "$processed_products" | "$SCRIPT_DIR/../publish.sh" data
           counter=0
           processed_product=
