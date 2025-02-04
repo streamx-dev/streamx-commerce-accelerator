@@ -44,6 +44,10 @@ jobs:
             ${{ secrets.ARM_TENANT_ID }}
           ARM_SUBSCRIPTION_ID:
             ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          TF_VAR_resource_group_name:
+            ${{ vars.TF_VAR_resource_group_name }}
+          TF_VAR_location:
+            ${{ vars.TF_VAR_location }}
           TF_VAR_cert_manager_lets_encrypt_issuer_acme_email:
             ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_acme_email }}
           TF_VAR_streamx_operator_image_pull_secret_registry_email:
@@ -54,7 +58,6 @@ jobs:
           terraform -chdir=./terraform/azure/platform apply -auto-approve
           echo "kubeconfig_path=$(terraform -chdir=./terraform/azure/platform output -raw kubeconfig_path)" >> $GITHUB_OUTPUT
           echo "streamx_ingress_ip=$(terraform -chdir=./terraform/azure/platform output -raw loadbalancer_ip)" >> $GITHUB_OUTPUT
-
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
