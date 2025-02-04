@@ -1,5 +1,5 @@
 defaultRegistry: ghcr.io/streamx-dev/streamx-blueprints
-defaultImageTag: 1.0.2-jvm
+defaultImageTag: 1.0.4-jvm
 
 sources:
   pim:
@@ -25,7 +25,7 @@ ingestion:
 
 processing:
   blueprint-data-collector:
-    image: ghcr.io/streamx-dev/streamx-blueprints/data-collector-processing-service:1.0.4-SNAPSHOT-jvm
+    image: data-collector-processing-service
     incoming:
       data:
         topic: relays/aggregated-data
