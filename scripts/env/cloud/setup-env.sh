@@ -10,9 +10,8 @@ if [ -z "$QUARKUS_PROFILE" ]; then
 fi
 
 SETUP_ENV_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-if [ -e "$SETUP_ENV_SCRIPT_DIR/../../../terraform/azure/.env/.env" ]; then
-  source "$SETUP_ENV_SCRIPT_DIR/../../../terraform/azure/.env/.env"
+if [ -e "$SETUP_ENV_SCRIPT_DIR/../../../terraform/azure/.env" ]; then
+  source "$SETUP_ENV_SCRIPT_DIR/read-infra-env.sh" "$SETUP_ENV_SCRIPT_DIR/../../../terraform/azure/.env"
 fi
 
 terraform -chdir="$SETUP_ENV_SCRIPT_DIR"/../../../terraform/azure/platform init
