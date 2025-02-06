@@ -46,7 +46,6 @@ Prerequisites:
 ### Initial setup - Should be done only once
 1. Create [`terraform/azure/.env`](terraform/azure/.env) file:
     ```shell
-    mkdir -p terraform/azure/.env
     echo "# Azurerm provider authentication
     ARM_CLIENT_ID=\"\"
     ARM_CLIENT_SECRET=\"\"
