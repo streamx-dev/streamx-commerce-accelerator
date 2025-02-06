@@ -147,9 +147,11 @@ Prerequisites:
    > [set-repo-secrets.sh](.github/scripts/set-repo-secrets.sh)
    > and [set-repo-variables.sh](.github/scripts/set-repo-variables.sh) scripts which are based on [GH CLI](https://cli.github.com/).
    > ```shell
+   > source scripts/env/cloud/read-infra-env.sh terraform/azure/.env
    > .github/scripts/set-repo-secrets.sh
    > ```
    > ```shell
+   > source scripts/env/cloud/read-infra-env.sh terraform/azure/.env
    > .github/scripts/set-repo-variables.sh
    > ```
      
