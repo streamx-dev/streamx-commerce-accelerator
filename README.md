@@ -121,26 +121,36 @@ Prerequisites:
     > * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL` - Cert Manager passes that email to Let's Encrypt server.
     > * `INGESTION_HOST` - StreamX Mesh Ingestion REST API host. Host can contain `{STREAMX_INGRESS_IP}` placeholder which will be later resolved to Kubernetes Cluster Load Balancer's IP. e.g. `ingestion-test.{STREAMX_INGRESS_IP}.nip.io`. If not set `ingestion.{STREAMX_INGRESS_IP}.nip.io` is used.
     > * `WEB_HOST` - StreamX Mesh WEB DELIVERY host. Host can contain `{STREAMX_INGRESS_IP}` placeholder which will be later resolved to Kubernetes Cluster Load Balancer's IP. e.g. `web-test.{STREAMX_INGRESS_IP}.nip.io`. If not set `puresight.{STREAMX_INGRESS_IP}.nip.io` is used.
-9. Setup required GH
+9. Setup GH
       Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
       and [secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
-      on repository level. Values should be taken from [`terraform/azure/.env`](terraform/azure/.env).
-    * variables:
-        * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL`
-        * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_EMAIL`
-        * `TF_VAR_RESOURCE_GROUP_NAME`
-        * `TF_VAR_LOCATION`
-    * secrets:
+      on repository level.
+    * ***required***:
+      * variables:
+          * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL`
+          * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_EMAIL`
+          * `TF_VAR_RESOURCE_GROUP_NAME`
+          * `TF_VAR_LOCATION`
+      * secrets:
         * `ARM_ACCESS_KEY`
         * `ARM_CLIENT_ID`
         * `ARM_CLIENT_SECRET`
         * `ARM_TENANT_ID`
         * `ARM_SUBSCRIPTION_ID`
         * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_PASSWORD`
-10. Setup optional GH Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
-    on repository level. Values should be taken from [`terraform/azure/.env`](terraform/azure/.env)
-     * `INGESTION_HOST`
-     * `WEB_HOST`
+    * ***optional***:
+      * variables:
+        * `INGESTION_HOST`
+        * `WEB_HOST`
+   > **Note:** This step can be done manually using values from 
+   > [`terraform/azure/.env`](terraform/azure/.env) or using
+   > [set-repo-secrets.sh](.github/scripts/set-repo-secrets.sh)
+   > and [set-repo-variables.sh](.github/scripts/set-repo-variables.sh) scripts which are based on [GH CLI](https://cli.github.com/).
+   > ```shell
+   > .github/scripts/set-repo-secrets.sh
+   > .github/scripts/set-repo-variables.sh
+   > ```
+     
 
 ## Cloud deploy
 
