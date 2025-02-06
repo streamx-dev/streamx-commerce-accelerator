@@ -158,7 +158,7 @@ Prerequisites:
 
 ## Cloud deploy
 
-Cloud deployment can be done using bash script lunched from local host or GitHub Action. Both options are interchangeable.
+Cloud deployment can be done using bash script launched from local host or GitHub Action. Both options are interchangeable.
 
 ### Deploy from local
 Prerequisites:
