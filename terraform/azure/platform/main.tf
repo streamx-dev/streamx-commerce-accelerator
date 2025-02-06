@@ -5,7 +5,7 @@ module "azure_platform" {
   resource_group_enabled = false
   cluster_name           = var.cluster_name
   location               = var.location
-  resources_group_name   = var.resources_group_name
+  resources_group_name   = var.resource_group_name
   kubeconfig_path        = "${path.module}/.env/kubeconfig"
 }
 
