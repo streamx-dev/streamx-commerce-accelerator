@@ -148,6 +148,8 @@ Prerequisites:
    > and [set-repo-variables.sh](.github/scripts/set-repo-variables.sh) scripts which are based on [GH CLI](https://cli.github.com/).
    > ```shell
    > .github/scripts/set-repo-secrets.sh
+   > ```
+   > ```shell
    > .github/scripts/set-repo-variables.sh
    > ```
      
