@@ -45,20 +45,20 @@ Prerequisites:
 ## Cloud setup 
 ### Initial setup - Should be done only once
 1. Create [`terraform/azure/.env`](terraform/azure/.env) file:
-    ```shell
-    echo "# Azurerm provider authentication
-    ARM_CLIENT_ID=\"\"
-    ARM_CLIENT_SECRET=\"\"
-    ARM_TENANT_ID=\"\"
-    ARM_SUBSCRIPTION_ID=\"\"" > terraform/azure/.env
-    ```
+   ```shell
+   echo "# Azurerm provider authentication
+   ARM_CLIENT_ID=
+   ARM_CLIENT_SECRET=
+   ARM_TENANT_ID=
+   ARM_SUBSCRIPTION_ID=" > terraform/azure/.env
+   ```
 2. Configure [Terraform Azurerm provider authentication](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#configuring-the-service-principal-in-terraform) data in [`terraform/azure/.env`](terraform/azure/.env).
 3. Append common Azure platform Terraform variables to [`terraform/azure/.env`](terraform/azure/.env):
-    ```shell
-    echo "# Common variables
-    TF_VAR_resource_group_name=\"\"
-    TF_VAR_location=\"\"" >> terraform/azure/.env
-    ```
+   ```shell
+   echo "# Common variables
+   TF_VAR_resource_group_name=
+   TF_VAR_location=" >> terraform/azure/.env
+   ```
 4. Configure common Azure platform Terraform variables in [`terraform/azure/.env`](terraform/azure/.env)
    > **Variables:**
    > * `TF_VAR_resource_group_name` - Azure Resource Group name used for all resources created by Terraform scripts from this repository.
@@ -97,22 +97,22 @@ Prerequisites:
     5. Configure Azure Storage Container's access key for Terraform state backend by appending it to [`terraform/azure/.env`](terraform/azure/.env):
        ```shell
        echo "# Azurerm Terraform state backend authentication
-       ARM_ACCESS_KEY=\"$(terraform -chdir=terraform/azure/state-backend output -raw arm_access_key)\"" >> terraform/azure/.env
+       ARM_ACCESS_KEY=$(terraform -chdir=terraform/azure/state-backend output -raw arm_access_key)" >> terraform/azure/.env
        ```
     6. Commit and push [backend.tf](terraform/azure/platform/backend.tf) file.
        > ⚠️ **Important:** `backend.tf` file has to be pushed to GitHub origin remote before lunching `Azure: Deploy StreamX` action. Otherwise, Terraform will use local state backend which will be deleted together with GH Action runner instance. That will lead to situation in which terraform script will be detached from created resources. That can be fixed by [terraform import](https://developer.hashicorp.com/terraform/cli/import) after successful azure backend setup.
 7. Append StreamX Platform related variables to [`terraform/azure/.env`](terraform/azure/.env):
     ```shell
     echo "# StreamX platform Artifact Registry authentication
-    TF_VAR_streamx_operator_image_pull_secret_registry_email=\"\"
-    TF_VAR_streamx_operator_image_pull_secret_registry_password=\"\"
+    TF_VAR_streamx_operator_image_pull_secret_registry_email=
+    TF_VAR_streamx_operator_image_pull_secret_registry_password=
 
     # Cert Manager - user email used by Let's Encrypt server for expiration notifications
-    TF_VAR_cert_manager_lets_encrypt_issuer_acme_email=\"\"
+    TF_VAR_cert_manager_lets_encrypt_issuer_acme_email=
    
-    # Optional: StreamX Mesh domains configuration - defaults: INGESTION_HOST=\"ingestion.{STREAMX_INGRESS_IP}.nip.io\", WEB_HOST=\"puresight.{STREAMX_INGRESS_IP}.nip.io\" 
-    INGESTION_HOST=\"\"
-    WEB_HOST=\"\"" >> terraform/azure/.env
+    # Optional: StreamX Mesh domains configuration - defaults: INGESTION_HOST=ingestion.{STREAMX_INGRESS_IP}.nip.io, WEB_HOST=puresight.{STREAMX_INGRESS_IP}.nip.io
+    INGESTION_HOST=
+    WEB_HOST=" >> terraform/azure/.env
     ```
 8. Configure StreamX Platform related variables in [`terraform/azure/.env`](terraform/azure/.env):
     > **Variables:**
@@ -128,14 +128,14 @@ Prerequisites:
     * variables:
         * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL`
         * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_EMAIL`
-        * `TF_VAR_resource_group_name`
-        * `TF_VAR_location`
+        * `TF_VAR_RESOURCE_GROUP_NAME`
+        * `TF_VAR_LOCATION`
     * secrets:
         * `ARM_ACCESS_KEY`
         * `ARM_CLIENT_ID`
         * `ARM_CLIENT_SECRET`
-        * `ARM_SUBSCRIPTION_ID`
         * `ARM_TENANT_ID`
+        * `ARM_SUBSCRIPTION_ID`
         * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_PASSWORD`
 10. Setup optional GH Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
     on repository level. Values should be taken from [`terraform/azure/.env`](terraform/azure/.env)
