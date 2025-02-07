@@ -11,7 +11,7 @@ variable "location" {
 }
 
 variable "azurerm_storage_container_name" {
-  default     = "streamx-tfstate"
+  default     = "streamx-example-tfstate"
   description = "Azure Storage Container name."
   type        = string
 }
