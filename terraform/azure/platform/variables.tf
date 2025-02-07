@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 variable "resources_group_name" {
   default     = "rg-adobe-summit-demo"
+=======
+variable "resource_group_name" {
+  default     = "streamx-commerce-accelerator"
+>>>>>>> 126508c0264609c57072171dd4e29fb03ee57482
   description = "Azure resources group name."
   type        = string
 }
