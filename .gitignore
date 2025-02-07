@@ -44,7 +44,8 @@ terraform.rc
 # Ignore auth scripts
 auth/*
 **/.env/*
-/secrets/generated/
+/terraform/**/.env
+/mesh/secrets/generated/
 /target
 /repository
 

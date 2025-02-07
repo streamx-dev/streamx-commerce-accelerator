@@ -11,6 +11,12 @@ SEPARATOR="# GENERATED"
 # Define the values to replace after the separator
 NEW_VALUES=$1
 
+# Check if the file exists
+if [[ ! -f "$ENV_FILE" ]]; then
+    echo "$ENV_FILE does not exist. Creating a new one."
+    touch "$ENV_FILE"
+fi
+
 # Check if the separator exists in the file
 if grep -q "$SEPARATOR" "$ENV_FILE"; then
     content=$(sed -n "/$SEPARATOR/q; p" "$ENV_FILE")
