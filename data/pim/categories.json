@@ -105,6 +105,11 @@
     "name": "Entryway Furniture"
   },
   {
+    "id": "Featured",
+    "slug": "featured",
+    "name": "Featured"
+  },
+  {
     "id": "Folding Chairs",
     "slug": "folding-chairs",
     "name": "Folding Chairs"
