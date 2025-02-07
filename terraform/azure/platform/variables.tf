@@ -1,4 +1,4 @@
-variable "resources_group_name" {
+variable "resource_group_name" {
   default     = "streamx-commerce-accelerator"
   description = "Azure resources group name."
   type        = string
