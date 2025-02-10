@@ -9,6 +9,11 @@
        nodes:
          "blueprint-web.webserver:80": 1
        type: roundrobin
+     plugins:
+       gzip:
+         buffers:
+           number: 8
+         types: "*"
    -
      name: Search Proxy
      id: blueprint-search
