@@ -6,7 +6,7 @@
     const PER_PAGE = 6;
     const SEARCH_URL = '/search/query';
     const DEFAULT_IMG = '../data/assets/342x457.webp';
-    const classToggle = (el, ...args) => args.map(e => el.classList.toggle(e));
+
     let currentPage = 0;
     let activeFilters = [];
     let initFilters = true;
@@ -44,6 +44,7 @@
     };
 
     const buildQuery = (category, facets) => {
+
       const query  = {
         'id': 'products',
         'params': {
@@ -55,7 +56,7 @@
           'facets': {
             'fields': facets.map((f, index) => {
               return {
-                'name': f,
+                'name': Object.keys(f)[0],
                 'size': 20,
                 'last': index === facets.length - 1
               }
@@ -111,10 +112,10 @@
               </div>`;
     };
 
-    const getFilterTemplate = (name, filters) => {
+    const getFilterTemplate = (name, filters, label) => {
       const tmp =  `<fieldset>
-        <legend class="font-medium text-gray-700 mb-4">${name}</legend>
-          <div c  lass="pt-2">
+        <legend class="font-medium text-gray-700 mb-4">${label}</legend>
+          <div class="pt-2">
             ${ filters.map((f,i) => { return `<div class="flex gap-2">
                 <div class="flex items-center mb-4">
                   <input id="${name}-${i}" name="${name}[]" type="checkbox" class="checkbox-filter w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="${f.key}">
@@ -148,11 +149,11 @@
             filter.values = filter.values.filter(val => val !== facetVal);
           }
         }
-        init(); // this should be adapted later on to a more generic one
+        fetchProductData();
       }
     }
 
-    const handleResponse = (response) => {
+    const handleResponse = (response, availableFacets) => {
       const ul = document.getElementById(RESULTS_CONTAINER_ID);
       const products =  mapToPagesResponse(response.hits);
 
@@ -168,9 +169,13 @@
         const facets = mapFacets(response.aggregations);
 
         Object.keys(facets).forEach((facetKey) => {
-          const li = document.createElement('li');
-          li.innerHTML = getFilterTemplate(facetKey, facets[facetKey]).trim();
-          facetsUl.appendChild(li);
+          const facetObject = availableFacets.find(item => facetKey in item);
+          if(facetObject) {
+            const facetLabel = facetObject ? facetObject[facetKey] : '';
+            const li = document.createElement('li');
+            li.innerHTML = getFilterTemplate(facetKey, facets[facetKey], facetLabel).trim();
+            facetsUl.appendChild(li);
+          }
         });
   
         document.getElementById(PCP_CONTAINER_ID).onclick = (event) => handleFilterChange(event);
@@ -183,7 +188,7 @@
 
     const fetchProductData = () => {
       const category = document.getElementById(PCP_CONTAINER_ID).getAttribute('data-category');
-      const availableFacets = document.getElementById(PCP_CONTAINER_ID).getAttribute('data-filters').split(',');
+      const availableFacets = JSON.parse(document.getElementById(PCP_CONTAINER_ID).getAttribute('data-filters'));
 
       fetch(SEARCH_URL, {
         method: 'POST',
@@ -195,15 +200,19 @@
       })
       .then((response) => {
         const json = response.json();
-        handleResponse(json);
+        handleResponse(json, availableFacets);
       })
       .catch((response) => {
         console.log(response.status, response.statusText);
-        handleResponse(mocks); // here we mock for now from pcp-mocks
+        handleResponse(mocks, availableFacets); // here we mock for now from pcp-mocks
       });
     }
 
     const init = () => {
+      const pageIsPCP = document.getElementById(PCP_CONTAINER_ID);
+      if(!pageIsPCP) {
+        return;
+      }
       const loadMoreButton = document.getElementById(LOAD_MORE_BUTTON_ID);
       loadMoreButton.addEventListener('click', function () {
         fetchProductData();
