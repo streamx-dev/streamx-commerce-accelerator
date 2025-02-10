@@ -17,16 +17,16 @@
           <nav class="breadcrumb  is-medium" aria-label="breadcrumbs">
             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
               <li><a> <span>Products</span> </a></li>
-              <li><a> <span>New Arrivals</span> </a></li>
+              <li><a> <span>{{name}}</span> </a></li>
             </ol>
           </nav>
          </nav>
          <div class="w-full" >
            <h1 class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6">New Arrivals</h1>
-           <p class="text-gray-600">Checkout out the latest release of Basic Tees, new and improved with four openings!</p>
+           <p class="text-gray-600">Checkout out the latest release of {{name}}, new and improved with four openings!</p>
            <hr class="my-4 md:my-6 border-gray-200"/>
         </div>
-        <div class="pt-6 lg:grid lg:grid-cols-4 lg:gap-4">
+        <div class="pt-6 lg:grid lg:grid-cols-4 lg:gap-4" id="product-category-component" data-category="chair" data-filters="keywords,ft_keyword,ft_weight">
           <aside>
             <!-- <h2 class="hidden">Filters</h2>
             <button type="button" class="hidden">
@@ -35,146 +35,16 @@
                 <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"></path>
               </svg>
             </button> -->
-            <div class="hidden lg:block">
-              <form class="">
-                <div>
-                  <fieldset>
-                    <legend class="font-medium text-gray-700">Color</legend>
-                    <div class="pt-2">
-                      <div class="flex gap-2">
-                        <div class="flex items-center mb-4">
-                          <input id="color-0" name="color[]" type="checkbox" class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="white">
-                          <label for="color-0" class="ms-2 text-sm font-medium text-gray-400 font-thin">White</label>
-                        </div>
-                      </div>
-                      <div class="flex gap-2">
-                        <div class="flex items-center mb-4">
-                          <input id="color-1" name="color[]" type="checkbox" class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="beige">
-                          <label for="color-1" class="ms-2 text-sm font-medium text-gray-400 font-thin">Beige</label>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                  <hr class="my-4 md:my-6 border-gray-200"/>
-                </div>
-                <div class="pt-4">
-                  <fieldset>
-                    <legend class="font-medium text-gray-700">Category</legend>
-                    <div class="pt-2">
-                      <div class="flex gap-2">
-                        <div class="flex items-center mb-4">
-                          <input id="category-0" name="category[]" type="checkbox" class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="new-arrivals">
-                          <label for="category-0" class="ms-2 text-sm font-medium text-gray-400 font-thin">All New Arrivals</label>
-                        </div>
-                      </div>
-                      <div class="flex gap-2">
-                        <div class="flex items-center mb-4">
-                          <input id="category-1" name="category[]" type="checkbox" class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="pants">
-                          <label for="category-1" class="ms-2 text-sm font-medium text-gray-400 font-thin">Pants</label>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                  <hr class="my-4 md:my-6 border-gray-200"/>
-                </div>
-              </form>
-            </div>
+            <ul class="hidden lg:block" id="category-list">
+            </ul>
           </aside>
-          <ul class="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-3 xl:gap-x-8 lg:col-span-3">
-            <li class="border-neutral-200 border items-center rounded-md truncate">
-              <div class="flex flex-col">
-                <figure class="w-full aspect-[3/4] flex">
-                  <picture class="w-full object-cover">
-                    <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-                    <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/124x166.webp">
-                    <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/156x209.webp">
-                    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/220x294.webp">
-                    <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-                    <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-                    <img class="w-full" src="../assets/342x457.webp" loading="lazy" alt=""/>
-                  </picture>
-                </figure>
-                <div class="mt-4 flex gap-y-2 flex-wrap">
-                  <div class="flex flex-col flex-grow w-full p-4">
-                    <p class="text-base font-bold text-gray-700 truncate mb-4">
-                      Basic Tee 8-Pack
-                    </p>
-                    <p class="text-sm text-gray-500 text-wrap mb-4">
-                      Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.
-                    </p>
-                    <p class="text-sm text-gray-500 text-wrap italic">
-                      White
-                    </p>
-                    <p class="text-base font-bold text-gray-700">
-                      450&euro;
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="border-neutral-200 border items-center rounded-md truncate">
-              <div class="flex flex-col">
-                <figure class="w-full aspect-[3/4] flex">
-                  <picture class="w-full object-cover">
-                    <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-                    <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/124x166.webp">
-                    <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/156x209.webp">
-                    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/220x294.webp">
-                    <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-                    <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-                    <img class="w-full" src="../assets/342x457.webp" loading="lazy" alt=""/>
-                  </picture>
-                </figure>
-                <div class="mt-4 flex gap-y-2 flex-wrap">
-                  <div class="flex flex-col flex-grow w-full p-4">
-                    <p class="text-base font-bold text-gray-700 truncate mb-4">
-                      Basic Tee 8-Pack
-                    </p>
-                    <p class="text-sm text-gray-500 text-wrap mb-4">
-                      Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.
-                    </p>
-                    <p class="text-sm text-gray-500 text-wrap italic">
-                      White
-                    </p>
-                    <p class="text-base font-bold text-gray-700">
-                      450&euro;
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="border-neutral-200 border items-center rounded-md truncate">
-              <div class="flex flex-col">
-                <figure class="w-full aspect-[3/4] flex">
-                  <picture class="w-full object-cover">
-                    <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-                    <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/124x166.webp">
-                    <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/156x209.webp">
-                    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/220x294.webp">
-                    <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-                    <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-                    <img class="w-full" src="../assets/342x457.webp" loading="lazy" alt=""/>
-                  </picture>
-                </figure>
-                <div class="mt-4 flex gap-y-2 flex-wrap">
-                  <div class="flex flex-col flex-grow w-full p-4">
-                    <p class="text-base font-bold text-gray-700 truncate mb-4">
-                      Basic Tee 8-Pack
-                    </p>
-                    <p class="text-sm text-gray-500 text-wrap mb-4">
-                      Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.
-                    </p>
-                    <p class="text-sm text-gray-500 text-wrap italic">
-                      White
-                    </p>
-                    <p class="text-base font-bold text-gray-700">
-                      450&euro;
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </li>
+          <ul class="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-3 xl:gap-x-8 lg:col-span-3" id="product-list">
           </ul>
+          <div class="hidden grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-col-span-1 xl:gap-x-8 lg:col-end-4" id="load-more-button">
+            <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-sm shadow mt-5" aria-label="Load more">
+              <span class="">Load more</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
