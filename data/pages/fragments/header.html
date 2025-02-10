@@ -19,32 +19,18 @@
         <a href="/homepage.html" class="flex lg:grow items-center">
           <img class="w-auto" src="../assets/logo.svg" alt="logo">
         </a>
-        <div class="hidden sm:ml-6 lg:block">
-          <div class="h-24 flex space-x-4 items-center justify-center gap-8">
-            <a href="/products.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]" aria-current="page">Products</a>
-            <a href="/blog/simplify-your-space.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Spaces</a>
-            <a href="/blog/from-chaos-to-calm.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Inspiration</a>
-            <a href="/blog.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[6rem]">Blog</a>
+        <div class="hidden fixed top-24 w-[100vw] bg-white inset-x-0 lg:block lg:static lg:w-auto" id="nav-menu">
+          <div class="flex-col lg:flex-row lg:h-24 flex lg:space-x-4 lg:items-center lg:justify-center lg:gap-8 px-8 lg:px-0 ">
+            <a href="/products.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[3rem] lg:leading-[6rem]" aria-current="page">Products</a>
+            <a href="/blog/simplify-your-space.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[3rem] lg:leading-[6rem]">Spaces</a>
+            <a href="/blog/from-chaos-to-calm.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[3rem] lg:leading-[6rem]">Inspiration</a>
+            <a href="/blog.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[3rem] lg:leading-[6rem]">Blog</a>
 
             <!-- Search Input -->
-            <div id="autocomplete" style="--aa-primary-color-rgb: black;" class="w-40 max-w-40"></div>
+            <div id="autocomplete" style="--aa-primary-color-rgb: black;" class="w-40 lg:max-w-40"></div>
+            <hr class="my-4 md:my-6 border-gray-200 lg:hidden"/>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hidden lg:hidden" id="mobile-menu">
-    <div class="space-y-1 px-2 pb-3 pt-2 bg-white flex flex-col">
-      <a href="#" class="p-3 text-m font-bold text-gray-800" aria-current="page">Dashboard</a>
-      <a href="#" class="p-3 text-m font-bold text-gray-800">Team</a>
-      <a href="#" class="p-3 text-m font-bold text-gray-800">Projects</a>
-      <a href="#" class="p-3 text-m font-bold text-gray-800">Calendar</a>
-      <div class="md:w-1/2 flex items-center rounded bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-gray-400">
-        <svg class="text-gray-400" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
-        </svg>
-        <input type="text" class="block min-w-0 grow px-3 py-2.5 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6 md:text-base" placeholder="Search...">
       </div>
     </div>
   </div>

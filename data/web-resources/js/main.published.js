@@ -8,7 +8,7 @@
     function toggleMobileNavMenu() {
         const navMenuBurgerIcon = document.getElementsByClassName('nav-menu-icon__burger')[0];
         const navMenuCloseIcon = document.getElementsByClassName('nav-menu-icon__close')[0];
-        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('nav-menu');
         
         classToggle(navMenuBurgerIcon, 'block', 'hidden');
         classToggle(navMenuCloseIcon, 'block', 'hidden');
