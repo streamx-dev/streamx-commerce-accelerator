@@ -1,0 +1,31 @@
+PUT /_ingest/pipeline/default-local
+
+{
+  "description": "Default ingest pipeline used for default",
+  "processors": [
+    {
+      "script": {
+        "description": "Set current date to ingested field",
+        "lang": "painless",
+        "ignore_failure": true,
+        "source": "String pattern = \"yyyy-MM-dd'T'HH:mm:ss.SSSZ\"; SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern); ctx[\"payload\"][\"ingested\"] = simpleDateFormat.format(new Date());"
+      }
+    },
+    {
+      "script": {
+        "description": "Preprocessing of the attributes item as ft_ facets filter",
+        "lang": "painless",
+        "ignore_failure": true,
+        "source": "Map facets = new HashMap(); if (ctx[\"payload\"][\"attributes\"] != null) { for(item in ctx[\"payload\"][\"attributes\"]) { if ( true == true ) { String name = item.name; List facetValues = facets[\"ft_\" + name]; if (facetValues == null) { facetValues = new ArrayList(); facets.put(\"ft_\" + item.name, facetValues); } for(itemValue in item[\"values\"]) { if (null != itemValue.value) facetValues.add(itemValue.value); }}}} facets.forEach((k, v) -> ctx[\"payload\"][k] = v) "
+      }
+    },
+    {
+      "script": {
+        "description": "Preprocessing of the categories items for category filter",
+        "lang": "painless",
+        "ignore_failure": true,
+        "source": "Set category = new HashSet(); if (ctx[\"payload\"][\"categories\"] != null) { for(item in ctx[\"payload\"][\"categories\"]) { String name = item.name; category.add(name); } if (category.size() > 0) { ctx[\"payload\"][\"category\"] = new ArrayList(category)  } } "
+      }
+    }
+  ]
+}
