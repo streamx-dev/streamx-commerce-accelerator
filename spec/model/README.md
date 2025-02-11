@@ -98,7 +98,7 @@ ref: "#/definitions/SxPrice"
 
 | Field           | Type     | Description                   |
 |-----------------|----------|-------------------------------|
-| value           | Number * | vaolue of the price           |
+| value           | Number * | value of the price            |
 | discountedValue | Number * | value of the discounted price |
 
 ## **SxAttribute**
@@ -121,7 +121,7 @@ ref: "#/definitions/SxAttribute"
 
 ## **SxAttributeValue**
 
-Additional metadata informations for an attribute.
+Additional metadata information for an attribute.
 
 ### JSON-Schema
 
@@ -136,7 +136,7 @@ ref: "#/definitions/SxAttributeValue"
 
 ## **SxAttributeOption**
 
-Additional metadata informations for an attribute.
+Additional metadata information for an attribute.
 
 ### JSON-Schema
 
@@ -144,8 +144,24 @@ ref: "#/definitions/SxAttributeOption"
 
 ### Model properties
 
-| Field | Type     | Description                   |
-|-------|----------|-------------------------------|
-| value | String * | value of the attribute option |
-| label | String   | attribute option label        |
+| Field  | Type                    | Description                       |
+|--------|-------------------------|-----------------------------------|
+| value  | String *                | value of the attribute option     |
+| label  | String                  | attribute option label            |
+| swatch | SxAttributeOptionSwatch | swatch information for the option |
+
+## **SxAttributeOptionSwatch**
+
+Additional metadata information for an attribute.
+
+### JSON-Schema
+
+ref: "#/definitions/SxAttributeOptionSwatch"
+
+### Model properties
+
+| Field | Type     | Description                          |
+|-------|----------|--------------------------------------|
+| type  | String * | type of the attribute option swatch  |
+| value | String * | value of the attribute option swatch |
 

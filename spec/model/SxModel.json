@@ -222,6 +222,25 @@
         },
         "label": {
           "type": "string"
+        },
+        "swatch": {
+          "$ref": "#/definitions/SxAttributeOptionSwatch"
+        }
+      }
+    },
+    "SxAttributeOptionSwatch": {
+      "type": "object",
+      "title": "SxAttributeOptionSwatch",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
         }
       }
     },

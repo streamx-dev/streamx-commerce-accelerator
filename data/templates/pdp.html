@@ -70,7 +70,7 @@
               {% for attribute in attributes %}
                 {{ attribute.label | default(attribute.name | capitalize) }}:
                 {% for value in attribute.values %}
-                {{ value.value }}{{ value.valueLabel | default('') }}{% if not loop.last %}, {% endif %}
+                  {{ value.valueLabel | default('') }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
               {% endfor %}
             </p>
