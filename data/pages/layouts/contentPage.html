@@ -1,18 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="" lang="en">
-
 <head>
   <meta charset="UTF-8"/>
-  {{#insert name="metaTitle"}}
-
-  {{#include src="/fragments/headContent.html"}}
+  {{#insert name="metaTitle"}} {{#include src="/fragments/headContent.html"}}
 </head>
 
-<body class="pt-24 overflow-scroll">
-{{#include src="/fragments/header.html"}}
-
-{{#insert name="content.html"}}
-
-{{#include src="/fragments/footer.html"}}
+<body>
+<div class="min-h-screen bg-gray-50 flex flex-col">
+  {{#include src="/fragments/header.html"}}
+  {{#insert name="content.html"}}
+  {{#include src="/fragments/footer.html"}}
+</div>
 </body>
 </html>
