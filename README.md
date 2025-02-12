@@ -10,17 +10,20 @@ maintenance.
 This documentation outlines the components of the project, the purpose of each folder, and
 instructions for local setup and deployment.
 
+## Windows Specifics
+
+In the case of Windows, all the commands outlined in this file should be run inside the Linux VM terminal, which hosts Docker, rather than in native Windows terminals (e.g., CMD or PowerShell). For instance, if Docker is used with WSL, the commands should be executed inside the WSL terminal.
+
 ## Local Setup
 
-Prerequisites:
-
-* StreamX CLI in preview version:
+As a prerequisite, ensure that you have StreamX CLI installed in preview version:
   ```shell
   brew install streamx-dev/preview-tap/streamx
   ```
 
-1. **Start StreamX:**
-    - Run the StreamX instance (current setup requires `preview` version of StreamX CLI, see
+1. **Start StreamX**
+    
+   Run the StreamX instance (current setup requires `preview` version of StreamX CLI, see
       prerequisites):
       ```bash
       streamx run -f ./mesh/mesh.yaml
@@ -29,14 +32,16 @@ Prerequisites:
    > **Note:** For local development you can also use mesh-light.yaml which comes with the basic
    functionality only that allows to run on limited resources.
 
-2. **Run the Proxy:**
-    - Start the local proxy for serving the website:
+2. **Run the Proxy**
+
+   Start the local proxy for serving the website:
       ```bash
       ./gateway/run-proxy.sh
       ```
 
-3. **Publish All Resources:**
-    - Use the `publish-all` script to deploy all necessary data to StreamX:
+3. **Publish All Resources**
+   
+   Use the `publish-all` script to deploy all necessary data to StreamX:
       ```bash
       ./scripts/publish-all.sh
       ```
