@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="be-vietnam-pro" lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <title>{{name}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" href="../assets/static/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Roboto&display=swap"/>
+  <link rel="stylesheet" href="../../web-resources/css/materialdesignicons@7.2.96.min.css"/>
+  <link rel="stylesheet" href="../../web-resources/css/main.css" type="text/css"/>
+  <link rel="stylesheet" href="../../web-resources/css/algolia.theme.min.css" type="text/css"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+  <body class="pt-24">
+    <!-- NAV Start -->
+    <nav class="bg-white fixed top-0 left-0 right-0 h-24 z-50">
+      <div class="container mx-auto px-8">
+        <div class="relative flex h-24 items-center justify-between">
+          <div class="absolute inset-y-0 right-0 flex items-center lg:hidden">
+            <!-- Mobile menu button-->
+            <button type="button" id="mobile-nav-button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <svg class="block size-6 mb-0 nav-menu-icon__burger" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <svg class="hidden size-6 mb-0 nav-menu-icon__close" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <a href="/homepage.html" class="flex lg:grow items-center">
+              <img class="w-auto" src="../assets/logo.svg" alt="logo">
+            </a>
+            <div class="hidden fixed top-24 w-[100vw] bg-white inset-x-0 lg:block lg:static lg:w-auto" id="nav-menu">
+              <div class="flex-col lg:flex-row lg:h-24 flex lg:space-x-4 lg:items-center lg:justify-center lg:gap-8 px-8 lg:px-0 ">
+                <a href="/products.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[3rem] lg:leading-[6rem]" aria-current="page">Products</a>
+                <a href="/blog/simplify-your-space.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[3rem] lg:leading-[6rem]">Spaces</a>
+                <a href="/blog/from-chaos-to-calm.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[3rem] lg:leading-[6rem]">Inspiration</a>
+                <a href="/blog.html" class="ps-1 pe-1 text-base font-medium text-gray-800 cursor-pointer border-b-4 border-transparent hover:text-gray-500 hover:border-gray-500 leading-[3rem] lg:leading-[6rem]">Blog</a>
+
+                <!-- Search Input -->
+                <div id="autocomplete" style="--aa-primary-color-rgb: black;" class="lg:w-40 lg:max-w-40"></div>
+                <hr class="my-4 md:my-6 border-gray-200 lg:hidden"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- NAV End -->
+
+    <section class="container bg-white mx-auto">
+      <div class="container  ">
+        <a href="/content/puresight/pages/blog/simplify-your-space.html" class="article-featured">
+          <div class="columns is-desktop ">
+            <div class="column">
+              <figure class="image-hero">
+                <img src="/content/puresight/assets/Blogs/decluttering.jpeg/jcr:content/renditions/original.jpeg">
+              </figure>
+            </div>
+            <div class="column">
+              <div class="content">
+                <div class="content-info">
+                  
+                  <h4 class="title is-4">Simplify Your Space: A Guide to Decluttering</h4>
+                  
+                  <div class="content-info-details">
+                    
+                      <span class="image is-32x32">
+                        <img class="is-rounded" width="32" height="32" src="/content/puresight/assets/Blogs/SofiaSilva%20(1).jpg/jcr:content/renditions/original.jpg">
+                      </span>
+    
+                      <span class="author-content">Sarah Mitchell</span>
+                      <span class="date-content">Sep 6 2023</span>
+                      <span class="time-content">3 min read</span>
+                    
+                  </div>
+                </div>
+                <span class="mdi mdi-arrow-up"></span>
+              </div>
+            </div>
+          </div>
+        </a>
+        
+        <div class="columns is-multiline is-desktop">
+          <a href="/content/puresight/pages/blog/simplify-your-space.html" class="column is-4-desktop article-thumbnail">
+            <div class="has-text-centered image-hero">
+              <img src="/content/puresight/assets/Blogs/decluttering.jpeg/jcr:content/renditions/original.jpeg" loading="lazy">
+            </div>
+            <div class="content">
+              <div class="content-info">
+                <h6 class="title is-6">Simplify Your Space: A Guide to Decluttering</h6>
+                <div class="content-info-details">
+                  <p>
+                    
+                      <span class="author-content">Sarah Mitchell</span>
+                    
+                    <span class="date-content">Sep 6 2023</span>
+                    <span class="time-content">3 min
+                      read</span>
+                  </p>
+                </div>
+              </div>
+              <span class="mdi mdi-arrow-up"></span>
+            </div>
+          </a>
+      
+          <a href="/content/puresight/pages/blog/streamlining-your-space.html" class="column is-4-desktop article-thumbnail">
+            <div class="has-text-centered image-hero">
+              <img src="/content/puresight/assets/Blogs/minimalist-design.jpeg/jcr:content/renditions/original.jpeg" loading="lazy">
+            </div>
+            <div class="content">
+              <div class="content-info">
+                <h6 class="title is-6">Streamlining Your Space: The Art of Minimalist Design</h6>
+                <div class="content-info-details">
+                  <p>
+                    
+                      <span class="author-content">Sarah Mitchell</span>
+                    
+                    <span class="date-content">Sep 6 2023</span>
+                    <span class="time-content">3 min
+                      read</span>
+                  </p>
+                </div>
+              </div>
+              <span class="mdi mdi-arrow-up"></span>
+            </div>
+          </a>
+      
+          <a href="/content/puresight/pages/blog/the-marie-kondo-method.html" class="column is-4-desktop article-thumbnail">
+            <div class="has-text-centered image-hero">
+              <img src="/content/puresight/assets/Blogs/spacejoy-umAXneH4GhA-unsplash.jpg/jcr:content/renditions/original.jpg" loading="lazy">
+            </div>
+            <div class="content">
+              <div class="content-info">
+                <h6 class="title is-6">The Marie Kondo Method: Sparking Joy in Your Home</h6>
+                <div class="content-info-details">
+                  <p>
+                    
+                      <span class="author-content">Sarah Mitchell</span>
+                    
+                    <span class="date-content">Sep 6 2023</span>
+                    <span class="time-content">3 min
+                      read</span>
+                  </p>
+                </div>
+              </div>
+              <span class="mdi mdi-arrow-up"></span>
+            </div>
+          </a>
+      
+          <a href="/content/puresight/pages/blog/decluttering-for-serenity.html" class="column is-4-desktop article-thumbnail">
+            <div class="has-text-centered image-hero">
+              <img src="/content/puresight/assets/Blogs/bench-accounting-8D2k7a3wMKQ-unsplash.jpg/jcr:content/renditions/original.jpg" loading="lazy">
+            </div>
+            <div class="content">
+              <div class="content-info">
+                <h6 class="title is-6">Decluttering for Serenity: Creating Zen Spaces</h6>
+                <div class="content-info-details">
+                  <p>
+                    
+                      <span class="author-content">Sarah Mitchell</span>
+                    
+                    <span class="date-content">Sep 6 2023</span>
+                    <span class="time-content">3 min
+                      read</span>
+                  </p>
+                </div>
+              </div>
+              <span class="mdi mdi-arrow-up"></span>
+            </div>
+          </a>
+      
+          <a href="/content/puresight/pages/blog/sustainable-interior-design.html" class="column is-4-desktop article-thumbnail">
+            <div class="has-text-centered image-hero">
+              <img src="/content/puresight/assets/Blogs/eco-friendly.jpeg/jcr:content/renditions/original.jpeg" loading="lazy">
+            </div>
+            <div class="content">
+              <div class="content-info">
+                <h6 class="title is-6">Sustainable Interior Design: Eco-Friendly Living Spaces</h6>
+                <div class="content-info-details">
+                  <p>
+                    
+                      <span class="author-content">Sarah Mitchell</span>
+                    
+                    <span class="date-content">Sep 6 2023</span>
+                    <span class="time-content">3 min
+                      read</span>
+                  </p>
+                </div>
+              </div>
+              <span class="mdi mdi-arrow-up"></span>
+            </div>
+          </a>
+      
+          <a href="/content/puresight/pages/blog/efficient-cleaning-hacks.html" class="column is-4-desktop article-thumbnail">
+            <div class="has-text-centered image-hero">
+              <img src="/content/puresight/assets/Blogs/hacks-tidy.jpeg/jcr:content/renditions/original.jpeg" loading="lazy">
+            </div>
+            <div class="content">
+              <div class="content-info">
+                <h6 class="title is-6">Efficient Cleaning Hacks for a Tidy Home</h6>
+                <div class="content-info-details">
+                  <p>
+                    
+                      <span class="author-content">Sarah Mitchell</span>
+                    
+                    <span class="date-content">Sep 6 2023</span>
+                    <span class="time-content">3 min
+                      read</span>
+                  </p>
+                </div>
+              </div>
+              <span class="mdi mdi-arrow-up"></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-bg">
+      <div class="mx-auto w-full container p-8  lg:py-24">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div class="mb-6 md:mb-0">
+              <img src="../assets/logoFooter.svg" class="w-12 mb-6" alt="Logo" />
+              <a target="_blank" rel="noopener noreferrer nofollow" href="/policies-licences.html" class="text-gray-400 text-base mb-6 block">
+                Source: Amazon Berkeley Objects (ABO) Dataset
+              </a>
+              <p class="text-white text-sm">Built with WebSight CMS. © Copyright by Dynamic Solutions sp. z. o.o. All rights reserved.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <ul class="text-white font-medium">
+                <li class="mb-6">
+                  <a href="/products.html" class="hover:underline">
+                    <span>Products</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/simplify-your-space.html" class="hover:underline">
+                    <span>Spaces</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog.html" class="hover:underline">
+                    <span>Blog</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/from-chaos-to-calm.htm" class="hover:underline">
+                    <span>Inspiration</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/homepage.html" class="hover:underline">
+                    <span>Offers</span>
+                  </a>
+                </li>
+              </ul>
+              <ul class="text-white font-medium">
+                <li class="mb-6">
+                  <a href="/products.html" class="hover:underline">
+                    <span>Delivery</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/simplify-your-space.html" class="hover:underline">
+                    <span>Finance</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog.html" class="hover:underline">
+                    <span>Planning services</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/from-chaos-to-calm.htm" class="hover:underline">
+                    <span>Pre-loved furniture</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/homepage.html" class="hover:underline">
+                    <span>Buyback</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/homepage.html" class="hover:underline">
+                    <span>Interior design services</span>
+                  </a>
+                </li>
+              </ul>
+              <ul class="text-white font-medium">
+                <li class="mb-6">
+                  <a href="/products.html" class="hover:underline">
+                    <span>Stores</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/simplify-your-space.html" class="hover:underline">
+                    <span>About us</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog.html" class="hover:underline">
+                    <span>Careers</span>
+                  </a>
+                </li>
+                <li class="mb-6">
+                  <a href="/blog/from-chaos-to-calm.htm" class="hover:underline">
+                    <span>Newsroom</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </footer>
+
+    <script defer src="../data/web-resources/js/main.published.js"></script>
+    <script defer src="../data/web-resources/js/autocomplete-js.js"></script>
+    <script defer src="../data/web-resources/js/autocomplete-init.js"></script>
+    <script defer src="../data/web-resources/js/pcp-mocks.js" ></script>
+    <script defer src="../data/web-resources/js/pcp-init.js"></script>
+  </body>
+
+</html>
