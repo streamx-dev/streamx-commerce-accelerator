@@ -159,8 +159,10 @@ As a prerequisite, ensure that you have StreamX CLI installed in preview version
    > source scripts/env/cloud/read-infra-env.sh terraform/azure/.env
    > .github/scripts/set-repo-variables.sh
    > ```
-     
 
+10. Store and share variables.
+    Once your cloud setup is done anyone who has access to variables from .env file will be able to work with cloud instance using his local instance. In order to do that variables should be shared with all interested parties.
+    
 ## Cloud deploy
 
 Cloud deployment can be done using bash script launched from local host or GitHub Action. Both options are interchangeable.
@@ -168,6 +170,7 @@ Cloud deployment can be done using bash script launched from local host or GitHu
 ### Deploy from local
 Prerequisites:
 
+* .env file variables. Ask your administrator to share .env variables with you
 * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 * [StreamX CLI](https://www.streamx.dev/guides/streamx-command-line-interface-reference.html) in preview version.
   ```shell
