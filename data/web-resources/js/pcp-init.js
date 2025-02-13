@@ -58,7 +58,7 @@
               return {
                 'name': Object.keys(f)[0],
                 'size': 20,
-                'last': index === facets.length - 1
+                'last': index === facets.length - 1 ? true:false
               }
             })
           }
@@ -67,14 +67,16 @@
   
       if (activeFilters && activeFilters.length > 0) {
         query.params["filter_query"] = {
-          "fields": activeFilters.map(f => {
+          "fields": activeFilters.map((f, index) => {
             return {
               "name": f.name,
               "values": f.values,
+              'last': index === facets.length - 1 ? true:false
             }
           })
         };
       }
+
       return JSON.stringify(query);
     };
 
