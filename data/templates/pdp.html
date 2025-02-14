@@ -1,14 +1,15 @@
 
 
 <!DOCTYPE html>
-<html class="be-vietnam-pro" lang="en">
+<html lang="en">
 
 <head>
   <title>{{name}}</title>
   {{ '{{#include src="/fragments/headContent.html"}}' }}
 </head>
 
-  <body class="pt-24 overflow-scroll">
+  <body>
+  <div class="min-h-screen bg-gray-50 flex flex-col">
     {{ '{{#include src="/fragments/header.html"}}' }}
 
     <section class="container bg-white mx-auto">
@@ -40,7 +41,7 @@
               {% endfor %}
              </div>
           </div>
-  
+
           <div class="col-span-2 p-4 mt-6 sm:mt-8 lg:mt-0">
             <p class="text-base text-zinc-500">
               Pure Sight co.
@@ -113,7 +114,7 @@
           </ul>
         </div>
         <div class="px-8">
-          <h4 class="text-3xl font-bold text-gray-800 mb-6">Related Articles</h2>
+          <h4 class="text-3xl font-bold text-gray-800 mb-6">Related Articles</h4>
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="bg-white flex flex-col items-start">
               <figure class="w-full mb-5">
@@ -180,7 +181,7 @@
     <section class="container bg-white mx-auto">
       <div class="pb-16 sm:pb-24 px-8">
         <h2 class="text-6xl font-bold leading-[72px] text-gray-900 mb-2">Related products</h2>
-    
+
         <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8">
           <li>
             <div class="flex flex-col">
@@ -344,6 +345,7 @@
     <!-- Related Products end -->
 
     {{ '{{#include src="/fragments/footer.html"}}' }}
+  </div>
   </body>
 
 </html>
