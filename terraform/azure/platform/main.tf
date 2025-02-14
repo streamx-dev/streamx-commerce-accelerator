@@ -11,18 +11,28 @@ module "azure_platform" {
   public_ip_id           = var.public_ip_id
 }
 
-module "streamx" {
-  source  = "streamx-dev/charts/helm"
-  version = "0.0.1"
 
-  cert_manager_lets_encrypt_issuer_acme_email = var.cert_manager_lets_encrypt_issuer_acme_email
-  ingress_controller_nginx_settings = {
+locals {
+  ingress_controller_nginx_settings_without_static_ip = {
+    "controller.replicaCount" : 1
+    "controller.service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-health-probe-request-path" : "/healthz"
+    "controller.service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal" : false
+  }
+  ingress_controller_nginx_settings_with_static_ip = {
     "controller.service.loadBalancerIP" : var.public_ip_address
     "controller.replicaCount" : 1
     "controller.service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group": var.resource_group_name
     "controller.service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-health-probe-request-path" : "/healthz"
     "controller.service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal" : false
   }
+}
+
+module "streamx" {
+  source  = "streamx-dev/charts/helm"
+  version = "0.0.1"
+
+  cert_manager_lets_encrypt_issuer_acme_email = var.cert_manager_lets_encrypt_issuer_acme_email
+  ingress_controller_nginx_settings = var.public_ip_address == null || var.public_ip_address == "" ? local.ingress_controller_nginx_settings_without_static_ip : local.ingress_controller_nginx_settings_with_static_ip
   pulsar_kaap_values = [
     file("${path.module}/config/pulsar-kaap/values.yaml")
   ]
