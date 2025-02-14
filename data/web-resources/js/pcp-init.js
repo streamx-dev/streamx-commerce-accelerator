@@ -159,6 +159,10 @@
       const ul = document.getElementById(RESULTS_CONTAINER_ID);
       const products =  mapToPagesResponse(response.hits);
 
+      if (currentPage === 0) {
+        ul.innerHTML = '';
+      }
+
       products.forEach((product) => {
         const li = document.createElement('li');
         li.classList.add('border-neutral-200', 'border', 'items-center', 'rounded-md', 'truncate');
