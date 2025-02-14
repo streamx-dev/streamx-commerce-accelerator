@@ -1,6 +1,6 @@
 module "tf_state_backend" {
-  source = "/Users/marekczajkowski/workspace/terraform-azurerm-platform/modules/state-backend"
-  #version = "0.0.1"
+  source  = "streamx-dev/platform/azurerm//modules/state-backend"
+  version = "0.0.2"
 
   resource_group_name            = var.resource_group_name
   location                       = var.location

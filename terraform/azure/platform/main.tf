@@ -1,6 +1,6 @@
 module "azure_platform" {
-  source  = "/Users/marekczajkowski/workspace/terraform-azurerm-platform"
-  #version = "0.0.1"
+  source  = "streamx-dev/platform/azurerm"
+  version = "0.0.2"
 
   resource_group_enabled = false
   cluster_name           = var.cluster_name
