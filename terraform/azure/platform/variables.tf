@@ -31,3 +31,18 @@ variable "streamx_operator_image_pull_secret_registry_password" {
   type        = string
   sensitive   = true
 }
+
+variable "public_ip_id" {
+  description = "Public ip id for kubernetes cluster"
+  type        = string
+}
+
+variable "public_ip_address" {
+  description = "Public ip address"
+  type        = string
+}
+# TO BE REMOVED
+variable "user_identity_id" {
+  description = "The id of the user used by terraform to create cluster"
+  type        = string
+}
