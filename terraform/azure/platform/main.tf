@@ -1,12 +1,14 @@
 module "azure_platform" {
-  source  = "streamx-dev/platform/azurerm"
-  version = "0.0.1"
+  source  = "/Users/marekczajkowski/workspace/terraform-azurerm-platform"
+  #version = "0.0.1"
 
   resource_group_enabled = false
   cluster_name           = var.cluster_name
   location               = var.location
   resources_group_name   = var.resource_group_name
   kubeconfig_path        = "${path.module}/.env/kubeconfig"
+  user_identity_id       = var.user_identity_id
+  public_ip_id           = var.public_ip_id
 }
 
 module "streamx" {
@@ -15,7 +17,9 @@ module "streamx" {
 
   cert_manager_lets_encrypt_issuer_acme_email = var.cert_manager_lets_encrypt_issuer_acme_email
   ingress_controller_nginx_settings = {
+    "controller.service.loadBalancerIP" : var.public_ip_address
     "controller.replicaCount" : 1
+    "controller.service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group": var.resource_group_name
     "controller.service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-health-probe-request-path" : "/healthz"
     "controller.service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal" : false
   }
