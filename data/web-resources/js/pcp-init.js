@@ -200,13 +200,9 @@
         },
         body: buildQuery(category, availableFacets)
       })
+      .then((response) => response.json())
       .then((response) => {
-        const json = response.json();
-        handleResponse(json, availableFacets);
-      })
-      .catch((response) => {
-        console.log(response.status, response.statusText);
-        handleResponse(mocks, availableFacets); // here we mock for now from pcp-mocks
+        handleResponse(response, availableFacets);
       });
     }
 
