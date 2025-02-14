@@ -1,6 +1,6 @@
 variable "name" {
   default     = "streamx-commerce-accelerator-public-ip"
-  description = "The name of public ip resource"
+  description = "The name of public IP resource"
   type        = string
 }
 

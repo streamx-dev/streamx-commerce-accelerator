@@ -20,6 +20,8 @@ for htmlFile in $(find "$INPUT_DIR" -type f ); do
     content=$(cat "$htmlFile" | jq -Rs .)
 
     if [[ "$RELATIVE_PATH" == compositions/* ]]; then
+      echo "TUTAJ"
+      echo ${RELATIVE_PATH#compositions/}
       outputJson=$(jq -n --arg key ${RELATIVE_PATH#compositions/} --arg bytes "$content" '{
             "key": $key,
             "action": "publish",

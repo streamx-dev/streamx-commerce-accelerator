@@ -92,9 +92,8 @@ data in [`terraform/azure/.env`](terraform/azure/.env).
 4. Configure common Azure platform Terraform variables
    in [`terraform/azure/.env`](terraform/azure/.env)
    > **Variables:**
-   > * `TF_VAR_user_identity_id` - Azure Managed User Identity ID used for creating and managing
-       cluster used by Terraform scripts from this repository. If not set System managed user will
-       be used and no static public ip could be used. On Azure Managed Identity Overview (identity from prerequisite) switch to JSON view and copy Resource ID.
+   > * `TF_VAR_user_identity_id` - Azure Managed Identity ID used by Terraform script as AKS cluster User Managed Identity. If not set System Managed Identity will
+       be used and no static public IP could be used. On Azure Managed Identity Overview (identity from prerequisite) switch to JSON view and copy Resource ID.
    > * `TF_VAR_resource_group_name` - Azure Resource Group name which was created as prerequisite
    > * `TF_VAR_location` - Azure location used for all resources created by Terraform scripts from
        this repository.
@@ -131,7 +130,7 @@ using [Terraform script](terraform/azure/state-backend)
    > by [terraform import](https://developer.hashicorp.com/terraform/cli/import) after successful
    > azure backend setup.
     
-6. Optionaly: Setup public static ip address. If you skip this step dynamic ip will be used
+6. Optionaly: Setup public static ip address. If you skip this step dynamic IP will be used
     1. Append network settings
         ```shell
          echo "# Network settings
