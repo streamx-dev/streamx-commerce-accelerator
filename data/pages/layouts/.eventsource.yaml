@@ -1,0 +1,7 @@
+channel: layouts
+relativePathLevel: 0
+
+key: ${relativePath}
+payload:
+  content:
+    bytes: file://${payloadPath}
