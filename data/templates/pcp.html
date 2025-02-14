@@ -9,308 +9,60 @@
 <div class="min-h-screen bg-gray-50 flex flex-col">
   {{ '{{#include src="/fragments/header.html"}}' }}
 
-  <section class="container bg-white mx-auto">
-    <div class="pb-16 sm:pb-24 px-8 mt-16">
-      <nav aria-label="Breadcrumb" class="flex mb-6">
-        <nav aria-label="breadcrumbs" class="breadcrumb is-medium">
-          <ol
-            class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
-          >
-            <li>
-              <a> <span>Products</span> </a>
-            </li>
-            <li>
-              <a> <span>New Arrivals</span> </a>
-            </li>
-          </ol>
-        </nav>
-      </nav>
-      <div class="w-full">
-        <h1
-          class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6"
-        >
-          New Arrivals
-        </h1>
-        <p class="text-gray-600">
-          Checkout out the latest release of Basic Tees, new and improved
-          with four openings!
-        </p>
-        <hr class="my-4 md:my-6 border-gray-200"/>
-      </div>
-      <div class="pt-6 lg:grid lg:grid-cols-4 lg:gap-4">
-        <aside>
-          <!-- <h2 class="hidden">Filters</h2>
-      <button type="button" class="hidden">
-        <span class="">Filters</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="ke om ww bar">
-          <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"></path>
-        </svg>
-      </button> -->
-          <div class="hidden lg:block">
-            <form class="">
-              <div>
-                <fieldset>
-                  <legend class="font-medium text-gray-700">Color</legend>
-                  <div class="pt-2">
-                    <div class="flex gap-2">
-                      <div class="flex items-center mb-4">
-                        <input
-                          class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2"
-                          id="color-0"
-                          name="color[]"
-                          type="checkbox"
-                          value="white"
-                        />
-                        <label
-                          class="ms-2 text-sm font-medium text-gray-400 font-thin"
-                          for="color-0"
-                        >White</label
-                        >
-                      </div>
-                    </div>
-                    <div class="flex gap-2">
-                      <div class="flex items-center mb-4">
-                        <input
-                          class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2"
-                          id="color-1"
-                          name="color[]"
-                          type="checkbox"
-                          value="beige"
-                        />
-                        <label
-                          class="ms-2 text-sm font-medium text-gray-400 font-thin"
-                          for="color-1"
-                        >Beige</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
-                <hr class="my-4 md:my-6 border-gray-200"/>
-              </div>
-              <div class="pt-4">
-                <fieldset>
-                  <legend class="font-medium text-gray-700">
-                    Category
-                  </legend>
-                  <div class="pt-2">
-                    <div class="flex gap-2">
-                      <div class="flex items-center mb-4">
-                        <input
-                          class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2"
-                          id="category-0"
-                          name="category[]"
-                          type="checkbox"
-                          value="new-arrivals"
-                        />
-                        <label
-                          class="ms-2 text-sm font-medium text-gray-400 font-thin"
-                          for="category-0"
-                        >All New Arrivals</label
-                        >
-                      </div>
-                    </div>
-                    <div class="flex gap-2">
-                      <div class="flex items-center mb-4">
-                        <input
-                          class="w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2"
-                          id="category-1"
-                          name="category[]"
-                          type="checkbox"
-                          value="pants"
-                        />
-                        <label
-                          class="ms-2 text-sm font-medium text-gray-400 font-thin"
-                          for="category-1"
-                        >Pants</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
-                <hr class="my-4 md:my-6 border-gray-200"/>
-              </div>
-            </form>
+  <div class="container mx-auto px-4 py-12">
+    {% set title = key|split(":")|last|replace({'_': ' '}) %}
+    <h1 class="text-3xl font-bold mb-8 capitalize">{{title}}</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for item in values %}
+      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
+        <a data-discover="true" href="/products/{{ item.slug }}.html">
+          <div class="aspect-square relative"><img alt='{{ item.primaryImage.alt }}' class="w-full h-full object-cover"
+                                                   src="{{ item.primaryImage.url }}"></div>
+        </a>
+        <div class="p-4">
+          <a data-discover="true" href="/products/{{ item.slug }}.html">
+            <h3 class="font-semibold text-lg mb-2">{{ item.name|replace({'&quot;': '\''})|length > 30 ?
+              item.name|replace({'&quot;': '\''})|slice(0, 30)|e ~ '...' : item.name }}</h3>
+          </a>
+          <div class="flex items-center mb-2">
+            {% set rating = 3 %}
+            {% set svgClass = 'lucide lucide-star w-4 h-4 fill-yellow-400 text-yellow-400' %}
+
+            {% for i in 1..5 %}
+            {% if i > rating %}
+            {% set svgClass = 'lucide lucide-star w-4 h-4 text-gray-300' %}
+            {% endif %}
+            <svg
+              class="{{ svgClass }}"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+              ></path>
+            </svg>
+            {% endfor %}
           </div>
-        </aside>
-        <ul
-          class="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-3 xl:gap-x-8 lg:col-span-3"
-        >
-          <li
-            class="border-neutral-200 border items-center rounded-md truncate"
-          >
-            <div class="flex flex-col">
-              <figure class="w-full aspect-[3/4] flex">
-                <picture class="w-full object-cover">
-                  <source
-                    media="(max-width: 639px)"
-                    srcset="../assets/573x765.webp"
-                  />
-                  <source
-                    media="(min-width: 640px) and (max-width: 767px)"
-                    srcset="../assets/124x166.webp"
-                  />
-                  <source
-                    media="(min-width: 768px) and (max-width: 1023px)"
-                    srcset="../assets/156x209.webp"
-                  />
-                  <source
-                    media="(min-width: 1024px) and (max-width: 1279px)"
-                    srcset="../assets/220x294.webp"
-                  />
-                  <source
-                    media="(min-width: 1280px) and (max-width: 1535px)"
-                    srcset="../assets/278x372.webp"
-                  />
-                  <source
-                    media="(min-width: 1536px)"
-                    srcset="../assets/342x457.webp"
-                  />
-                  <img
-                    alt=""
-                    class="w-full"
-                    loading="lazy"
-                    src="../assets/342x457.webp"
-                  />
-                </picture>
-              </figure>
-              <div class="mt-4 flex gap-y-2 flex-wrap">
-                <div class="flex flex-col flex-grow w-full p-4">
-                  <p
-                    class="text-base font-bold text-gray-700 truncate mb-4"
-                  >
-                    Basic Tee 8-Pack
-                  </p>
-                  <p class="text-sm text-gray-500 text-wrap mb-4">
-                    Get the full lineup of our Basic Tees. Have a fresh
-                    shirt all week, and an extra for laundry day.
-                  </p>
-                  <p class="text-sm text-gray-500 text-wrap italic">
-                    White
-                  </p>
-                  <p class="text-base font-bold text-gray-700">450&euro;</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li
-            class="border-neutral-200 border items-center rounded-md truncate"
-          >
-            <div class="flex flex-col">
-              <figure class="w-full aspect-[3/4] flex">
-                <picture class="w-full object-cover">
-                  <source
-                    media="(max-width: 639px)"
-                    srcset="../assets/573x765.webp"
-                  />
-                  <source
-                    media="(min-width: 640px) and (max-width: 767px)"
-                    srcset="../assets/124x166.webp"
-                  />
-                  <source
-                    media="(min-width: 768px) and (max-width: 1023px)"
-                    srcset="../assets/156x209.webp"
-                  />
-                  <source
-                    media="(min-width: 1024px) and (max-width: 1279px)"
-                    srcset="../assets/220x294.webp"
-                  />
-                  <source
-                    media="(min-width: 1280px) and (max-width: 1535px)"
-                    srcset="../assets/278x372.webp"
-                  />
-                  <source
-                    media="(min-width: 1536px)"
-                    srcset="../assets/342x457.webp"
-                  />
-                  <img
-                    alt=""
-                    class="w-full"
-                    loading="lazy"
-                    src="../assets/342x457.webp"
-                  />
-                </picture>
-              </figure>
-              <div class="mt-4 flex gap-y-2 flex-wrap">
-                <div class="flex flex-col flex-grow w-full p-4">
-                  <p
-                    class="text-base font-bold text-gray-700 truncate mb-4"
-                  >
-                    Basic Tee 8-Pack
-                  </p>
-                  <p class="text-sm text-gray-500 text-wrap mb-4">
-                    Get the full lineup of our Basic Tees. Have a fresh
-                    shirt all week, and an extra for laundry day.
-                  </p>
-                  <p class="text-sm text-gray-500 text-wrap italic">
-                    White
-                  </p>
-                  <p class="text-base font-bold text-gray-700">450&euro;</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li
-            class="border-neutral-200 border items-center rounded-md truncate"
-          >
-            <div class="flex flex-col">
-              <figure class="w-full aspect-[3/4] flex">
-                <picture class="w-full object-cover">
-                  <source
-                    media="(max-width: 639px)"
-                    srcset="../assets/573x765.webp"
-                  />
-                  <source
-                    media="(min-width: 640px) and (max-width: 767px)"
-                    srcset="../assets/124x166.webp"
-                  />
-                  <source
-                    media="(min-width: 768px) and (max-width: 1023px)"
-                    srcset="../assets/156x209.webp"
-                  />
-                  <source
-                    media="(min-width: 1024px) and (max-width: 1279px)"
-                    srcset="../assets/220x294.webp"
-                  />
-                  <source
-                    media="(min-width: 1280px) and (max-width: 1535px)"
-                    srcset="../assets/278x372.webp"
-                  />
-                  <source
-                    media="(min-width: 1536px)"
-                    srcset="../assets/342x457.webp"
-                  />
-                  <img
-                    alt=""
-                    class="w-full"
-                    loading="lazy"
-                    src="../assets/342x457.webp"
-                  />
-                </picture>
-              </figure>
-              <div class="mt-4 flex gap-y-2 flex-wrap">
-                <div class="flex flex-col flex-grow w-full p-4">
-                  <p
-                    class="text-base font-bold text-gray-700 truncate mb-4"
-                  >
-                    Basic Tee 8-Pack
-                  </p>
-                  <p class="text-sm text-gray-500 text-wrap mb-4">
-                    Get the full lineup of our Basic Tees. Have a fresh
-                    shirt all week, and an extra for laundry day.
-                  </p>
-                  <p class="text-sm text-gray-500 text-wrap italic">
-                    White
-                  </p>
-                  <p class="text-base font-bold text-gray-700">450&euro;</p>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
+          <div class="flex items-center justify-between">
+            <span class="text-lg font-bold">${{ item.price.value }}</span>
+            <button
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 bg-dsg-red hover:bg-dsg-red/90 text-white">
+              Add
+              to Cart
+            </button>
+          </div>
+        </div>
       </div>
+      {% endfor %}
     </div>
-  </section>
+  </div>
 
   {{ '{{#include src="/fragments/footer.html"}}' }}
 </div>
