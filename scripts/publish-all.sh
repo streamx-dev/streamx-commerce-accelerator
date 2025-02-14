@@ -1,4 +1,10 @@
 #!/bin/bash
+echo "Publishing all..."
+if ! command -v jq &> /dev/null; then
+    echo "Error: 'jq' (CLI JSON processor) is not installed. Please install it and try again."
+    exit 1
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 "$SCRIPT_DIR"/ingestion/cert/generate_certs_hashed_symlinks.sh

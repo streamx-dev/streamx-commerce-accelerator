@@ -43,6 +43,21 @@
         return value.replace(/(<([^>]+)>)/gi, '');
     };
 
+    const getCoffeeTableResults = async () => {
+        const response = await fetch(buildUrl("coffee table", 2));
+        return mapToPagesResponse(response);
+    };
+
+    const getBeigeChairResults = async () => {
+        const response = await fetch(buildUrl("beige chair", 2));
+        return mapToPagesResponse(response);
+    };
+
+    const getQueenSizeBedResults = async () => {
+        const response = await fetch(buildUrl("queen size bed", 2));
+        return mapToPagesResponse(response);
+    };
+
     const getItemTemplate = (html, item) => {
         return html`<a class="aa-ItemLink" href=${getAutocompleteItemUrl(item)}>
             <div class="aa-ItemContent">
@@ -120,7 +135,79 @@
                               return "No results";
                             },
                     },
-                  }
+                  },
+                  {
+                    sourceId: "coffeeTableResults",
+                    async getItems({ query }) {
+                      if (query) {
+                        return [];
+                      }
+                      const response = await getCoffeeTableResults();
+                      return response.items;
+                    },
+                    getItemUrl({ item }) {
+                      return getAutocompleteItemUrl(item);
+                    },
+                    templates: {
+                      header({ html }) {
+                        if (query === "") {
+                          return html`<span class="aa-SourceHeaderTitle">Coffee tables</span><div class="aa-SourceHeaderLine" />`;
+                        }
+                        return null;
+                      },
+                      item({ item, html }) {
+                        return getItemTemplate(html, item);
+                      },
+                    },
+                  },
+                  {
+                    sourceId: "beigeChairResults",
+                    async getItems({ query }) {
+                      if (query) {
+                        return [];
+                      }
+                      const response = await getBeigeChairResults();
+                      return response.items;
+                    },
+                    getItemUrl({ item }) {
+                      return getAutocompleteItemUrl(item);
+                    },
+                    templates: {
+                      header({ html }) {
+                        if (query === "") {
+                          return html`<span class="aa-SourceHeaderTitle">Beige chairs</span><div class="aa-SourceHeaderLine" />`;
+                        }
+                        return null;
+                      },
+                      item({ item, html }) {
+                        return getItemTemplate(html, item);
+                      },
+                    },
+                  },
+                  {
+                    sourceId: "queenSizeBedResults",
+                    async getItems({ query }) {
+                        if (query) {
+                            return [];
+                        }
+                        const response = await getQueenSizeBedResults();
+                        return response.items;
+                    },
+                    getItemUrl({ item }) {
+                      return getAutocompleteItemUrl(item);
+                    },
+                    templates: {
+                      header({ html }) {
+                        if (query === "") {
+                          return html`<span class="aa-SourceHeaderTitle">Queen size beds</span><div class="aa-SourceHeaderLine" />`;
+                        }
+                        return null;
+                      },
+                      item({ item, html }) {
+                        return getItemTemplate(html, item);
+                      },
+                    },
+                  },
                 ]
               },
           });
