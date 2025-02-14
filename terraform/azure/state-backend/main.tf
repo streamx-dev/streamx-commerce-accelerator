@@ -5,7 +5,7 @@ module "tf_state_backend" {
   resource_group_name            = var.resource_group_name
   location                       = var.location
   azurerm_storage_container_name = var.azurerm_storage_container_name
-  tf_backends                    = {
+  tf_backends = {
     "platform.tfstate" : "${path.module}/../platform/backend.tf"
     "network.tfstate" : "${path.module}/../network/backend.tf"
   }
