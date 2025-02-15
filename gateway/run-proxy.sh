@@ -1,6 +1,5 @@
 #!/bin/bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../scripts/ingestion/read-env.sh"
 
 # Function to clean up nginx-proxy container
 cleanup() {
@@ -17,16 +16,8 @@ docker rm -f nginx-proxy >/dev/null 2>&1
 
 # Print available URLs
 echo "The following URLs are available:"
-echo " - $WEB_URL"
+echo " - http://puresight.127.0.0.1.nip.io"
 echo " - http://ingestion.127.0.0.1.nip.io"
-
-# Define script variables
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-NGINX_CONF="${SCRIPT_DIR}/proxy.conf"
-
-#Replace serverName
-TEMP_CONF="${NGINX_CONF}.tmp"
-sed "s|\$WEB_HOST|${WEB_HOST}|g" "$NGINX_CONF" > "$TEMP_CONF"
 
 MESH_NETWORK=$(docker inspect rest-ingestion --format '{{range .NetworkSettings.Networks}}{{.NetworkID}}{{end}}')
 
@@ -36,11 +27,8 @@ docker run -d --rm --network "${MESH_NETWORK}" --name nginx-proxy -p 80:80 nginx
 
 # Copy configuration and reload nginx
 echo "Configuring nginx-proxy..."
-docker cp "${TEMP_CONF}" nginx-proxy:/etc/nginx/nginx.conf
+docker cp "${SCRIPT_DIR}/proxy.conf" nginx-proxy:/etc/nginx/nginx.conf
 docker exec nginx-proxy nginx -s reload
-
-#Cleanup
-rm -f $TEMP_CONF
 
 # Keep script running to handle CTRL+C
 echo "nginx-proxy is running. Press CTRL+C to stop."
