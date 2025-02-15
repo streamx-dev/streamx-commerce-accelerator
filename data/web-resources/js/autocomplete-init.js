@@ -38,9 +38,11 @@
         return (item && item.path) ? item.path : "";
     };
 
-    const stripHtmlTags = (value) => {
-        if (typeof value !== 'string') return value;
-        return value.replace(/(<([^>]+)>)/gi, '');
+    const replaceEmWithMark = (value) => {
+      if (typeof value !== 'string') return value;
+      return value
+        .replace(/<em>/g, '<mark>')
+        .replace(/<\/em>/g, '</mark>');
     };
 
     const getCoffeeTableResults = async () => {
@@ -81,8 +83,8 @@
                     </svg>
                 </div>
                 <div class="aa-ItemContentBody">
-                    <div class="aa-ItemContentTitle">${stripHtmlTags(item.title)}</div>
-                    <div class="aa-ItemContentDescription">${stripHtmlTags(item.bestFragment)}</div>
+                    <div class="aa-ItemContentTitle" dangerouslySetInnerHTML=${{ __html: replaceEmWithMark(item.title) }}></div>
+                    <div class="aa-ItemContentDescription" dangerouslySetInnerHTML=${{ __html: replaceEmWithMark(item.bestFragment) }}></div>
                 </div>
                 <div class="aa-ItemActions">
                     <button class="aa-ItemActionButton" type="button" title="Add to cart">
