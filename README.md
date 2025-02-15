@@ -130,7 +130,7 @@ using [Terraform script](terraform/azure/state-backend)
    > by [terraform import](https://developer.hashicorp.com/terraform/cli/import) after successful
    > azure backend setup.
     
-6. Optionaly: Setup public static ip address. If you skip this step dynamic IP will be used
+6. Optionally: Setup public static ip address. If you skip this step dynamic IP will be used
     1. Append network settings
         ```shell
          echo "# Network settings
@@ -138,8 +138,7 @@ using [Terraform script](terraform/azure/state-backend)
         ```
     2. Configure network settings:
        > **Variables:**
-       >    * `TF_VAR_dns_label` - your prefix for fully qualified domain on azure. By default it's
-              streamx.
+       >    * `TF_VAR_dns_label` - your prefix for fully qualified domain on azure. By default, it's streamx.
 
     3. Load Azurerm provider authentication data:
        ```shell

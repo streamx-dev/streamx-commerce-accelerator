@@ -6,7 +6,7 @@ input_file="$SCRIPT_DIR/products.json"
 output_file="$SCRIPT_DIR/../../data/catalog/products.stream"
 rm "$output_file"
 
-json_data=$(cat "$input_file")
+json_data=$(cat "$input_file" | sed 's/\\"/\&quot;/g')
 
 echo "$json_data" | jq -c '.[]' | while IFS= read -r product; do
   id=$(echo "$product" | jq -r '.id')
@@ -20,7 +20,7 @@ echo "$json_data" | jq -c '.[]' | while IFS= read -r product; do
       "payload": {
         "dev.streamx.blueprints.data.Data": {
           "content": {
-            "bytes": ($content | @json | gsub("\\\\\""; "\u0022"))
+            "bytes": ($content | @json)
           }
         }
       }

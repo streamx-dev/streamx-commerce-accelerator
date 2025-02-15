@@ -1,0 +1,8 @@
+- Create a separate readme for terraform, no need to have it in the main one, as it's a one-time job
+- Move Terraform related scripts to terraform
+- Refactor to not use environmental variables, it's really hard to track, we should stick to
+config folder or .env
+- Make sure that the only contract between terraform and accelerator are the properties in application.properties
+- Environment switching should be done by changing profiles
+
+- Limit the number of bash scripts, if something becomes complex, automate it using CLI
