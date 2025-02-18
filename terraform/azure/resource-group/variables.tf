@@ -9,9 +9,3 @@ variable "location" {
   description = "Azure location."
   type        = string
 }
-
-variable "azurerm_storage_container_name" {
-  default     = "streamx-tfstate"
-  description = "Azure Storage Container name."
-  type        = string
-}

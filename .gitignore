@@ -51,3 +51,4 @@ auth/*
 
 # Ignore trusted cers symlinks
 scripts/ingestion/cert/*.0
+/node_modules

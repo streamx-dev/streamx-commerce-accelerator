@@ -1,50 +1,97 @@
-<section class="container bg-white mx-auto">
-  <div class="py-16 sm:py-24 px-8">
-    <h2 class="text-3xl font-bold tracking-tight text-gray-900">New arrivals</h2>
-    <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
-      {% for i in range(0, values|length - 1) %}
-      <li>
-        <div class="flex flex-col">
-          <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
-            <picture class="m-auto w-full object-contain">
-              <source media="(max-width: 639px)"  srcset="../assets/573x765.webp">
-              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
-              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
-              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
-              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-              <source media="(min-width: 1536px)" srcset="{{ values[i].primaryImage.url }}">
-              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
-            </picture>
-          </figure>
-          <div class="mt-4 flex gap-y-2 flex-wrap">
-            <div class="flex flex-row items-center flex-grow w-full">
-              <p class="text-base font-bold text-gray-700 truncate flex-grow">
-                {{ values[i].name | abbreviate(20) }}
-              </p>
-              <div class="flex items-center flex-shrink-0">
-                <i class="mdi mdi-star " aria-hidden="true"></i>
-                <i class="mdi mdi-star " aria-hidden="true"></i>
-                <i class="mdi mdi-star " aria-hidden="true"></i>
-                <i class="mdi mdi-star " aria-hidden="true"></i>
-                <i class="mdi mdi-star-outline " aria-hidden="true"></i>
-              </div>
-            </div>
-            <div class="flex flex-row items-center flex-grow w-full">
-              {% if values[i].price.value is not empty %}
-              <p class="text-base font-bold price-text-color truncate flex-grow">
-                {{ values[i].price.value }}&euro;
-              </p>
-              {% endif %}
-              <a href="/products/{{ values[i].slug }}.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
-                    <span class="inline-block w-auto">
-                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
-                    </span>
-              </a>
-            </div>
+<div class="product-listing product-listing--horizontal">
+  {% for i in range(0, values|length - 1) %}
+  <div class="product-listing__product">
+    <div class="product-listing__product-container">
+      <a
+        class="product-listing__product-asset"
+        data-discover="true"
+        href="/products/{{ values[i].slug }}.html"
+      >
+        <picture class="w-full h-full object-cover">
+          <source media="(max-width: 639px)" srcset="../assets/573x765.webp"/>
+          <source
+            media="(min-width: 640px) and (max-width: 767px)"
+            srcset="../assets/274x366.webp"
+          />
+          <source
+            media="(min-width: 768px) and (max-width: 1023px)"
+            srcset="../assets/338x452.webp"
+          />
+          <source
+            media="(min-width: 1024px) and (max-width: 1279px)"
+            srcset="../assets/214x286.webp"
+          />
+          <source
+            media="(min-width: 1280px) and (max-width: 1535px)"
+            srcset="../assets/278x372.webp"
+          />
+          <source
+            media="(min-width: 1536px)"
+            srcset="{{ values[i].primaryImage.url }}"
+          />
+          <img
+            alt="{{ values[i].name }}"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            src="../assets/573x765.webp"
+          />
+        </picture>
+      </a>
+      <div class="product-listing__product-copy">
+        <div>
+          <a data-discover="true" href="/products/{{ values[i].slug }}.html"
+          ><h3
+            class="product-listing__product-title"
+          >
+            {{ values[i].name | abbreviate(30) }}
+          </h3></a
+          >
+          <div class="product-listing__product-rating">
+            {% set rating = 3 %}
+            {% set svgClass = 'lucide lucide-star w-4 h-4 fill-yellow-400 text-yellow-400' %}
+
+            {% for i in 1..5 %}
+            {% if i > rating %}
+            {% set svgClass = 'lucide lucide-star w-4 h-4 text-gray-300' %}
+            {% endif %}
+            <svg
+              class="{{ svgClass }}"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+              ></path>
+            </svg>
+            {% endfor %}
           </div>
+          <p
+            class="product-listing__product-description"
+          >
+            {{ values[i].description }}
+          </p>
         </div>
-      </li>
-      {% endfor %}
-    </ul>
+        <div class="flex items-center justify-between">
+          {% if values[i].price.value is not empty %}
+          <span class="product-listing__product-price">
+            ${{ values[i].price.value }}
+          </span>
+          {% endif %}
+          <button
+            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 bg-dsg-red hover:bg-dsg-red/90 text-white"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+  {% endfor %}
+</div>

@@ -1,0 +1,48 @@
+{
+  "name": "prft-streamx",
+  "version": "1.0.0",
+  "description": "Perficient - StreamX",
+  "homepage": "https://github.com/PRFTAdobe/prft-streamx#readme",
+  "bugs": {
+    "url": "https://github.com/PRFTAdobe/prft-streamx/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PRFTAdobe/prft-streamx.git"
+  },
+  "license": "ISC",
+  "author": "Shannon Sumner",
+  "type": "module",
+  "scripts": {
+    "lint:js": "eslint --fix data/web-resources/js/**/*.js",
+    "lint:css": "stylelint --fix --allow-empty-input data/web-resources/css/**/*.css",
+    "lint": "npm run lint:js && npm run lint:css",
+    "tailwind": "npx @tailwindcss/cli -i ./data/web-resources/css/tailwind-input.css -o ./data/web-resources/css/tailwind-output.css --minify",
+    "tailwind:watch": "npx @tailwindcss/cli -i ./data/web-resources/css/tailwind-input.css -o ./data/web-resources/css/tailwind-output.css --minify --watch"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "7.26.8",
+    "@eslint/compat": "1.2.6",
+    "@eslint/js": "9.20.0",
+    "@tailwindcss/cli": "4.0.6",
+    "eslint": "9.20.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-next": "15.1.6",
+    "eslint-config-prettier": "10.0.1",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-import-resolver-typescript": "3.7.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-json": "4.0.1",
+    "eslint-plugin-prettier": "5.2.3",
+    "eslint-plugin-sort-keys": "2.3.5",
+    "globals": "15.14.0",
+    "prettier": "3.5.0",
+    "stylelint": "16.14.1",
+    "stylelint-config-standard": "37.0.0",
+    "tailwindcss": "4.0.6",
+    "tailwindcss-animate": "1.0.7"
+  },
+  "overrides": {
+    "eslint@>8.2.0": "9.20.0"
+  }
+}
