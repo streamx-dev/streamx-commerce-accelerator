@@ -59,10 +59,6 @@ jobs:
             ${{ vars.TF_VAR_streamx_operator_image_pull_secret_registry_email }}
           TF_VAR_streamx_operator_image_pull_secret_registry_password:
             ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
-          INGESTION_HOST:
-            ${{ vars.INGESTION_HOST }}
-          WEB_HOST:
-            ${{ vars.WEB_HOST }}
         run: |
           terraform/scripts/deploy-streamx.sh
           echo "kubeconfig_path=$(terraform -chdir=./terraform/azure/platform output -raw kubeconfig_path)" >> $GITHUB_OUTPUT

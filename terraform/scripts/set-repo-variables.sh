@@ -15,9 +15,3 @@ fi
 if [[ -n "$TF_VAR_public_ip_id" ]]; then
 gh variable set TF_VAR_PUBLIC_IP_ID -b "$TF_VAR_public_ip_id"
 fi
-if [[ -n "$INGESTION_HOST" ]]; then
-    gh variable set INGESTION_HOST -b "$INGESTION_HOST"
-fi
-if [[ -n "$WEB_HOST" ]]; then
-    gh variable set WEB_HOST -b "$WEB_HOST"
-fi

@@ -79,8 +79,15 @@
    > which terraform script will be detached from created resources. That can be fixed
    > by [terraform import](https://developer.hashicorp.com/terraform/cli/import) after successful
    > azure backend setup.
-
-6. Optionally: Setup public static ip address. If you skip this step dynamic IP will be used
+6. Optionally: Append and configure custom hosts in [application-cloud.properties](../config/application-cloud.properties):
+   ```shell
+   echo "streamx.accelerator.ingestion.host=
+   streamx.accelerator.web.host=" >> ../config/application-cloud.properties
+   ```
+   > **Properties:**
+   > * `streamx.accelerator.ingestion.host` - Custom StreamX REST Ingestion API host. Default value is `ingestion.${streamx.accelerator.ip}.nip.io`.
+   > * `streamx.accelerator.web.host` - Custom StreamX WEB Delivery Service host. Default value is `web.${streamx.accelerator.ip}.nip.io`.
+7. Optionally: Setup public static ip address. If you skip this step dynamic IP will be used
     1. Provide your prefix for fully qualified domain on azure. By default, it's `streamx`.
        ```shell
        export TF_VAR_dns_label="<YOUR_DNS_LABEL>"
@@ -103,22 +110,18 @@
         echo "TF_VAR_public_ip_id=$(terraform -chdir=azure/network output -raw public_ip_id)" >> azure/.env 
         echo "Your fully qualified domain for Azure cluster - $(terraform -chdir=azure/network output -raw domain_name)"
         ```
-    6. > ⚠️ **Important:** Use newly generated public ip address or the fully qualified domain name to update your domain zone with the entries form next step (WEB_HOST and INGESTION_HOST)
+    6. > ⚠️ **Important:** Use newly generated public ip address or the fully qualified domain name to update your domain zone with the entries form previous step (`streamx.accelerator.ingestion.host` and `streamx.accelerator.web.host`)
        with the new ip/cname
-7. Append StreamX Platform related variables to [`azure/.env`](azure/.env):
+8. Append StreamX Platform related variables to [`azure/.env`](azure/.env):
     ```shell
     echo "# StreamX platform Artifact Registry authentication
     TF_VAR_streamx_operator_image_pull_secret_registry_email=
     TF_VAR_streamx_operator_image_pull_secret_registry_password=
 
     # Cert Manager - user email used by Let's Encrypt server for expiration notifications
-    TF_VAR_cert_manager_lets_encrypt_issuer_acme_email=
-   
-    # Optional: StreamX Mesh domains configuration - defaults: INGESTION_HOST=ingestion.\${streamx.accelerator.ip}.nip.io, WEB_HOST=\${streamx.accelerator.ip}.nip.io
-    INGESTION_HOST=
-    WEB_HOST=" >> azure/.env
+    TF_VAR_cert_manager_lets_encrypt_issuer_acme_email=" >> azure/.env
     ```
-8. Configure StreamX Platform related variables in [`azure/.env`](azure/.env):
+9. Configure StreamX Platform related variables in [`azure/.env`](azure/.env):
    > **Variables:**
    > * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_EMAIL` - email provided by Dynamic
        Solutions used for authentication
@@ -126,43 +129,33 @@
        Solutions used for authentication
    > * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL` - Cert Manager passes that email to
        Let's Encrypt server.
-   > * `INGESTION_HOST` - StreamX Mesh Ingestion REST API host. Host can
-       contain `${streamx.accelerator.ip}` placeholder which will be later resolved to Kubernetes Cluster
-       Load Balancer's IP. e.g. `ingestion-test.${streamx.accelerator.ip}.nip.io`. If not
-       set `ingestion.${streamx.accelerator.ip}.nip.io` is used.
-   > * `WEB_HOST` - StreamX Mesh WEB DELIVERY host. Host can contain `${streamx.accelerator.ip}`
-       placeholder which will be later resolved to Kubernetes Cluster Load Balancer's IP.
-       e.g. `web-test.${streamx.accelerator.ip}.nip.io`. If not
-       set `web.${streamx.accelerator.ip}.nip.io` is used.
-9. Setup GH
-   Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
-   and [secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
-   on repository level.
-    * ***required***:
-        * variables:
-            * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL`
-            * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_EMAIL`
-            * `TF_VAR_RESOURCE_GROUP_NAME`
-            * `TF_VAR_LOCATION`
-        * secrets:
-            * `ARM_ACCESS_KEY`
-            * `ARM_CLIENT_ID`
-            * `ARM_CLIENT_SECRET`
-            * `ARM_TENANT_ID`
-            * `ARM_SUBSCRIPTION_ID`
-            * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_PASSWORD`
-    * ***optional***:
-        * variables:
-            * `TF_VAR_USER_IDENTITY_ID`
-            * `TF_VAR_PUBLIC_IP_ADDRESS`
-            * `TF_VAR_PUBLIC_IP_ID`
-            * `INGESTION_HOST`
-            * `WEB_HOST`
+10. Setup GH
+    Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
+    and [secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+    on repository level.
+     * ***required***:
+         * variables:
+             * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL`
+             * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_EMAIL`
+             * `TF_VAR_RESOURCE_GROUP_NAME`
+             * `TF_VAR_LOCATION`
+         * secrets:
+             * `ARM_ACCESS_KEY`
+             * `ARM_CLIENT_ID`
+             * `ARM_CLIENT_SECRET`
+             * `ARM_TENANT_ID`
+             * `ARM_SUBSCRIPTION_ID`
+             * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_PASSWORD`
+     * ***optional***:
+         * variables:
+             * `TF_VAR_USER_IDENTITY_ID`
+             * `TF_VAR_PUBLIC_IP_ADDRESS`
+             * `TF_VAR_PUBLIC_IP_ID`
    > **Note:** This step can be done manually using values from
    > [`azure/.env`](azure/.env) or using
    > [set-repo-secrets.sh](.github/scripts/set-repo-secrets.sh)
    > and [set-repo-variables.sh](.github/scripts/set-repo-variables.sh) scripts which are based
-   on [GH CLI](https://cli.github.com/).
+    on [GH CLI](https://cli.github.com/).
    > ```shell
    > source scripts/read-infra-env.sh azure/.env
    > scripts/set-repo-secrets.sh
@@ -171,8 +164,7 @@
    > source scripts/read-infra-env.sh azure/.env
    > scripts/set-repo-variables.sh
    > ```
-
-10. Store and share variables.
+11. Store and share variables.
     Once your cloud setup is done anyone who has access to variables from .env file will be able to work with cloud instance using his local instance. In order to do that variables should be shared with all interested parties.
 
 ## Cloud deploy
