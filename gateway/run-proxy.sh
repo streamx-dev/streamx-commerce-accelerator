@@ -16,7 +16,7 @@ docker rm -f nginx-proxy >/dev/null 2>&1
 
 # Print available URLs
 echo "The following URLs are available:"
-echo " - http://puresight.127.0.0.1.nip.io"
+echo " - http://127.0.0.1.nip.io"
 echo " - http://ingestion.127.0.0.1.nip.io"
 
 MESH_NETWORK=$(docker inspect rest-ingestion --format '{{range .NetworkSettings.Networks}}{{.NetworkID}}{{end}}')

@@ -16,10 +16,10 @@ ingestion:
         nginx.ingress.kubernetes.io/proxy-body-size: "500m"
         cert-manager.io/cluster-issuer: "letsencrypt-cert-cluster-issuer"
       hosts:
-        - host: ${STREAMX_INGESTION_HOST}
+        - host: ${streamx.ingestion.host}
       tls:
         - hosts:
-            - ${STREAMX_INGESTION_HOST}
+            - ${streamx.ingestion.host}
           secretName: rest-ingestion.crt
 delivery:
   blueprint-web:
@@ -27,12 +27,12 @@ delivery:
       enabled: true
       ingressClassName: "nginx"
       hosts:
-        - host: ${WEB_HOST}
+        - host: ${streamx.accelerator.web.host}
           paths:
             - servicePort: 80
       tls:
         - hosts:
-            - ${WEB_HOST}
+            - ${streamx.accelerator.web.host}
           secretName: blueprint-web.crt
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-cert-cluster-issuer"
@@ -60,12 +60,12 @@ delivery:
       enabled: true
       ingressClassName: "nginx"
       hosts:
-        - host: ${WEB_HOST}
+        - host: ${streamx.accelerator.web.host}
           paths:
             - path: /search
       tls:
         - hosts:
-            - ${WEB_HOST}
+            - ${streamx.accelerator.web.host}
           secretName: blueprint-search.crt
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-cert-cluster-issuer"
