@@ -63,12 +63,12 @@ jobs:
           WEB_HOST:
             ${{ vars.WEB_HOST }}
         run: |
-          .github/scripts/deploy-streamx.sh
+          terraform/scripts/deploy-streamx.sh
           echo "kubeconfig_path=$(terraform -chdir=./terraform/azure/platform output -raw kubeconfig_path)" >> $GITHUB_OUTPUT
           echo "streamx_ingress_ip=$(terraform -chdir=./terraform/azure/platform output -raw loadbalancer_ip)" >> $GITHUB_OUTPUT
 
       - name: "Ingest content"
-        run: .github/scripts/cloud-publish-all.sh
+        run: terraform/scripts/cloud-publish-all.sh
 
       - name: "Create Job Summary"
         env:

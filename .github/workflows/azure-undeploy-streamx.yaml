@@ -49,4 +49,4 @@ jobs:
             ${{ vars.INGESTION_HOST }}
           WEB_HOST:
             ${{ vars.WEB_HOST }}
-        run: .github/scripts/undeploy-streamx.sh
+        run: terraform/scripts/undeploy-streamx.sh
