@@ -97,7 +97,6 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-
   *,
   ::after,
   ::before,
@@ -253,4 +252,21 @@
       @apply text-2xl font-bold;
     }
   }
+}
+
+.autocomplete .aa-DetachedSearchButtonIcon,
+.autocomplete .aa-SubmitIcon,
+.autocomplete .aa-DetachedSearchButtonPlaceholder,
+.autocomplete .aa-DetachedSearchButtonQuery {
+  display: none;
+}
+
+.aa-DetachedSearchButton {
+  @apply disabled:opacity-50 disabled:pointer-events-none focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring font-medium gap-2 h-10 hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center ring-offset-background rounded-md text-sm transition-colors w-10 whitespace-nowrap;
+
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  margin: inherit;
+  padding: inherit;
 }
