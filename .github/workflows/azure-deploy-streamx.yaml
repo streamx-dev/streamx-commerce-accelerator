@@ -31,6 +31,7 @@ jobs:
           brew install streamx-dev/preview-tap/streamx
 
       - name: "Deploy StreamX"
+        id: deploy-streamx
         env:
           ARM_ACCESS_KEY:
             ${{ secrets.ARM_ACCESS_KEY }}
@@ -72,10 +73,10 @@ jobs:
 
       - name: "Create Job Summary"
         env:
-          KUBECONFIG: ${{ steps.terraform_apply.outputs.kubeconfig_path }}
+          KUBECONFIG: ${{ steps.deploy-streamx.outputs.kubeconfig_path }}
         run: |
           WEB_HOST=$(kubectl get ingress sx-del-blueprint-web -o jsonpath='{.spec.rules[0].host}')
           echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
           echo "- Deployment Status: Success ✅" >> $GITHUB_STEP_SUMMARY
           echo "- Demo URL: https://$WEB_HOST" >> $GITHUB_STEP_SUMMARY
-          echo "- Load balancer IP: ${{ steps.terraform_apply.outputs.streamx_ingress_ip }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Load balancer IP: ${{ steps.deploy-streamx.outputs.streamx_ingress_ip }}" >> $GITHUB_STEP_SUMMARY
