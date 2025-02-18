@@ -13,7 +13,7 @@ export KUBECONFIG="$(terraform -chdir="$SETUP_ENV_SCRIPT_DIR"/../azure/platform 
 streamx_ingress_ip="$(terraform -chdir="$SETUP_ENV_SCRIPT_DIR"/../azure/platform output -raw loadbalancer_ip)"
 echo "%cloud.streamx.accelerator.ip=$streamx_ingress_ip" > "$SETUP_ENV_SCRIPT_DIR/../../.env"
 if [[ -n "$INGESTION_HOST" ]]; then
-    echo "%cloud.streamx.ingestion.host=$INGESTION_HOST" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
+    echo "%cloud.streamx.accelerator.ingestion.host=$INGESTION_HOST" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
 fi
 if [[ -n "$WEB_HOST" ]]; then
     echo "%cloud.streamx.accelerator.web.host=$WEB_HOST" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"

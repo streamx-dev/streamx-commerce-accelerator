@@ -47,6 +47,38 @@ As a prerequisite, ensure that you have StreamX CLI installed in preview version
       ```
 ---
 
+## Cloud setup
+### Automated setup using Terraform
+Follow steps described in [README](terraform/README.md).
+### Manual setup
+1. Configure StreamX properties in `.env` file:
+   ```bash
+   echo "#%cloud.streamx.accelerator.ip=
+   #%cloud.streamx.accelerator.ingestion.host=
+   #%cloud.streamx.accelerator.web.host=
+   %cms.streamx.ingestion.auth-token=
+   %pim.streamx.ingestion.auth-token=" > .env
+   ```
+   > **Properties:**
+   > * `%cloud.streamx.accelerator.ip` - Kubernetes cluster Load Balancer IP. Uncomment and set this property value if `streamx.accelerator.ingestion.host` or `streamx.accelerator.web.host` contains `${streamx.accelerator.ip}` placeholder.
+   > * `%cloud.streamx.accelerator.ingestion.host` - StreamX REST Ingestion API host. Uncomment and set this property value if your StreamX Mesh deployment requires custom host for StreamX REST Ingestion API. Default value is `ingestion.${streamx.accelerator.ip}.nip.io`.
+   > * `%cloud.streamx.accelerator.web.host` - StreamX WEB Delivery Service host. Uncomment and set this property value if your StreamX Mesh deployment requires custom host for StreamX WEB Delivery Service. Default value is `web.${streamx.accelerator.ip}.nip.io`.
+   > * `%cms.streamx.ingestion.auth-token` - CMS source authentication token. Value should be taken from Kubernetes cluster `sx-sec-auth-jwt-cms` secret.
+   > * `%pim.streamx.ingestion.auth-token` - PIM source authentication token. Value should be taken from Kubernetes cluster `sx-sec-auth-jwt-pim` secret.
+2. Deploy Accelerator StreamX Mesh:
+   ```bash
+   export KUBECONFIG=<path_to_kubeconfig> && export QUARKUS_PROFILE=cloud && streamx --accept-license deploy -f mesh/mesh.yaml
+   ```
+   > **Note:**
+   > 
+   > Replace `<path_to_kubeconfig>` with path to kubeconfig file stored on your local file system.
+3. Publish all resources
+   ```bash
+   export QUARKUS_PROFILE=cloud,cms && streamx batch publish data
+   export QUARKUS_PROFILE=cloud,pim && streamx stream data data/catalog/products.stream
+   export QUARKUS_PROFILE=cloud,pim && streamx stream data data/catalog/categories.stream
+   ```
+
 ## 📁 Project Directory Documentation
 
 #### 📂 `data/`

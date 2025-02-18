@@ -16,10 +16,10 @@ ingestion:
         nginx.ingress.kubernetes.io/proxy-body-size: "500m"
         cert-manager.io/cluster-issuer: "letsencrypt-cert-cluster-issuer"
       hosts:
-        - host: ${streamx.ingestion.host}
+        - host: ${streamx.accelerator.ingestion.host}
       tls:
         - hosts:
-            - ${streamx.ingestion.host}
+            - ${streamx.accelerator.ingestion.host}
           secretName: rest-ingestion.crt
 delivery:
   blueprint-web:
