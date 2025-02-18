@@ -206,9 +206,9 @@ Prerequisites:
 
 ### Undeploy from local
 
-1. Run [destroy-env.sh](scripts/env/cloud/destroy-env.sh) script.
+1. Run [undeploy-streamx.sh](scripts/undeploy-streamx.sh) script.
    ```shell
-   ./scripts/env/cloud/destroy-env.sh
+   ./scripts/undeploy-streamx.sh
    ```
 
 ### Deploy using GH Action
