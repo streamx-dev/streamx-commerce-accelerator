@@ -19,7 +19,7 @@ if [[ -n "$WEB_HOST" ]]; then
     echo "%cloud.streamx.accelerator.web.host=$WEB_HOST" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
 fi
 
-pushd "${SCRIPT_DIR}/../../" || exit
+pushd "${SETUP_ENV_SCRIPT_DIR}/../../" || exit
 export QUARKUS_PROFILE=cloud && streamx --accept-license deploy -f "$SETUP_ENV_SCRIPT_DIR/../../mesh/mesh.yaml"
 popd || exit
 
