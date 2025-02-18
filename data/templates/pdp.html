@@ -97,7 +97,7 @@
                 <li>
                   {{ attribute.label | default(attribute.name | capitalize) }}:
                   {% for value in attribute.values %}
-                  {{ value.value | default('') }} {{ value.valueLabel | default('') }}
+                  {{ value.value | default('') | replace({'.0': ''}) }} {{ value.valueLabel | default('') }}
                   {% if not loop.last %},
                   {% endif %}
                   {% endfor %}
