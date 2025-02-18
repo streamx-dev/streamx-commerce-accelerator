@@ -133,7 +133,7 @@
    > * `WEB_HOST` - StreamX Mesh WEB DELIVERY host. Host can contain `${streamx.accelerator.ip}`
        placeholder which will be later resolved to Kubernetes Cluster Load Balancer's IP.
        e.g. `web-test.${streamx.accelerator.ip}.nip.io`. If not
-       set `${streamx.accelerator.ip}.nip.io` is used.
+       set `web.${streamx.accelerator.ip}.nip.io` is used.
 9. Setup GH
    Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
    and [secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
@@ -164,11 +164,11 @@
    > and [set-repo-variables.sh](.github/scripts/set-repo-variables.sh) scripts which are based
    on [GH CLI](https://cli.github.com/).
    > ```shell
-   > source scripts/env/cloud/read-infra-env.sh azure/.env
+   > source scripts/read-infra-env.sh azure/.env
    > scripts/set-repo-secrets.sh
    > ```
    > ```shell
-   > source scripts/env/cloud/read-infra-env.sh azure/.env
+   > source scripts/read-infra-env.sh azure/.env
    > scripts/set-repo-variables.sh
    > ```
 
