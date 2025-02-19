@@ -16,8 +16,9 @@ In the case of Windows, all the commands outlined in this file should be run ins
 
 ## Local Setup
 
-As a prerequisite, ensure that you have StreamX CLI installed in preview version:
+As a prerequisite, ensure that you have StreamX CLI installed in latest preview version:
   ```shell
+  brew upgrade streamx-dev/preview-tap/streamx
   brew install streamx-dev/preview-tap/streamx
   ```
 
@@ -38,6 +39,9 @@ As a prerequisite, ensure that you have StreamX CLI installed in preview version
       ```bash
       ./gateway/run-proxy.sh
       ```
+
+   > **Note:** The started proxy server connects to the network created by the `streamx run` command.
+   If the running mesh is restarted, the proxy must be restarted too. Otherwise `502. Message: Bad Gateway` will occur when calling endpoints exposed by the proxy.
 
 3. **Publish All Resources**
    
