@@ -31,9 +31,10 @@ module "streamx" {
   source  = "streamx-dev/charts/helm"
   version = "0.0.1"
 
-  cert_manager_lets_encrypt_issuer_acme_email = var.cert_manager_lets_encrypt_issuer_acme_email
-  ingress_controller_nginx_settings           = var.public_ip_address == null || var.public_ip_address == "" ? local.ingress_controller_nginx_settings_without_static_ip : local.ingress_controller_nginx_settings_with_static_ip
-  pulsar_kaap_values = [
+  cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
+  cert_manager_lets_encrypt_issuer_prod_letsencrypt_server = true
+  ingress_controller_nginx_settings                        = var.public_ip_address == null || var.public_ip_address == "" ? local.ingress_controller_nginx_settings_without_static_ip : local.ingress_controller_nginx_settings_with_static_ip
+  pulsar_kaap_values                                       = [
     file("${path.module}/config/pulsar-kaap/values.yaml")
   ]
   streamx_operator_image_pull_secret_registry_email    = var.streamx_operator_image_pull_secret_registry_email
