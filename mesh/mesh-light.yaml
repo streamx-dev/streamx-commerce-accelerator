@@ -74,6 +74,18 @@ processing:
       MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "page-schema"
       MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "page-schema"
 
+  blueprint-relay-fragments:
+    image: relay-processing-service
+    incoming:
+      messages:
+        topic: inboxes/fragments
+    outgoing:
+      relayed-messages:
+        topic: outboxes/fragments
+    environment:
+      MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "fragment-schema"
+      MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "fragment-schema"
+
   blueprint-composition-engine:
     image: composition-engine-processing-service
     incoming:
