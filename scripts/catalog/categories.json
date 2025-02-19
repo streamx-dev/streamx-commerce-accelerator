@@ -1,0 +1,297 @@
+[
+  {
+    "id": "Accent Furniture",
+    "slug": "accent-furniture",
+    "name": "Accent Furniture"
+  },
+  {
+    "id": "Bar & Serving Carts",
+    "slug": "bar-&-serving-carts",
+    "name": "Bar & Serving Carts"
+  },
+  {
+    "id": "Bar Cabinets",
+    "slug": "bar-cabinets",
+    "name": "Bar Cabinets"
+  },
+  {
+    "id": "Bar Sets",
+    "slug": "bar-sets",
+    "name": "Bar Sets"
+  },
+  {
+    "id": "Barstools",
+    "slug": "barstools",
+    "name": "Barstools"
+  },
+  {
+    "id": "Bed Frames",
+    "slug": "bed-frames",
+    "name": "Bed Frames"
+  },
+  {
+    "id": "Bedroom Armoires",
+    "slug": "bedroom-armoires",
+    "name": "Bedroom Armoires"
+  },
+  {
+    "id": "Bedroom Furniture",
+    "slug": "bedroom-furniture",
+    "name": "Bedroom Furniture"
+  },
+  {
+    "id": "Beds",
+    "slug": "beds",
+    "name": "Beds"
+  },
+  {
+    "id": "Beds, Frames & Bases",
+    "slug": "beds,-frames-&-bases",
+    "name": "Beds, Frames & Bases"
+  },
+  {
+    "id": "Bookcases",
+    "slug": "bookcases",
+    "name": "Bookcases"
+  },
+  {
+    "id": "Bookcases, Cabinets & Shelves",
+    "slug": "bookcases,-cabinets-&-shelves",
+    "name": "Bookcases, Cabinets & Shelves"
+  },
+  {
+    "id": "Box Springs",
+    "slug": "box-springs",
+    "name": "Box Springs"
+  },
+  {
+    "id": "Buffets & Sideboards",
+    "slug": "buffets-&-sideboards",
+    "name": "Buffets & Sideboards"
+  },
+  {
+    "id": "Chairs",
+    "slug": "chairs",
+    "name": "Chairs"
+  },
+  {
+    "id": "Chaise Lounges",
+    "slug": "chaise-lounges",
+    "name": "Chaise Lounges"
+  },
+  {
+    "id": "China Cabinets",
+    "slug": "china-cabinets",
+    "name": "China Cabinets"
+  },
+  {
+    "id": "Coffee Tables",
+    "slug": "coffee-tables",
+    "name": "Coffee Tables"
+  },
+  {
+    "id": "Dressers",
+    "slug": "dressers",
+    "name": "Dressers"
+  },
+  {
+    "id": "End Tables",
+    "slug": "end-tables",
+    "name": "End Tables"
+  },
+  {
+    "id": "Entryway Furniture",
+    "slug": "entryway-furniture",
+    "name": "Entryway Furniture"
+  },
+  {
+    "id": "Featured",
+    "slug": "featured",
+    "name": "Featured"
+  },
+  {
+    "id": "Folding Chairs",
+    "slug": "folding-chairs",
+    "name": "Folding Chairs"
+  },
+  {
+    "id": "Folding Tables",
+    "slug": "folding-tables",
+    "name": "Folding Tables"
+  },
+  {
+    "id": "Furniture",
+    "slug": "furniture",
+    "name": "Furniture"
+  },
+  {
+    "id": "Gliders",
+    "slug": "gliders",
+    "name": "Gliders"
+  },
+  {
+    "id": "Headboards",
+    "slug": "headboards",
+    "name": "Headboards"
+  },
+  {
+    "id": "Home Bar Furniture",
+    "slug": "home-bar-furniture",
+    "name": "Home Bar Furniture"
+  },
+  {
+    "id": "Home Office Cabinets",
+    "slug": "home-office-cabinets",
+    "name": "Home Office Cabinets"
+  },
+  {
+    "id": "Home Office Chairs",
+    "slug": "home-office-chairs",
+    "name": "Home Office Chairs"
+  },
+  {
+    "id": "Home Office Desk Chairs",
+    "slug": "home-office-desk-chairs",
+    "name": "Home Office Desk Chairs"
+  },
+  {
+    "id": "Home Office Desks",
+    "slug": "home-office-desks",
+    "name": "Home Office Desks"
+  },
+  {
+    "id": "Home Office Furniture",
+    "slug": "home-office-furniture",
+    "name": "Home Office Furniture"
+  },
+  {
+    "id": "Kids' Furniture",
+    "slug": "kids'-furniture",
+    "name": "Kids' Furniture"
+  },
+  {
+    "id": "Kitchen & Dining Room Furniture",
+    "slug": "kitchen-&-dining-room-furniture",
+    "name": "Kitchen & Dining Room Furniture"
+  },
+  {
+    "id": "Kitchen Islands & Carts",
+    "slug": "kitchen-islands-&-carts",
+    "name": "Kitchen Islands & Carts"
+  },
+  {
+    "id": "Living Room Furniture",
+    "slug": "living-room-furniture",
+    "name": "Living Room Furniture"
+  },
+  {
+    "id": "Living Room Sets",
+    "slug": "living-room-sets",
+    "name": "Living Room Sets"
+  },
+  {
+    "id": "Mattresses",
+    "slug": "mattresses",
+    "name": "Mattresses"
+  },
+  {
+    "id": "Mattresses & Box Springs",
+    "slug": "mattresses-&-box-springs",
+    "name": "Mattresses & Box Springs"
+  },
+  {
+    "id": "Media Storage",
+    "slug": "media-storage",
+    "name": "Media Storage"
+  },
+  {
+    "id": "Nesting Tables",
+    "slug": "nesting-tables",
+    "name": "Nesting Tables"
+  },
+  {
+    "id": "Nightstands",
+    "slug": "nightstands",
+    "name": "Nightstands"
+  },
+  {
+    "id": "Ottomans",
+    "slug": "ottomans",
+    "name": "Ottomans"
+  },
+  {
+    "id": "Recliners",
+    "slug": "recliners",
+    "name": "Recliners"
+  },
+  {
+    "id": "Sofa & Console Tables",
+    "slug": "sofa-&-console-tables",
+    "name": "Sofa & Console Tables"
+  },
+  {
+    "id": "Sofas",
+    "slug": "sofas",
+    "name": "Sofas"
+  },
+  {
+    "id": "Sofas & Couches",
+    "slug": "sofas-&-couches",
+    "name": "Sofas & Couches"
+  },
+  {
+    "id": "Storage Benches",
+    "slug": "storage-benches",
+    "name": "Storage Benches"
+  },
+  {
+    "id": "Storage Cabinets",
+    "slug": "storage-cabinets",
+    "name": "Storage Cabinets"
+  },
+  {
+    "id": "Storage Chests",
+    "slug": "storage-chests",
+    "name": "Storage Chests"
+  },
+  {
+    "id": "Table & Chair Sets",
+    "slug": "table-&-chair-sets",
+    "name": "Table & Chair Sets"
+  },
+  {
+    "id": "Table Benches",
+    "slug": "table-benches",
+    "name": "Table Benches"
+  },
+  {
+    "id": "Tables",
+    "slug": "tables",
+    "name": "Tables"
+  },
+  {
+    "id": "Television Stands & Entertainment Centers",
+    "slug": "television-stands-&-entertainment-centers",
+    "name": "Television Stands & Entertainment Centers"
+  },
+  {
+    "id": "Vanities",
+    "slug": "vanities",
+    "name": "Vanities"
+  },
+  {
+    "id": "Vanities & Vanity Benches",
+    "slug": "vanities-&-vanity-benches",
+    "name": "Vanities & Vanity Benches"
+  },
+  {
+    "id": "Vanity Benches",
+    "slug": "vanity-benches",
+    "name": "Vanity Benches"
+  },
+  {
+    "id": "Video Game Chairs",
+    "slug": "video-game-chairs",
+    "name": "Video Game Chairs"
+  }
+]

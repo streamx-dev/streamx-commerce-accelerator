@@ -1,0 +1,5 @@
+channel: rendering-contexts
+relativePathLevel: 0
+
+key: ${relativePath}
+payload: json://${payloadPath}

@@ -1,0 +1,7 @@
+channel: web-resources
+relativePathLevel: 1
+key: /${relativePath}
+
+payload:
+  content:
+    bytes: file://${payloadPath}
