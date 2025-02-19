@@ -1,5 +1,5 @@
 output "tf_state_backend_config" {
-  description = "The Terraform state backend configuration that is set up to utilize a bucket created by this module."
+  description = "The Terraform state backend configurations that is set up to utilize a bucket created by this module."
   value       = module.tf_state_backend.tf_state_backend_config
 }
 
