@@ -53,7 +53,13 @@ const eslintConfig = [
       'sort-keys/sort-keys-fix': 2,
     },
   }),
-  { ignores: ['data/web-resources/js/autocomplete-js.js', 'data/web-resources/js/glide.min.js'] },
+  {
+    ignores: [
+      'data/web-resources/js/autocomplete-js.js',
+      'data/web-resources/js/glide.min.js',
+      'data/web-resources/js/autocomplete-init.js',
+    ],
+  },
   {
     files: ['**/*.json', '**/*.js', '**.*.mjs'],
   },

@@ -83,11 +83,9 @@
             </button>
             <div class="space-y-4">
               <h2 class="text-xl font-semibold">Product Description</h2>
-              <ul class="space-y-2">
-                <li>
-                  {{ description | raw }}
-                </li>
-              </ul>
+              <div class="space-y-2">
+                {{ description | raw }}
+              </div>
             </div>
             <div class="space-y-4">
               <h2 class="text-xl font-semibold">Dimensions</h2>
@@ -97,7 +95,7 @@
                 <li>
                   {{ attribute.label | default(attribute.name | capitalize) }}:
                   {% for value in attribute.values %}
-                  {{ value.value | default('') }} {{ value.valueLabel | default('') }}
+                  {{ value.value | default('') | replace({'.0': ''}) }} {{ value.valueLabel | default('') }}
                   {% if not loop.last %},
                   {% endif %}
                   {% endfor %}

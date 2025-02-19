@@ -1,11 +1,21 @@
-/* eslint-disable no-underscore-dangle,no-shadow */
-// eslint-disable-next-line func-names,no-unused-expressions
 !(function () {
   const SEARCH_RESULTS_COUNT = 40;
   const SEARCH_URL = '/search/query';
 
-  const buildUrl = (query, limit) =>
-    `${SEARCH_URL}?size=${limit}&query=${query}`;
+  const buildUrl = (query, limit) => {
+    return `${SEARCH_URL}?size=${limit}&query=${query}`;
+  };
+
+  const mapToPagesResponse = async (response) => {
+    const jsonResponse = await response.json();
+    const items = jsonResponse.hits.hits
+      ? jsonResponse.hits.hits.map(mapToPage)
+      : [];
+    return {
+      items: items,
+      executionTimeMs: jsonResponse.took,
+    };
+  };
 
   const mapToPage = (hit) => {
     const path = hit._id;
@@ -15,21 +25,10 @@
     const bestFragment = hit.highlight?.['payload.content']?.[0] || title || '';
 
     return {
-      bestFragment,
       path,
-      score,
       title,
-    };
-  };
-
-  const mapToPagesResponse = async (response) => {
-    const jsonResponse = await response.json();
-    const items = jsonResponse.hits.hits
-      ? jsonResponse.hits.hits.map(mapToPage)
-      : [];
-    return {
-      executionTimeMs: jsonResponse.took,
-      items,
+      bestFragment,
+      score,
     };
   };
 
@@ -38,7 +37,9 @@
     return mapToPagesResponse(response);
   };
 
-  const getAutocompleteItemUrl = (item) => (item && item.path ? item.path : '');
+  const getAutocompleteItemUrl = (item) => {
+    return item && item.path ? item.path : '';
+  };
 
   const replaceEmWithMark = (value) => {
     if (typeof value !== 'string') return value;
@@ -61,8 +62,8 @@
     return mapToPagesResponse(response);
   };
 
-  const getItemTemplate = (html, item) =>
-    html`<a class="aa-ItemLink" href=${getAutocompleteItemUrl(item)}>
+  const getItemTemplate = (html, item) => {
+    return html`<a class="aa-ItemLink" href=${getAutocompleteItemUrl(item)}>
       <div class="aa-ItemContent">
         <div class="aa-ItemIcon aa-ItemIcon--alignTop">
           <svg
@@ -105,18 +106,28 @@
         </div>
       </div>
     </a>`;
+  };
 
   function init() {
     const { autocomplete } = window['@algolia/autocomplete-js'];
     autocomplete({
-      container: '#autocomplete',
+      container: '.autocomplete',
+      placeholder: 'Search...',
       detachedMediaQuery: '',
+      openOnFocus: true,
+      classNames: {
+        root: 'autocomplete__container',
+        detachedSearchButton: [
+          '[&_svg]:pointer-events-none',
+          '[&_svg]:shrink-0',
+          '[&_svg]:size-4',
+          'autocomplete__search-button',
+        ].join(' '),
+      },
       getSources({ query }) {
         return [
           {
-            getItemUrl({ item }) {
-              return getAutocompleteItemUrl(item);
-            },
+            sourceId: 'pages',
             async getItems({ query }) {
               if (query === '') {
                 return [];
@@ -124,18 +135,23 @@
               const pages = await getPages(query);
               return pages.items;
             },
-            sourceId: 'pages',
+            getItemUrl({ item }) {
+              return getAutocompleteItemUrl(item);
+            },
             templates: {
               item({ item, html }) {
                 return getItemTemplate(html, item);
               },
-              noResults: query === '' ? undefined : () => 'No results',
+              noResults:
+                query === ''
+                  ? undefined
+                  : () => {
+                      return 'No results';
+                    },
             },
           },
           {
-            getItemUrl({ item }) {
-              return getAutocompleteItemUrl(item);
-            },
+            sourceId: 'coffeeTableResults',
             async getItems({ query }) {
               if (query) {
                 return [];
@@ -143,7 +159,9 @@
               const response = await getCoffeeTableResults();
               return response.items;
             },
-            sourceId: 'coffeeTableResults',
+            getItemUrl({ item }) {
+              return getAutocompleteItemUrl(item);
+            },
             templates: {
               header({ html }) {
                 if (query === '') {
@@ -160,9 +178,7 @@
             },
           },
           {
-            getItemUrl({ item }) {
-              return getAutocompleteItemUrl(item);
-            },
+            sourceId: 'beigeChairResults',
             async getItems({ query }) {
               if (query) {
                 return [];
@@ -170,7 +186,9 @@
               const response = await getBeigeChairResults();
               return response.items;
             },
-            sourceId: 'beigeChairResults',
+            getItemUrl({ item }) {
+              return getAutocompleteItemUrl(item);
+            },
             templates: {
               header({ html }) {
                 if (query === '') {
@@ -187,9 +205,7 @@
             },
           },
           {
-            getItemUrl({ item }) {
-              return getAutocompleteItemUrl(item);
-            },
+            sourceId: 'queenSizeBedResults',
             async getItems({ query }) {
               if (query) {
                 return [];
@@ -197,7 +213,9 @@
               const response = await getQueenSizeBedResults();
               return response.items;
             },
-            sourceId: 'queenSizeBedResults',
+            getItemUrl({ item }) {
+              return getAutocompleteItemUrl(item);
+            },
             templates: {
               header({ html }) {
                 if (query === '') {
@@ -215,10 +233,69 @@
           },
         ];
       },
-      openOnFocus: true,
-      placeholder: 'Search...',
     });
   }
 
-  // init();
+  const addTailwindIconToAutocomplete = (records) => {
+    for (const record of records) {
+      if (record.type === 'childList') {
+        Array.from(record.addedNodes).forEach((node) => {
+          if (node.classList.contains('autocomplete__container')) {
+            const searchButton = node.querySelector(
+              '.autocomplete__search-button',
+            );
+            if (searchButton) {
+              const searchIcon = document.createElementNS(
+                'http://www.w3.org/2000/svg',
+                'svg',
+              );
+              searchIcon.setAttribute('height', '24');
+              searchIcon.setAttribute('width', '24');
+              searchIcon.setAttribute('viewBox', '0 0 24 24');
+              searchIcon.setAttribute('fill', 'none');
+              searchIcon.setAttribute('stroke', 'currentColor');
+              searchIcon.setAttribute('stroke-linecap', 'round');
+              searchIcon.setAttribute('stroke-linejoin', 'round');
+              searchIcon.setAttribute('stroke-width', '2');
+              searchIcon.classList.add(
+                ...['lucide', 'lucide-search', 'h-5', 'w-5'],
+              );
+
+              const searchCircle = document.createElementNS(
+                'http://www.w3.org/2000/svg',
+                'circle',
+              );
+              searchCircle.setAttribute('cx', '11');
+              searchCircle.setAttribute('cy', '11');
+              searchCircle.setAttribute('r', '8');
+
+              const searchPath = document.createElementNS(
+                'http://www.w3.org/2000/svg',
+                'path',
+              );
+              searchPath.setAttribute('d', 'm21 21-4.3-4.3');
+
+              searchIcon.append(searchCircle);
+              searchIcon.append(searchPath);
+              searchButton.appendChild(searchIcon);
+            }
+          }
+        });
+      }
+    }
+  };
+
+  const observer = new MutationObserver(addTailwindIconToAutocomplete);
+  const autocompleteContainer = document.querySelector('.autocomplete');
+
+  if (autocompleteContainer) {
+    while (autocompleteContainer.firstChild) {
+      autocompleteContainer.removeChild(autocompleteContainer.firstChild);
+    }
+    observer.observe(autocompleteContainer, {
+      childList: true,
+    });
+  }
+
+  init();
 })();
