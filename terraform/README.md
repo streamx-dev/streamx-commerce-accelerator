@@ -94,7 +94,7 @@
        ```
     2. Load Azurerm provider authentication data:
        ```shell
-       source scripts/env/cloud/read-infra-env.sh azure/.env
+       source scripts/read-infra-env.sh azure/.env
        ```    
     3. Initialize Terraform script:
         ```shell
