@@ -254,6 +254,10 @@
   }
 }
 
+.aa-Detached {
+  height: auto;
+}
+
 .autocomplete .aa-DetachedSearchButtonIcon,
 .autocomplete .aa-SubmitIcon,
 .autocomplete .aa-DetachedSearchButtonPlaceholder,
