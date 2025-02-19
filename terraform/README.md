@@ -1,4 +1,5 @@
 ## Cloud setup
+All commands from this document should be launched from [`terraform`](../terraform) directory. 
 
 ### Prerquisites:
 
