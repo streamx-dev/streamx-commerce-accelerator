@@ -185,14 +185,15 @@ Prerequisites:
   brew install streamx-dev/preview-tap/streamx
   ```
 
-1. Run deploy StreamX script. It will modify `.env` file in your project. That file contains
+1. Run deploy StreamX script. It will modify [`.env`](../.env) file in your project. That file contains
    ingestion tokens.
 
    *Do not commit these changes!*
    ```shell
    ./scripts/deploy-streamx.sh
    ```
-2. Publish data to cloud.
+2. Store and share [`.env`](../.env) with your team members. Values from this file are required for manual Cloud setup and Cloud data ingestion described in [README](../README.md).
+3. Publish data to cloud.
    ```shell
    ./scripts/cloud-publish-all.sh
    ```
