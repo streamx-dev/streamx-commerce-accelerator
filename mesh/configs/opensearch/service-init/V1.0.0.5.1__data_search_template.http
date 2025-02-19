@@ -1,0 +1,4 @@
+POST /_scripts/data
+Content-Type: application/json
+
+{ "script": { "lang": "mustache", "source": " { \"_source\": [ \"_id\", \"payload.*\", \"type\" ], \"query\": { \"bool\": { \"must\": [ { \"match_all\": {} } {{#type}}, { \"prefix\": { \"type.keyword\": { \"case_insensitive\":true, \"value\":\"{{type}}\" } } } {{/type}} {{#id}}, { \"wildcard\": { \"payload.id\": { \"value\": \"{{id}}\", \"case_insensitive\": true } } } {{/id}} {{#category}}, { \"wildcard\": { \"payload.category\": { \"value\": \"{{category}}\", \"case_insensitive\": true } } } {{/category}} ] } }, \"highlight\": { \"fields\": { \"payload.*\": {} } }, \"track_scores\": true }" } } 
