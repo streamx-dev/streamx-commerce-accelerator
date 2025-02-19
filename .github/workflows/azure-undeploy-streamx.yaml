@@ -17,21 +17,7 @@ jobs:
         with:
           terraform_version: "1.10.4"
 
-      - name: "Terraform init"
-        env:
-          ARM_ACCESS_KEY:
-            ${{ secrets.ARM_ACCESS_KEY }}
-        run: terraform -chdir=./terraform/azure/platform init
-
-      - name: "Terraform workspace setup"
-        env:
-          ARM_ACCESS_KEY:
-            ${{ secrets.ARM_ACCESS_KEY }}
-        run: |
-          TF_WORKSPACE=$(bash .github/scripts/tf_workspace_name.sh '${{ github.ref_name }}')
-          terraform -chdir=./terraform/azure/platform workspace select -or-create $TF_WORKSPACE
-
-      - name: "Terraform destroy"
+      - name: "Undeploy StreamX"
         env:
           ARM_ACCESS_KEY:
             ${{ secrets.ARM_ACCESS_KEY }}
@@ -44,37 +30,19 @@ jobs:
           ARM_SUBSCRIPTION_ID:
             ${{ secrets.ARM_SUBSCRIPTION_ID }}
           TF_VAR_resource_group_name:
-            ${{ vars.TF_VAR_resource_group_name }}
+            ${{ vars.TF_VAR_RESOURCE_GROUP_NAME }}
+          TF_VAR_location:
+            ${{ vars.TF_VAR_location }}
+          TF_VAR_user_identity_id:
+            ${{ vars.TF_VAR_USER_IDENTITY_ID }}
           TF_VAR_public_ip_address:
             ${{ vars.TF_VAR_PUBLIC_IP_ADDRESS }}
           TF_VAR_public_ip_id:
             ${{ vars.TF_VAR_PUBLIC_IP_ID }}
-          TF_VAR_user_identity_id:
-            ${{ vars.TF_VAR_USER_IDENTITY_ID }}
-          TF_VAR_location:
-            ${{ vars.TF_VAR_location }}
           TF_VAR_cert_manager_lets_encrypt_issuer_acme_email:
             ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_acme_email }}
           TF_VAR_streamx_operator_image_pull_secret_registry_email:
             ${{ vars.TF_VAR_streamx_operator_image_pull_secret_registry_email }}
           TF_VAR_streamx_operator_image_pull_secret_registry_password:
             ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
-        run: terraform -chdir=./terraform/azure/platform destroy -auto-approve
-
-      - name: "Terraform workspace delete"
-        if: ${{ github.ref_name != 'main' }}
-        env:
-          ARM_ACCESS_KEY:
-            ${{ secrets.ARM_ACCESS_KEY }}
-          ARM_CLIENT_ID:
-            ${{ secrets.ARM_CLIENT_ID }}
-          ARM_CLIENT_SECRET:
-            ${{ secrets.ARM_CLIENT_SECRET }}
-          ARM_TENANT_ID:
-            ${{ secrets.ARM_TENANT_ID }}
-          ARM_SUBSCRIPTION_ID:
-            ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        run: |
-          TF_WORKSPACE=$(terraform workspace show)
-          terraform workspace select default
-          terraform workspace delete $TF_WORKSPACE
+        run: terraform/scripts/undeploy-streamx.sh

@@ -33,16 +33,19 @@ variable "streamx_operator_image_pull_secret_registry_password" {
 }
 
 variable "public_ip_id" {
+  default     = null
   description = "Public IP id for kubernetes cluster"
   type        = string
 }
 
 variable "public_ip_address" {
+  default     = null
   description = "Public IP address"
   type        = string
 }
 
 variable "user_identity_id" {
+  default     = null
   description = "The id of the user used by Terraform to create cluster"
   type        = string
 }

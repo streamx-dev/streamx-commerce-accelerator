@@ -1,0 +1,9 @@
+channel: compositions
+relativePathLevel: 0
+
+key: ${relativePath}
+payload:
+  content:
+    bytes: file://${payloadPath}
+  layoutKey:
+    string: contentPage.html
