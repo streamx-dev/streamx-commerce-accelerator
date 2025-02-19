@@ -1,0 +1,6 @@
+{
+  "rendererKey": { "string": "templates/pcp.html" },
+  "dataKeyMatchPattern": { "string": "category:.*" },
+  "outputKeyTemplate": { "string": "/categories/{{slug}}.html" },
+  "outputType": { "dev.streamx.blueprints.data.RenderingContext.OutputType": "PAGE" }
+}
