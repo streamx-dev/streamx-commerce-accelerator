@@ -13,13 +13,15 @@
       
     const mapToPagesResponse = (response) => {;
       const items = [];
-      const respItems = response.hits;
-      for (var i = 0; i < respItems.length; i++) {
+      const respItems = response?.hits || [];
+
+      for (let i = 0; i < respItems.length; i++) {
           const tmpItem = respItems[i]._source?.payload;
           const item = {
             imgSrc: tmpItem?.primaryImage?.url || DEFAULT_IMG,
             imgAlt: tmpItem?.primaryImage?.alt || '',
             name: tmpItem?.name || '',
+            slug: tmpItem?.slug || '',
             description: tmpItem?.description || '',
             price: tmpItem?.price?.value || '', // not sure if value or discountedValue
             keywords: tmpItem?.ft_keyword || []
@@ -53,7 +55,11 @@
           'filter_category': {
             'fields': [category]
           },
-          'facets': {
+        }
+      };
+
+      if (facets && facets.length > 0) {
+        query['params']['facets'] = {
             'fields': facets.map((f, index) => {
               return {
                 'name': Object.keys(f)[0],
@@ -62,16 +68,14 @@
               }
             })
           }
-        }
-      };
-  
+      }
       if (activeFilters && activeFilters.length > 0) {
         query.params["filter_query"] = {
           "fields": activeFilters.map((f, index) => {
             return {
               "name": f.name,
               "values": f.values,
-              'last': index === facets.length - 1 ? true:false
+              'last': index === activeFilters.length - 1 ? true:false
             }
           })
         };
@@ -89,29 +93,31 @@
         // <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
         // <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
         return `
-              <div class="flex flex-col h-full">
-                <figure class="w-full aspect-[3/4] flex">
-                  <picture class="w-full object-cover content-center">
-                    <img class="w-full" src="${item.imgSrc}" loading="lazy" alt=""/>
-                  </picture>
-                </figure>
-                <div class="mt-4 flex gap-y-2 flex-wrap flex-1">
-                  <div class="flex flex-col flex-grow w-full p-4">
-                    <p class="text-base font-bold text-gray-700 truncate mb-4">
-                      ${ item.name }
-                    </p>
-                    <p class="text-sm text-gray-500 text-wrap mb-4">
-                      ${ item.description }
-                    </p>
-                    <p class="text-sm text-gray-500 text-wrap italic">
-                      ${ item.keywords.join(', ') }
-                    </p>
-                    <p class="text-base font-bold text-gray-700 flex-grow content-end mt-2">
-                      ${ item.price } &euro;
-                    </p>
+              <a href="/products/${item.slug}.html">
+                <div class="flex flex-col h-full">
+                  <figure class="w-full aspect-[3/4] flex">
+                    <picture class="w-full object-cover content-center">
+                      <img class="w-full" src="${item.imgSrc}" loading="lazy" alt=""/>
+                    </picture>
+                  </figure>
+                  <div class="mt-4 flex gap-y-2 flex-wrap flex-1">
+                    <div class="flex flex-col flex-grow w-full p-4">
+                      <p class="text-base font-bold text-gray-700 truncate mb-4">
+                        ${ item.name }
+                      </p>
+                      <p class="text-sm text-gray-500 text-wrap mb-4">
+                        ${ item.description }
+                      </p>
+                      <p class="text-sm text-gray-500 text-wrap italic">
+                        ${ item.keywords.join(', ') }
+                      </p>
+                      <p class="text-base font-bold text-gray-700 flex-grow content-end mt-2">
+                        ${ item.price } &euro;
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>`;
+              </a>`;
     };
 
     const getFilterTemplate = (name, filters, label) => {
@@ -128,7 +134,7 @@
         </div>
         <hr class="my-4 md:my-6 border-gray-200"/>
       </fieldset>`
-      
+
       return tmp;
     };
 
@@ -150,6 +156,9 @@
           if (filter) {
             filter.values = filter.values.filter(val => val !== facetVal);
           }
+          if (filter.values.length === 0) {
+            activeFilters = activeFilters.filter(f => f.name !== checkboxGroupName);
+          }
         }
         fetchProductData();
       }
@@ -169,7 +178,7 @@
         li.innerHTML = getItemTemplate(product).trim();
         ul.appendChild(li);
       });
-      
+
       if (initFilters) {
         const facetsUl = document.getElementById(FILTER_CONTAINER_ID);
         const facets = mapFacets(response.aggregations);
@@ -183,18 +192,22 @@
             facetsUl.appendChild(li);
           }
         });
-  
+
         document.getElementById(PCP_CONTAINER_ID).onclick = (event) => handleFilterChange(event);
         initFilters = false;
       }
       currentPage++;
       const loadMoreButton = document.getElementById(LOAD_MORE_BUTTON_ID);
-      response.hits.total.value > PER_PAGE*currentPage ? loadMoreButton.classList.remove('hidden'):loadMoreButtonel.classList.add('hidden');
+      response.hits.total.value > PER_PAGE*currentPage ? loadMoreButton.classList.remove('hidden'):loadMoreButton.classList.add('hidden');
     }
 
     const fetchProductData = () => {
       const category = document.getElementById(PCP_CONTAINER_ID).getAttribute('data-category');
-      const availableFacets = JSON.parse(document.getElementById(PCP_CONTAINER_ID).getAttribute('data-filters'));
+      const filterJSON = document.getElementById(PCP_CONTAINER_ID).getAttribute('data-filters');
+      let availableFacets = []
+      if (filterJSON) {
+        availableFacets = JSON.parse(filterJSON);
+       }
 
       fetch(SEARCH_URL, {
         method: 'POST',
