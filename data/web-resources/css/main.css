@@ -4,4 +4,5 @@
 .slider-item-bg{background-color:#f2ece4;}
 .price-text-color{color:#B89D6F;}
 .secondary-banner-bg{background-color:#B89D6F;}
+.links-underline-color::after{background-color:#B89D6F;}
 .footer-bg{background-color:#363D51;}

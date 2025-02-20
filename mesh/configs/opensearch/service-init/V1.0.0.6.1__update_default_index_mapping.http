@@ -1,0 +1,14 @@
+PUT /default/_mapping
+
+{
+  "properties": {
+    "payload": {
+      "properties": {
+        "ingested": {
+          "type": "date",
+          "format": "date_time"
+        }
+      }
+    }
+  }
+}

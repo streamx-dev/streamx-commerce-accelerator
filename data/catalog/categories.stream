@@ -1,0 +1,767 @@
+{
+  "key": "cat:Accent Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Accent Furniture\",\"slug\":\"accent-furniture\",\"name\":\"Accent Furniture\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bar & Serving Carts",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bar & Serving Carts\",\"slug\":\"bar-&-serving-carts\",\"name\":\"Bar & Serving Carts\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bar Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bar Cabinets\",\"slug\":\"bar-cabinets\",\"name\":\"Bar Cabinets\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bar Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bar Sets\",\"slug\":\"bar-sets\",\"name\":\"Bar Sets\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Barstools",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Barstools\",\"slug\":\"barstools\",\"name\":\"Barstools\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bed Frames",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bed Frames\",\"slug\":\"bed-frames\",\"name\":\"Bed Frames\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bedroom Armoires",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bedroom Armoires\",\"slug\":\"bedroom-armoires\",\"name\":\"Bedroom Armoires\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bedroom Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Beds",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Beds\",\"slug\":\"beds\",\"name\":\"Beds\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Beds, Frames & Bases",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Beds, Frames & Bases\",\"slug\":\"beds,-frames-&-bases\",\"name\":\"Beds, Frames & Bases\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bookcases",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bookcases\",\"slug\":\"bookcases\",\"name\":\"Bookcases\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bookcases, Cabinets & Shelves",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bookcases, Cabinets & Shelves\",\"slug\":\"bookcases,-cabinets-&-shelves\",\"name\":\"Bookcases, Cabinets & Shelves\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Box Springs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Box Springs\",\"slug\":\"box-springs\",\"name\":\"Box Springs\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Buffets & Sideboards",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Buffets & Sideboards\",\"slug\":\"buffets-&-sideboards\",\"name\":\"Buffets & Sideboards\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Chairs\",\"slug\":\"chairs\",\"name\":\"Chairs\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Chaise Lounges",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Chaise Lounges\",\"slug\":\"chaise-lounges\",\"name\":\"Chaise Lounges\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:China Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"China Cabinets\",\"slug\":\"china-cabinets\",\"name\":\"China Cabinets\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Coffee Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Coffee Tables\",\"slug\":\"coffee-tables\",\"name\":\"Coffee Tables\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Dressers",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Dressers\",\"slug\":\"dressers\",\"name\":\"Dressers\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:End Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"End Tables\",\"slug\":\"end-tables\",\"name\":\"End Tables\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Entryway Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Entryway Furniture\",\"slug\":\"entryway-furniture\",\"name\":\"Entryway Furniture\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Featured",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Featured\",\"slug\":\"featured\",\"name\":\"Featured\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Folding Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Folding Chairs\",\"slug\":\"folding-chairs\",\"name\":\"Folding Chairs\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Folding Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Folding Tables\",\"slug\":\"folding-tables\",\"name\":\"Folding Tables\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Gliders",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Gliders\",\"slug\":\"gliders\",\"name\":\"Gliders\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Headboards",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Headboards\",\"slug\":\"headboards\",\"name\":\"Headboards\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Bar Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Bar Furniture\",\"slug\":\"home-bar-furniture\",\"name\":\"Home Bar Furniture\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Office Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Office Cabinets\",\"slug\":\"home-office-cabinets\",\"name\":\"Home Office Cabinets\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Office Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Office Chairs\",\"slug\":\"home-office-chairs\",\"name\":\"Home Office Chairs\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Office Desk Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Office Desk Chairs\",\"slug\":\"home-office-desk-chairs\",\"name\":\"Home Office Desk Chairs\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Office Desks",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Office Desks\",\"slug\":\"home-office-desks\",\"name\":\"Home Office Desks\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Office Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Kids' Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Kids' Furniture\",\"slug\":\"kids'-furniture\",\"name\":\"Kids' Furniture\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Kitchen & Dining Room Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-&-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Kitchen Islands & Carts",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Kitchen Islands & Carts\",\"slug\":\"kitchen-islands-&-carts\",\"name\":\"Kitchen Islands & Carts\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Living Room Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Living Room Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Living Room Sets\",\"slug\":\"living-room-sets\",\"name\":\"Living Room Sets\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Mattresses",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Mattresses\",\"slug\":\"mattresses\",\"name\":\"Mattresses\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Mattresses & Box Springs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Mattresses & Box Springs\",\"slug\":\"mattresses-&-box-springs\",\"name\":\"Mattresses & Box Springs\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Media Storage",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Media Storage\",\"slug\":\"media-storage\",\"name\":\"Media Storage\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Nesting Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Nesting Tables\",\"slug\":\"nesting-tables\",\"name\":\"Nesting Tables\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Nightstands",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Nightstands\",\"slug\":\"nightstands\",\"name\":\"Nightstands\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Ottomans",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Ottomans\",\"slug\":\"ottomans\",\"name\":\"Ottomans\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Recliners",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Recliners\",\"slug\":\"recliners\",\"name\":\"Recliners\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Sofa & Console Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Sofa & Console Tables\",\"slug\":\"sofa-&-console-tables\",\"name\":\"Sofa & Console Tables\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Sofas",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Sofas\",\"slug\":\"sofas\",\"name\":\"Sofas\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Sofas & Couches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Sofas & Couches\",\"slug\":\"sofas-&-couches\",\"name\":\"Sofas & Couches\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Storage Benches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Storage Benches\",\"slug\":\"storage-benches\",\"name\":\"Storage Benches\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Storage Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Storage Cabinets\",\"slug\":\"storage-cabinets\",\"name\":\"Storage Cabinets\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Storage Chests",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Storage Chests\",\"slug\":\"storage-chests\",\"name\":\"Storage Chests\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Table & Chair Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Table & Chair Sets\",\"slug\":\"table-&-chair-sets\",\"name\":\"Table & Chair Sets\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Table Benches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Table Benches\",\"slug\":\"table-benches\",\"name\":\"Table Benches\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Television Stands & Entertainment Centers",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Television Stands & Entertainment Centers\",\"slug\":\"television-stands-&-entertainment-centers\",\"name\":\"Television Stands & Entertainment Centers\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Vanities",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Vanities\",\"slug\":\"vanities\",\"name\":\"Vanities\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Vanities & Vanity Benches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Vanities & Vanity Benches\",\"slug\":\"vanities-&-vanity-benches\",\"name\":\"Vanities & Vanity Benches\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Vanity Benches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Vanity Benches\",\"slug\":\"vanity-benches\",\"name\":\"Vanity Benches\"}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Video Game Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Video Game Chairs\",\"slug\":\"video-game-chairs\",\"name\":\"Video Game Chairs\"}"
+      }
+    }
+  }
+}
