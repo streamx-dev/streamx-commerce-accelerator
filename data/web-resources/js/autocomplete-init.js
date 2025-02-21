@@ -43,8 +43,7 @@
 
   const replaceEmWithMark = (value) => {
     if (typeof value !== 'string') return value;
-    return value.replace(/<em>/g, '<mark>')
-        .replace(/<\/em>/g, '</mark>');
+    return value.replace(/<em>/g, '<mark>').replace(/<\/em>/g, '</mark>');
   };
 
   const getCoffeeTableResults = async () => {
@@ -85,9 +84,16 @@
           </svg>
         </div>
         <div class="aa-ItemContentBody">
-          <div class="aa-ItemContentTitle"dangerouslySetInnerHTML=${{ __html: replaceEmWithMark(item.title) }}></div>
-          <div class="aa-ItemContentDescription"dangerouslySetInnerHTML=${{ __html: replaceEmWithMark(item.bestFragment)}
-          }></div>
+          <div
+            class="aa-ItemContentTitle"
+            dangerouslySetInnerHTML=${{ __html: replaceEmWithMark(item.title) }}
+          ></div>
+          <div
+            class="aa-ItemContentDescription"
+            dangerouslySetInnerHTML=${{
+              __html: replaceEmWithMark(item.bestFragment),
+            }}
+          ></div>
         </div>
         <div class="aa-ItemActions">
           <button class="aa-ItemActionButton" type="button" title="Add to cart">
@@ -111,10 +117,6 @@
   function init() {
     const { autocomplete } = window['@algolia/autocomplete-js'];
     autocomplete({
-      container: '.autocomplete',
-      placeholder: 'Search...',
-      detachedMediaQuery: '',
-      openOnFocus: true,
       classNames: {
         root: 'autocomplete__container',
         detachedSearchButton: [
@@ -124,6 +126,10 @@
           'autocomplete__search-button',
         ].join(' '),
       },
+      container: '.autocomplete',
+      placeholder: 'Search...',
+      detachedMediaQuery: '',
+      openOnFocus: true,
       getSources({ query }) {
         return [
           {
