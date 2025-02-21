@@ -1,0 +1,12 @@
+service:
+  type: LoadBalancer
+
+ingress-controller:
+  enabled: true
+
+dashboard:
+  enabled: true
+
+apisix:
+  ssl:
+    enabled: true
