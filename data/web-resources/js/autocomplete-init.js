@@ -244,7 +244,6 @@
 
   const addTailwindIconToAutocomplete = (records) => {
     for (const record of records) {
-      console.log(record);
       if (record.type === 'childList') {
         Array.from(record.addedNodes).forEach((node) => {
           if (node.classList.contains('autocomplete__container')) {
