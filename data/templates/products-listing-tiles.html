@@ -7,35 +7,8 @@
         data-discover="true"
         href="/products/{{ values[i].slug }}.html"
       >
-        <picture class="w-full h-full object-cover">
-          <source media="(max-width: 639px)" srcset="../assets/573x765.webp"/>
-          <source
-            media="(min-width: 640px) and (max-width: 767px)"
-            srcset="../assets/274x366.webp"
-          />
-          <source
-            media="(min-width: 768px) and (max-width: 1023px)"
-            srcset="../assets/338x452.webp"
-          />
-          <source
-            media="(min-width: 1024px) and (max-width: 1279px)"
-            srcset="../assets/214x286.webp"
-          />
-          <source
-            media="(min-width: 1280px) and (max-width: 1535px)"
-            srcset="../assets/278x372.webp"
-          />
-          <source
-            media="(min-width: 1536px)"
-            srcset="{{ values[i].primaryImage.url }}"
-          />
-          <img
-            alt="{{ values[i].name }}"
-            class="w-full h-full object-cover"
-            loading="lazy"
-            src="../assets/573x765.webp"
-          />
-        </picture>
+        <img alt="{{ values[i].name }}" class="w-full h-full object-cover" loading="lazy"
+          src="{{ values[i].primaryImage.url }}" />
       </a>
       <div class="product-listing__product-copy">
         <div>
