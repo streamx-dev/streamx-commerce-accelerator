@@ -8,27 +8,24 @@
 
   const mapToPagesResponse = async (response) => {
     const jsonResponse = await response.json();
-    const items = jsonResponse.hits.hits
-      ? jsonResponse.hits.hits.map(mapToPage)
-      : [];
+    const items = jsonResponse.hits.hits ? jsonResponse.hits.hits.map(mapToPage) : [];
     return {
       items: items,
-      executionTimeMs: jsonResponse.took,
+      executionTimeMs: jsonResponse.took
     };
-  };
+  }
 
   const mapToPage = (hit) => {
     const path = hit._id;
     const score = hit._score;
-    const title =
-      hit.highlight?.['payload.title']?.[0] || hit._source.payload.title;
-    const bestFragment = hit.highlight?.['payload.content']?.[0] || title || '';
+    const title = hit.highlight?.["payload.title"]?.[0] || hit._source.payload.title;
+    const bestFragment = hit.highlight?.["payload.content"]?.[0] || title || "";
 
     return {
       path,
       title,
       bestFragment,
-      score,
+      score
     };
   };
 
@@ -38,27 +35,28 @@
   };
 
   const getAutocompleteItemUrl = (item) => {
-    return item && item.path ? item.path : '';
+    return (item && item.path) ? item.path : "";
   };
 
   const replaceEmWithMark = (value) => {
     if (typeof value !== 'string') return value;
-    return value.replace(/<em>/g, '<mark>')
-        .replace(/<\/em>/g, '</mark>');
+    return value
+      .replace(/<em>/g, '<mark>')
+      .replace(/<\/em>/g, '</mark>');
   };
 
   const getCoffeeTableResults = async () => {
-    const response = await fetch(buildUrl('coffee table', 2));
+    const response = await fetch(buildUrl("coffee table", 2));
     return mapToPagesResponse(response);
   };
 
   const getBeigeChairResults = async () => {
-    const response = await fetch(buildUrl('beige chair', 2));
+    const response = await fetch(buildUrl("beige chair", 2));
     return mapToPagesResponse(response);
   };
 
   const getQueenSizeBedResults = async () => {
-    const response = await fetch(buildUrl('queen size bed', 2));
+    const response = await fetch(buildUrl("queen size bed", 2));
     return mapToPagesResponse(response);
   };
 
@@ -85,9 +83,9 @@
           </svg>
         </div>
         <div class="aa-ItemContentBody">
-          <div class="aa-ItemContentTitle"dangerouslySetInnerHTML=${{ __html: replaceEmWithMark(item.title) }}></div>
-          <div class="aa-ItemContentDescription"dangerouslySetInnerHTML=${{ __html: replaceEmWithMark(item.bestFragment)}
-          }></div>
+          <div class="aa-ItemContentTitle" dangerouslySetInnerHTML=${{__html: replaceEmWithMark(item.title)}}></div>
+          <div class="aa-ItemContentDescription"
+               dangerouslySetInnerHTML=${{__html: replaceEmWithMark(item.bestFragment)}}></div>
         </div>
         <div class="aa-ItemActions">
           <button class="aa-ItemActionButton" type="button" title="Add to cart">
@@ -109,12 +107,8 @@
   };
 
   function init() {
-    const { autocomplete } = window['@algolia/autocomplete-js'];
+    const {autocomplete} = window['@algolia/autocomplete-js'];
     autocomplete({
-      container: '.autocomplete',
-      placeholder: 'Search...',
-      detachedMediaQuery: '',
-      openOnFocus: true,
       classNames: {
         root: 'autocomplete__container',
         detachedSearchButton: [
@@ -124,120 +118,119 @@
           'autocomplete__search-button',
         ].join(' '),
       },
-      getSources({ query }) {
+      container: '.autocomplete',
+      placeholder: "Search...",
+      detachedMediaQuery: "",
+      openOnFocus: true,
+      getSources({query}) {
         return [
           {
-            sourceId: 'pages',
-            async getItems({ query }) {
-              if (query === '') {
+            sourceId: "pages",
+            async getItems({query}) {
+              if (query === "") {
                 return [];
               }
               const pages = await getPages(query);
               return pages.items;
             },
-            getItemUrl({ item }) {
+            getItemUrl({item}) {
               return getAutocompleteItemUrl(item);
             },
             templates: {
-              item({ item, html }) {
+              item({item, html}) {
                 return getItemTemplate(html, item);
               },
               noResults:
-                query === ''
+                query === ""
                   ? undefined
                   : () => {
-                      return 'No results';
-                    },
+                    return "No results";
+                  },
             },
           },
           {
-            sourceId: 'coffeeTableResults',
-            async getItems({ query }) {
+            sourceId: "coffeeTableResults",
+            async getItems({query}) {
               if (query) {
                 return [];
               }
               const response = await getCoffeeTableResults();
               return response.items;
             },
-            getItemUrl({ item }) {
+            getItemUrl({item}) {
               return getAutocompleteItemUrl(item);
             },
             templates: {
-              header({ html }) {
-                if (query === '') {
-                  return html`<span class="aa-SourceHeaderTitle"
-                      >Coffee tables</span
-                    >
-                    <div class="aa-SourceHeaderLine" />`;
+              header({html}) {
+                if (query === "") {
+                  return html`<span class="aa-SourceHeaderTitle">Coffee tables</span>
+                  <div class="aa-SourceHeaderLine"/>`;
                 }
                 return null;
               },
-              item({ item, html }) {
+              item({item, html}) {
                 return getItemTemplate(html, item);
               },
             },
           },
           {
-            sourceId: 'beigeChairResults',
-            async getItems({ query }) {
+            sourceId: "beigeChairResults",
+            async getItems({query}) {
               if (query) {
                 return [];
               }
               const response = await getBeigeChairResults();
               return response.items;
             },
-            getItemUrl({ item }) {
+            getItemUrl({item}) {
               return getAutocompleteItemUrl(item);
             },
             templates: {
-              header({ html }) {
-                if (query === '') {
-                  return html`<span class="aa-SourceHeaderTitle"
-                      >Beige chairs</span
-                    >
-                    <div class="aa-SourceHeaderLine" />`;
+              header({html}) {
+                if (query === "") {
+                  return html`<span class="aa-SourceHeaderTitle">Beige chairs</span>
+                  <div class="aa-SourceHeaderLine"/>`;
                 }
                 return null;
               },
-              item({ item, html }) {
+              item({item, html}) {
                 return getItemTemplate(html, item);
               },
             },
           },
           {
-            sourceId: 'queenSizeBedResults',
-            async getItems({ query }) {
+            sourceId: "queenSizeBedResults",
+            async getItems({query}) {
               if (query) {
                 return [];
               }
               const response = await getQueenSizeBedResults();
               return response.items;
             },
-            getItemUrl({ item }) {
+            getItemUrl({item}) {
               return getAutocompleteItemUrl(item);
             },
             templates: {
-              header({ html }) {
-                if (query === '') {
-                  return html`<span class="aa-SourceHeaderTitle"
-                      >Queen size beds</span
-                    >
-                    <div class="aa-SourceHeaderLine" />`;
+              header({html}) {
+                if (query === "") {
+                  return html`<span class="aa-SourceHeaderTitle">Queen size beds</span>
+                  <div class="aa-SourceHeaderLine"/>`;
                 }
                 return null;
               },
-              item({ item, html }) {
+              item({item, html}) {
                 return getItemTemplate(html, item);
               },
             },
           },
-        ];
+        ]
       },
     });
   }
 
   const addTailwindIconToAutocomplete = (records) => {
     for (const record of records) {
+      console.log(record);
       if (record.type === 'childList') {
         Array.from(record.addedNodes).forEach((node) => {
           if (node.classList.contains('autocomplete__container')) {
