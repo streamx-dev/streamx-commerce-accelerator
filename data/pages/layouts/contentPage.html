@@ -57,9 +57,16 @@
     const unorderedList = navSections.querySelector('ul');
     unorderedList.classList.add(...['flex', 'space-x-6']);
 
+    const url = 'https://main--psgdemoue--prftadobe.aem.live';
     const anchorLinks = navSections.querySelectorAll('a');
     Array.from(anchorLinks).forEach((anchorLink) => {
       anchorLink.classList.add(...['hover:text-dsg-red']);
+
+      const href = anchorLink.getAttribute('href');
+
+      if(href.startsWith('/')) {
+        anchorLink.setAttribute('href',`${url}${href}`);
+      }
     });
 
     while (navSections.firstChild) {
