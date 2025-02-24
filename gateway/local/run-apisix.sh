@@ -35,7 +35,6 @@ done
 docker rm -f apisix-dashboard >/dev/null 2>&1
 
 if [ "$DASHBOARD_ENABLED" == "true" ]; then
-  echo "Uruchamianie APISIX Dashboard..."
   docker run -d --name apisix-dashboard \
              -p 9000:9000 \
              --network docker-apisix_apisix \
