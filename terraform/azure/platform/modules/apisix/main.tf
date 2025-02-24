@@ -23,7 +23,7 @@ locals {
   default_namespace        = "ingress-apisix"
   default_release_name     = "apisix"
   default_settings         = {}
-  default_timeout          = 120
+  default_timeout          = 240
   default_values           = []
 
   atomic           = var.force_defaults_for_null_variables && var.atomic == null ? local.default_atomic : var.atomic
@@ -37,7 +37,6 @@ locals {
   settings         = var.force_defaults_for_null_variables && var.settings == null ? local.default_settings : var.settings
   timeout          = var.force_defaults_for_null_variables && var.timeout == null ? local.default_timeout : var.timeout
   values           = var.force_defaults_for_null_variables && var.values == null ? local.default_values : var.values
-  }
 }
 
 resource "helm_release" "apisix" {
@@ -62,12 +61,16 @@ resource "helm_release" "apisix" {
 }
 
 resource "kubectl_manifest" "apisix_ingress_patch" {
-yaml_body = <<YAML
+  yaml_body = <<YAML
 apiVersion: networking.k8s.io/v1
 kind: IngressClass
 metadata:
   name: apisix
+  labels:
+    app.kubernetes.io/managed-by: "Helm"
   annotations:
+    meta.helm.sh/release-name: "apisix"
+    meta.helm.sh/release-namespace: "ingress-apisix"
     ingressclass.kubernetes.io/is-default-class: "true"
 spec:
   controller: "apisix.apache.org/apisix-ingress"
@@ -77,8 +80,9 @@ YAML
 data "kubernetes_service" "ingress_svc" {
   metadata {
     name      = "apisix-gateway"
-    namespace = helm_release.ingress_controller.namespace
+    namespace = helm_release.apisix.namespace
   }
   depends_on = [
     helm_release.apisix
+  ]
 }

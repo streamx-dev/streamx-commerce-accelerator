@@ -27,7 +27,7 @@ locals {
 }
 
 module "apisix" {
-  source = "modules/apisix"
+  source = "./modules/apisix"
 
   values  = [
     file("${path.module}/config/gateway/values.yaml")

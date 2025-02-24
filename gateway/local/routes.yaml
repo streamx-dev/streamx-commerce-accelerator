@@ -4,7 +4,7 @@
      id: blueprint-web
      uri: /*
      hosts:
-       - ${WEB_HOST}
+       - web.127.0.0.1.nip.io
      upstream:
        nodes:
          "blueprint-web.webserver:80": 1
@@ -19,7 +19,7 @@
      id: blueprint-search
      uri: /search/*
      hosts:
-       - ${WEB_HOST}
+       - web.127.0.0.1.nip.io
      upstream:
        nodes:
          "blueprint-search:8080": 1
@@ -29,7 +29,7 @@
      id: rest-ingestion
      uri: /*
      hosts:
-       - ${STREAMX_INGESTION_HOST}
+       - ingestion.127.0.0.1.nip.io
      upstream:
        nodes:
          "rest-ingestion:8080": 1

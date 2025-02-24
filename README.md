@@ -37,9 +37,10 @@ As a prerequisite, ensure that you have StreamX CLI installed in latest preview 
 
    Start the local proxy for serving the website:
       ```bash
-      ./gateway/run-proxy.sh
+      ./gateway/local/run-apisix.sh
       ```
 
+   > **Note:** You can run proxy with APISIX Dashboard for easy routes administration by adding `dashboard-enabled=true`param to above script
    > **Note:** The started proxy server connects to the network created by the `streamx run` command.
    If the running mesh is restarted, the proxy must be restarted too. Otherwise `502. Message: Bad Gateway` will occur when calling endpoints exposed by the proxy.
 
