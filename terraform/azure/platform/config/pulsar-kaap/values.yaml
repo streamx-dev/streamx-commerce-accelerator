@@ -20,7 +20,7 @@ cluster:
         journal:
           size: 15Gi
         ledgers:
-          size: 20Gi
+          size: 40Gi
       resources:
         requests:
           cpu: "0.4"
