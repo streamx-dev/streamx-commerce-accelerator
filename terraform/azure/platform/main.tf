@@ -11,7 +11,6 @@ module "azure_platform" {
   public_ip_id           = var.public_ip_id
 }
 
-
 locals {
   ingress_controller_nginx_settings_without_static_ip = {
     "controller.replicaCount" : 1
@@ -27,49 +26,30 @@ locals {
   }
 }
 
+module "apisix" {
+  source = "modules/apisix"
+
+  values  = [
+    file("${path.module}/config/gateway/values.yaml")
+  ]
+
+  settings = var.public_ip_address != null && var.public_ip_address != "" ? {
+    "service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group": var.resource_group_name
+    "service.loadBalancerIP": var.public_ip_address
+  } : {}
+}
+
 module "streamx" {
   source  = "streamx-dev/charts/helm"
-  version = "0.0.1"
+  version = "0.0.2"
 
   ingress_controller_nginx_enabled=false
-  cert_manager_lets_encrypt_issuer_acme_email = var.cert_manager_lets_encrypt_issuer_acme_email
-  ingress_controller_nginx_settings           = var.public_ip_address == null || var.public_ip_address == "" ? local.ingress_controller_nginx_settings_without_static_ip : local.ingress_controller_nginx_settings_with_static_ip
-  pulsar_kaap_values = [
+  cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
+  pulsar_kaap_values                                       = [
     file("${path.module}/config/pulsar-kaap/values.yaml")
   ]
   streamx_operator_image_pull_secret_registry_email    = var.streamx_operator_image_pull_secret_registry_email
   streamx_operator_image_pull_secret_registry_password = var.streamx_operator_image_pull_secret_registry_password
   streamx_operator_chart_repository_username           = "_json_key_base64"
   streamx_operator_chart_repository_password           = var.streamx_operator_image_pull_secret_registry_password
-}
-
-
-resource "helm_release" "apisix" {
-  name       = "apisix"
-  repository = "https://charts.apiseven.com"
-  chart      = "apisix"
-  namespace  = "ingress-apisix"
-  create_namespace = true
-
-  values = [
-    file("values.yaml"),
-    <<EOF
-    gateway:
-      type: LoadBalancer
-      loadBalancerIP: "${var.public_ip_address}"
-      annotations:
-        service.beta.kubernetes.io/azure-load-balancer-resource-group: "${var.resource_group_name}"
-    EOF
-  ]
-}
-
-resource "kubectl_manifest" "apisix_ingress_patch" {
-  yaml_body = <<YAML
-apiVersion: networking.k8s.io/v1
-kind: IngressClass
-metadata:
-  name: apisix
-  annotations:
-    ingressclass.kubernetes.io/is-default-class: "true"
-YAML
 }

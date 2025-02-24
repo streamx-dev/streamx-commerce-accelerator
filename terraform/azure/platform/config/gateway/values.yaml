@@ -3,6 +3,7 @@ service:
 
 ingress-controller:
   enabled: true
+  ingressPublishService: ingress-apisix/apisix-gateway
 
 dashboard:
   enabled: true
