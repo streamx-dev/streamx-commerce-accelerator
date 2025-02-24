@@ -1,0 +1,37 @@
+ routes:
+   -
+     name: Web traffic
+     id: blueprint-web
+     uri: /*
+     hosts:
+       - web.127.0.0.1.nip.io
+     upstream:
+       nodes:
+         "blueprint-web.webserver:80": 1
+       type: roundrobin
+     plugins:
+       gzip:
+         buffers:
+           number: 8
+         types: "*"
+   -
+     name: Search Proxy
+     id: blueprint-search
+     uri: /search/*
+     hosts:
+       - web.127.0.0.1.nip.io
+     upstream:
+       nodes:
+         "blueprint-search:8080": 1
+       type: roundrobin
+   -
+     name: ingestion-api
+     id: rest-ingestion
+     uri: /*
+     hosts:
+       - ingestion.127.0.0.1.nip.io
+     upstream:
+       nodes:
+         "rest-ingestion:8080": 1
+       type: roundrobin
+ #END

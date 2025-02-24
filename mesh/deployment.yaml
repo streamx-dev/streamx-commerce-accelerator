@@ -11,12 +11,13 @@ ingestion:
   rest-ingestion:
     ingress:
       enabled: true
-      ingressClassName: "nginx"
       annotations:
         nginx.ingress.kubernetes.io/proxy-body-size: "500m"
         cert-manager.io/cluster-issuer: "letsencrypt-cert-cluster-issuer"
       hosts:
         - host: ${streamx.accelerator.ingestion.host}
+          paths:
+            - path: /*
       tls:
         - hosts:
             - ${streamx.accelerator.ingestion.host}
@@ -25,11 +26,11 @@ delivery:
   blueprint-web:
     ingress:
       enabled: true
-      ingressClassName: "nginx"
       hosts:
         - host: ${streamx.accelerator.web.host}
           paths:
-            - servicePort: 80
+            - servicePort: 8084
+              path: /*
       tls:
         - hosts:
             - ${streamx.accelerator.web.host}
@@ -58,11 +59,10 @@ delivery:
   blueprint-search:
     ingress:
       enabled: true
-      ingressClassName: "nginx"
       hosts:
         - host: ${streamx.accelerator.web.host}
           paths:
-            - path: /search
+            - path: /search/*
       tls:
         - hosts:
             - ${streamx.accelerator.web.host}
