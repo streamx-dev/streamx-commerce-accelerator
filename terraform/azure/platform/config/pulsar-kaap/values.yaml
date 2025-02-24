@@ -18,9 +18,10 @@ cluster:
       replicas: 1
       volumes:
         journal:
-          size: 5Gi
+          # Pulsar Bookkeeper default journal configuration (https://github.com/apache/pulsar/blob/v4.0.0/conf/bookkeeper.conf#L358) requires at least 12GB
+          size: 15Gi
         ledgers:
-          size: 20Gi
+          size: 40Gi
       resources:
         requests:
           cpu: "0.4"
