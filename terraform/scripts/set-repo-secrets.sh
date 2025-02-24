@@ -25,4 +25,3 @@ fi
 if [ -f "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/rest-ingestion.crt.yaml" ]; then
     gh secret set REST_INGESTION_CERT --body "$(cat "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/rest-ingestion.crt.yaml")"
 fi
-
