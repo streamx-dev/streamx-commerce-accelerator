@@ -185,7 +185,7 @@ Cloud deployment can be done using StreamX CLI from local host or GitHub Action.
 options are interchangeable.
 
 To preserve generation of TLS secrets place all secrets used by your mesh inside `gateway/tls` and `mesh/auth` folders. Please be aware that this files should be in YAML format. After first mesh deployment 
-these certificates will be generated and can be copied from Azure.
+these certificates will be generated and can be copied from Azure. In mesh/auth folder private key used by mesh should be placed.
 
 > **Note:** Do NOT commit any secrets to GH repository
 
