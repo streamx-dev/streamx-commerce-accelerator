@@ -26,7 +26,7 @@ variable "atomic" {
 }
 
 variable "chart_name" {
-  default     = "ingress-apisix"
+  default     = "apisix"
   description = "The name of the Helm chart to install"
   type        = string
 }
