@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$ref": "#/definitions/SxProduct",
   "definitions": {
     "SxProduct": {
       "type": "object",
@@ -168,7 +167,7 @@
       "title": "SxAttribute",
       "required": [
         "name",
-        "value"
+        "values"
       ],
       "properties": {
         "name": {
