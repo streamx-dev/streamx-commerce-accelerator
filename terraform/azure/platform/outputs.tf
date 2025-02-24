@@ -17,5 +17,5 @@ output "kubeconfig" {
 
 output "loadbalancer_ip" {
   description = "K8s cluster Load Balancer IP"
-  value       = module.streamx.loadbalancer_ip
+  value       = module.apisix.ingress_ip
 }
