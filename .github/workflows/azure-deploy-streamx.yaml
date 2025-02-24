@@ -30,7 +30,7 @@ jobs:
         run: |
           brew install streamx-dev/preview-tap/streamx
 
-      - name: Prepare cert secrets
+      - name: Prepare Kubernetes secrets
         env:
           SX_SEC_AUTH_PRIVATE_KEY: ${{ secrets.SX_SEC_AUTH_PRIVATE_KEY }}
           BLUEPRINT_WEB_CERT: ${{ secrets.BLUEPRINT_WEB_CERT }}
@@ -40,7 +40,7 @@ jobs:
           mkdir -p gateway/tls
           
           if [ -n "$SX_SEC_AUTH_PRIVATE_KEY" ]; then
-            echo "$SX_SEC_AUTH_PRIVATE_KEY" > gateway/tls/sx-sec-auth-private-key.yaml
+            echo "$SX_SEC_AUTH_PRIVATE_KEY" > mesh/auth/sx-sec-auth-private-key.yaml
           fi
 
           if [ -n "$BLUEPRINT_WEB_CERT" ]; then

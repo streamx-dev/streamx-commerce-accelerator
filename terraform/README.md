@@ -184,7 +184,7 @@ All commands in this document should be executed from the terraform directory.
 Cloud deployment can be done using StreamX CLI from local host or GitHub Action. Both
 options are interchangeable.
 
-To preserve generation of TLS secrets place all secrets used by your mesh inside `gateway/tls` folder. Please be aware that this files should be in YAML format. After first mesh deployment 
+To preserve generation of TLS secrets place all secrets used by your mesh inside `gateway/tls` and `mesh/auth` folders. Please be aware that this files should be in YAML format. After first mesh deployment 
 these certificates will be generated and can be copied from Azure.
 
 > **Note:** Do NOT commit any secrets to GH repository
