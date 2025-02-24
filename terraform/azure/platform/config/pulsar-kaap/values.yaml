@@ -18,7 +18,7 @@ cluster:
       replicas: 1
       volumes:
         journal:
-          size: 5Gi
+          size: 15Gi
         ledgers:
           size: 20Gi
       resources:
