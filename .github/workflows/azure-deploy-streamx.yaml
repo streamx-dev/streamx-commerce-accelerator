@@ -38,6 +38,7 @@ jobs:
           REST_INGESTION_CERT: ${{ secrets.REST_INGESTION_CERT }}
         run: |
           mkdir -p gateway/tls
+          mkdir -p mesh/auth
           
           if [ -n "$SX_SEC_AUTH_PRIVATE_KEY" ]; then
             echo "$SX_SEC_AUTH_PRIVATE_KEY" > mesh/auth/sx-sec-auth-private-key.yaml
