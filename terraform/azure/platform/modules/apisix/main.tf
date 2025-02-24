@@ -23,7 +23,7 @@ locals {
   default_namespace        = "ingress-apisix"
   default_release_name     = "apisix"
   default_settings         = {}
-  default_timeout          = 240
+  default_timeout          = 480
   default_values           = []
 
   atomic           = var.force_defaults_for_null_variables && var.atomic == null ? local.default_atomic : var.atomic
@@ -75,6 +75,9 @@ metadata:
 spec:
   controller: "apisix.apache.org/apisix-ingress"
 YAML
+  depends_on = [
+    helm_release.apisix
+  ]
 }
 
 data "kubernetes_service" "ingress_svc" {
