@@ -1,8 +1,4 @@
 #!/bin/bash
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../scripts/ingestion/read-env.sh"
-
 cleanup() {
     echo "Stopping and removing containers..."
     docker compose -p docker-apisix down

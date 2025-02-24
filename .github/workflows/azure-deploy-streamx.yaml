@@ -37,6 +37,8 @@ jobs:
           BLUEPRINT_SEARCH_CERT: ${{ secrets.BLUEPRINT_SEARCH_CERT }}
           REST_INGESTION_CERT: ${{ secrets.REST_INGESTION_CERT }}
         run: |
+          mkdir -p gateway/tls
+          
           if [ -n "$SX_SEC_AUTH_PRIVATE_KEY" ]; then
             echo "$SX_SEC_AUTH_PRIVATE_KEY" > gateway/tls/sx-sec-auth-private-key.yaml
           fi
