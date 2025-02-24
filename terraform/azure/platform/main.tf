@@ -29,13 +29,13 @@ locals {
 module "apisix" {
   source = "./modules/apisix"
 
-  values  = [
+  values = [
     file("${path.module}/config/gateway/values.yaml")
   ]
 
   settings = var.public_ip_address != null && var.public_ip_address != "" ? {
-    "service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group": var.resource_group_name
-    "service.loadBalancerIP": var.public_ip_address
+    "service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
+    "service.loadBalancerIP" : var.public_ip_address
   } : {}
 }
 
@@ -43,10 +43,10 @@ module "streamx" {
   source  = "streamx-dev/charts/helm"
   version = "0.0.3"
 
-  ingress_controller_nginx_enabled=false
+  ingress_controller_nginx_enabled                         = false
   cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
   cert_manager_lets_encrypt_issuer_prod_letsencrypt_server = var.cert_manager_lets_encrypt_issuer_prod_letsencrypt_server
-  pulsar_kaap_values                                       = [
+  pulsar_kaap_values = [
     file("${path.module}/config/pulsar-kaap/values.yaml")
   ]
   streamx_operator_image_pull_secret_registry_email    = var.streamx_operator_image_pull_secret_registry_email
