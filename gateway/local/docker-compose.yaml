@@ -50,18 +50,6 @@ services:
     networks:
       apisix:
 
-  web1:
-    image: nginx:1.19.0-alpine
-    restart: always
-    volumes:
-      - ./upstream/web1.conf:/etc/nginx/nginx.conf
-    ports:
-      - "9081:80/tcp"
-    environment:
-      - NGINX_PORT=80
-    networks:
-      apisix:
-
 networks:
   apisix:
     driver: bridge

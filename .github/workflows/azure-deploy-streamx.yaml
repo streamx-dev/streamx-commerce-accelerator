@@ -33,9 +33,9 @@ jobs:
       - name: Prepare Kubernetes secrets
         env:
           SX_SEC_AUTH_PRIVATE_KEY: ${{ secrets.SX_SEC_AUTH_PRIVATE_KEY }}
-          BLUEPRINT_WEB_CERT: ${{ secrets.BLUEPRINT_WEB_CERT }}
-          BLUEPRINT_SEARCH_CERT: ${{ secrets.BLUEPRINT_SEARCH_CERT }}
-          REST_INGESTION_CERT: ${{ secrets.REST_INGESTION_CERT }}
+          BLUEPRINT_WEB_TLS_CERT: ${{ secrets.BLUEPRINT_WEB_TLS_CERT }}
+          BLUEPRINT_SEARCH_TLS_CERT: ${{ secrets.BLUEPRINT_SEARCH_TLS_CERT }}
+          REST_INGESTION_TLS_CERT: ${{ secrets.REST_INGESTION_TLS_CERT }}
         run: |
           mkdir -p gateway/tls
           mkdir -p mesh/auth
@@ -44,16 +44,16 @@ jobs:
             echo "$SX_SEC_AUTH_PRIVATE_KEY" > mesh/auth/sx-sec-auth-private-key.yaml
           fi
 
-          if [ -n "$BLUEPRINT_WEB_CERT" ]; then
-            echo "$BLUEPRINT_WEB_CERT" > gateway/tls/blueprint-web.crt.yaml
+          if [ -n "$BLUEPRINT_WEB_TLS_CERT" ]; then
+            echo "$BLUEPRINT_WEB_TLS_CERT" > gateway/tls/blueprint-web.crt.yaml
           fi
 
-          if [ -n "$BLUEPRINT_SEARCH_CERT" ]; then
-            echo "$BLUEPRINT_SEARCH_CERT" > gateway/tls/blueprint-search.crt.yaml
+          if [ -n "$BLUEPRINT_SEARCH_TLS_CERT" ]; then
+            echo "$BLUEPRINT_SEARCH_TLS_CERT" > gateway/tls/blueprint-search.crt.yaml
           fi
 
-          if [ -n "$REST_INGESTION_CERT" ]; then
-            echo "$REST_INGESTION_CERT" > gateway/tls/rest-ingestion.crt.yaml
+          if [ -n "$REST_INGESTION_TLS_CERT" ]; then
+            echo "$REST_INGESTION_TLS_CERT" > gateway/tls/rest-ingestion.crt.yaml
           fi    
 
       - name: "Deploy StreamX"
