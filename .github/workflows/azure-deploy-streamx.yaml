@@ -81,6 +81,8 @@ jobs:
             ${{ vars.TF_VAR_PUBLIC_IP_ID }}
           TF_VAR_cert_manager_lets_encrypt_issuer_acme_email:
             ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_acme_email }}
+          TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server:
+            ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server }}
           TF_VAR_streamx_operator_image_pull_secret_registry_email:
             ${{ vars.TF_VAR_streamx_operator_image_pull_secret_registry_email }}
           TF_VAR_streamx_operator_image_pull_secret_registry_password:
