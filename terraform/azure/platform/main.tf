@@ -32,7 +32,7 @@ module "streamx" {
   cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
   cert_manager_lets_encrypt_issuer_prod_letsencrypt_server = var.cert_manager_lets_encrypt_issuer_prod_letsencrypt_server
   cert_manager_lets_encrypt_issuer_ingress_class           = "apisix"
-  pulsar_kaap_values                                       = [
+  pulsar_kaap_values = [
     file("${path.module}/config/pulsar-kaap/values.yaml")
   ]
   streamx_operator_image_pull_secret_registry_email    = var.streamx_operator_image_pull_secret_registry_email
