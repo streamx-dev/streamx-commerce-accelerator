@@ -160,9 +160,9 @@ All commands in this document should be executed from the terraform directory.
              * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_PROD_LETSENCRYPT_SERVER`
          * secrets:
            *  `SX_SEC_AUTH_PRIVATE_KEY`
-           *  `BLUEPRINT_WEB_CERT`
-           *  `BLUEPRINT_SEARCH_CERT`
-           *  `REST_INGESTION_CERT`
+           *  `BLUEPRINT_WEB_TLS_CERT`
+           *  `BLUEPRINT_SEARCH_TLS_CERT`
+           *  `REST_INGESTION_TLS_CERT`
    > **Note:** This step can be done manually using values from
    > [`azure/.env`](azure/.env) or using
    > [set-repo-secrets.sh](.github/scripts/set-repo-secrets.sh)
