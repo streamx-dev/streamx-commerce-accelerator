@@ -30,6 +30,32 @@ jobs:
         run: |
           brew install streamx-dev/preview-tap/streamx
 
+      - name: Prepare Kubernetes secrets
+        env:
+          SX_SEC_AUTH_PRIVATE_KEY: ${{ secrets.SX_SEC_AUTH_PRIVATE_KEY }}
+          BLUEPRINT_WEB_TLS_CERT: ${{ secrets.BLUEPRINT_WEB_TLS_CERT }}
+          BLUEPRINT_SEARCH_TLS_CERT: ${{ secrets.BLUEPRINT_SEARCH_TLS_CERT }}
+          REST_INGESTION_TLS_CERT: ${{ secrets.REST_INGESTION_TLS_CERT }}
+        run: |
+          mkdir -p gateway/tls
+          mkdir -p mesh/auth
+          
+          if [ -n "$SX_SEC_AUTH_PRIVATE_KEY" ]; then
+            echo "$SX_SEC_AUTH_PRIVATE_KEY" > mesh/auth/sx-sec-auth-private-key.yaml
+          fi
+
+          if [ -n "$BLUEPRINT_WEB_TLS_CERT" ]; then
+            echo "$BLUEPRINT_WEB_TLS_CERT" > gateway/tls/blueprint-web.crt.yaml
+          fi
+
+          if [ -n "$BLUEPRINT_SEARCH_TLS_CERT" ]; then
+            echo "$BLUEPRINT_SEARCH_TLS_CERT" > gateway/tls/blueprint-search.crt.yaml
+          fi
+
+          if [ -n "$REST_INGESTION_TLS_CERT" ]; then
+            echo "$REST_INGESTION_TLS_CERT" > gateway/tls/rest-ingestion.crt.yaml
+          fi    
+
       - name: "Deploy StreamX"
         id: deploy-streamx
         env:
@@ -55,6 +81,8 @@ jobs:
             ${{ vars.TF_VAR_PUBLIC_IP_ID }}
           TF_VAR_cert_manager_lets_encrypt_issuer_acme_email:
             ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_acme_email }}
+          TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server:
+            ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server }}
           TF_VAR_streamx_operator_image_pull_secret_registry_email:
             ${{ vars.TF_VAR_streamx_operator_image_pull_secret_registry_email }}
           TF_VAR_streamx_operator_image_pull_secret_registry_password:

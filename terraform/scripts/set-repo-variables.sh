@@ -15,3 +15,7 @@ fi
 if [[ -n "$TF_VAR_public_ip_id" ]]; then
 gh variable set TF_VAR_PUBLIC_IP_ID -b "$TF_VAR_public_ip_id"
 fi
+if [[ -n "$TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server" ]]; then
+gh variable set TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_PROD_LETSENCRYPT_SERVER -b "$TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server"
+fi
+

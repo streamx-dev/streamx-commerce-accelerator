@@ -50,6 +50,8 @@ auth/*
 /target
 /repository
 
-# Ignore trusted cers symlinks
-scripts/ingestion/cert/*.0
 /node_modules
+
+/gateway/tls/*
+
+/mesh/auth/*

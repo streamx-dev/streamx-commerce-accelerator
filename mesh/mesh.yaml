@@ -22,6 +22,10 @@ ingestion:
     environmentFrom:
       configs:
         - "ingestion.properties"
+    environment:
+      # Ensures that generated tokens would work between cluster restarts
+      STREAMX_SOURCES_PIM_ACCEPT_IAT_FROM: "1704067200"
+      STREAMX_SOURCES_CMS_ACCEPT_IAT_FROM: "1704067200"
 
 processing:
 

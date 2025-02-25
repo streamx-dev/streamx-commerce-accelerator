@@ -130,7 +130,12 @@ All commands in this document should be executed from the terraform directory.
        Solutions used for authentication
    > * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL` - Cert Manager passes that email to
        Let's Encrypt server.
-10. Setup GH
+10. Optionally: Setup production Let's Encrypt certificate issuer append `TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server=true`
+     ```shell
+    echo "# Cert Manager - use Let's Encrypt production cert issuer
+    TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server=true" >> azure/.env
+    ```
+11. Setup GH
     Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
     and [secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
     on repository level.
@@ -152,6 +157,12 @@ All commands in this document should be executed from the terraform directory.
              * `TF_VAR_USER_IDENTITY_ID`
              * `TF_VAR_PUBLIC_IP_ADDRESS`
              * `TF_VAR_PUBLIC_IP_ID`
+             * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_PROD_LETSENCRYPT_SERVER`
+         * secrets:
+           *  `SX_SEC_AUTH_PRIVATE_KEY`
+           *  `BLUEPRINT_WEB_TLS_CERT`
+           *  `BLUEPRINT_SEARCH_TLS_CERT`
+           *  `REST_INGESTION_TLS_CERT`
    > **Note:** This step can be done manually using values from
    > [`azure/.env`](azure/.env) or using
    > [set-repo-secrets.sh](.github/scripts/set-repo-secrets.sh)
@@ -172,6 +183,10 @@ All commands in this document should be executed from the terraform directory.
 
 Cloud deployment can be done using StreamX CLI from local host or GitHub Action. Both
 options are interchangeable.
+
+To preserve generation of TLS secrets place all secrets used by your mesh inside `gateway/tls` and `mesh/auth` folders. Please be aware that this files should be in YAML format. After the initial mesh deployment, the certificates will be generated and can be retrieved from Azure. The `mesh/auth` directory should contain the private key used by the mesh.
+
+> **Note:** Do NOT commit any secrets to GH repository
 
 ### Deploy from local
 
