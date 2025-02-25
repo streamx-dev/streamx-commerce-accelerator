@@ -1,0 +1,14 @@
+service:
+  type: LoadBalancer
+
+ingress-controller:
+  enabled: true
+  config:
+    ingressPublishService: ingress-apisix/apisix-gateway
+
+dashboard:
+  enabled: true
+
+apisix:
+  ssl:
+    enabled: true
