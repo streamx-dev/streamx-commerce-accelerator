@@ -16,6 +16,7 @@ spec:
           - /fragments/*
           - /products/*
           - /categories/*
+          - /content/*
       priority: 20
       backends:
         - serviceName: sx-del-blueprint-web
