@@ -18,6 +18,6 @@ locals {
 }
 
 output "ingress_ip" {
-  description = "IP of the loadbalancer"
+  description = "K8s cluster Load Balancer IP"
   value       = length(local.load_balancer_ingress) > 0 ? local.load_balancer_ingress.0.ip : null
 }

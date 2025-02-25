@@ -1,6 +1,6 @@
  routes:
    -
-     name: Web traffic
+     name: streamx-web-route
      id: blueprint-web
      uri: /*
      hosts:
@@ -15,7 +15,7 @@
            number: 8
          types: "*"
    -
-     name: Search Proxy
+     name: streamx-search-route
      id: blueprint-search
      uri: /search/*
      hosts:
@@ -25,7 +25,7 @@
          "blueprint-search:8080": 1
        type: roundrobin
    -
-     name: ingestion-api
+     name: streamx-ingestion-route
      id: rest-ingestion
      uri: /*
      hosts:
