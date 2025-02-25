@@ -1,0 +1,22 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: streamx-web-route
+spec:
+  http:
+    - name: streamx-web-route
+      match:
+        hosts:
+          - lumax.streamx.com
+        paths:
+          - /homepage.html
+          - /sitemap.xml
+          - /assets/*
+          - /web-resources/*
+          - /fragments/*
+          - /products/*
+          - /categories/*
+      priority: 20
+      backends:
+        - serviceName: sx-del-blueprint-web
+          servicePort: 8084

@@ -1,0 +1,27 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixUpstream
+metadata:
+  name: eds-upstream
+spec:
+  scheme: https
+  passHost: node
+  externalNodes:
+    - type: Domain
+      name: main--psgdemoue--prftadobe.aem.live
+
+---
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: eds-default-route
+spec:
+  http:
+    - name: eds-default-route
+      match:
+        hosts:
+          - lumax.streamx.com
+        paths:
+          - /*
+      priority: 10
+      upstreams:
+        - name: eds-upstream
