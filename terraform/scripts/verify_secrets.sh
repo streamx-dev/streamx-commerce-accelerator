@@ -8,25 +8,29 @@ fi
 
 export KUBECONFIG="$(terraform -chdir="$VERIFY_SECRETS_SCRIPT_DIR"/../azure/platform output -raw kubeconfig_path)"
 
-#Verify secrets
+compare_secret() {
+    local secret_name="$1"
+    local secret_field="$2"
+    local file="$3"
+
+    secret_data=$(kubectl get secret "$secret_name" -o yaml 2>/dev/null)
+
+    if [ -n "$secret_data" ]; then
+        if ! diff <(echo "$secret_data" | yq ".data.\"$secret_field\"") <(yq eval ".data.\"$secret_field\"" "$file") >/dev/null; then
+            echo "$secret_field of $secret_name is different! It's likely that the certificates/private keys in Kubernetes are newer than those in your repository. Please update your local certificates and GitHub Action secrets to align with the newly generated ones in Kubernetes."
+            exit 1
+        fi
+    fi
+}
+
 for cert_file in "$VERIFY_SECRETS_SCRIPT_DIR"/../../gateway/tls/*.crt.yaml; do
     [ -f "$cert_file" ] || continue
     cert_name=$(basename "$cert_file" .yaml)
-    if kubectl get secret "$cert_name" >/dev/null 2>&1; then
-      if ! diff <(kubectl get secret "$cert_name" -o yaml | yq '.data."tls.crt"') <(yq eval '.data."tls.crt"' "$cert_file") >/dev/null; then
-          echo "The certificate $cert_name is different! It's likely that the certificates in Kubernetes are newer than those in your repository. Please update your local certificates and GitHub Action secrets to align with the newly generated ones in Kubernetes."
-          exit 1
-      fi
-    fi
+    compare_secret "$cert_name" "tls.crt" "$cert_file"
 done
 
 for auth_key_file in "$VERIFY_SECRETS_SCRIPT_DIR"/../../mesh/auth/*.yaml; do
     [ -f "$auth_key_file" ] || continue
     auth_key_name=$(basename "$auth_key_file" .yaml)
-    if kubectl get secret "$auth_key_name" >/dev/null 2>&1; then
-      if ! diff <(kubectl get secret "$auth_key_name" -o yaml | yq '.data."private.key"') <(yq eval '.data."private.key"' "$auth_key_file") >/dev/null; then
-          echo "Private key $auth_key_name is different!. Make sure your K8s secrets match the ones from GH repository"
-          exit 1
-      fi
-    fi
+    compare_secret "$auth_key_name" "private.key" "$auth_key_file"
 done
