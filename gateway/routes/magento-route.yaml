@@ -21,7 +21,7 @@ spec:
         hosts:
           - lumax.streamx.com
         paths:
-          - /graphql/*
-      priority: 10
+          - /graphql
+      priority: 15
       upstreams:
         - name: magento-upstream
