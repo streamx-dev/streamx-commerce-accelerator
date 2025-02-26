@@ -91,6 +91,9 @@
         "label": {
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
         "price": {
           "$ref": "#/definitions/SxPrice"
         },
