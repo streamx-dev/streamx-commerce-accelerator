@@ -44,6 +44,7 @@ ref: "#/definitions/SxProductVariant"
 | slug         | String *          | URL friendly name, uniquely identifying product item |
 | name         | String *          | title of the product variant                         |
 | label        | String            | label of the product variant                         |
+| description  | String            | detail information about the product                 |
 | price        | \[ SxPrice \]     | product variant price value                          |
 | primaryImage | SxImage           | main picture of the product                          |
 | gallery      | \[ SxImage \]     | product visual medias                                |
