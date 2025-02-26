@@ -1,4 +1,7 @@
 #!/bin/bash
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 cleanup() {
     echo "Stopping and removing containers..."
     docker compose -p docker-apisix down
@@ -14,10 +17,10 @@ ARCH=$(uname -m)
 
 if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
     echo "Detected ARM64 architecture. Using docker-compose-arm64.yml"
-    docker-compose -p docker-apisix -f docker-compose-arm64.yml up -d
+    docker-compose -p docker-apisix -f "$SCRIPT_DIR"/docker-compose-arm64.yml up -d
 else
     echo "Detected non-ARM64 architecture. Using docker-compose.yml"
-    docker-compose -p docker-apisix -f docker-compose.yml up -d
+    docker-compose -p docker-apisix -f "$SCRIPT_DIR"/docker-compose.yml up -d
 fi
 
 docker network connect docker-apisix_apisix blueprint-web.webserver  >/dev/null 2>&1
@@ -38,7 +41,7 @@ if [ "$DASHBOARD_ENABLED" == "true" ]; then
   docker run -d --name apisix-dashboard \
              -p 9000:9000 \
              --network docker-apisix_apisix \
-             -v "$(pwd)"/dashboard_conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml \
+             -v "$SCRIPT_DIR"/dashboard_conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml \
              apache/apisix-dashboard
 fi
 
@@ -49,7 +52,7 @@ done
 
 
 # Sync routes
-YAML_FILE='./routes.yaml'
+YAML_FILE="$SCRIPT_DIR"/routes.yaml
 json_content=$(envsubst < "$YAML_FILE" | yq eval -o=json)
 
 echo "$json_content" | jq -c '.routes[]' | while read -r route; do
