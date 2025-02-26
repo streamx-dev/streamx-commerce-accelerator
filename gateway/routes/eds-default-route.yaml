@@ -7,7 +7,7 @@ spec:
   passHost: node
   externalNodes:
     - type: Domain
-      name: author-p7752-e729659.adobeaemcloud.com/content/psg-demo-ue/
+      name: main--psgdemoue--prftadobe.aem.live
 
 ---
 apiVersion: apisix.apache.org/v2
