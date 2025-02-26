@@ -117,7 +117,6 @@ ref: "#/definitions/SxAttribute"
 | label   | String                  | attribute label                            |
 | isFacet | Boolean                 | property enable filter criteria for search |
 | values  | \[ SxAttributeValue \]  | values of the attribute                    |
-| options | \[ SxAttributeOption \] | additional attribute metadata              |
 
 ## **SxAttributeValue**
 
@@ -129,25 +128,10 @@ ref: "#/definitions/SxAttributeValue"
 
 ### Model properties
 
-| Field | Type     | Description                  |
-|-------|----------|------------------------------|
-| value | String * | value of the attribute value |
-| label | String   | attribute value label        |
-
-## **SxAttributeOption**
-
-Additional metadata information for an attribute.
-
-### JSON-Schema
-
-ref: "#/definitions/SxAttributeOption"
-
-### Model properties
-
 | Field  | Type                    | Description                       |
 |--------|-------------------------|-----------------------------------|
-| value  | String *                | value of the attribute option     |
-| label  | String                  | attribute option label            |
+| value  | String *                | value of the attribute value      |
+| label  | String                  | attribute value label             |
 | swatch | SxAttributeOptionSwatch | swatch information for the option |
 
 ## **SxAttributeOptionSwatch**
