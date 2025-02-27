@@ -62,7 +62,7 @@
   };
 
   const getItemTemplate = (html, item) => {
-    return html`<a class="aa-ItemLink" href=${getAutocompleteItemUrl(item)}>
+    return html`<a class="searchResult aa-ItemLink" href=${getAutocompleteItemUrl(item)}>
       <div class="aa-ItemContent">
         <div class="aa-ItemIcon aa-ItemIcon--alignTop">
           <svg
