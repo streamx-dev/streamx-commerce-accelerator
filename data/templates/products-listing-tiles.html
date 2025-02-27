@@ -71,7 +71,7 @@
       let cartQuantity = localStorage.getItem('shoppingCartQuantity')*1; 
       cartQuantity += 1
       localStorage.setItem('shoppingCartQuantity', cartQuantity);
-      docment.querySelector('.cart-quantity').innerText = cartQuantity;
+      document.querySelector('.cart-quantity').innerText = cartQuantity;
     }
   </script>
   {% endfor %}
