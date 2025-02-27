@@ -68,9 +68,9 @@
   </div>
   <script>
     function updateCartQantity(){
-      let cartQuantity = localStorage.getItem('shoppingCartQuantity'); 
+      let cartQuantity = localStorage.getItem('shoppingCartQuantity')*1; 
       cartQuantity += cartQuantity
-      localStorage.setItem('shoppingCartQuantity', cartQuantity)
+      localStorage.setItem('shoppingCartQuantity', cartQuantity);
       docment.querySelector('.cart-quantity').innerText = cartQuantity;
     }
   </script>
