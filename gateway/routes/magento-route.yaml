@@ -1,0 +1,27 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixUpstream
+metadata:
+  name: magento-upstream
+spec:
+  scheme: https
+  passHost: node
+  externalNodes:
+    - type: Domain
+      name: master-7rqtwti-f3ef32mfqsxfe.us-4.magentosite.cloud
+
+---
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: magento-route
+spec:
+  http:
+    - name: magento-route
+      match:
+        hosts:
+          - lumax.streamx.com
+        paths:
+          - /graphql
+      priority: 15
+      upstreams:
+        - name: magento-upstream

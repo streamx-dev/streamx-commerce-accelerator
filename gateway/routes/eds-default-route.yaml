@@ -25,3 +25,13 @@ spec:
       priority: 10
       upstreams:
         - name: eds-upstream
+      plugins:
+        - name: response-rewrite
+          enable: true
+          config:
+            headers:
+              Cache-Control: "no-store, no-cache, must-revalidate"
+              Pragma: "no-cache"
+              Expires: "0"
+            vars:
+              - [ "sent_http_content_type", "~~", "text/html" ]

@@ -1,6 +1,6 @@
 <div class="product-listing product-listing--horizontal">
   {% for i in range(0, values|length - 1) %}
-  <div class="product-listing__product">
+  <div class="product-listing__product" data-product-details='{"sku":"{{ values[i].sku }}","name": "{{ values[i].name }}","rating":"3","description":"{{ values[i].description }}","category":"{{ values[i].categories[0].name}}","brand":"LumaX","salesOrg":"Perficient","productPrice":"{{ values[i].price.value }}"}'>
     <div class="product-listing__product-container">
       <a
         class="product-listing__product-asset"
@@ -58,13 +58,22 @@
           </span>
           {% endif %}
           <button
-            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 bg-dsg-red hover:bg-dsg-red/90 text-white"
-          >
+            class="addToCart inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 bg-dsg-red hover:bg-dsg-red/90 text-white"
+            onclick="updateCartQantity()">
             Add to Cart
           </button>
+
         </div>
       </div>
     </div>
   </div>
+  <script>
+    function updateCartQantity(){
+      let cartQuantity = localStorage.getItem('shoppingCartQuantity')*1; 
+      cartQuantity += 1
+      localStorage.setItem('shoppingCartQuantity', cartQuantity);
+      document.querySelector('.cart-quantity').innerText = cartQuantity;
+    }
+  </script>
   {% endfor %}
 </div>
