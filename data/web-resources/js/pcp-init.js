@@ -122,12 +122,12 @@
 
     const getFilterTemplate = (name, filters, label) => {
       const tmp =  `<fieldset>
-        <legend class="font-medium text-gray-700 mb-4">${label}</legend>
-          <div class="pt-2">
+        <legend class="font-semibold mb-4">${label}</legend>
+          <div class="space-y-2">
             ${ filters.map((f,i) => { return `<div class="flex gap-2">
-                <div class="flex items-center mb-4">
-                  <input id="${name}-${i}" name="${name}[]" type="checkbox" class="checkbox-filter w-4 h-4 text-gray-400 bg-gray-100 border-gray-300 rounded-sm focus:ring-2" value="${f.key}">
-                  <label for="${name}-${i}" class="ms-2 text-sm font-medium text-gray-400 font-thin">${f.key}</label>
+                <div class="flex items-center space-x-2">
+                  <input id="${name}-${i}" name="${name}[]" type="checkbox" class="peer h-4 w-4 shrink-0 rounded-xs border border-primary ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" value="${f.key}">
+                  <label for="${name}-${i}">${f.key}</label>
                 </div>
               </div>`
             }).join('')}

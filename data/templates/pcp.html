@@ -9,51 +9,75 @@
 <body class="overflow-scroll" data-page-type='Category Landing'>
 {{ '{{#include src="/fragments/header.html"}}' }}
 
-<section class="container bg-white mx-auto">
-  <div class="pb-16 sm:pb-24 px-8 mt-16">
-    <nav aria-label="Breadcrumb" class="flex mb-6">
-      <nav aria-label="breadcrumbs" class="breadcrumb  is-medium">
-        <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-          <li><a> <span>Products</span> </a></li>
-          <li><a> <span>{{name}}</span> </a></li>
-        </ol>
+  <section class="container bg-white mx-auto">
+    <div class="pb-16 sm:pb-24 px-8 mt-16">
+      <nav aria-label="Breadcrumb" class="flex mb-6">
+        <nav aria-label="breadcrumbs" class="breadcrumb  is-medium">
+          <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+            <li><a> <span>Products</span> </a></li>
+            <li><a> <span>{{name}}</span> </a></li>
+          </ol>
+        </nav>
       </nav>
-    </nav>
-    <div class="w-full">
-      <h1 class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6">{{name}}</h1>
-      <p class="text-gray-600">Checkout out the latest release of {{name}}, new and improved with four openings!</p>
-      <hr class="my-4 md:my-6 border-gray-200"/>
-    </div>
-    <div class="pt-6 lg:grid lg:grid-cols-4 lg:gap-4" data-category="{{name}}"
-         data-filters="[{&quot;ft_color&quot;:&quot;Color&quot;},{&quot;ft_activity&quot;:&quot;Activity&quot;}]"
-         id="product-category-component">
-      <aside>
-        <!-- <h2 class="hidden">Filters</h2>
-        <button type="button" class="hidden">
-          <span class="">Filters</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="ke om ww bar">
-            <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z"></path>
-          </svg>
-        </button> -->
-        <ul class="hidden lg:block" id="category-list">
+      <div class="w-full">
+        <h1 class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6">{{name}}</h1>
+        <p class="text-gray-600">Checkout out the latest release of {{name}}, new and improved with four openings!</p>
+        <hr class="my-4 md:my-6 border-gray-200" />
+      </div>
+      <div class="pt-6 lg:grid lg:grid-cols-4 lg:gap-4" data-category="{{name}}"
+        data-filters="[{&quot;ft_color&quot;:&quot;Color&quot;},{&quot;ft_activity&quot;:&quot;Activity&quot;}]"
+        id="product-category-component">
+        <aside class="space-y-8">
+          <ul class="hidden lg:block" id="category-list">
+            <fieldset>
+              <legend class="font-semibold mb-4">Size</legend>
+                <div class="space-y-2">
+                  <div class="flex flex-col gap-2">
+                      <div class="flex items-center space-x-2">
+                        <input id="size-xs" name="size-xs" type="checkbox" class="peer h-4 w-4 shrink-0 rounded-xs border border-primary ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" value="${f.key}">
+                        <label for="size-xs">XS</label>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <input id="size-s" name="size-s" type="checkbox" class="peer h-4 w-4 shrink-0 rounded-xs border border-primary ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" value="${f.key}">
+                        <label for="size-s">S</label>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <input id="size-m" name="size-m" type="checkbox" class="peer h-4 w-4 shrink-0 rounded-xs border border-primary ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" value="${f.key}">
+                        <label for="size-m">M</label>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <input id="size-l" name="size-l" type="checkbox" class="peer h-4 w-4 shrink-0 rounded-xs border border-primary ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" value="${f.key}">
+                        <label for="size-l">L</label>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <input id="size-xl" name="size-xl" type="checkbox" class="peer h-4 w-4 shrink-0 rounded-xs border border-primary ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" value="${f.key}">
+                        <label for="size-xl">XL</label>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <input id="size-xxl" name="size-xxl" type="checkbox" class="peer h-4 w-4 shrink-0 rounded-xs border border-primary ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" value="${f.key}">
+                        <label for="size-xxl">XXL</label>
+                      </div>
+                    </div>
+              </div>
+              <hr class="my-4 md:my-6 border-gray-200"/>
+            </fieldset>
+          </ul>
+        </aside>
+        <ul class="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-3 xl:gap-x-8 lg:col-span-3" id="product-list">
         </ul>
-      </aside>
-      <ul class="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-3 xl:gap-x-8 lg:col-span-3" id="product-list">
-      </ul>
-      <div class="hidden grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-col-span-1 xl:gap-x-8 lg:col-end-4"
-           id="load-more-button">
-        <button
-          aria-label="Load more"
-          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-sm shadow mt-5">
-          <span class="">Load more</span>
-        </button>
+        <div class="hidden grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-col-span-1 xl:gap-x-8 lg:col-end-4"
+          id="load-more-button">
+          <button aria-label="Load more"
+            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-sm shadow mt-5">
+            <span class="">Load more</span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-{{ '{{#include src="/fragments/footer.html"}}' }}
-<script defer src="../web-resources/js/pcp-init.js"></script>
+  {{ '{{#include src="/fragments/footer.html"}}' }}
+  <script defer src="../web-resources/js/pcp-init.js"></script>
 </body>
 
 </html>
