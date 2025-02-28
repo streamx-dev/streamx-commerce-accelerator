@@ -22,3 +22,12 @@ spec:
       backends:
         - serviceName: sx-del-blueprint-web
           servicePort: 8084
+      plugins:
+      - name: cors
+        enable: true
+        config:
+          allow_origins: "*"  # Change this to specific origins if needed
+          allow_methods: "*"   # Allow all HTTP methods
+          allow_headers: "*"   # Allow all headers
+          expose_headers: "*"  # Expose all headers
+          max_age: 3600
