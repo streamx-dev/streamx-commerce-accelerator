@@ -10,7 +10,8 @@
 
   <body data-page-type='Product Detail' data-product-details='{"sku":"{{ sku }}","name": "{{ name }}","rating":"3","description":"{{ description }}","category":"{{ categories[0].name}}","brand":"LumaX","salesOrg":"Perficient","productPrice":"{{ price.value }}"}'>
   <div class="min-h-screen bg-gray-50 flex flex-col">
-    {{ '{{#include src="/fragments/header.html"}}' }}
+    <!--{{ '{{#include src="/fragments/header.html"}}' }}-->
+    {{#include src="/content/psg-demo-ue/nav.html"}}
 
     <div class="min-h-screen bg-gray-50 flex flex-col">
       <section class="container bg-gray-50 mx-auto px-4 py-12">
@@ -68,7 +69,7 @@
                 <button
                   class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]  :pointer-events-none [&_svg]  :size-4 [&_svg]  :shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
                   disabled>
-                  -
+                  - RJS
                 </button>
                 <span class="quantity w-12 text-center">1</span>
                 <button
