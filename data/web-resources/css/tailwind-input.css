@@ -274,3 +274,19 @@
   margin: inherit;
   padding: inherit;
 }
+
+.w-100 {
+  width: calc(var(--spacing) * 100);
+}
+
+.md\:w-100 {
+  @media (width >=48rem) {
+      width: calc(var(--spacing) * 100);
+  }
+}
+
+.md\:right-4 {
+  @media (width >=48rem) {
+      right: calc(var(--spacing) * 4);
+  }
+}
