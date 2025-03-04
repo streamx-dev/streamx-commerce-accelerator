@@ -27,6 +27,17 @@ variable "cert_manager_lets_encrypt_issuer_prod_letsencrypt_server" {
   default     = false
 }
 
+variable "streamx_environment_size" {
+  description = "The size of the environment setup for streamx. Controls the number of replicas, resources etc."
+  type        = string
+  default     = "small"
+
+  validation {
+    condition     = contains(["small", "large"], var.streamx_environment_size)
+    error_message = "Allowed values for streamx_environment_size are 'small' or 'large'."
+  }
+}
+
 variable "streamx_operator_image_pull_secret_registry_email" {
   description = "StreamX Operator container image registry user email."
   type        = string

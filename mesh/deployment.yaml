@@ -4,8 +4,13 @@ defaults:
       requests:
         cpu: 300m
         memory: 512Mi
+  ingestion:
+    replicas: ${streamx.ingestion.replicas}
+  processing:
+    replicas: ${streamx.processing.replicas}
   delivery:
-    replicas: 1
+    replicas: ${streamx.delivery.replicas}
+
 
 ingestion:
   rest-ingestion:
@@ -15,7 +20,7 @@ ingestion:
         nginx.ingress.kubernetes.io/proxy-body-size: "500m"
         cert-manager.io/cluster-issuer: "letsencrypt-cert-cluster-issuer"
       hosts:
-        - host: ${streamx.accelerator.ingestion.host}
+        - host: ${streamx.accelerator.ingestion.host}streamx.container.startup-timeout-seconds
           paths:
             - path: /*
       tls:

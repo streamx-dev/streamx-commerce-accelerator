@@ -6,7 +6,7 @@ cluster:
       image: apachepulsar/pulsar:4.0.0
       restartOnConfigMapChange: true
     zookeeper:
-      replicas: 1
+      replicas: 3
       dataVolume:
         name: data
         size: 100M
