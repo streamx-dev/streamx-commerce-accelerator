@@ -13,7 +13,7 @@
       {% set categoryName = category.name %}
     {% endif %}
   {% endfor %}
-  <body data-page-type='Product Detail' data-product-details='{"sku":"{{ sku }}","name": "{{ name }}","rating":"3","description":"{{ description }}","category":"{{ categoryName }}","brand":"LumaX","salesOrg":"Perficient","isFeatured":"{{ isFeatured }}",productPrice":"{{ price.value }}"}' data-product-category="{{ categoryName }}" data-product-featured="tests" data-all-categories="{{categories}}">
+  <body data-page-type='Product Detail' data-product-details='{"sku":"{{ sku }}","name": "{{ name }}","rating":"3","description":"{{ description }}","category":"{{ categoryName }}","brand":"LumaX","salesOrg":"Perficient","isFeatured":"{{ isFeatured }}",productPrice":"{{ price.value }}"}' data-product-category="{{ categoryName }}" data-product-featured="{{ ifFeatured }}">
   <div class="min-h-screen bg-gray-50 flex flex-col">
     <div class="nav">{{ '{{#include src="/content/psg-demo-ue/nav.html"}}' }}</div>
     <div class="min-h-screen bg-gray-50 flex flex-col">
