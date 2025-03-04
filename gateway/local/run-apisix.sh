@@ -15,11 +15,9 @@ docker compose -p docker-apisix down
 
 ARCH=$(uname -m)
 
-echo Arch: "$ARCH"
-
 if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
     echo "Detected ARM64 architecture. Using docker-compose-arm64.yml"
-    DOCKER_DEFAULT_PLATFORM=linux/arm64/v8 docker-compose -p docker-apisix -f "$SCRIPT_DIR"/docker-compose-arm64.yml up -d
+    docker-compose -p docker-apisix -f "$SCRIPT_DIR"/docker-compose-arm64.yml up -d
 else
     echo "Detected non-ARM64 architecture. Using docker-compose.yml"
     docker-compose -p docker-apisix -f "$SCRIPT_DIR"/docker-compose.yml up -d
