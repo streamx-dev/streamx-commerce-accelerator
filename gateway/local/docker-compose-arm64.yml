@@ -18,7 +18,7 @@ services:
       apisix:
 
   etcd:
-    image: rancher/coreos-etcd:v3.4.15-arm64
+    image: rancher/mirrored-coreos-etcd:v3.5.18
     user: root
     restart: always
     environment:
