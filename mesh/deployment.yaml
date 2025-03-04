@@ -20,7 +20,7 @@ ingestion:
         nginx.ingress.kubernetes.io/proxy-body-size: "500m"
         cert-manager.io/cluster-issuer: "letsencrypt-cert-cluster-issuer"
       hosts:
-        - host: ${streamx.accelerator.ingestion.host}streamx.container.startup-timeout-seconds
+        - host: ${streamx.accelerator.ingestion.host}
           paths:
             - path: /*
       tls:
@@ -61,39 +61,39 @@ delivery:
         periodSeconds: 10
         successThreshold: 1
         failureThreshold: 10
-      components:
-        webserver:
-          probes:
-            readiness:
-              httpGet:
-                path: /health
-                port: 80
-                scheme: HTTP
-              initialDelaySeconds: 0
-              periodSeconds: 10
-              timeoutSeconds: 1
-              successThreshold: 1
-              failureThreshold: 3
-            liveness:
-              httpGet:
-                path: /health
-                port: 80
-                scheme: HTTP
-              initialDelaySeconds: 0
-              periodSeconds: 10
-              timeoutSeconds: 1
-              successThreshold: 1
-              failureThreshold: 3
-            startup:
-              httpGet:
-                path: /health
-                port: 80
-                scheme: HTTP
-              initialDelaySeconds: 0
-              periodSeconds: 10
-              timeoutSeconds: 1
-              successThreshold: 1
-              failureThreshold: 3
+    components:
+      webserver:
+        probes:
+          readiness:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          liveness:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          startup:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
   blueprint-search:
     ingress:
       enabled: true
