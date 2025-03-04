@@ -36,6 +36,9 @@
         name: tmpItem?.name || '',
         price: tmpItem?.price?.value || '', // not sure if value or discountedValue
         slug: tmpItem?.slug || '',
+        sku: tmpItem?.sku || '',
+        brand: "LumaX",
+        salesOrg: "Perficient"        
       };
 
       items.push(item);
@@ -147,33 +150,32 @@
     // <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/220x294.webp">
     // <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
     // <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-    `
-    <a href="/products/${item.slug}.html">
-      <div class="aspect-square relative">
-        <img
-          src="${item.imgSrc}"
-          alt="${item.name}"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <div class="p-4">
-        <a href="/product/1" data-discover="true"
-          ><h3 class="font-semibold text-lg mb-2">${truncateString(decode(item.name), 35)}</h3></a
-        >
-        
-        <div class="flex items-center mb-2">
-          ${renderRatings()}
+    `<a href="/products/${item.slug}.html">
+        <div class="aspect-square relative">
+          <img
+            src="${item.imgSrc}"
+            alt="${item.name}"
+            class="w-full h-full object-cover"
+          />
         </div>
-        <div class="flex items-center justify-between">
-          <span class="text-lg font-bold">$${item.price}</span
-          ><button
-            class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 bg-dsg-red hover:bg-dsg-red/90 text-white"
+        <div class="p-4">
+          <a href="/products/${item.slug}.html" data-discover="true"
+            ><h3 class="font-semibold text-lg mb-2">${truncateString(decode(item.name), 35)}</h3></a
           >
-            Add to Cart
-          </button>
+          
+          <div class="flex items-center mb-2">
+            ${renderRatings()}
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-lg font-bold">$${item.price}</span
+            ><button
+              class="addToCart inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 bg-dsg-red hover:bg-dsg-red/90 text-white"
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
 `;
 
   const getFilterTemplate = (name, filters, label) => {
@@ -229,14 +231,18 @@
   const handleResponse = (response, availableFacets) => {
     const resultsContainer = document.getElementById(RESULTS_CONTAINER_ID);
     const products = mapToPagesResponse(response.hits);
-
+    const category = document
+      .getElementById(PCP_CONTAINER_ID)
+      .getAttribute('data-category');
     if (currentPage === 0) {
       resultsContainer.innerHTML = '';
     }
 
     products.forEach((product) => {
+      product.category = category;
       const div = document.createElement('div');
       div.classList.add(
+        'product-listing__product',
         'bg-white',
         'hover:scale-[1.02]',
         'overflow-hidden',
@@ -245,6 +251,7 @@
         'transition-transform',
       );
       div.innerHTML = getItemTemplate(product).trim();
+      div.setAttribute("data-product-details",JSON.stringify(product));
       resultsContainer.appendChild(div);
     });
 
@@ -301,6 +308,9 @@
       .then((response) => response.json())
       .then((response) => {
         handleResponse(response, availableFacets);
+      }).then(()=> {
+        //TODO: Event is probably fine, but need to add actual DM JS function eventually to codebase.
+        document.dispatchEvent(new CustomEvent("resultsLoaded"));
       });
   };
 
