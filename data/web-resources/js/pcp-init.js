@@ -59,12 +59,13 @@
       };
 
       if (facets && facets.length > 0) {
+        const facetsWithoutCategory = facets.filter(f => Object.keys(f)[0] !== 'category');
         query['params']['facets'] = {
-            'fields': facets.map((f, index) => {
+            'fields': facetsWithoutCategory.map((f, index) => {
               return {
                 'name': Object.keys(f)[0],
                 'size': 20,
-                'last': index === facets.length - 1 ? true:false
+                'last': index === facetsWithoutCategory.length - 1 ? true:false
               }
             })
           }

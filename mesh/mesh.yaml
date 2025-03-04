@@ -41,6 +41,18 @@ processing:
       MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "web-resource-schema"
       MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "web-resource-schema"
 
+  blueprint-relay-data:
+    image: relay-processing-service
+    incoming:
+      messages:
+        topic: inboxes/data
+    outgoing:
+      relayed-messages:
+        topic: outboxes/web-resources
+    environment:
+      MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "data-schema"
+      MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "web-resource-schema"
+
   blueprint-relay-assets:
     image: relay-processing-service
     incoming:

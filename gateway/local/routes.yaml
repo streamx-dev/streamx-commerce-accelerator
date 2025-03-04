@@ -10,10 +10,15 @@
          "blueprint-web.webserver:80": 1
        type: roundrobin
      plugins:
-       gzip:
-         buffers:
-           number: 8
-         types: "*"
+       proxy-rewrite:
+        regex_uri:
+          - "(.+).json"
+          - "$1"
+       response-rewrite:
+         vars:
+           - [ "uri", "~~", "(.*).json$" ]
+         headers:
+           Content-Type: "application/json"
    -
      name: streamx-search-route
      id: blueprint-search

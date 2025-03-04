@@ -4,7 +4,7 @@
 <html class="be-vietnam-pro" lang="en">
 
 <head>
-  <title>{{name}}</title>
+  <title>{{name | raw}}</title>
   {{ '{{#include src="/fragments/headContent.html"}}' }}
 </head>
 
@@ -70,7 +70,7 @@
               {% for attribute in attributes %}
                 {{ attribute.label | default(attribute.name | capitalize) }}:
                 {% for value in attribute.values %}
-                  {{ value.valueLabel | default('') }}{% if not loop.last %}, {% endif %}
+                  {{ value.value | default('') }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
               {% endfor %}
             </p>

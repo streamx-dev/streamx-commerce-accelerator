@@ -1,584 +1,12 @@
 {
-  "key": "cat:Accent Furniture",
+  "key": "cat:Tables",
   "action": "publish",
   "eventTime": null,
   "properties": {},
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
-        "bytes": "{\"id\":\"Accent Furniture\",\"slug\":\"accent-furniture\",\"name\":\"Accent Furniture\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Bar & Serving Carts",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Bar & Serving Carts\",\"slug\":\"bar-&-serving-carts\",\"name\":\"Bar & Serving Carts\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Bar Cabinets",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Bar Cabinets\",\"slug\":\"bar-cabinets\",\"name\":\"Bar Cabinets\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Bar Sets",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Bar Sets\",\"slug\":\"bar-sets\",\"name\":\"Bar Sets\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Barstools",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Barstools\",\"slug\":\"barstools\",\"name\":\"Barstools\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Bed Frames",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Bed Frames\",\"slug\":\"bed-frames\",\"name\":\"Bed Frames\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Bedroom Armoires",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Bedroom Armoires\",\"slug\":\"bedroom-armoires\",\"name\":\"Bedroom Armoires\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Bedroom Furniture",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Beds",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Beds\",\"slug\":\"beds\",\"name\":\"Beds\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Beds, Frames & Bases",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Beds, Frames & Bases\",\"slug\":\"beds,-frames-&-bases\",\"name\":\"Beds, Frames & Bases\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Bookcases",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Bookcases\",\"slug\":\"bookcases\",\"name\":\"Bookcases\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Bookcases, Cabinets & Shelves",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Bookcases, Cabinets & Shelves\",\"slug\":\"bookcases,-cabinets-&-shelves\",\"name\":\"Bookcases, Cabinets & Shelves\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Box Springs",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Box Springs\",\"slug\":\"box-springs\",\"name\":\"Box Springs\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Buffets & Sideboards",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Buffets & Sideboards\",\"slug\":\"buffets-&-sideboards\",\"name\":\"Buffets & Sideboards\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Chairs",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Chairs\",\"slug\":\"chairs\",\"name\":\"Chairs\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Chaise Lounges",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Chaise Lounges\",\"slug\":\"chaise-lounges\",\"name\":\"Chaise Lounges\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:China Cabinets",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"China Cabinets\",\"slug\":\"china-cabinets\",\"name\":\"China Cabinets\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Coffee Tables",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Coffee Tables\",\"slug\":\"coffee-tables\",\"name\":\"Coffee Tables\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Dressers",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Dressers\",\"slug\":\"dressers\",\"name\":\"Dressers\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:End Tables",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"End Tables\",\"slug\":\"end-tables\",\"name\":\"End Tables\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Entryway Furniture",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Entryway Furniture\",\"slug\":\"entryway-furniture\",\"name\":\"Entryway Furniture\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Featured",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Featured\",\"slug\":\"featured\",\"name\":\"Featured\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Folding Chairs",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Folding Chairs\",\"slug\":\"folding-chairs\",\"name\":\"Folding Chairs\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Folding Tables",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Folding Tables\",\"slug\":\"folding-tables\",\"name\":\"Folding Tables\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Furniture",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Gliders",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Gliders\",\"slug\":\"gliders\",\"name\":\"Gliders\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Headboards",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Headboards\",\"slug\":\"headboards\",\"name\":\"Headboards\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Home Bar Furniture",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Home Bar Furniture\",\"slug\":\"home-bar-furniture\",\"name\":\"Home Bar Furniture\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Home Office Cabinets",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Home Office Cabinets\",\"slug\":\"home-office-cabinets\",\"name\":\"Home Office Cabinets\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Home Office Chairs",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Home Office Chairs\",\"slug\":\"home-office-chairs\",\"name\":\"Home Office Chairs\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Home Office Desk Chairs",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Home Office Desk Chairs\",\"slug\":\"home-office-desk-chairs\",\"name\":\"Home Office Desk Chairs\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Home Office Desks",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Home Office Desks\",\"slug\":\"home-office-desks\",\"name\":\"Home Office Desks\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Home Office Furniture",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Kids' Furniture",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Kids' Furniture\",\"slug\":\"kids'-furniture\",\"name\":\"Kids' Furniture\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Kitchen & Dining Room Furniture",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-&-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Kitchen Islands & Carts",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Kitchen Islands & Carts\",\"slug\":\"kitchen-islands-&-carts\",\"name\":\"Kitchen Islands & Carts\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Living Room Furniture",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Living Room Sets",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Living Room Sets\",\"slug\":\"living-room-sets\",\"name\":\"Living Room Sets\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Mattresses",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Mattresses\",\"slug\":\"mattresses\",\"name\":\"Mattresses\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Mattresses & Box Springs",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Mattresses & Box Springs\",\"slug\":\"mattresses-&-box-springs\",\"name\":\"Mattresses & Box Springs\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Media Storage",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Media Storage\",\"slug\":\"media-storage\",\"name\":\"Media Storage\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Nesting Tables",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Nesting Tables\",\"slug\":\"nesting-tables\",\"name\":\"Nesting Tables\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Nightstands",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Nightstands\",\"slug\":\"nightstands\",\"name\":\"Nightstands\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Ottomans",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Ottomans\",\"slug\":\"ottomans\",\"name\":\"Ottomans\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Recliners",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Recliners\",\"slug\":\"recliners\",\"name\":\"Recliners\"}"
+        "bytes": "{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"parent\":{\"id\":\"Kids' Furniture\",\"slug\":\"kids-furniture\",\"name\":\"Kids' Furniture\",\"label\":\"Kids' Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
       }
     }
   }
@@ -591,124 +19,33 @@
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
-        "bytes": "{\"id\":\"Sofa & Console Tables\",\"slug\":\"sofa-&-console-tables\",\"name\":\"Sofa & Console Tables\"}"
+        "bytes": "{\"id\":\"Sofa & Console Tables\",\"slug\":\"sofa-console-tables\",\"name\":\"Sofa & Console Tables\",\"label\":\"Sofa & Console Tables\",\"parent\":{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},\"subcategories\":[]}"
       }
     }
   }
 }
 {
-  "key": "cat:Sofas",
+  "key": "cat:Recliners",
   "action": "publish",
   "eventTime": null,
   "properties": {},
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
-        "bytes": "{\"id\":\"Sofas\",\"slug\":\"sofas\",\"name\":\"Sofas\"}"
+        "bytes": "{\"id\":\"Recliners\",\"slug\":\"recliners\",\"name\":\"Recliners\",\"label\":\"Recliners\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
       }
     }
   }
 }
 {
-  "key": "cat:Sofas & Couches",
+  "key": "cat:Gaming Chairs",
   "action": "publish",
   "eventTime": null,
   "properties": {},
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
-        "bytes": "{\"id\":\"Sofas & Couches\",\"slug\":\"sofas-&-couches\",\"name\":\"Sofas & Couches\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Storage Benches",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Storage Benches\",\"slug\":\"storage-benches\",\"name\":\"Storage Benches\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Storage Cabinets",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Storage Cabinets\",\"slug\":\"storage-cabinets\",\"name\":\"Storage Cabinets\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Storage Chests",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Storage Chests\",\"slug\":\"storage-chests\",\"name\":\"Storage Chests\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Table & Chair Sets",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Table & Chair Sets\",\"slug\":\"table-&-chair-sets\",\"name\":\"Table & Chair Sets\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Table Benches",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Table Benches\",\"slug\":\"table-benches\",\"name\":\"Table Benches\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Tables",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\"}"
-      }
-    }
-  }
-}
-{
-  "key": "cat:Television Stands & Entertainment Centers",
-  "action": "publish",
-  "eventTime": null,
-  "properties": {},
-  "payload": {
-    "dev.streamx.blueprints.data.Data": {
-      "content": {
-        "bytes": "{\"id\":\"Television Stands & Entertainment Centers\",\"slug\":\"television-stands-&-entertainment-centers\",\"name\":\"Television Stands & Entertainment Centers\"}"
+        "bytes": "{\"id\":\"Gaming Chairs\",\"slug\":\"gaming-chairs\",\"name\":\"Gaming Chairs\",\"label\":\"Gaming Chairs\",\"parent\":{\"id\":\"Game & Recreation Room Furniture\",\"slug\":\"game-recreation-room-furniture\",\"name\":\"Game & Recreation Room Furniture\",\"label\":\"Game & Recreation Room Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Video Game Chairs\",\"slug\":\"video-game-chairs\",\"name\":\"Video Game Chairs\",\"label\":\"Video Game Chairs\",\"subcategories\":[]}]}"
       }
     }
   }
@@ -721,20 +58,631 @@
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
-        "bytes": "{\"id\":\"Vanities\",\"slug\":\"vanities\",\"name\":\"Vanities\"}"
+        "bytes": "{\"id\":\"Vanities\",\"slug\":\"vanities\",\"name\":\"Vanities\",\"label\":\"Vanities\",\"parent\":{\"id\":\"Vanities & Vanity Benches\",\"slug\":\"vanities-vanity-benches\",\"name\":\"Vanities & Vanity Benches\",\"label\":\"Vanities & Vanity Benches\",\"subcategories\":[]},\"subcategories\":[]}"
       }
     }
   }
 }
 {
-  "key": "cat:Vanities & Vanity Benches",
+  "key": "cat:Home Office Cabinets",
   "action": "publish",
   "eventTime": null,
   "properties": {},
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
-        "bytes": "{\"id\":\"Vanities & Vanity Benches\",\"slug\":\"vanities-&-vanity-benches\",\"name\":\"Vanities & Vanity Benches\"}"
+        "bytes": "{\"id\":\"Home Office Cabinets\",\"slug\":\"home-office-cabinets\",\"name\":\"Home Office Cabinets\",\"label\":\"Home Office Cabinets\",\"parent\":{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\",\"label\":\"Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Television Stands & Entertainment Centers",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Television Stands & Entertainment Centers\",\"slug\":\"television-stands-entertainment-centers\",\"name\":\"Television Stands & Entertainment Centers\",\"label\":\"Television Stands & Entertainment Centers\",\"parent\":{\"id\":\"TV & Media Furniture\",\"slug\":\"tv-media-furniture\",\"name\":\"TV & Media Furniture\",\"label\":\"TV & Media Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Platforms, Stands & Shelves",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Platforms, Stands & Shelves\",\"slug\":\"platforms-stands-shelves\",\"name\":\"Platforms, Stands & Shelves\",\"label\":\"Platforms, Stands & Shelves\",\"parent\":{\"id\":\"Study & Home Office Furniture\",\"slug\":\"study-home-office-furniture\",\"name\":\"Study & Home Office Furniture\",\"label\":\"Study & Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Buffets & Sideboards",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Buffets & Sideboards\",\"slug\":\"buffets-sideboards\",\"name\":\"Buffets & Sideboards\",\"label\":\"Buffets & Sideboards\",\"parent\":{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Utility Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Utility Tables\",\"slug\":\"utility-tables\",\"name\":\"Utility Tables\",\"label\":\"Utility Tables\",\"parent\":{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bookcases",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bookcases\",\"slug\":\"bookcases\",\"name\":\"Bookcases\",\"label\":\"Bookcases\",\"parent\":{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\",\"label\":\"Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Kitchen & Dining Room Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},{\"id\":\"Chairs\",\"slug\":\"chairs\",\"name\":\"Chairs\",\"label\":\"Chairs\",\"subcategories\":[]},{\"id\":\"China Cabinets\",\"slug\":\"china-cabinets\",\"name\":\"China Cabinets\",\"label\":\"China Cabinets\",\"subcategories\":[]},{\"id\":\"Kitchen Islands & Carts\",\"slug\":\"kitchen-islands-carts\",\"name\":\"Kitchen Islands & Carts\",\"label\":\"Kitchen Islands & Carts\",\"subcategories\":[]},{\"id\":\"Table & Chair Sets\",\"slug\":\"table-chair-sets\",\"name\":\"Table & Chair Sets\",\"label\":\"Table & Chair Sets\",\"subcategories\":[]},{\"id\":\"Dining Chairs\",\"slug\":\"dining-chairs\",\"name\":\"Dining Chairs\",\"label\":\"Dining Chairs\",\"subcategories\":[]},{\"id\":\"Table Benches\",\"slug\":\"table-benches\",\"name\":\"Table Benches\",\"label\":\"Table Benches\",\"subcategories\":[]},{\"id\":\"Dining Room Sets\",\"slug\":\"dining-room-sets\",\"name\":\"Dining Room Sets\",\"label\":\"Dining Room Sets\",\"subcategories\":[]},{\"id\":\"Buffets & Sideboards\",\"slug\":\"buffets-sideboards\",\"name\":\"Buffets & Sideboards\",\"label\":\"Buffets & Sideboards\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Office Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Office Chairs\",\"slug\":\"home-office-chairs\",\"name\":\"Home Office Chairs\",\"label\":\"Home Office Chairs\",\"parent\":{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\",\"label\":\"Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Home Office Desk Chairs\",\"slug\":\"home-office-desk-chairs\",\"name\":\"Home Office Desk Chairs\",\"label\":\"Home Office Desk Chairs\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:TV & Media Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"TV & Media Furniture\",\"slug\":\"tv-media-furniture\",\"name\":\"TV & Media Furniture\",\"label\":\"TV & Media Furniture\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Media Storage\",\"slug\":\"media-storage\",\"name\":\"Media Storage\",\"label\":\"Media Storage\",\"subcategories\":[]},{\"id\":\"Television Stands & Entertainment Centers\",\"slug\":\"television-stands-entertainment-centers\",\"name\":\"Television Stands & Entertainment Centers\",\"label\":\"Television Stands & Entertainment Centers\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Computer Workstations",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Computer Workstations\",\"slug\":\"computer-workstations\",\"name\":\"Computer Workstations\",\"label\":\"Computer Workstations\",\"parent\":{\"id\":\"Desks & Workstations\",\"slug\":\"desks-workstations\",\"name\":\"Desks & Workstations\",\"label\":\"Desks & Workstations\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Beds, Frames & Bases",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Beds, Frames & Bases\",\"slug\":\"beds-frames-bases\",\"name\":\"Beds, Frames & Bases\",\"label\":\"Beds, Frames & Bases\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Headboards & Footboards\",\"slug\":\"headboards-footboards\",\"name\":\"Headboards & Footboards\",\"label\":\"Headboards & Footboards\",\"subcategories\":[]},{\"id\":\"Headboards\",\"slug\":\"headboards\",\"name\":\"Headboards\",\"label\":\"Headboards\",\"subcategories\":[]},{\"id\":\"Bed Frames\",\"slug\":\"bed-frames\",\"name\":\"Bed Frames\",\"label\":\"Bed Frames\",\"subcategories\":[]},{\"id\":\"Beds\",\"slug\":\"beds\",\"name\":\"Beds\",\"label\":\"Beds\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Entryway Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Entryway Furniture\",\"slug\":\"entryway-furniture\",\"name\":\"Entryway Furniture\",\"label\":\"Entryway Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Storage Benches\",\"slug\":\"storage-benches\",\"name\":\"Storage Benches\",\"label\":\"Storage Benches\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Study & Home Office Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Study & Home Office Furniture\",\"slug\":\"study-home-office-furniture\",\"name\":\"Study & Home Office Furniture\",\"label\":\"Study & Home Office Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},{\"id\":\"Platforms, Stands & Shelves\",\"slug\":\"platforms-stands-shelves\",\"name\":\"Platforms, Stands & Shelves\",\"label\":\"Platforms, Stands & Shelves\",\"subcategories\":[]},{\"id\":\"Desks & Workstations\",\"slug\":\"desks-workstations\",\"name\":\"Desks & Workstations\",\"label\":\"Desks & Workstations\",\"subcategories\":[]},{\"id\":\"Chairs & Sofas\",\"slug\":\"chairs-sofas\",\"name\":\"Chairs & Sofas\",\"label\":\"Chairs & Sofas\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Desk Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Desk Chairs\",\"slug\":\"desk-chairs\",\"name\":\"Desk Chairs\",\"label\":\"Desk Chairs\",\"parent\":{\"id\":\"Chairs & Sofas\",\"slug\":\"chairs-sofas\",\"name\":\"Chairs & Sofas\",\"label\":\"Chairs & Sofas\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Nightstands",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Nightstands\",\"slug\":\"nightstands\",\"name\":\"Nightstands\",\"label\":\"Nightstands\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Chairs\",\"slug\":\"chairs\",\"name\":\"Chairs\",\"label\":\"Chairs\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Stacking Chairs\",\"slug\":\"stacking-chairs\",\"name\":\"Stacking Chairs\",\"label\":\"Stacking Chairs\",\"subcategories\":[]},{\"id\":\"Folding Chairs\",\"slug\":\"folding-chairs\",\"name\":\"Folding Chairs\",\"label\":\"Folding Chairs\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bean Bag Covers",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bean Bag Covers\",\"slug\":\"bean-bag-covers\",\"name\":\"Bean Bag Covers\",\"label\":\"Bean Bag Covers\",\"parent\":{\"id\":\"Bean Bags, Covers & Refills\",\"slug\":\"bean-bags-covers-refills\",\"name\":\"Bean Bags, Covers & Refills\",\"label\":\"Bean Bags, Covers & Refills\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Dining Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Dining Chairs\",\"slug\":\"dining-chairs\",\"name\":\"Dining Chairs\",\"label\":\"Dining Chairs\",\"parent\":{\"id\":\"Dining Room Furniture\",\"slug\":\"dining-room-furniture\",\"name\":\"Dining Room Furniture\",\"label\":\"Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Beds",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Beds\",\"slug\":\"beds\",\"name\":\"Beds\",\"label\":\"Beds\",\"parent\":{\"id\":\"Beds, Frames & Bases\",\"slug\":\"beds-frames-bases\",\"name\":\"Beds, Frames & Bases\",\"label\":\"Beds, Frames & Bases\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Office Desks",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Office Desks\",\"slug\":\"home-office-desks\",\"name\":\"Home Office Desks\",\"label\":\"Home Office Desks\",\"parent\":{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\",\"label\":\"Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Curio & Glass Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Curio & Glass Cabinets\",\"slug\":\"curio-glass-cabinets\",\"name\":\"Curio & Glass Cabinets\",\"label\":\"Curio & Glass Cabinets\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Recliners",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Recliners\",\"slug\":\"recliners\",\"name\":\"Recliners\",\"label\":\"Recliners\",\"parent\":{\"id\":\"Chairs & Seats\",\"slug\":\"chairs-seats\",\"name\":\"Chairs & Seats\",\"label\":\"Chairs & Seats\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Sofas",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Sofas\",\"slug\":\"sofas\",\"name\":\"Sofas\",\"label\":\"Sofas\",\"parent\":{\"id\":\"Kids' Furniture\",\"slug\":\"kids-furniture\",\"name\":\"Kids' Furniture\",\"label\":\"Kids' Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Accent Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Accent Furniture\",\"slug\":\"accent-furniture\",\"name\":\"Accent Furniture\",\"label\":\"Accent Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Ottomans\",\"slug\":\"ottomans\",\"name\":\"Ottomans\",\"label\":\"Ottomans\",\"subcategories\":[]},{\"id\":\"Storage Cabinets\",\"slug\":\"storage-cabinets\",\"name\":\"Storage Cabinets\",\"label\":\"Storage Cabinets\",\"subcategories\":[]},{\"id\":\"Poufs\",\"slug\":\"poufs\",\"name\":\"Poufs\",\"label\":\"Poufs\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Nesting Tables\",\"slug\":\"nesting-tables\",\"name\":\"Nesting Tables\",\"label\":\"Nesting Tables\",\"subcategories\":[]},{\"id\":\"Console Tables\",\"slug\":\"console-tables\",\"name\":\"Console Tables\",\"label\":\"Console Tables\",\"subcategories\":[]},{\"id\":\"Coffee Tables\",\"slug\":\"coffee-tables\",\"name\":\"Coffee Tables\",\"label\":\"Coffee Tables\",\"subcategories\":[]},{\"id\":\"End Tables\",\"slug\":\"end-tables\",\"name\":\"End Tables\",\"label\":\"End Tables\",\"subcategories\":[]},{\"id\":\"Sofa & Console Tables\",\"slug\":\"sofa-console-tables\",\"name\":\"Sofa & Console Tables\",\"label\":\"Sofa & Console Tables\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Dining Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Dining Chairs\",\"slug\":\"dining-chairs\",\"name\":\"Dining Chairs\",\"label\":\"Dining Chairs\",\"parent\":{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Patio Furniture Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Patio Furniture Sets\",\"slug\":\"patio-furniture-sets\",\"name\":\"Patio Furniture Sets\",\"label\":\"Patio Furniture Sets\",\"parent\":{\"id\":\"Garden & Outdoor Furniture\",\"slug\":\"garden-outdoor-furniture\",\"name\":\"Garden & Outdoor Furniture\",\"label\":\"Garden & Outdoor Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bathroom Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bathroom Furniture\",\"slug\":\"bathroom-furniture\",\"name\":\"Bathroom Furniture\",\"label\":\"Bathroom Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Towel Racks\",\"slug\":\"towel-racks\",\"name\":\"Towel Racks\",\"label\":\"Towel Racks\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\",\"label\":\"Home Office Furniture\",\"subcategories\":[]},{\"id\":\"Dining Room Furniture\",\"slug\":\"dining-room-furniture\",\"name\":\"Dining Room Furniture\",\"label\":\"Dining Room Furniture\",\"subcategories\":[]},{\"id\":\"Entryway Furniture\",\"slug\":\"entryway-furniture\",\"name\":\"Entryway Furniture\",\"label\":\"Entryway Furniture\",\"subcategories\":[]},{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},{\"id\":\"Hallway Furniture\",\"slug\":\"hallway-furniture\",\"name\":\"Hallway Furniture\",\"label\":\"Hallway Furniture\",\"subcategories\":[]},{\"id\":\"Kids' Furniture\",\"slug\":\"kids-furniture\",\"name\":\"Kids' Furniture\",\"label\":\"Kids' Furniture\",\"subcategories\":[]},{\"id\":\"Bathroom Furniture\",\"slug\":\"bathroom-furniture\",\"name\":\"Bathroom Furniture\",\"label\":\"Bathroom Furniture\",\"subcategories\":[]},{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},{\"id\":\"Kitchen Furniture\",\"slug\":\"kitchen-furniture\",\"name\":\"Kitchen Furniture\",\"label\":\"Kitchen Furniture\",\"subcategories\":[]},{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},{\"id\":\"Garden & Outdoor Furniture\",\"slug\":\"garden-outdoor-furniture\",\"name\":\"Garden & Outdoor Furniture\",\"label\":\"Garden & Outdoor Furniture\",\"subcategories\":[]},{\"id\":\"Game & Recreation Room Furniture\",\"slug\":\"game-recreation-room-furniture\",\"name\":\"Game & Recreation Room Furniture\",\"label\":\"Game & Recreation Room Furniture\",\"subcategories\":[]},{\"id\":\"Storage Furniture\",\"slug\":\"storage-furniture\",\"name\":\"Storage Furniture\",\"label\":\"Storage Furniture\",\"subcategories\":[]},{\"id\":\"Study & Home Office Furniture\",\"slug\":\"study-home-office-furniture\",\"name\":\"Study & Home Office Furniture\",\"label\":\"Study & Home Office Furniture\",\"subcategories\":[]},{\"id\":\"Accent Furniture\",\"slug\":\"accent-furniture\",\"name\":\"Accent Furniture\",\"label\":\"Accent Furniture\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Headboards & Footboards",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Headboards & Footboards\",\"slug\":\"headboards-footboards\",\"name\":\"Headboards & Footboards\",\"label\":\"Headboards & Footboards\",\"parent\":{\"id\":\"Beds, Frames & Bases\",\"slug\":\"beds-frames-bases\",\"name\":\"Beds, Frames & Bases\",\"label\":\"Beds, Frames & Bases\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Headboards\",\"slug\":\"headboards\",\"name\":\"Headboards\",\"label\":\"Headboards\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Table Benches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Table Benches\",\"slug\":\"table-benches\",\"name\":\"Table Benches\",\"label\":\"Table Benches\",\"parent\":{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Headboards",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Headboards\",\"slug\":\"headboards\",\"name\":\"Headboards\",\"label\":\"Headboards\",\"parent\":{\"id\":\"Headboards & Footboards\",\"slug\":\"headboards-footboards\",\"name\":\"Headboards & Footboards\",\"label\":\"Headboards & Footboards\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Coffee Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Coffee Tables\",\"slug\":\"coffee-tables\",\"name\":\"Coffee Tables\",\"label\":\"Coffee Tables\",\"parent\":{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bedroom Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bedroom Sets\",\"slug\":\"bedroom-sets\",\"name\":\"Bedroom Sets\",\"label\":\"Bedroom Sets\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Wall Shelves",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Wall Shelves\",\"slug\":\"wall-shelves\",\"name\":\"Wall Shelves\",\"label\":\"Wall Shelves\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Footstools",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Footstools\",\"slug\":\"footstools\",\"name\":\"Footstools\",\"label\":\"Footstools\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Chairs & Sofas",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Chairs & Sofas\",\"slug\":\"chairs-sofas\",\"name\":\"Chairs & Sofas\",\"label\":\"Chairs & Sofas\",\"parent\":{\"id\":\"Study & Home Office Furniture\",\"slug\":\"study-home-office-furniture\",\"name\":\"Study & Home Office Furniture\",\"label\":\"Study & Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Desk Chairs\",\"slug\":\"desk-chairs\",\"name\":\"Desk Chairs\",\"label\":\"Desk Chairs\",\"subcategories\":[]},{\"id\":\"Stools\",\"slug\":\"stools\",\"name\":\"Stools\",\"label\":\"Stools\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bars & Wine Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bars & Wine Cabinets\",\"slug\":\"bars-wine-cabinets\",\"name\":\"Bars & Wine Cabinets\",\"label\":\"Bars & Wine Cabinets\",\"parent\":{\"id\":\"Home Bar Furniture\",\"slug\":\"home-bar-furniture\",\"name\":\"Home Bar Furniture\",\"label\":\"Home Bar Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Bar Cabinets\",\"slug\":\"bar-cabinets\",\"name\":\"Bar Cabinets\",\"label\":\"Bar Cabinets\",\"subcategories\":[]},{\"id\":\"Bar Sets\",\"slug\":\"bar-sets\",\"name\":\"Bar Sets\",\"label\":\"Bar Sets\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Furniture & Lighting",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Furniture & Lighting\",\"slug\":\"furniture-lighting\",\"name\":\"Furniture & Lighting\",\"label\":\"Furniture & Lighting\",\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bar Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bar Sets\",\"slug\":\"bar-sets\",\"name\":\"Bar Sets\",\"label\":\"Bar Sets\",\"parent\":{\"id\":\"Bars & Wine Cabinets\",\"slug\":\"bars-wine-cabinets\",\"name\":\"Bars & Wine Cabinets\",\"label\":\"Bars & Wine Cabinets\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Game & Recreation Room Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Game & Recreation Room Furniture\",\"slug\":\"game-recreation-room-furniture\",\"name\":\"Game & Recreation Room Furniture\",\"label\":\"Game & Recreation Room Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Gaming Chairs\",\"slug\":\"gaming-chairs\",\"name\":\"Gaming Chairs\",\"label\":\"Gaming Chairs\",\"subcategories\":[]},{\"id\":\"Home Bar Furniture\",\"slug\":\"home-bar-furniture\",\"name\":\"Home Bar Furniture\",\"label\":\"Home Bar Furniture\",\"subcategories\":[]},{\"id\":\"Gliders\",\"slug\":\"gliders\",\"name\":\"Gliders\",\"label\":\"Gliders\",\"subcategories\":[]},{\"id\":\"Folding Tables & Chairs\",\"slug\":\"folding-tables-chairs\",\"name\":\"Folding Tables & Chairs\",\"label\":\"Folding Tables & Chairs\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Chairs\",\"slug\":\"chairs\",\"name\":\"Chairs\",\"label\":\"Chairs\",\"parent\":{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Sunlounger Covers",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Sunlounger Covers\",\"slug\":\"sunlounger-covers\",\"name\":\"Sunlounger Covers\",\"label\":\"Sunlounger Covers\",\"parent\":{\"id\":\"Patio Furniture Covers\",\"slug\":\"patio-furniture-covers\",\"name\":\"Patio Furniture Covers\",\"label\":\"Patio Furniture Covers\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bean Bags, Covers & Refills",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bean Bags, Covers & Refills\",\"slug\":\"bean-bags-covers-refills\",\"name\":\"Bean Bags, Covers & Refills\",\"label\":\"Bean Bags, Covers & Refills\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Bean Bag Covers\",\"slug\":\"bean-bag-covers\",\"name\":\"Bean Bag Covers\",\"label\":\"Bean Bag Covers\",\"subcategories\":[]},{\"id\":\"Filled Bean Bags\",\"slug\":\"filled-bean-bags\",\"name\":\"Filled Bean Bags\",\"label\":\"Filled Bean Bags\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Wall Coat Racks",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Wall Coat Racks\",\"slug\":\"wall-coat-racks\",\"name\":\"Wall Coat Racks\",\"label\":\"Wall Coat Racks\",\"parent\":{\"id\":\"Hallway Furniture\",\"slug\":\"hallway-furniture\",\"name\":\"Hallway Furniture\",\"label\":\"Hallway Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Office Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\",\"label\":\"Home Office Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Chairs & Stools\",\"slug\":\"chairs-stools\",\"name\":\"Chairs & Stools\",\"label\":\"Chairs & Stools\",\"subcategories\":[]},{\"id\":\"Home Office Desks\",\"slug\":\"home-office-desks\",\"name\":\"Home Office Desks\",\"label\":\"Home Office Desks\",\"subcategories\":[]},{\"id\":\"Bookcases\",\"slug\":\"bookcases\",\"name\":\"Bookcases\",\"label\":\"Bookcases\",\"subcategories\":[]},{\"id\":\"Home Office Chairs\",\"slug\":\"home-office-chairs\",\"name\":\"Home Office Chairs\",\"label\":\"Home Office Chairs\",\"subcategories\":[]},{\"id\":\"Carts\",\"slug\":\"carts\",\"name\":\"Carts\",\"label\":\"Carts\",\"subcategories\":[]},{\"id\":\"Home Office Cabinets\",\"slug\":\"home-office-cabinets\",\"name\":\"Home Office Cabinets\",\"label\":\"Home Office Cabinets\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Nesting Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Nesting Tables\",\"slug\":\"nesting-tables\",\"name\":\"Nesting Tables\",\"label\":\"Nesting Tables\",\"parent\":{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bedroom Armoires",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bedroom Armoires\",\"slug\":\"bedroom-armoires\",\"name\":\"Bedroom Armoires\",\"label\":\"Bedroom Armoires\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
       }
     }
   }
@@ -747,7 +695,826 @@
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
-        "bytes": "{\"id\":\"Vanity Benches\",\"slug\":\"vanity-benches\",\"name\":\"Vanity Benches\"}"
+        "bytes": "{\"id\":\"Vanity Benches\",\"slug\":\"vanity-benches\",\"name\":\"Vanity Benches\",\"label\":\"Vanity Benches\",\"parent\":{\"id\":\"Vanities & Vanity Benches\",\"slug\":\"vanities-vanity-benches\",\"name\":\"Vanities & Vanity Benches\",\"label\":\"Vanities & Vanity Benches\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Hallway Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Hallway Furniture\",\"slug\":\"hallway-furniture\",\"name\":\"Hallway Furniture\",\"label\":\"Hallway Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Shoe Racks\",\"slug\":\"shoe-racks\",\"name\":\"Shoe Racks\",\"label\":\"Shoe Racks\",\"subcategories\":[]},{\"id\":\"Wall Coat Racks\",\"slug\":\"wall-coat-racks\",\"name\":\"Wall Coat Racks\",\"label\":\"Wall Coat Racks\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Filled Bean Bags",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Filled Bean Bags\",\"slug\":\"filled-bean-bags\",\"name\":\"Filled Bean Bags\",\"label\":\"Filled Bean Bags\",\"parent\":{\"id\":\"Bean Bags, Covers & Refills\",\"slug\":\"bean-bags-covers-refills\",\"name\":\"Bean Bags, Covers & Refills\",\"label\":\"Bean Bags, Covers & Refills\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Chaise Lounges",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Chaise Lounges\",\"slug\":\"chaise-lounges\",\"name\":\"Chaise Lounges\",\"label\":\"Chaise Lounges\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Mattresses",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Mattresses\",\"slug\":\"mattresses\",\"name\":\"Mattresses\",\"label\":\"Mattresses\",\"parent\":{\"id\":\"Mattresses & Box Springs\",\"slug\":\"mattresses-box-springs\",\"name\":\"Mattresses & Box Springs\",\"label\":\"Mattresses & Box Springs\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Media Storage",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Media Storage\",\"slug\":\"media-storage\",\"name\":\"Media Storage\",\"label\":\"Media Storage\",\"parent\":{\"id\":\"TV & Media Furniture\",\"slug\":\"tv-media-furniture\",\"name\":\"TV & Media Furniture\",\"label\":\"TV & Media Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Patio Sofas",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Patio Sofas\",\"slug\":\"patio-sofas\",\"name\":\"Patio Sofas\",\"label\":\"Patio Sofas\",\"parent\":{\"id\":\"Garden & Outdoor Furniture\",\"slug\":\"garden-outdoor-furniture\",\"name\":\"Garden & Outdoor Furniture\",\"label\":\"Garden & Outdoor Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Storage Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Storage Cabinets\",\"slug\":\"storage-cabinets\",\"name\":\"Storage Cabinets\",\"label\":\"Storage Cabinets\",\"parent\":{\"id\":\"Accent Furniture\",\"slug\":\"accent-furniture\",\"name\":\"Accent Furniture\",\"label\":\"Accent Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Office Desk Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Office Desk Chairs\",\"slug\":\"home-office-desk-chairs\",\"name\":\"Home Office Desk Chairs\",\"label\":\"Home Office Desk Chairs\",\"parent\":{\"id\":\"Home Office Chairs\",\"slug\":\"home-office-chairs\",\"name\":\"Home Office Chairs\",\"label\":\"Home Office Chairs\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Storage Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Storage Furniture\",\"slug\":\"storage-furniture\",\"name\":\"Storage Furniture\",\"label\":\"Storage Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Home Bar Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Home Bar Furniture\",\"slug\":\"home-bar-furniture\",\"name\":\"Home Bar Furniture\",\"label\":\"Home Bar Furniture\",\"parent\":{\"id\":\"Game & Recreation Room Furniture\",\"slug\":\"game-recreation-room-furniture\",\"name\":\"Game & Recreation Room Furniture\",\"label\":\"Game & Recreation Room Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Bars & Wine Cabinets\",\"slug\":\"bars-wine-cabinets\",\"name\":\"Bars & Wine Cabinets\",\"label\":\"Bars & Wine Cabinets\",\"subcategories\":[]},{\"id\":\"Bar & Serving Carts\",\"slug\":\"bar-serving-carts\",\"name\":\"Bar & Serving Carts\",\"label\":\"Bar & Serving Carts\",\"subcategories\":[]},{\"id\":\"Barstools\",\"slug\":\"barstools\",\"name\":\"Barstools\",\"label\":\"Barstools\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Table & Chair Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Table & Chair Sets\",\"slug\":\"table-chair-sets\",\"name\":\"Table & Chair Sets\",\"label\":\"Table & Chair Sets\",\"parent\":{\"id\":\"Tables & Chairs\",\"slug\":\"tables-chairs\",\"name\":\"Tables & Chairs\",\"label\":\"Tables & Chairs\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Vanities & Vanity Benches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Vanities & Vanity Benches\",\"slug\":\"vanities-vanity-benches\",\"name\":\"Vanities & Vanity Benches\",\"label\":\"Vanities & Vanity Benches\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Vanity Benches\",\"slug\":\"vanity-benches\",\"name\":\"Vanity Benches\",\"label\":\"Vanity Benches\",\"subcategories\":[]},{\"id\":\"Vanities\",\"slug\":\"vanities\",\"name\":\"Vanities\",\"label\":\"Vanities\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bookcases, Cabinets & Shelves",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bookcases, Cabinets & Shelves\",\"slug\":\"bookcases-cabinets-shelves\",\"name\":\"Bookcases, Cabinets & Shelves\",\"label\":\"Bookcases, Cabinets & Shelves\",\"parent\":{\"id\":\"Kids' Furniture\",\"slug\":\"kids-furniture\",\"name\":\"Kids' Furniture\",\"label\":\"Kids' Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Patio Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Patio Chairs\",\"slug\":\"patio-chairs\",\"name\":\"Patio Chairs\",\"label\":\"Patio Chairs\",\"parent\":{\"id\":\"Garden & Outdoor Furniture\",\"slug\":\"garden-outdoor-furniture\",\"name\":\"Garden & Outdoor Furniture\",\"label\":\"Garden & Outdoor Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Barstools",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Barstools\",\"slug\":\"barstools\",\"name\":\"Barstools\",\"label\":\"Barstools\",\"parent\":{\"id\":\"Home Bar Furniture\",\"slug\":\"home-bar-furniture\",\"name\":\"Home Bar Furniture\",\"label\":\"Home Bar Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Folding Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Folding Chairs\",\"slug\":\"folding-chairs\",\"name\":\"Folding Chairs\",\"label\":\"Folding Chairs\",\"parent\":{\"id\":\"Chairs & Seats\",\"slug\":\"chairs-seats\",\"name\":\"Chairs & Seats\",\"label\":\"Chairs & Seats\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Garden & Outdoor Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Garden & Outdoor Furniture\",\"slug\":\"garden-outdoor-furniture\",\"name\":\"Garden & Outdoor Furniture\",\"label\":\"Garden & Outdoor Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Patio Chairs\",\"slug\":\"patio-chairs\",\"name\":\"Patio Chairs\",\"label\":\"Patio Chairs\",\"subcategories\":[]},{\"id\":\"Patio Furniture Sets\",\"slug\":\"patio-furniture-sets\",\"name\":\"Patio Furniture Sets\",\"label\":\"Patio Furniture Sets\",\"subcategories\":[]},{\"id\":\"Patio Furniture Covers\",\"slug\":\"patio-furniture-covers\",\"name\":\"Patio Furniture Covers\",\"label\":\"Patio Furniture Covers\",\"subcategories\":[]},{\"id\":\"Patio Sofas\",\"slug\":\"patio-sofas\",\"name\":\"Patio Sofas\",\"label\":\"Patio Sofas\",\"subcategories\":[]},{\"id\":\"Patio Benches\",\"slug\":\"patio-benches\",\"name\":\"Patio Benches\",\"label\":\"Patio Benches\",\"subcategories\":[]},{\"id\":\"Patio Umbrellas, Canopies & Shade\",\"slug\":\"patio-umbrellas-canopies-shade\",\"name\":\"Patio Umbrellas, Canopies & Shade\",\"label\":\"Patio Umbrellas, Canopies & Shade\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Kids' Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Kids' Furniture\",\"slug\":\"kids-furniture\",\"name\":\"Kids' Furniture\",\"label\":\"Kids' Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},{\"id\":\"Sofas\",\"slug\":\"sofas\",\"name\":\"Sofas\",\"label\":\"Sofas\",\"subcategories\":[]},{\"id\":\"Bookcases, Cabinets & Shelves\",\"slug\":\"bookcases-cabinets-shelves\",\"name\":\"Bookcases, Cabinets & Shelves\",\"label\":\"Bookcases, Cabinets & Shelves\",\"subcategories\":[]},{\"id\":\"Chairs & Seats\",\"slug\":\"chairs-seats\",\"name\":\"Chairs & Seats\",\"label\":\"Chairs & Seats\",\"subcategories\":[]},{\"id\":\"Tables & Chairs\",\"slug\":\"tables-chairs\",\"name\":\"Tables & Chairs\",\"label\":\"Tables & Chairs\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Stools",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Stools\",\"slug\":\"stools\",\"name\":\"Stools\",\"label\":\"Stools\",\"parent\":{\"id\":\"Chairs & Sofas\",\"slug\":\"chairs-sofas\",\"name\":\"Chairs & Sofas\",\"label\":\"Chairs & Sofas\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"parent\":{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Living Room Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Living Room Sets\",\"slug\":\"living-room-sets\",\"name\":\"Living Room Sets\",\"label\":\"Living Room Sets\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Chairs & Seats",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Chairs & Seats\",\"slug\":\"chairs-seats\",\"name\":\"Chairs & Seats\",\"label\":\"Chairs & Seats\",\"parent\":{\"id\":\"Kids' Furniture\",\"slug\":\"kids-furniture\",\"name\":\"Kids' Furniture\",\"label\":\"Kids' Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Recliners\",\"slug\":\"recliners\",\"name\":\"Recliners\",\"label\":\"Recliners\",\"subcategories\":[]},{\"id\":\"Folding Chairs\",\"slug\":\"folding-chairs\",\"name\":\"Folding Chairs\",\"label\":\"Folding Chairs\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"parent\":{\"id\":\"Study & Home Office Furniture\",\"slug\":\"study-home-office-furniture\",\"name\":\"Study & Home Office Furniture\",\"label\":\"Study & Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Utility Tables\",\"slug\":\"utility-tables\",\"name\":\"Utility Tables\",\"label\":\"Utility Tables\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Canopies",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Canopies\",\"slug\":\"canopies\",\"name\":\"Canopies\",\"label\":\"Canopies\",\"parent\":{\"id\":\"Patio Umbrellas, Canopies & Shade\",\"slug\":\"patio-umbrellas-canopies-shade\",\"name\":\"Patio Umbrellas, Canopies & Shade\",\"label\":\"Patio Umbrellas, Canopies & Shade\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Tables & Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Tables & Chairs\",\"slug\":\"tables-chairs\",\"name\":\"Tables & Chairs\",\"label\":\"Tables & Chairs\",\"parent\":{\"id\":\"Kids' Furniture\",\"slug\":\"kids-furniture\",\"name\":\"Kids' Furniture\",\"label\":\"Kids' Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Table & Chair Sets\",\"slug\":\"table-chair-sets\",\"name\":\"Table & Chair Sets\",\"label\":\"Table & Chair Sets\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:TV & Entertainment Units",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"TV & Entertainment Units\",\"slug\":\"tv-entertainment-units\",\"name\":\"TV & Entertainment Units\",\"label\":\"TV & Entertainment Units\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Headboards",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Headboards\",\"slug\":\"headboards\",\"name\":\"Headboards\",\"label\":\"Headboards\",\"parent\":{\"id\":\"Beds, Frames & Bases\",\"slug\":\"beds-frames-bases\",\"name\":\"Beds, Frames & Bases\",\"label\":\"Beds, Frames & Bases\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Shoe Racks",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Shoe Racks\",\"slug\":\"shoe-racks\",\"name\":\"Shoe Racks\",\"label\":\"Shoe Racks\",\"parent\":{\"id\":\"Hallway Furniture\",\"slug\":\"hallway-furniture\",\"name\":\"Hallway Furniture\",\"label\":\"Hallway Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Towel Racks",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Towel Racks\",\"slug\":\"towel-racks\",\"name\":\"Towel Racks\",\"label\":\"Towel Racks\",\"parent\":{\"id\":\"Bathroom Furniture\",\"slug\":\"bathroom-furniture\",\"name\":\"Bathroom Furniture\",\"label\":\"Bathroom Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:End Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"End Tables\",\"slug\":\"end-tables\",\"name\":\"End Tables\",\"label\":\"End Tables\",\"parent\":{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bookcases",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bookcases\",\"slug\":\"bookcases\",\"name\":\"Bookcases\",\"label\":\"Bookcases\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Folding Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Folding Tables\",\"slug\":\"folding-tables\",\"name\":\"Folding Tables\",\"label\":\"Folding Tables\",\"parent\":{\"id\":\"Folding Tables & Chairs\",\"slug\":\"folding-tables-chairs\",\"name\":\"Folding Tables & Chairs\",\"label\":\"Folding Tables & Chairs\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:China Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"China Cabinets\",\"slug\":\"china-cabinets\",\"name\":\"China Cabinets\",\"label\":\"China Cabinets\",\"parent\":{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bed Frames",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bed Frames\",\"slug\":\"bed-frames\",\"name\":\"Bed Frames\",\"label\":\"Bed Frames\",\"parent\":{\"id\":\"Beds, Frames & Bases\",\"slug\":\"beds-frames-bases\",\"name\":\"Beds, Frames & Bases\",\"label\":\"Beds, Frames & Bases\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Box Springs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Box Springs\",\"slug\":\"box-springs\",\"name\":\"Box Springs\",\"label\":\"Box Springs\",\"parent\":{\"id\":\"Mattresses & Box Springs\",\"slug\":\"mattresses-box-springs\",\"name\":\"Mattresses & Box Springs\",\"label\":\"Mattresses & Box Springs\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Patio Benches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Patio Benches\",\"slug\":\"patio-benches\",\"name\":\"Patio Benches\",\"label\":\"Patio Benches\",\"parent\":{\"id\":\"Garden & Outdoor Furniture\",\"slug\":\"garden-outdoor-furniture\",\"name\":\"Garden & Outdoor Furniture\",\"label\":\"Garden & Outdoor Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bedroom Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Bedroom Sets\",\"slug\":\"bedroom-sets\",\"name\":\"Bedroom Sets\",\"label\":\"Bedroom Sets\",\"subcategories\":[]},{\"id\":\"Bedside Tables\",\"slug\":\"bedside-tables\",\"name\":\"Bedside Tables\",\"label\":\"Bedside Tables\",\"subcategories\":[]},{\"id\":\"Bedroom Wardrobes\",\"slug\":\"bedroom-wardrobes\",\"name\":\"Bedroom Wardrobes\",\"label\":\"Bedroom Wardrobes\",\"subcategories\":[]},{\"id\":\"Dressers\",\"slug\":\"dressers\",\"name\":\"Dressers\",\"label\":\"Dressers\",\"subcategories\":[]},{\"id\":\"Nightstands\",\"slug\":\"nightstands\",\"name\":\"Nightstands\",\"label\":\"Nightstands\",\"subcategories\":[]},{\"id\":\"Beds, Frames & Bases\",\"slug\":\"beds-frames-bases\",\"name\":\"Beds, Frames & Bases\",\"label\":\"Beds, Frames & Bases\",\"subcategories\":[]},{\"id\":\"Mattresses & Box Springs\",\"slug\":\"mattresses-box-springs\",\"name\":\"Mattresses & Box Springs\",\"label\":\"Mattresses & Box Springs\",\"subcategories\":[]},{\"id\":\"Vanities & Vanity Benches\",\"slug\":\"vanities-vanity-benches\",\"name\":\"Vanities & Vanity Benches\",\"label\":\"Vanities & Vanity Benches\",\"subcategories\":[]},{\"id\":\"Dressing Tables\",\"slug\":\"dressing-tables\",\"name\":\"Dressing Tables\",\"label\":\"Dressing Tables\",\"subcategories\":[]},{\"id\":\"Bedroom Armoires\",\"slug\":\"bedroom-armoires\",\"name\":\"Bedroom Armoires\",\"label\":\"Bedroom Armoires\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Desk Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Desk Chairs\",\"slug\":\"desk-chairs\",\"name\":\"Desk Chairs\",\"label\":\"Desk Chairs\",\"parent\":{\"id\":\"Chairs & Stools\",\"slug\":\"chairs-stools\",\"name\":\"Chairs & Stools\",\"label\":\"Chairs & Stools\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Storage Benches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Storage Benches\",\"slug\":\"storage-benches\",\"name\":\"Storage Benches\",\"label\":\"Storage Benches\",\"parent\":{\"id\":\"Entryway Furniture\",\"slug\":\"entryway-furniture\",\"name\":\"Entryway Furniture\",\"label\":\"Entryway Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Console Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Console Tables\",\"slug\":\"console-tables\",\"name\":\"Console Tables\",\"label\":\"Console Tables\",\"parent\":{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Stacking Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Stacking Chairs\",\"slug\":\"stacking-chairs\",\"name\":\"Stacking Chairs\",\"label\":\"Stacking Chairs\",\"parent\":{\"id\":\"Chairs\",\"slug\":\"chairs\",\"name\":\"Chairs\",\"label\":\"Chairs\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Gliders",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Gliders\",\"slug\":\"gliders\",\"name\":\"Gliders\",\"label\":\"Gliders\",\"parent\":{\"id\":\"Game & Recreation Room Furniture\",\"slug\":\"game-recreation-room-furniture\",\"name\":\"Game & Recreation Room Furniture\",\"label\":\"Game & Recreation Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Folding Tables & Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Folding Tables & Chairs\",\"slug\":\"folding-tables-chairs\",\"name\":\"Folding Tables & Chairs\",\"label\":\"Folding Tables & Chairs\",\"parent\":{\"id\":\"Game & Recreation Room Furniture\",\"slug\":\"game-recreation-room-furniture\",\"name\":\"Game & Recreation Room Furniture\",\"label\":\"Game & Recreation Room Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Folding Tables\",\"slug\":\"folding-tables\",\"name\":\"Folding Tables\",\"label\":\"Folding Tables\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Kitchen Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Kitchen Furniture\",\"slug\":\"kitchen-furniture\",\"name\":\"Kitchen Furniture\",\"label\":\"Kitchen Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bar Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bar Cabinets\",\"slug\":\"bar-cabinets\",\"name\":\"Bar Cabinets\",\"label\":\"Bar Cabinets\",\"parent\":{\"id\":\"Bars & Wine Cabinets\",\"slug\":\"bars-wine-cabinets\",\"name\":\"Bars & Wine Cabinets\",\"label\":\"Bars & Wine Cabinets\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Kitchen Islands & Carts",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Kitchen Islands & Carts\",\"slug\":\"kitchen-islands-carts\",\"name\":\"Kitchen Islands & Carts\",\"label\":\"Kitchen Islands & Carts\",\"parent\":{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Footstools, Pouffes & Ottomans",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Footstools, Pouffes & Ottomans\",\"slug\":\"footstools-pouffes-ottomans\",\"name\":\"Footstools, Pouffes & Ottomans\",\"label\":\"Footstools, Pouffes & Ottomans\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Dining Room Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Dining Room Furniture\",\"slug\":\"dining-room-furniture\",\"name\":\"Dining Room Furniture\",\"label\":\"Dining Room Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Dining Chairs\",\"slug\":\"dining-chairs\",\"name\":\"Dining Chairs\",\"label\":\"Dining Chairs\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Mattresses & Box Springs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Mattresses & Box Springs\",\"slug\":\"mattresses-box-springs\",\"name\":\"Mattresses & Box Springs\",\"label\":\"Mattresses & Box Springs\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Mattresses\",\"slug\":\"mattresses\",\"name\":\"Mattresses\",\"label\":\"Mattresses\",\"subcategories\":[]},{\"id\":\"Box Springs\",\"slug\":\"box-springs\",\"name\":\"Box Springs\",\"label\":\"Box Springs\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Folding Chairs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Folding Chairs\",\"slug\":\"folding-chairs\",\"name\":\"Folding Chairs\",\"label\":\"Folding Chairs\",\"parent\":{\"id\":\"Chairs\",\"slug\":\"chairs\",\"name\":\"Chairs\",\"label\":\"Chairs\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Patio Umbrellas, Canopies & Shade",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Patio Umbrellas, Canopies & Shade\",\"slug\":\"patio-umbrellas-canopies-shade\",\"name\":\"Patio Umbrellas, Canopies & Shade\",\"label\":\"Patio Umbrellas, Canopies & Shade\",\"parent\":{\"id\":\"Garden & Outdoor Furniture\",\"slug\":\"garden-outdoor-furniture\",\"name\":\"Garden & Outdoor Furniture\",\"label\":\"Garden & Outdoor Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Canopies\",\"slug\":\"canopies\",\"name\":\"Canopies\",\"label\":\"Canopies\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Table & Chair Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Table & Chair Sets\",\"slug\":\"table-chair-sets\",\"name\":\"Table & Chair Sets\",\"label\":\"Table & Chair Sets\",\"parent\":{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bedroom Wardrobes",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bedroom Wardrobes\",\"slug\":\"bedroom-wardrobes\",\"name\":\"Bedroom Wardrobes\",\"label\":\"Bedroom Wardrobes\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Cabinets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Cabinets\",\"slug\":\"cabinets\",\"name\":\"Cabinets\",\"label\":\"Cabinets\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Living Room Furniture",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"parent\":{\"id\":\"Furniture\",\"slug\":\"furniture\",\"name\":\"Furniture\",\"label\":\"Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Cabinets\",\"slug\":\"cabinets\",\"name\":\"Cabinets\",\"label\":\"Cabinets\",\"subcategories\":[]},{\"id\":\"Chairs\",\"slug\":\"chairs\",\"name\":\"Chairs\",\"label\":\"Chairs\",\"subcategories\":[]},{\"id\":\"Sofas & Couches\",\"slug\":\"sofas-couches\",\"name\":\"Sofas & Couches\",\"label\":\"Sofas & Couches\",\"subcategories\":[]},{\"id\":\"Living Room Sets\",\"slug\":\"living-room-sets\",\"name\":\"Living Room Sets\",\"label\":\"Living Room Sets\",\"subcategories\":[]},{\"id\":\"Sofa Sets\",\"slug\":\"sofa-sets\",\"name\":\"Sofa Sets\",\"label\":\"Sofa Sets\",\"subcategories\":[]},{\"id\":\"Bookcases\",\"slug\":\"bookcases\",\"name\":\"Bookcases\",\"label\":\"Bookcases\",\"subcategories\":[]},{\"id\":\"Wall Shelves\",\"slug\":\"wall-shelves\",\"name\":\"Wall Shelves\",\"label\":\"Wall Shelves\",\"subcategories\":[]},{\"id\":\"Tables\",\"slug\":\"tables\",\"name\":\"Tables\",\"label\":\"Tables\",\"subcategories\":[]},{\"id\":\"Ottomans\",\"slug\":\"ottomans\",\"name\":\"Ottomans\",\"label\":\"Ottomans\",\"subcategories\":[]},{\"id\":\"TV & Media Furniture\",\"slug\":\"tv-media-furniture\",\"name\":\"TV & Media Furniture\",\"label\":\"TV & Media Furniture\",\"subcategories\":[]},{\"id\":\"Recliners\",\"slug\":\"recliners\",\"name\":\"Recliners\",\"label\":\"Recliners\",\"subcategories\":[]},{\"id\":\"TV & Entertainment Units\",\"slug\":\"tv-entertainment-units\",\"name\":\"TV & Entertainment Units\",\"label\":\"TV & Entertainment Units\",\"subcategories\":[]},{\"id\":\"Footstools\",\"slug\":\"footstools\",\"name\":\"Footstools\",\"label\":\"Footstools\",\"subcategories\":[]},{\"id\":\"Chaise Lounges\",\"slug\":\"chaise-lounges\",\"name\":\"Chaise Lounges\",\"label\":\"Chaise Lounges\",\"subcategories\":[]},{\"id\":\"Bean Bags, Covers & Refills\",\"slug\":\"bean-bags-covers-refills\",\"name\":\"Bean Bags, Covers & Refills\",\"label\":\"Bean Bags, Covers & Refills\",\"subcategories\":[]},{\"id\":\"Footstools, Pouffes & Ottomans\",\"slug\":\"footstools-pouffes-ottomans\",\"name\":\"Footstools, Pouffes & Ottomans\",\"label\":\"Footstools, Pouffes & Ottomans\",\"subcategories\":[]},{\"id\":\"Curio & Glass Cabinets\",\"slug\":\"curio-glass-cabinets\",\"name\":\"Curio & Glass Cabinets\",\"label\":\"Curio & Glass Cabinets\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Ottomans",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Ottomans\",\"slug\":\"ottomans\",\"name\":\"Ottomans\",\"label\":\"Ottomans\",\"parent\":{\"id\":\"Accent Furniture\",\"slug\":\"accent-furniture\",\"name\":\"Accent Furniture\",\"label\":\"Accent Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Dressers",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Dressers\",\"slug\":\"dressers\",\"name\":\"Dressers\",\"label\":\"Dressers\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Sofas & Couches",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Sofas & Couches\",\"slug\":\"sofas-couches\",\"name\":\"Sofas & Couches\",\"label\":\"Sofas & Couches\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Chairs & Stools",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Chairs & Stools\",\"slug\":\"chairs-stools\",\"name\":\"Chairs & Stools\",\"label\":\"Chairs & Stools\",\"parent\":{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\",\"label\":\"Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Desk Chairs\",\"slug\":\"desk-chairs\",\"name\":\"Desk Chairs\",\"label\":\"Desk Chairs\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Ottomans",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Ottomans\",\"slug\":\"ottomans\",\"name\":\"Ottomans\",\"label\":\"Ottomans\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Patio Furniture Covers",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Patio Furniture Covers\",\"slug\":\"patio-furniture-covers\",\"name\":\"Patio Furniture Covers\",\"label\":\"Patio Furniture Covers\",\"parent\":{\"id\":\"Garden & Outdoor Furniture\",\"slug\":\"garden-outdoor-furniture\",\"name\":\"Garden & Outdoor Furniture\",\"label\":\"Garden & Outdoor Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Sunlounger Covers\",\"slug\":\"sunlounger-covers\",\"name\":\"Sunlounger Covers\",\"label\":\"Sunlounger Covers\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Desks & Workstations",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Desks & Workstations\",\"slug\":\"desks-workstations\",\"name\":\"Desks & Workstations\",\"label\":\"Desks & Workstations\",\"parent\":{\"id\":\"Study & Home Office Furniture\",\"slug\":\"study-home-office-furniture\",\"name\":\"Study & Home Office Furniture\",\"label\":\"Study & Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[{\"id\":\"Computer Workstations\",\"slug\":\"computer-workstations\",\"name\":\"Computer Workstations\",\"label\":\"Computer Workstations\",\"subcategories\":[]}]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Sofa Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Sofa Sets\",\"slug\":\"sofa-sets\",\"name\":\"Sofa Sets\",\"label\":\"Sofa Sets\",\"parent\":{\"id\":\"Living Room Furniture\",\"slug\":\"living-room-furniture\",\"name\":\"Living Room Furniture\",\"label\":\"Living Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
       }
     }
   }
@@ -760,7 +1527,85 @@
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
-        "bytes": "{\"id\":\"Video Game Chairs\",\"slug\":\"video-game-chairs\",\"name\":\"Video Game Chairs\"}"
+        "bytes": "{\"id\":\"Video Game Chairs\",\"slug\":\"video-game-chairs\",\"name\":\"Video Game Chairs\",\"label\":\"Video Game Chairs\",\"parent\":{\"id\":\"Gaming Chairs\",\"slug\":\"gaming-chairs\",\"name\":\"Gaming Chairs\",\"label\":\"Gaming Chairs\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bedside Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bedside Tables\",\"slug\":\"bedside-tables\",\"name\":\"Bedside Tables\",\"label\":\"Bedside Tables\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Poufs",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Poufs\",\"slug\":\"poufs\",\"name\":\"Poufs\",\"label\":\"Poufs\",\"parent\":{\"id\":\"Accent Furniture\",\"slug\":\"accent-furniture\",\"name\":\"Accent Furniture\",\"label\":\"Accent Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Bar & Serving Carts",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Bar & Serving Carts\",\"slug\":\"bar-serving-carts\",\"name\":\"Bar & Serving Carts\",\"label\":\"Bar & Serving Carts\",\"parent\":{\"id\":\"Home Bar Furniture\",\"slug\":\"home-bar-furniture\",\"name\":\"Home Bar Furniture\",\"label\":\"Home Bar Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Dressing Tables",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Dressing Tables\",\"slug\":\"dressing-tables\",\"name\":\"Dressing Tables\",\"label\":\"Dressing Tables\",\"parent\":{\"id\":\"Bedroom Furniture\",\"slug\":\"bedroom-furniture\",\"name\":\"Bedroom Furniture\",\"label\":\"Bedroom Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Carts",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Carts\",\"slug\":\"carts\",\"name\":\"Carts\",\"label\":\"Carts\",\"parent\":{\"id\":\"Home Office Furniture\",\"slug\":\"home-office-furniture\",\"name\":\"Home Office Furniture\",\"label\":\"Home Office Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
+      }
+    }
+  }
+}
+{
+  "key": "cat:Dining Room Sets",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"id\":\"Dining Room Sets\",\"slug\":\"dining-room-sets\",\"name\":\"Dining Room Sets\",\"label\":\"Dining Room Sets\",\"parent\":{\"id\":\"Kitchen & Dining Room Furniture\",\"slug\":\"kitchen-dining-room-furniture\",\"name\":\"Kitchen & Dining Room Furniture\",\"label\":\"Kitchen & Dining Room Furniture\",\"subcategories\":[]},\"subcategories\":[]}"
       }
     }
   }
