@@ -4,8 +4,13 @@ defaults:
       requests:
         cpu: 300m
         memory: 512Mi
+  ingestion:
+    replicas: ${streamx.ingestion.replicas}
+  processing:
+    replicas: ${streamx.processing.replicas}
   delivery:
-    replicas: 1
+    replicas: ${streamx.delivery.replicas}
+
 
 ingestion:
   rest-ingestion:
@@ -56,6 +61,39 @@ delivery:
         periodSeconds: 10
         successThreshold: 1
         failureThreshold: 10
+    components:
+      webserver:
+        probes:
+          readiness:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          liveness:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          startup:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
   blueprint-search:
     ingress:
       enabled: true
