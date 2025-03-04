@@ -1,6 +1,15 @@
 <div class="product-listing product-listing--horizontal">
   {% for i in range(0, values|length - 1) %}
-  <div class="product-listing__product" data-product-details='{"sku":"{{ values[i].sku }}","name": "{{ values[i].name }}","rating":"3","description":"{{ values[i].description }}","category":"{{ values[i].categories[0].name}}","brand":"LumaX","salesOrg":"Perficient","productPrice":"{{ values[i].price.value }}"}'>
+    {% set isFeatured = "false" %}
+    {% set categoryName = values[i].categories[0].name %}
+    {% for category in values[i].categories %}
+      {% if category.name == "Featured" %}
+        {% set isFeatured = "true" %}
+      {% else %}
+        {% set categoryName = category.name %}
+      {% endif %}
+    {% endfor %}
+  <div class="product-listing__product" data-product-details='{"sku":"{{ values[i].sku }}","name": "{{ values[i].name }}","rating":"3","description":"{{ values[i].description }}","category":"{{ categoryName }}","brand":"LumaX","salesOrg":"Perficient","isFeatured":"{{ isFeatured }}","productPrice":"{{ values[i].price.value }}"}'>
     <div class="product-listing__product-container">
       <a
         class="product-listing__product-asset"
@@ -22,7 +31,6 @@
           <div class="product-listing__product-rating">
             {% set rating = 3 %}
             {% set svgClass = 'lucide lucide-star w-4 h-4 fill-yellow-400 text-yellow-400' %}
-
             {% for i in 1..5 %}
             {% if i > rating %}
             {% set svgClass = 'lucide lucide-star w-4 h-4 text-gray-300' %}
