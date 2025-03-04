@@ -87,8 +87,7 @@ jobs:
             ${{ vars.TF_VAR_streamx_operator_image_pull_secret_registry_email }}
           TF_VAR_streamx_operator_image_pull_secret_registry_password:
             ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
-          STREAMX_ENVIRONMENT_SIZE: "large"
-          TF_VAR_streamx_environment_size: ${{ vars.STREAMX_ENVIRONMENT_SIZE }}
+          TF_VAR_streamx_environment_size: "large"
         run: |
           terraform/scripts/deploy-streamx.sh
           echo "kubeconfig_path=$(terraform -chdir=./terraform/azure/platform output -raw kubeconfig_path)" >> $GITHUB_OUTPUT

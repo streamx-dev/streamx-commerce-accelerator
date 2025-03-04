@@ -16,8 +16,7 @@ echo "%cloud.streamx.accelerator.ip=$streamx_ingress_ip" > "$SETUP_ENV_SCRIPT_DI
 "$SETUP_ENV_SCRIPT_DIR"/verify_secrets.sh
 
 pushd "${SETUP_ENV_SCRIPT_DIR}/../../" || exit
-STREAMX_ENVIRONMENT_SIZE="${STREAMX_ENVIRONMENT_SIZE:-small}"
-export QUARKUS_PROFILE=cloud,${STREAMX_ENVIRONMENT_SIZE} && streamx --accept-license deploy -f "$SETUP_ENV_SCRIPT_DIR/../../mesh/mesh.yaml"
+export QUARKUS_PROFILE=cloud,${TF_VAR_STREAMX_ENVIRONMENT_SIZE:-small} && streamx --accept-license deploy -f "$SETUP_ENV_SCRIPT_DIR/../../mesh/mesh.yaml"
 popd || exit
 
 echo ""
