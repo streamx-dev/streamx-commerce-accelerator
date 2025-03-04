@@ -46,18 +46,18 @@
     return value.replace(/<em>/g, '<mark>').replace(/<\/em>/g, '</mark>');
   };
 
-  const getCoffeeTableResults = async () => {
-    const response = await fetch(buildUrl('coffee table', 2));
+  const getPantsResults = async () => {
+    const response = await fetch(buildUrl('pants', 2));
     return mapToPagesResponse(response);
   };
 
-  const getBeigeChairResults = async () => {
-    const response = await fetch(buildUrl('beige chair', 2));
+  const getTeesResults = async () => {
+    const response = await fetch(buildUrl('tees', 2));
     return mapToPagesResponse(response);
   };
 
-  const getQueenSizeBedResults = async () => {
-    const response = await fetch(buildUrl('queen size bed', 2));
+  const getHoodiesResults = async () => {
+    const response = await fetch(buildUrl('hoodies', 2));
     return mapToPagesResponse(response);
   };
 
@@ -157,12 +157,12 @@
             },
           },
           {
-            sourceId: 'coffeeTableResults',
+            sourceId: 'hoddiesResults',
             async getItems({ query }) {
               if (query) {
                 return [];
               }
-              const response = await getCoffeeTableResults();
+              const response = await getHoodiesResults();
               return response.items;
             },
             getItemUrl({ item }) {
@@ -172,7 +172,7 @@
               header({ html }) {
                 if (query === '') {
                   return html`<span class="aa-SourceHeaderTitle"
-                      >Coffee tables</span
+                      >Hoodies</span
                     >
                     <div class="aa-SourceHeaderLine" />`;
                 }
@@ -184,12 +184,12 @@
             },
           },
           {
-            sourceId: 'beigeChairResults',
+            sourceId: 'pantsResults',
             async getItems({ query }) {
               if (query) {
                 return [];
               }
-              const response = await getBeigeChairResults();
+              const response = await getPantsResults();
               return response.items;
             },
             getItemUrl({ item }) {
@@ -199,7 +199,7 @@
               header({ html }) {
                 if (query === '') {
                   return html`<span class="aa-SourceHeaderTitle"
-                      >Beige chairs</span
+                      >Pants</span
                     >
                     <div class="aa-SourceHeaderLine" />`;
                 }
@@ -211,12 +211,12 @@
             },
           },
           {
-            sourceId: 'queenSizeBedResults',
+            sourceId: 'teesResults',
             async getItems({ query }) {
               if (query) {
                 return [];
               }
-              const response = await getQueenSizeBedResults();
+              const response = await getTeesResults();
               return response.items;
             },
             getItemUrl({ item }) {
@@ -226,7 +226,7 @@
               header({ html }) {
                 if (query === '') {
                   return html`<span class="aa-SourceHeaderTitle"
-                      >Queen size beds</span
+                      >Tees</span
                     >
                     <div class="aa-SourceHeaderLine" />`;
                 }
