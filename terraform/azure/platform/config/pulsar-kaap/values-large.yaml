@@ -27,11 +27,11 @@ cluster:
           cpu: "0.4"
           memory: "2Gi"
     broker:
-      replicas: 1
+      replicas: 3
       config:
-        managedLedgerDefaultEnsembleSize: "1"
-        managedLedgerDefaultWriteQuorum: "1"
-        managedLedgerDefaultAckQuorum: "1"
+        managedLedgerDefaultEnsembleSize: "2"
+        managedLedgerDefaultWriteQuorum: "2"
+        managedLedgerDefaultAckQuorum: "2"
         compactionServiceFactoryClassName: "org.apache.pulsar.compaction.EventTimeCompactionServiceFactory"
       resources:
         requests:
