@@ -36,7 +36,7 @@ const addProductToCart = async (cartID, cartItems) => {
   const header = getTokenFromLS() ? {...utilities.HEADERS, 'Authorization': `Bearer ${getTokenFromLS()}`} : utilities.HEADERS;
   const shoppingCart = await utilities.fetchRequests(utilities.GRAPHQL_ENDPOINT, 'POST', header, query);
 
-  return shoppingCart;
+  return shoppingCart.data.addSimpleProductsToCart.cart;
 }
 
 //update
@@ -49,7 +49,7 @@ const updateProductInCart = async (cartID, uid, quantity) => {
   const header = getTokenFromLS() ? {...utilities.HEADERS, 'Authorization': `Bearer ${getTokenFromLS()}`} : utilities.HEADERS;
   const shoppingCart = await utilities.fetchRequests(utilities.GRAPHQL_ENDPOINT, 'POST', header, query);
 
-  return shoppingCart;
+  return shoppingCart.data.updateCartItems.cart;
 }
 
 //delete
@@ -62,7 +62,7 @@ const removeItemFromCart = async (cartID, uid) => {
  const header = getTokenFromLS() ? {...utilities.HEADERS, 'Authorization': `Bearer ${getTokenFromLS()}`} : utilities.HEADERS;
   const shoppingCart = await utilities.fetchRequests(utilities.GRAPHQL_ENDPOINT, 'POST', header, query);
 
-  return shoppingCart;
+  return shoppingCart.data.removeItemFromCart.cart;
 }
 
 
@@ -76,7 +76,7 @@ const mergeCarts = async (guestCartID, loggedinUserCartID) => {
   const header = getTokenFromLS() ? {...utilities.HEADERS, 'Authorization': `Bearer ${getTokenFromLS()}`} : utilities.HEADERS;
   const shoppingCart = await utilities.fetchRequests(utilities.GRAPHQL_ENDPOINT, 'POST', header, query);
 
-  return shoppingCart;
+  return shoppingCart.data.mergeCarts;
 }
 
 const getCustomerCart = async () => {
