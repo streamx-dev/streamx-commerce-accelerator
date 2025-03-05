@@ -26,8 +26,6 @@ const removeTokenFromLS = () => getActiveUserFromLS() == 'user1' ? removeUser1To
 
 
 export const miscMutations = {
-  getCountries,
-  getRegionsByCountry,
   getCartIDFromLS,
   setCartIDtoLS,
   removeCartIDFromLS,
