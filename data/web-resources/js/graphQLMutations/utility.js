@@ -8,6 +8,22 @@ const HEADERS = {
   'store': 'lumax'
 };
 
+const user01 = {
+  firstname: "prft",
+  lastname: "lumax",
+  email: "prft01@lumax.com",
+  password: "prft@123",
+  is_subscribed: true
+}
+
+const user02 = {
+  firstname: "perficient",
+  lastname: "lumax",
+  email: "prft02@lumax.com",
+  password: "prft@123",
+  is_subscribed: true
+}
+
 const fetchRequests = async (url, method, headers, body) => {
     const requestOptions = {
       method,
@@ -20,7 +36,7 @@ const fetchRequests = async (url, method, headers, body) => {
 }
 
   // getter setter - cartID on Local storage
-export const getCartIDFromLS = () => localStorage.getItem("shoppingCartID");
+const getCartIDFromLS = () => localStorage.getItem("shoppingCartID");
 const setCartIDtoLS = (cartID) => localStorage.setItem("shoppingCartID", cartID);
 const removeCartIDFromLS = () => localStorage.removeItem("shoppingCartID");
 
@@ -41,14 +57,19 @@ const getActiveUserFromLS = () => localStorage.getItem("active_user");
 const setActiveUsertoLS = (user) => localStorage.setItem("active_user", user);
 const removeActiveUserFromLS = () => localStorage.removeItem("active_user");
 
-export const getTokenFromLS = () => getActiveUserFromLS() == 'user1' ? getUser1TokenFromLS() : getUser2TokenFromLS();
-const setTokentoLS = (user) => getActiveUserFromLS() == 'user1' ? setUser1TokentoLS(user) : setUser2TokentoLS(user); 
-const removeTokenFromLS = () => getActiveUserFromLS() == 'user1' ? removeUser1TokenFromLS() : removeUser2TokenFromLS(); 
+const getTokenFromLS = () => getActiveUserFromLS() == 'user01' ? getUser1TokenFromLS() : getUser2TokenFromLS();
+const setTokentoLS = (userToken) => getActiveUserFromLS() == 'user01' ? setUser1TokentoLS(userToken) : setUser2TokentoLS(userToken); 
+const removeTokenFromLS = () => getActiveUserFromLS() == 'user01' ? removeUser1TokenFromLS() : removeUser2TokenFromLS(); 
+
+
+
 
 
 export const utilities = {
   GRAPHQL_ENDPOINT,
   HEADERS,
+  user01,
+  user02,
   fetchRequests,
   getCartIDFromLS,
   setCartIDtoLS,
@@ -59,6 +80,7 @@ export const utilities = {
   getTokenFromLS,
   setTokentoLS,
   removeTokenFromLS,
+  getActiveUserFromLS,
   setActiveUsertoLS,
   removeActiveUserFromLS
 } 

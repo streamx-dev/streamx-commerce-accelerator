@@ -14,6 +14,14 @@ const getUserToken = async (userEmail, userPsw) => {
   
     return response.data.generateCustomerToken;
 }
+
+const regenerateUserToken = async () => {
+  const activeUser = utilities.getActiveUserFromLS();
+  const activeUserCreds = activeUser == 'user01' ? utilities.user01 : utilities.user02;
+  const newTokenResponse = await getUserToken(activeUserCreds.email, activeUserCreds.password)
+  utilities.setTokentoLS(newTokenResponse.token);
+}
+
 const getCustomerOrders = async (token) => {
     const query = JSON.stringify({
       query: `{ customerOrders { items { order_number id created_at grand_total status } } }`
@@ -36,5 +44,6 @@ const customerQuery = async (token) => {
 export const userMutations = {
   getUserToken,
   customerQuery,
+  regenerateUserToken,
   getCustomerOrders
 };
