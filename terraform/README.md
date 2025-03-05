@@ -126,7 +126,7 @@ All commands in this document should be executed from the terraform directory.
        ```shell
        terraform -chdir="azure/monitoring-storage" apply
        ```
-    4. Configure network related variables
+    4. Configure monitoring storage related variables
        ```shell
         echo "TF_VAR_monitoring_storage_access_key=$(terraform -chdir=azure/monitoring-storage output -raw access_key)" >> azure/.env
         echo "TF_VAR_monitoring_storage_account_name=$(terraform -chdir=azure/monitoring-storage output -raw account_name)" >> azure/.env
