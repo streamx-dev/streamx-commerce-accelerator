@@ -1,5 +1,5 @@
 {
-  "rendererKey": { "string": "templates/pdp.twig" },
+  "rendererKey": { "string": "templates/pdp.html" },
   "dataKeyMatchPattern": { "string": "product:.*" },
   "outputKeyTemplate": { "string": "/products/{{slug}}.html" },
   "outputType": { "dev.streamx.blueprints.data.RenderingContext.OutputType": "PAGE" }

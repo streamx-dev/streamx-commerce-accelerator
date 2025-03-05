@@ -5,9 +5,16 @@
   {{ '{{#include src="/fragments/headContent.html"}}' }}
 </head>
 
-<body data-page-type='Product Detail'
-      data-product-details='{"sku":"{{ sku }}","name": "{{ name }}","rating":"3","description":"{{ description }}","category":"{{ categories[0].name }}","brand":"LumaX","salesOrg":"Perficient","productPrice":"{{ price.value }}"}'
-      data-product-category="{{ categories[0].name }}">
+  {% set isFeatured = "false" %}
+  {% set categoryName = categories[0].name %}
+  {% for category in categories %}
+    {% if category.name == "Featured" %}
+      {% set isFeatured = "true" %}
+    {% else %}
+      {% set categoryName = category.name %}
+    {% endif %}
+  {% endfor %}
+  <body data-page-type='Product Detail' data-product-details='{"sku":"{{ sku }}","name": "{{ name }}","rating":"3","description":"{{ description }}","category":"{{ categoryName }}","brand":"LumaX","salesOrg":"Perficient","isFeatured":"{{ isFeatured }}",productPrice":"{{ price.value }}"}' data-product-category="{{ categoryName }}" data-product-featured="{{ isFeatured }}">
 <div class="min-h-screen bg-gray-50 flex flex-col">
   <div class="nav">{{ '{{#include src="/content/psg-demo-ue/nav.html"}}' }}</div>
   <div class="min-h-screen bg-gray-50 flex flex-col">
