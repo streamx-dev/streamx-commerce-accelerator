@@ -30,7 +30,7 @@ const getCartByID = async (cartID) => {
 //add product
 const addProductToCart = async (cartID, cartItems) => {
   const query = JSON.stringify({
-    query: `mutation { addSimpleProductsToCart( input: { cart_id: ${cartID} cart_items: [ { data: { quantity: ${cartItems.quantity} sku: ${cartItems.sku} } } ] } ) { cart { items { id product { sku stock_status } quantity } } } }`,
+    query: `mutation { addSimpleProductsToCart( input: { cart_id: "${cartID}" cart_items: [ { data: { quantity: ${cartItems.quantity} sku: "${cartItems.sku}" } } ] } ) { cart { items { id product { sku stock_status } quantity } } } }`,
   });
 
   const header = getTokenFromLS() ? {...utilities.HEADERS, 'Authorization': `Bearer ${getTokenFromLS()}`} : utilities.HEADERS;
@@ -42,7 +42,7 @@ const addProductToCart = async (cartID, cartItems) => {
 //update
 const updateProductInCart = async (cartID, uid, quantity) => {
   const query = JSON.stringify({
-    query: `mutation { updateCartItems( input: { cart_id: ${cartID}, cart_items: [ { cart_item_uid: ${uid} quantity: ${quantity} } ] } ){ cart { items { product { name } quantity } prices { grand_total{ value currency } } } } }`,
+    query: `mutation { updateCartItems( input: { cart_id: "${cartID}", cart_items: [ { cart_item_uid: "${uid}" quantity: ${quantity} } ] } ){ cart { items { product { name } quantity } prices { grand_total{ value currency } } } } }`,
     variables: {},
   });
 
@@ -55,7 +55,7 @@ const updateProductInCart = async (cartID, uid, quantity) => {
 //delete
 const removeItemFromCart = async (cartID, uid) => {
  const query = JSON.stringify({
-    query: `mutation { removeItemFromCart( input: { cart_id: ${cartID}, cart_item_uid: ${uid} } ) { cart { items { uid id product { name } quantity } prices { grand_total{ value currency } } } } }`,
+    query: `mutation { removeItemFromCart( input: { cart_id: "${cartID}", cart_item_uid: "${uid}" } ) { cart { items { uid id product { name } quantity } prices { grand_total{ value currency } } } } }`,
     variables: {},
  });
 
@@ -69,7 +69,7 @@ const removeItemFromCart = async (cartID, uid) => {
 // Query for Logged in users
 const mergeCarts = async (guestCartID, loggedinUserCartID) => {
   const query = JSON.stringify({
-    query: `mutation { mergeCarts( source_cart_id: ${guestCartID}, destination_cart_id: ${loggedinUserCartID} ) { itemsV2 { items { id product { name sku } quantity } total_count } } }`,
+    query: `mutation { mergeCarts( source_cart_id: "${guestCartID}", destination_cart_id: "${loggedinUserCartID}" ) { itemsV2 { items { id product { name sku } quantity } total_count } } }`,
     variables: {}
   });
 
