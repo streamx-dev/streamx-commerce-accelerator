@@ -21,7 +21,7 @@ const getCustomerOrders = async (token) => {
   
     const response = await utilities.fetchRequests(utilities.GRAPHQL_ENDPOINT, 'POST', {...utilities.HEADERS, 'Authorization': `Bearer ${token}`}, query);
   
-    return response.data.customerOrders;
+    return response.errors ? response : response.data.customerOrders;
 }
 
 
@@ -30,7 +30,7 @@ const customerQuery = async (token) => {
     query: `{ customer { firstname lastname suffix email addresses { firstname lastname street city region { region_code region } postcode country_code telephone } } }`
   });
   const userData = await utilities.fetchRequests(utilities.GRAPHQL_ENDPOINT, 'POST', {...utilities.HEADERS, 'Authorization': `Bearer ${token}`}, query);
-  return userData;
+  return userData.errors ? userData : userData.data.customer;
 }
 
 export const userMutations = {
