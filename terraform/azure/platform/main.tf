@@ -2,15 +2,17 @@ module "azure_platform" {
   source  = "streamx-dev/platform/azurerm"
   version = "0.0.2"
 
-  resource_group_enabled               = false
-  cluster_name                         = var.cluster_name
-  cluster_default_node_pool_vm_size    = "Standard_D3_v2"
-  cluster_default_node_pool_node_count = 3
-  location                             = var.location
-  resources_group_name                 = var.resource_group_name
-  kubeconfig_path                      = "${path.module}/.env/kubeconfig"
-  user_identity_id                     = var.user_identity_id
-  public_ip_id                         = var.public_ip_id
+  resource_group_enabled                   = false
+  cluster_name                             = var.cluster_name
+  cluster_default_node_pool_vm_size        = "Standard_D3_v2"
+  cluster_default_node_pool_node_count     = 3
+  cluster_default_node_pool_node_max_count = 5
+
+  location             = var.location
+  resources_group_name = var.resource_group_name
+  kubeconfig_path      = "${path.module}/.env/kubeconfig"
+  user_identity_id     = var.user_identity_id
+  public_ip_id         = var.public_ip_id
 }
 
 module "apisix" {
