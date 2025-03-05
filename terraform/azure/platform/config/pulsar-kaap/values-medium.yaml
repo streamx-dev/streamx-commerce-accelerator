@@ -6,7 +6,7 @@ cluster:
       image: apachepulsar/pulsar:4.0.0
       restartOnConfigMapChange: true
       storage:
-        existingStorageClassName: managed-csi-premium
+        existingStorageClassName: default
     zookeeper:
       replicas: 3
       dataVolume:
