@@ -53,11 +53,11 @@
             </svg>
             {% endfor %}
           </div>
-          <p
+          <div
             class="product-listing__product-description"
           >
             {{ values[i].description | raw}}
-          </p>
+          </div>
         </div>
         <div class="flex items-center justify-between">
           {% if values[i].price.value is not empty %}
