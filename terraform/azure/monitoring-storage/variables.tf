@@ -20,4 +20,9 @@ variable "storage_account_name_prefix" {
   default     = "streamxmonitoring"
   description = "Azure Storage Account name prefix."
   type        = string
+
+  validation {
+    condition     = length(var.storage_account_name_prefix) <= 19 && can(regex("^[a-z0-9]+$", var.storage_account_name_prefix))
+    error_message = "The storage account name prefix must be a maximum of 19 characters and contain only lowercase letters and numbers."
+  }
 }
