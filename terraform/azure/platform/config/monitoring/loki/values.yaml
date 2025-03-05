@@ -7,6 +7,10 @@ loki:
       account_name: ${ACCOUNT_NAME}
       container_name: ${CONTAINER_NAME}
   storage:
+    bucketNames:
+      chunks: loki-chunks
+      ruler: loki-ruler
+      admin: loki-admin
     type: azure
   compactor:
     retention_enabled: true
