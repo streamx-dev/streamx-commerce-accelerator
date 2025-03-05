@@ -17,7 +17,7 @@ variable "azurerm_storage_container_name" {
 }
 
 variable "storage_account_name_prefix" {
-  default     = "streamx-monitoring"
+  default     = "streamxmonitoring"
   description = "Azure Storage Account name prefix."
   type        = string
 }
