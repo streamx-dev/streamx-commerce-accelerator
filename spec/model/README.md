@@ -10,22 +10,22 @@ ref: "#/definitions/SxProduct"
 
 ### Model properties
 
-| Field        | Type                   | Description                                          |
-|--------------|------------------------|------------------------------------------------------|
-| id           | String *               | product unique identifier                            |
-| sku          | String *               | business stock-keeping unit                          |
-| lang         | String                 | language identifier                                  |
-| slug         | String *               | URL friendly name, uniquely identifying product item |
-| name         | String *               | title of the product                                 |
-| label        | String                 | label of the product                                 |
-| description  | String                 | detail information about the product                 |
-| price        | \[ SxPrice \]          | product price                                        |
-| primaryImage | SxImage                | main picture of the product                          |
-| gallery      | \[ SxImage \]          | product visual medias                                |
-| categories   | \[ SxCategory \]       | product categorisation information                   |
-| attributes   | \[ SxAttribute \]      | additional product characteristic data               |
-| variants     | \[ SxProductVariant \] | base product different variant                       |
-| quantity     | Number                 | property defines product stock information           |
+| Field        | Type                    | Description                                          |
+|--------------|-------------------------|------------------------------------------------------|
+| id           | String *                | product unique identifier                            |
+| sku          | String *                | business stock-keeping unit                          |
+| lang         | String                  | language identifier                                  |
+| slug         | String *                | URL friendly name, uniquely identifying product item |
+| name         | String *                | title of the product                                 |
+| label        | String                  | label of the product                                 |
+| description  | String                  | detail information about the product                 |
+| price        | \[ SxPrice \]           | product price                                        |
+| primaryImage | SxImage                 | main picture of the product                          |
+| gallery      | \[ SxImage \]           | product visual medias                                |
+| categories   | \[ SxProductCategory \] | product categorisation information                   |
+| attributes   | \[ SxAttribute \]       | additional product characteristic data               |
+| variants     | \[ SxProductVariant \]  | base product different variant                       |
+| quantity     | Number                  | property defines product stock information           |
 
 ## **SxProductVariant**
 
@@ -69,7 +69,7 @@ ref: "#/definitions/SxImage"
 
 ## **SxCategory**
 
-Element defined product categories and subcategories, that represents organized structure of
+Element defines product categories and subcategories, that represent organized structure of
 eCommerce product catalog.
 
 ### JSON-Schema
@@ -86,6 +86,24 @@ ref: "#/definitions/SxCategory"
 | label         | String           | label of the category                                                   |
 | parent        | SxCategory       | parent category data, limited to required values only                   |
 | subcategories | \[ SxCategory \] | actual item sub-elements data (if any), limited to required values only |
+
+## **SxProductCategory**
+
+Element defines categories of a product, that represent organized structure of
+eCommerce product catalog.
+
+### JSON-Schema
+
+ref: "#/definitions/SxProductCategory"
+
+### Model properties
+
+| Field         | Type     | Description                                                             |
+|---------------|----------|-------------------------------------------------------------------------|
+| id            | String * | unique identifier of the category                                       |
+| slug          | String * | URL friendly name, uniquely identifying category item                   |
+| name          | String * | title of the category                                                   |
+| label         | String   | label of the category                                                   |
 
 ## **SxPrice**
 

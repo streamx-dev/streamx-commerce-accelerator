@@ -47,7 +47,7 @@
         "categories": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SxCategory"
+            "$ref": "#/definitions/SxProductCategory"
           }
         },
         "attributes": {
@@ -162,6 +162,29 @@
           "items": {
             "$ref": "#/definitions/SxCategory"
           }
+        }
+      }
+    },
+    "SxProductCategory": {
+      "type": "object",
+      "title": "SxProductCategory",
+      "required": [
+        "id",
+        "slug",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
         }
       }
     },
