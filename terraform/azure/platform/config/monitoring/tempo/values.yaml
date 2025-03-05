@@ -1,0 +1,49 @@
+storage:
+  trace:
+    backend: azure
+    azure:
+      container_name: ${CONTAINER_NAME}
+      storage_account_name: ${ACCOUNT_NAME}
+      storage_account_key: ${ACCOUNT_ACCESS_KEY}
+
+traces:
+  otlp:
+    grpc:
+      enabled: true
+
+ingester:
+  extraArgs:
+    - "-config.expand-env=true"
+  extraEnvFrom:
+    - secretRef:
+        name: "azure-access-keys"
+distributor:
+  extraArgs:
+    - "-config.expand-env=true"
+  extraEnvFrom:
+    - secretRef:
+        name: "azure-access-keys"
+metricsGenerator:
+  extraArgs:
+    - "-config.expand-env=true"
+  extraEnvFrom:
+    - secretRef:
+        name: "azure-access-keys"
+compactor:
+  extraArgs:
+    - "-config.expand-env=true"
+  extraEnvFrom:
+    - secretRef:
+        name: "azure-access-keys"
+querier:
+  extraArgs:
+    - "-config.expand-env=true"
+  extraEnvFrom:
+    - secretRef:
+        name: "azure-access-keys"
+queryFrontend:
+  extraArgs:
+    - "-config.expand-env=true"
+  extraEnvFrom:
+    - secretRef:
+        name: "azure-access-keys"

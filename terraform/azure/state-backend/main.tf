@@ -8,5 +8,6 @@ module "tf_state_backend" {
   tf_backends = {
     "platform.tfstate" : "${path.module}/../platform/backend.tf"
     "network.tfstate" : "${path.module}/../network/backend.tf"
+    "monitoring_storage.tfstate" : "${path.module}/../monitoring-storage/backend.tf"
   }
 }
