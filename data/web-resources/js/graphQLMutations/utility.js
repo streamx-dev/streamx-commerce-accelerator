@@ -41,7 +41,7 @@ const setCartIDtoLS = (cartID) => localStorage.setItem("shoppingCartID", cartID)
 const removeCartIDFromLS = () => localStorage.removeItem("shoppingCartID");
 
 const getCartQuantityFromLS = () => localStorage.getItem("shoppingCartQuantity");
-const setCartQuantityFromLS = (quantity) => localStorage.setItem("shoppingCartQuantity", quantity);
+const setCartQuantityToLS = (quantity) => localStorage.setItem("shoppingCartQuantity", quantity);
 const removeCartQuantityFromLS = () => localStorage.removeItem("shoppingCartQuantity");
 
 // getter setter user token 
@@ -75,7 +75,7 @@ export const utilities = {
   setCartIDtoLS,
   removeCartIDFromLS,
   getCartQuantityFromLS,
-  setCartQuantityFromLS,
+  setCartQuantityToLS,
   removeCartQuantityFromLS,
   getTokenFromLS,
   setTokentoLS,

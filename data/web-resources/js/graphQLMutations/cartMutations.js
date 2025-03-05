@@ -83,8 +83,7 @@ const getCustomerCart = async () => {
     query: `{ customerCart { id items { id product { name sku } quantity } } }`
   });
 
-  const header = utilities.getTokenFromLS() ? {...utilities.HEADERS, 'Authorization': `Bearer ${utilities.getTokenFromLS()}`} : utilities.HEADERS;
-  const userCart = await utilities.fetchRequests(utilities.GRAPHQL_ENDPOINT, 'POST', header, query);
+  const userCart = await utilities.fetchRequests({...utilities.HEADERS, 'Authorization': `Bearer ${utilities.getTokenFromLS()}`}, 'POST', header, query);
   
   return userCart.errors ? userCart : userCart.data.customerCart;
 }
