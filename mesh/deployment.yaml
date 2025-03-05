@@ -6,10 +6,16 @@ defaults:
         memory: 512Mi
   ingestion:
     replicas: ${streamx.ingestion.replicas}
+    podDisruptionBudget:
+      enabled: true
+      minAvailable: 1
   processing:
     replicas: ${streamx.processing.replicas}
   delivery:
     replicas: ${streamx.delivery.replicas}
+    podDisruptionBudget:
+      enabled: true
+      minAvailable: 1
 
 
 ingestion:
