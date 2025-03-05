@@ -14,6 +14,15 @@ const getUserToken = async (userEmail, userPsw) => {
   
     return response.data.generateCustomerToken;
 }
+const getCustomerOrders = async (token) => {
+    const query = JSON.stringify({
+      query: `{ customerOrders { items { order_number id created_at grand_total status } } }`
+    });
+  
+    const response = await utilities.fetchRequests(utilities.GRAPHQL_ENDPOINT, 'POST', {...utilities.HEADERS, 'Authorization': `Bearer ${token}`}, query);
+  
+    return response.data.customerOrders;
+}
 
 
 const customerQuery = async (token) => {
@@ -26,5 +35,6 @@ const customerQuery = async (token) => {
 
 export const userMutations = {
   getUserToken,
-  customerQuery
+  customerQuery,
+  getCustomerOrders
 };
