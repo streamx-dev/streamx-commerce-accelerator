@@ -15,6 +15,7 @@ const getUserToken = async (userEmail, userPsw) => {
     return response.data.generateCustomerToken;
 }
 
+//to be called when current token has expired
 const regenerateUserToken = async () => {
   const activeUser = utilities.getActiveUserFromLS();
   const activeUserCreds = activeUser == 'user01' ? utilities.user01 : utilities.user02;
