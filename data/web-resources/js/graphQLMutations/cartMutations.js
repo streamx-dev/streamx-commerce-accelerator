@@ -18,7 +18,8 @@ const generateCartID = async () => {
 //getCart query
 const getCartByID = async (cartID) => {
   const query = JSON.stringify({
-    query: `query getCart($cartId: String!) { cart(cart_id: ${cartID})  ${CART_QUERY}}`
+    query: `query getCart($cartId: String!) { cart(cart_id: $cartId) ${CART_QUERY} }`,
+    variables: { "cartId": cartID },
   });
 
   const header = getTokenFromLS() ? {...utilities.HEADERS, 'Authorization': `Bearer ${getTokenFromLS()}`} : utilities.HEADERS;
