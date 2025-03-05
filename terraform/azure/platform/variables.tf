@@ -33,8 +33,8 @@ variable "streamx_environment_size" {
   default     = "small"
 
   validation {
-    condition     = contains(["small", "large"], var.streamx_environment_size)
-    error_message = "Allowed values for streamx_environment_size are 'small' or 'large'."
+    condition     = contains(["small", "medium"], var.streamx_environment_size)
+    error_message = "Allowed values for streamx_environment_size are 'small' or 'medium'."
   }
 }
 
