@@ -155,7 +155,7 @@
           <img
             src="${item.imgSrc}"
             alt="${item.name}"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-contain"
           />
         </div>
         <div class="p-4">
@@ -249,6 +249,7 @@
         'rounded-lg',
         'shadow-md',
         'transition-transform',
+        'mx-[5px]'
       );
       div.innerHTML = getItemTemplate(product).trim();
       div.setAttribute("data-product-details",JSON.stringify(product));

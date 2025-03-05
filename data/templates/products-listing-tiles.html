@@ -10,13 +10,13 @@
       {% endif %}
     {% endfor %}
   <div class="product-listing__product" data-product-details='{"sku":"{{ values[i].sku }}","name": "{{ values[i].name }}","rating":"3","description":"{{ values[i].description }}","category":"{{ categoryName }}","brand":"LumaX","salesOrg":"Perficient","isFeatured":"{{ isFeatured }}","productPrice":"{{ values[i].price.value }}"}'>
-    <div class="product-listing__product-container">
+    <div class="product-listing__product-container mx-[5px]">
       <a
-        class="product-listing__product-asset"
+        class="product-listing__product-asset m-auto"
         data-discover="true"
         href="/products/{{ values[i].slug }}.html"
       >
-        <img alt="{{ values[i].name }}" class="w-full h-full object-cover" loading="lazy"
+        <img alt="{{ values[i].name }}" class="w-full h-full object-contain" loading="lazy"
           src="{{ values[i].primaryImage.url }}" />
       </a>
       <div class="product-listing__product-copy">
