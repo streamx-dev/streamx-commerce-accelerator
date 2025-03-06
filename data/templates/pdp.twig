@@ -84,7 +84,7 @@
         <div class="space-y-6">
           <h1 class="text-3xl font-bold">{{ name | raw }}</h1>
           <div class="flex items-center product-rating">
-            {% set rating = 3 %}
+            {% set rating = 4 %}
             {% set svgClass = 'lucide lucide-star w-5 h-5 fill-yellow-400 text-yellow-400' %}
             {% for i in 1..5 %}
               {% if i > rating %}
@@ -104,6 +104,7 @@
           {% set colorsAsArray = colors|split(',') %}
           {% set swatchesAsArray = swatches|split(',') %}
           {% set sizesAsArray = sizes|split(',') %}
+          <p>Colors Length: {{ colorsAsArray|length }}</p>
           {% if colorsAsArray|length > 0 %}
             <div class="space-y-2">
               <p class="font-medium">Color: <span class="swatch-label"></span></p>
@@ -117,6 +118,7 @@
               </div>
             </div>
           {% endif %}
+          <p>Sizes Length: {{ sizesAsArray|length }}</p>
           {% if sizesAsArray|length > 0 %}
             <div class="space-y-2">
               <p class="font-medium">Size: <span class="size-label"></span></p>
