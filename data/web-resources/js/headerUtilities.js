@@ -1,8 +1,8 @@
-import { utilities } from './graphQLMutations/utility';
-import { cartMutations } from './graphQLMutations/cartMutations';
+import { utilities } from './graphQLMutations/utility.js';
+import { cartMutations } from './graphQLMutations/cartMutations.js';
 
 const updateToken = async () => {
-    if(!getTokenFromLS()){ 
+    if(!utilities.getTokenFromLS()){ 
         const token = await userMutations.getUserToken(); 
         utilities.setTokentoLS(token)
     }
@@ -41,6 +41,7 @@ const onLoginHandler = async (activeUser) =>{
 const onLogoutHandler = () =>{
     utilities.removeCartQuantityFromLS();
     utilities.removeActiveUserFromLS();
+    utilities.removeCartIDFromLS();
     updateCartDetailsOnLoad();
 }
 

@@ -5,7 +5,7 @@
 
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold mb-8">Shopping Cart</h1>
-    <div class="shopping-cart-content grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="shopping-cart-content grid grid-cols-1 lg:grid-cols-3 gap-8 hidden">
         <div class="lg:col-span-2">
             <div class="cart-items-container bg-white rounded-lg shadow-sm divide-y">
             </div>
@@ -23,9 +23,18 @@
                     </div>
                     <div class="flex justify-between">
                         <span>Tax</span>
-                        <span class="font-semibold"></span>
+                        <span class="font-semibold">
+                            <span>$</span>
+                            <span class="tax"></span>
+                        </span>
                     </div>
-                    <div class="flex justify-between"><span>Shipping</span><span class="font-semibold"></span></div>
+                    <div class="flex justify-between">
+                        <span>Shipping</span>
+                        <span class="font-semibold">
+                            <span>$</span>
+                            <span class="shipping"></span>
+                        </span>
+                    </div>
                     <div class="border-t pt-4">
                         <div class="flex justify-between">
                             <span class="font-semibold">Total</span>
@@ -42,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="shipping-information-content grid grid-cols-1 lg:grid-cols-3 gap-8 form-section">
+    <div class="shipping-information-content grid grid-cols-1 lg:grid-cols-3 gap-8 form-section hidden">
         <div class="lg:col-span-2">
             <div class="container mx-auto px-4 py-8">
                 <div class="max-w-3xl mx-auto">
@@ -297,11 +306,14 @@
             </div>
         </div>
     </div>
-    <div>
+    <div class="no-products hidden">
         <p>Please add products to your cart</p>
         <a href="/homepage.html"
             class="continue-payment inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 w-full bg-dsg-red hover:bg-dsg-red/90 text-white">Continue
             Shopping</a>
+    </div>
+    <div class="loading-message">
+        <p>Loading</p>
     </div>
 </div>
 
@@ -313,13 +325,15 @@
     // show ui
     // else show message (continue shopping)
     import { cartMutations } from './web-resources/js/graphQLMutations/cartMutations.js';
+    import { utilities } from "./web-resources/js/graphQLMutations/utility.js";
+    let cartId;
 
     const updateSubtotalPriceItem = (quantity, price) => {
         return quantity * price;
     }
 
     const itemTemplate = (item) => `
-                    <div class="flex items-center space-x-4"><a class="shrink-0"
+                    <div class="flex items-center space-x-4" data-uid="${item.uid}"><a class="shrink-0"
                             href="/products/${item.product.sku}" data-discover="true"><img
                                 src="${item.product.thumbnail.url}" alt="${item.product.name}"
                                 class="w-24 h-24 object-cover rounded-sm"></a>
@@ -370,9 +384,11 @@
                         </div>
                     </div>`;
 
+    const updatePrice = async (el, price, quantity) => {
+        const uid = el.closest(".item > div").dataset.uid;
+        cartMutations.updateProductInCart(cartId, uid, quantity);
 
-    const updatePrice = (el, price, quantity) => {
-        el.closest(".item").querySelector(".subtotal-item").innerHTML = `${updateSubtotalPriceItem(quantity * price).toString()}`;
+        el.closest(".item").querySelector(".subtotal-item").innerHTML = updateSubtotalPriceItem(quantity, price);
 
         const subtotal = document.querySelectorAll(".item:not(.hidden) .subtotal-item");
         let total = 0;
@@ -383,7 +399,7 @@
                     total += parseInt(value);
                 }
             });
-            document.querySelector('.subtotal').innerHTML = document.querySelector('.total').innerHTML = total.toString();
+            document.querySelector('.subtotal').innerHTML = document.querySelector('.total').innerHTML = total;
         }
     }
 
@@ -403,24 +419,24 @@
                 const increaseQuantityButton = el.querySelector(
                     ':scope > button:nth-of-type(2)',
                 );
-                decreaseQuantityButton?.addEventListener('click', () => {
+                decreaseQuantityButton.addEventListener('click', () => {
                     if (quantity > 1) {
                         quantity -= 1;
                         if (quantity === 1) {
-                            decreaseQuantityButton?.setAttribute('disabled', true.toString());
+                            decreaseQuantityButton.setAttribute('disabled', true.toString());
                         }
                         if (price) {
                             updatePrice(el, parseInt(price), quantity);
                         }
                     }
-                    el.querySelector('span').innerText = quantity.toString();
+                    el.querySelector('span').innerText = quantity;
                 });
                 increaseQuantityButton.addEventListener('click', () => {
                     if (quantity === 1) {
                         decreaseQuantityButton.removeAttribute('disabled');
                     }
                     quantity += 1;
-                    el.querySelector('span').innerText = quantity.toString();
+                    el.querySelector('span').innerText = quantity;
                     if (price) {
                         updatePrice(el, parseInt(price), quantity);
                     }
@@ -429,14 +445,32 @@
         }
     };
 
+    const removeItem = () => {
+        const removeItemButton = document.querySelectorAll('.remove-item');
+
+        if (removeItemButton) {
+            removeItemButton.forEach((el) => {
+                el.addEventListener('click', async () => {
+                    const price = el.closest(".actions-container").previousElementSibling.querySelector(".value").textContent;
+                    updatePrice(el, price, 0);
+                    const uid = el.closest(".item > div").dataset.uid;
+                    el.closest('.item').remove();
+                    const response = await cartMutations.removeItemFromCart(cartId, uid);
+                });
+            });
+
+        }
+    };
+
     async function updateCartPage() {
-        const cart = await cartMutations.getCartByID("M1a2nvO253QEC1kDOYghjTSePf6iXpjv");
-        console.log(cart);
+        const cart = await cartMutations.getCartByID(cartId);
 
         if (cart.items.length == 0) {
-            document.querySelector('.shopping-cart-content').classList.add('hidden');
-            document.querySelector('.shipping-information-content').classList.add('hidden');
+            document.querySelector('.no-products').classList.remove('hidden');
         } else {
+            document.querySelector('.shopping-cart-content').classList.remove('hidden');
+            document.querySelector('.shipping-information-content').classList.remove('hidden');
+
             const items = cart.items;
             const itemsContainer = document.querySelector('.cart-items-container');
             items.forEach((item) => {
@@ -450,12 +484,21 @@
             });
             addIncreaseDecreaseQuantityAction();
 
-            document.querySelector('.subtotal').innerText = cart.prices.grand_total.value;
-            document.querySelector('.total').innerText = cart.prices.grand_total.value;
+            document.querySelector('.subtotal').innerText = cart.prices.subtotal_excluding_tax.value;
+            document.querySelector('.tax').innerText = cart.prices.subtotal_including_tax.value - cart.prices.subtotal_excluding_tax.value;
+            document.querySelector('.shipping').innerText = cart.shipping_addresses[0] ? cart.shipping_addresses[0].available_shipping_methods.amount.value : 0;
+            document.querySelector('.total').innerText = cart.prices.subtotal_including_tax.value;
+
+            removeItem();
         }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-        updateCartPage();
+        utilities.setCartIDtoLS("M1a2nvO253QEC1kDOYghjTSePf6iXpjv");
+        cartId = utilities.getCartIDFromLS();
+
+        if (cartId != null) {
+            updateCartPage();
+        }
     });
 </script>

@@ -1,5 +1,5 @@
-import { utilities } from "./graphQLMutations/utility";
-import { cartMutations } from "./graphQLMutations/cartMutations";
+import { utilities } from "./graphQLMutations/utility.js";
+import { cartMutations } from "./graphQLMutations/cartMutations.js";
 
 const addProductToCart = async(sku, quantity) => {
     let cartID = utilities.getCartIDFromLS();
