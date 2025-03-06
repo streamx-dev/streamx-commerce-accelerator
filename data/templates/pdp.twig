@@ -49,7 +49,6 @@
           {% endif %}
         {% endfor %}
       {% endfor %}
-      <h1 class="text-3xl font-bold">{{ prices }}</h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="space-y-4">
           <div class="w-full aspect-square rounded-lg overflow-hidden">
@@ -104,13 +103,13 @@
             {% endfor %}
           </div>
           {% if price.value %}
-            <p class="text-2xl font-bold">${{ price.value | numberformat("#.00") }}</p>
+            {% set prices = prices|split(',', 2) %}
+            <p class="text-2xl font-bold product-price" data-prices="{{ prices[1] }}">${{ price.value | numberformat("#.00") }}</p>
           {% endif %}
           {% set colorsAsArray = colors|split(',') %}
           {% set swatchesAsArray = swatches|split(',') %}
           {% set sizesAsArray = sizes|split(',') %}
-          <p>Colors Length: {{ colorsAsArray|length }}</p>
-          {% if colorsAsArray|length > 0 %}
+          {% if colorsAsArray|length > 1 %}
             <div class="space-y-2">
               <p class="font-medium">Color: <span class="swatch-label"></span></p>
               <div class="flex gap-2">
@@ -122,9 +121,7 @@
                 {% endfor %}
               </div>
             </div>
-          {% endif %}
-          <p>Sizes Length: {{ sizesAsArray|length }}</p>
-          {% if sizesAsArray|length > 0 %}
+          {% if sizesAsArray|length > 1 %}
             <div class="space-y-2">
               <p class="font-medium">Size: <span class="size-label"></span></p>
               <div class="flex gap-2">
