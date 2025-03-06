@@ -7,6 +7,14 @@ on:
         required: true
         type: string
     secrets:
+      SX_SEC_AUTH_PRIVATE_KEY:
+        required: false
+      BLUEPRINT_WEB_TLS_CERT:
+        required: false
+      BLUEPRINT_SEARCH_TLS_CERT:
+        required: false
+      REST_INGESTION_TLS_CERT:
+        required: false
       ARM_ACCESS_KEY:
         required: true
       ARM_CLIENT_ID:

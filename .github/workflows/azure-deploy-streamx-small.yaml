@@ -12,6 +12,14 @@ jobs:
     with:
       environment_size: "small"
     secrets:
+      SX_SEC_AUTH_PRIVATE_KEY:
+        ${{ secrets.SX_SEC_AUTH_PRIVATE_KEY }}
+      BLUEPRINT_WEB_TLS_CERT:
+        ${{ secrets.BLUEPRINT_WEB_TLS_CERT }}
+      BLUEPRINT_SEARCH_TLS_CERT:
+        ${{ secrets.BLUEPRINT_SEARCH_TLS_CERT }}
+      REST_INGESTION_TLS_CERT:
+        ${{ secrets.REST_INGESTION_TLS_CERT }}
       ARM_ACCESS_KEY:
         ${{ secrets.ARM_ACCESS_KEY }}
       ARM_CLIENT_ID:
