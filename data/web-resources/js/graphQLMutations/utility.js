@@ -84,5 +84,9 @@ export const utilities = {
   getActiveUserFromLS,
   setActiveUsertoLS,
   removeActiveUserFromLS,
-  updateCartCountOnUI
+  updateCartCountOnUI,
+  setUser1TokentoLS,
+  setUser2TokentoLS,
+  getUser1TokenFromLS,
+  getUser2TokenFromLS
 } 
