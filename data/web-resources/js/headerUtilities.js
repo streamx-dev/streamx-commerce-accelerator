@@ -2,10 +2,10 @@ import { utilities } from './graphQLMutations/utility.js';
 import { cartMutations } from './graphQLMutations/cartMutations.js';
 import { userMutations } from './graphQLMutations/userMutations.js';
 
-const updateToken = async () => {
+const updateToken = async (activeUserCreds) => {
     if (!utilities.getTokenFromLS()) {
-        const token = await userMutations.getUserToken();
-        utilities.setTokentoLS(token)
+        const token = await userMutations.getUserToken(activeUserCreds.email, activeUserCreds.password);
+        utilities.setTokentoLS(token.token)
     }
 }
 
@@ -15,13 +15,13 @@ const updateCartDetailsOnLoad = async (isLoggedIn = false) => {
         const cartID = utilities.getCartIDFromLS();
         const cart = await cartMutations.getCustomerCart();
 
-        if(cart.errors){
-            if(cart.errors[0].extensions?.category == 'graphql-authorization'){
+        if (cart.errors) {
+            if (cart.errors[0].extensions?.category == 'graphql-authorization') {
                 await userMutations.regenerateUserToken();
                 cart = await cartMutations.getCustomerCart();
             }
             console.log(cart.errors[0].message);
-        } else{
+        } else {
             if (cartID && cart && cart.ID !== cartID) {
                 const newCart = await cartMutations.mergeCarts(cartID, cart.ID)
                 utilities.setCartIDtoLS(cart.ID);
@@ -35,10 +35,10 @@ const updateCartDetailsOnLoad = async (isLoggedIn = false) => {
     utilities.updateCartCountOnUI();
 }
 
-const onLoginHandler = async (activeUser) => {
+const onLoginHandler = async (activeUser, activeUserCreds) => {
     utilities.setActiveUsertoLS(activeUser);
 
-    await updateToken();
+    await updateToken(activeUserCreds);
     await updateCartDetailsOnLoad(true);
 }
 
@@ -49,35 +49,12 @@ const onLogoutHandler = () => {
     updateCartDetailsOnLoad();
 }
 
-async function getUserTokenFromLS(user, activeUserCreds) {
-    let userToken;
-    if (user == 'user01') {
-        userToken = await userMutations.getUserToken(activeUserCreds.email, activeUserCreds.password);
-        utilities.setUser1TokentoLS(userToken.token);
-    } else {
-        userToken = await userMutations.getUserToken(activeUserCreds.email, activeUserCreds.password);
-        utilities.setUser2TokentoLS(userToken.token);
-    }
-
-    return userToken;
-}
-
 async function signIn(user) {
-    const activeUser = utilities.getActiveUserFromLS();
-    let activeUserCreds, firstname, userToken;
-    if (activeUser != null) {
-        activeUserCreds = user == 'user01' ? utilities.user01 : utilities.user02;
-        if (activeUser == user) {
-            userToken = user == 'user01' ? utilities.getUser1TokenFromLS() : utilities.getUser2TokenFromLS();
-        } else {
-            userToken = await getUserTokenFromLS(user, activeUserCreds);
-        }
-    } else {
-        activeUserCreds = user == 'user01' ? utilities.user01 : utilities.user02;
-        userToken = await getUserTokenFromLS(user, activeUserCreds);
-    }
-    utilities.setActiveUsertoLS(user);
-    firstname = activeUserCreds.firstname;
+    const activeUserCreds = user == 'user01' ? utilities.user01 : utilities.user02;
+    onLoginHandler(user, activeUserCreds);
+    
+    const userToken = utilities.getTokenFromLS();
+    const firstname = activeUserCreds.firstname;
 
     if (userToken !== null) {
         const loggedTitle = document.querySelector('.close-title h5');
@@ -149,13 +126,9 @@ function createSignIn() {
     const loggedUser = document.querySelector('.logged-user');
 
     persona1.addEventListener('click', () => {
-        console.log('click 1');
-
         signIn("user01");
     });
     persona2.addEventListener('click', () => {
-        console.log('click 2');
-
         signIn("user02");
     });
 
@@ -168,9 +141,7 @@ function createSignIn() {
         signInInfo.classList.remove('hidden');
         loggedUser.classList.add('hidden');
         logOutBtn.classList.add('hidden');
-        utilities.removeActiveUserFromLS();
-        utilities.removeCartQuantityFromLS();
-        utilities.removeCartIDFromLS();
+        onLogoutHandler();
     });
 }
 
