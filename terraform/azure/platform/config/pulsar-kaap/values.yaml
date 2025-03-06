@@ -5,17 +5,19 @@ cluster:
       name: pulsar
       image: apachepulsar/pulsar:4.0.0
       restartOnConfigMapChange: true
+      storage:
+        existingStorageClassName: default
     zookeeper:
-      replicas: 1
+      replicas: 3
       dataVolume:
         name: data
-        size: 100M
+        size: 10Gi
       resources:
         requests:
           cpu: "0.1"
           memory: "256Mi"
     bookkeeper:
-      replicas: 1
+      replicas: 3
       volumes:
         journal:
           # Pulsar Bookkeeper default journal configuration (https://github.com/apache/pulsar/blob/v4.0.0/conf/bookkeeper.conf#L358) requires at least 12GB
@@ -27,11 +29,11 @@ cluster:
           cpu: "0.4"
           memory: "2Gi"
     broker:
-      replicas: 1
+      replicas: 3
       config:
-        managedLedgerDefaultEnsembleSize: "1"
-        managedLedgerDefaultWriteQuorum: "1"
-        managedLedgerDefaultAckQuorum: "1"
+        managedLedgerDefaultEnsembleSize: "2"
+        managedLedgerDefaultWriteQuorum: "2"
+        managedLedgerDefaultAckQuorum: "2"
         compactionServiceFactoryClassName: "org.apache.pulsar.compaction.EventTimeCompactionServiceFactory"
       resources:
         requests:

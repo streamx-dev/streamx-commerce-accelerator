@@ -1,3 +1,6 @@
+useDaemonSet: true
+replicaCount: 3
+
 service:
   type: LoadBalancer
 

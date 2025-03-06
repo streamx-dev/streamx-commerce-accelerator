@@ -1,7 +1,11 @@
 name: 'Azure: Deploy StreamX'
 
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      environment_size:
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -87,6 +91,13 @@ jobs:
             ${{ vars.TF_VAR_streamx_operator_image_pull_secret_registry_email }}
           TF_VAR_streamx_operator_image_pull_secret_registry_password:
             ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
+          TF_VAR_MONITORING_STORAGE_ACCOUNT_NAME:
+            ${{ vars.TF_VAR_monitoring_storage_account_name }}
+          TF_VAR_MONITORING_STORAGE_CONTAINER_NAME:
+            ${{ vars.TF_VAR_monitoring_storage_container_name }}
+          TF_VAR_MONITORING_STORAGE_ACCESS_KEY:
+            ${{ secrets.TF_VAR_monitoring_storage_access_key }}
+          TF_VAR_streamx_environment_size: ${{ inputs.environment_size }}
         run: |
           terraform/scripts/deploy-streamx.sh
           echo "kubeconfig_path=$(terraform -chdir=./terraform/azure/platform output -raw kubeconfig_path)" >> $GITHUB_OUTPUT

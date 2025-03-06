@@ -13,14 +13,18 @@ compare_secret() {
     local secret_field="$2"
     local file="$3"
 
-    secret_data=$(kubectl get secret "$secret_name" -o yaml 2>/dev/null)
+    secret_data=$(kubectl get secret "$secret_name" -o yaml 2>/dev/null || true)
 
-    if [ -n "$secret_data" ]; then
-        if ! diff <(echo "$secret_data" | yq ".data.\"$secret_field\"") <(yq eval ".data.\"$secret_field\"" "$file") >/dev/null; then
-            echo "$secret_field of $secret_name is different! It's likely that the certificates/private keys in Kubernetes are newer than those in your repository. Please update your local certificates and GitHub Action secrets to align with the newly generated ones in Kubernetes."
-            exit 1
-        fi
+    if [ -z "$secret_data" ]; then
+        echo "Secret $secret_name not found in Kubernetes. Skipping..."
+        return
     fi
+
+    if ! diff <(echo "$secret_data" | yq ".data.\"$secret_field\"") <(yq eval ".data.\"$secret_field\"" "$file") >/dev/null; then
+        echo "$secret_field of $secret_name is different! It's likely that the certificates/private keys in Kubernetes are newer than those in your repository. Please update your local certificates and GitHub Action secrets to align with the newly generated ones in Kubernetes."
+        exit 1
+    fi
+
 }
 
 for cert_file in "$VERIFY_SECRETS_SCRIPT_DIR"/../../gateway/tls/*.crt.yaml; do

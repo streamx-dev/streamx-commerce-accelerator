@@ -1,0 +1,13 @@
+name: 'Azure: Deploy StreamX Large'
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/internal/azure-deploy-streamx.yaml
+    with:
+      environment_size: "large"
