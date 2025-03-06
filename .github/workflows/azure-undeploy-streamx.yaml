@@ -53,4 +53,5 @@ jobs:
             ${{ vars.TF_VAR_monitoring_storage_container_name }}
           TF_VAR_MONITORING_STORAGE_ACCESS_KEY:
             ${{ secrets.TF_VAR_monitoring_storage_access_key }}
+          TF_VAR_streamx_environment_size: "small"
         run: terraform/scripts/undeploy-streamx.sh

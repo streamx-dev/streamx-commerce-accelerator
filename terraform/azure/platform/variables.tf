@@ -30,7 +30,6 @@ variable "cert_manager_lets_encrypt_issuer_prod_letsencrypt_server" {
 variable "streamx_environment_size" {
   description = "The size of the environment setup for streamx. Controls the number of replicas, resources etc."
   type        = string
-  default     = "small"
 
   validation {
     condition     = contains(["small", "medium", "large"], var.streamx_environment_size)
