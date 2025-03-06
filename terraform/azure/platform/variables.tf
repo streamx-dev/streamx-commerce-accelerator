@@ -33,8 +33,17 @@ variable "streamx_environment_size" {
   default     = "small"
 
   validation {
-    condition     = contains(["small", "medium"], var.streamx_environment_size)
-    error_message = "Allowed values for streamx_environment_size are 'small' or 'medium'."
+    condition     = contains(["small", "medium", "large"], var.streamx_environment_size)
+    error_message = "Allowed values for streamx_environment_size are 'small', 'medium', 'large'."
+  }
+}
+
+variable "vm_sizes" {
+  type = map(string)
+  default = {
+    small  = "Standard_D3_v2"
+    medium = "Standard_D4_v2"
+    large  = "Standard_D5_v2"
   }
 }
 
@@ -70,9 +79,11 @@ variable "user_identity_id" {
 variable "monitoring_storage_container_name" {
   description = "Name of the monitoring storage container"
 }
+
 variable "monitoring_storage_account_name" {
   description = "Name of the monitoring storage account"
 }
+
 variable "monitoring_storage_access_key" {
   description = "Access key of the monitoring storage account"
   sensitive   = true
