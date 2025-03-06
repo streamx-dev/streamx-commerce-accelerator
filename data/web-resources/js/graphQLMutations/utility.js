@@ -61,9 +61,10 @@ const getTokenFromLS = () => getActiveUserFromLS() == 'user01' ? getUser1TokenFr
 const setTokentoLS = (userToken) => getActiveUserFromLS() == 'user01' ? setUser1TokentoLS(userToken) : setUser2TokentoLS(userToken); 
 const removeTokenFromLS = () => getActiveUserFromLS() == 'user01' ? removeUser1TokenFromLS() : removeUser2TokenFromLS(); 
 
-
-
-
+const updateCartCountOnUI = () => { 
+  const cartQuantity = getCartQuantityFromLS(); 
+  document.querySelector('.cart-quantity').innerText = cartQuantity ? cartQuantity : 0;
+}
 
 export const utilities = {
   GRAPHQL_ENDPOINT,
@@ -82,5 +83,6 @@ export const utilities = {
   removeTokenFromLS,
   getActiveUserFromLS,
   setActiveUsertoLS,
-  removeActiveUserFromLS
+  removeActiveUserFromLS,
+  updateCartCountOnUI
 } 
