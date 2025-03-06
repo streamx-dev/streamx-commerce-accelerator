@@ -24,11 +24,14 @@
       {% set colors = "" %}
       {% set swatches = "" %}
       {% set sizes = "" %}
+      {% set prices = "" %}
       {% set thumbnails = "" %}
       {% for variant in variants %}
+        {% set prices = prices ~ ',' ~ variant.price.value %}
         {% for attribute in variant.attributes %}
           {% if attribute.name == 'color' and attribute.values|length > 0 %}
             {% set colorsAsArray = colors|split(',') %}
+            {% set prices = prices ~ ':' ~ attribute.values[0].label %}
             {% if colorsAsArray contains attribute.values[0].label %}
             {% else %}
               {% set colors = colors ~ ',' ~ attribute.values[0].label %}
@@ -38,6 +41,7 @@
           {% endif %}
           {% if attribute.name == 'size' and attribute.values|length > 0 %}
             {% set sizesAsArray = sizes|split(',') %}
+            {% set prices = prices ~ ':' ~ attribute.values[0].label %}
             {% if sizesAsArray contains attribute.values[0].label %}
             {% else %}
               {% set sizes = sizes ~ ',' ~ attribute.values[0].label %}
@@ -45,6 +49,7 @@
           {% endif %}
         {% endfor %}
       {% endfor %}
+      <h1 class="text-3xl font-bold">{{ prices }}</h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="space-y-4">
           <div class="w-full aspect-square rounded-lg overflow-hidden">
