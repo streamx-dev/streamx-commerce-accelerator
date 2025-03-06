@@ -16,7 +16,7 @@ PUT /_ingest/pipeline/default-local
         "description": "Preprocessing of the attributes item as ft_ facets filter",
         "lang": "painless",
         "ignore_failure": true,
-        "source": "Map facets = new HashMap(); if (ctx[\"payload\"][\"attributes\"] != null) { for(item in ctx[\"payload\"][\"attributes\"]) { if ( item.isFacet == true ) { String name = item.name; List facetValues = facets[\"ft_\" + name]; if (facetValues == null) { facetValues = new ArrayList(); facets.put(\"ft_\" + item.name, facetValues); } for(itemValue in item[\"values\"]) { if (null != itemValue.valueLabel) facetValues.add(itemValue.valueLabel); }}}} facets.forEach((k, v) -> ctx[\"payload\"][k] = v) "
+        "source": "Map facets = new HashMap(); if (ctx[\"payload\"][\"attributes\"] != null) { for(item in ctx[\"payload\"][\"attributes\"]) { if ( item.isFacet == true ) { String name = item.name; List facetValues = facets[\"ft_\" + name]; if (facetValues == null) { facetValues = new ArrayList(); facets.put(\"ft_\" + item.name, facetValues); } for(itemValue in item[\"values\"]) { if (null != itemValue.value) facetValues.add(itemValue.value); }}}} facets.forEach((k, v) -> ctx[\"payload\"][k] = v) "
       }
     },
     {

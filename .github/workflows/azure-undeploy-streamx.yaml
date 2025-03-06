@@ -47,4 +47,11 @@ jobs:
             ${{ vars.TF_VAR_streamx_operator_image_pull_secret_registry_email }}
           TF_VAR_streamx_operator_image_pull_secret_registry_password:
             ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
+          TF_VAR_MONITORING_STORAGE_ACCOUNT_NAME:
+            ${{ vars.TF_VAR_monitoring_storage_account_name }}
+          TF_VAR_MONITORING_STORAGE_CONTAINER_NAME:
+            ${{ vars.TF_VAR_monitoring_storage_container_name }}
+          TF_VAR_MONITORING_STORAGE_ACCESS_KEY:
+            ${{ secrets.TF_VAR_monitoring_storage_access_key }}
+          TF_VAR_streamx_environment_size: "small"
         run: terraform/scripts/undeploy-streamx.sh

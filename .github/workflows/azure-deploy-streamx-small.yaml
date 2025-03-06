@@ -1,0 +1,13 @@
+name: 'Azure: Deploy StreamX Small'
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/azure-deploy-streamx.yaml
+    with:
+      environment_size: "small"

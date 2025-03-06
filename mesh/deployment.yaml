@@ -4,8 +4,19 @@ defaults:
       requests:
         cpu: 300m
         memory: 512Mi
+  ingestion:
+    replicas: ${streamx.default.ingestion.replicas}
+    podDisruptionBudget:
+      enabled: true
+      minAvailable: 1
+  processing:
+    replicas: ${streamx.default.processing.replicas}
   delivery:
-    replicas: 1
+    replicas: ${streamx.default.delivery.replicas}
+    podDisruptionBudget:
+      enabled: true
+      minAvailable: 1
+
 
 ingestion:
   rest-ingestion:
@@ -56,6 +67,39 @@ delivery:
         periodSeconds: 10
         successThreshold: 1
         failureThreshold: 10
+    components:
+      webserver:
+        probes:
+          readiness:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          liveness:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          startup:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
   blueprint-search:
     ingress:
       enabled: true
