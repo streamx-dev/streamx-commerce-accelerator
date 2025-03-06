@@ -1,4 +1,4 @@
-name: 'Azure: Deploy StreamX Large'
+name: 'Azure: Deploy StreamX Medium'
 
 on:
   workflow_dispatch:
@@ -10,4 +10,4 @@ jobs:
   deploy:
     uses: ./.github/workflows/internal/azure-deploy-streamx.yaml
     with:
-      environment_size: "large"
+      environment_size: "medium"
