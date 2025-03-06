@@ -43,9 +43,8 @@ module "monitoring_loki" {
 }
 
 module "streamx" {
-  source = "/Users/marekczajkowski/workspace/terraform-helm-charts"
-  #source  = "streamx-dev/charts/helm"
-  #version = "0.0.4"
+  source  = "streamx-dev/charts/helm"
+  version = "0.0.4"
 
   ingress_controller_nginx_enabled                         = false
   cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email

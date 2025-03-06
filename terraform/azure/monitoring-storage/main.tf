@@ -1,8 +1,7 @@
 
 module "monitoring_storage" {
-  #source  = "streamx-dev/platform/azurerm//modules/storage-container"
-  #version = "0.0.3"
-  source = "/Users/marekczajkowski/workspace/terraform-azurerm-platform/modules/storage-container"
+  source  = "streamx-dev/platform/azurerm//modules/storage-container"
+  version = "0.0.3"
 
   resource_group_name            = var.resource_group_name
   location                       = var.location
