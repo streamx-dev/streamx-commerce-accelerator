@@ -71,7 +71,7 @@
               {% if thumbnail %}
                 <div
                   class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 hover:border-dsg-red transition-colors"
-                  data-sly-color="{{ colorsAsArray[loop.index] }}">
+                  data-color="{{ colorsAsArray[loop.index] }}">
                   <picture>
                     <img class="w-full h-full object-cover image-list-item" src="{{ thumbnail }}"
                          loading="eager">
@@ -110,7 +110,6 @@
               <div class="flex gap-2">
                 {% for color in colorsAsArray %}
                   {% if color %}
-                    <p>Swatch Color: {{ swatchesAsArray[loop.index] }}</p>
                     <button class="w-8 h-8 rounded-full border-2 border-transparent" title="{{ color }}"
                             style="background-color: {{ swatchesAsArray[loop.index] }};"></button>
                   {% endif %}
