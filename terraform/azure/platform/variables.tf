@@ -38,15 +38,6 @@ variable "streamx_environment_size" {
   }
 }
 
-variable "vm_sizes" {
-  type = map(string)
-  default = {
-    small  = "Standard_D3_v2"
-    medium = "Standard_D4_v2"
-    large  = "Standard_D5_v2"
-  }
-}
-
 variable "streamx_operator_image_pull_secret_registry_email" {
   description = "StreamX Operator container image registry user email."
   type        = string

@@ -1,10 +1,19 @@
+locals {
+  vm_sizes = {
+    small  = "Standard_D3_v2"
+    medium = "Standard_D4_v2"
+    large  = "Standard_D5_v2"
+  }
+}
+
+
 module "azure_platform" {
   source  = "streamx-dev/platform/azurerm"
   version = "0.0.3"
 
   resource_group_enabled                   = false
   cluster_name                             = var.cluster_name
-  cluster_default_node_pool_vm_size        = var.vm_sizes[var.streamx_environment_size]
+  cluster_default_node_pool_vm_size        = local.vm_sizes[var.streamx_environment_size]
   cluster_default_node_pool_node_count     = 3
   cluster_default_node_pool_node_max_count = 5
 
