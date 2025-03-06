@@ -15,19 +15,22 @@ const updateCartDetailsOnLoad = async (isLoggedIn = false) => {
         const cartID = utilities.getCartIDFromLS();
         const cart = await cartMutations.getCustomerCart();
 
-        if (cart.errors.extensions.category == 'graphql-authorization') {
-            await userMutations.regenerateUserToken();
-            cart = await cartMutations.getCustomerCart();
+        if(cart.errors){
+            if(cart.errors[0].extensions?.category == 'graphql-authorization'){
+                await userMutations.regenerateUserToken();
+                cart = await cartMutations.getCustomerCart();
+            }
+            console.log(cart.errors[0].message);
+        } else{
+            if (cartID && cart && cart.ID !== cartID) {
+                const newCart = await cartMutations.mergeCarts(cartID, cart.ID)
+                utilities.setCartIDtoLS(cart.ID);
+                cartQuantity = newCart.itemsV2.total_count;
+            } else if (cart.total_quantity) {
+                cartQuantity = cart.total_quantity;
+            }
+            utilities.setCartQuantityToLS(cartQuantity);
         }
-
-        if (cartID && cart && cart.ID !== cartID) {
-            const newCart = await cartMutations.mergeCarts(cartID, cart.ID)
-            utilities.setCartIDtoLS(cart.ID);
-            cartQuantity = newCart.itemsV2.total_count;
-        } else if (cart.total_quantity) {
-            cartQuantity = cart.total_quantity;
-        }
-        utilities.setCartQuantityToLS(cartQuantity);
     }
     utilities.updateCartCountOnUI();
 }
