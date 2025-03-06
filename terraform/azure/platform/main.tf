@@ -4,7 +4,7 @@ module "azure_platform" {
 
   resource_group_enabled                   = false
   cluster_name                             = var.cluster_name
-  cluster_default_node_pool_vm_size        = "Standard_D3_v2"
+  cluster_default_node_pool_vm_size        = "Standard_D3_v2" # small d3, medium d4, large, d5
   cluster_default_node_pool_node_count     = 3
   cluster_default_node_pool_node_max_count = 5
 
