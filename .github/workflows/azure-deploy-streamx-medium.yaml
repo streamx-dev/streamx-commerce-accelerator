@@ -8,6 +8,6 @@ permissions:
 
 jobs:
   deploy:
-    uses: ./.github/workflows/internal/azure-deploy-streamx.yaml
+    uses: ./.github/workflows/azure-deploy-streamx.yaml
     with:
       environment_size: "medium"
