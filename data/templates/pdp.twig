@@ -110,7 +110,7 @@
                 {% for color in colorsAsArray %}
                   {% if color %}
                     <button class="w-8 h-8 rounded-full border-2 border-transparent" title="{{ color }}"
-                            style="background-color: {{ swatchesAsArray[loop.index] }};"></button>
+                            style="background-color: {{ swatchesAsArray[loop.index] | raw }};"></button>
                   {% endif %}
                 {% endfor %}
               </div>
