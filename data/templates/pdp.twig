@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ name }}</title>
+  {{ '{{#include src="/fragments/headContent.html"}}' }}
+</head>
+
+{% set isFeatured = "false" %}
+{% set categoryName = categories[0].name %}
+{% for category in categories %}
+  {% if category.name == "Featured" %}
+    {% set isFeatured = "true" %}
+  {% else %}
+    {% set categoryName = category.name %}
+  {% endif %}
+{% endfor %}
+<body data-page-type='Product Detail'
+      data-product-details='{"sku":"{{ sku }}","name": "{{ name }}","rating":"3","description":"{{ description }}","category":"{{ categoryName }}","brand":"LumaX","salesOrg":"Perficient","isFeatured":"{{ isFeatured }}",productPrice":"{{ price.value }}"}'
+      data-product-category="{{ categoryName }}" data-product-featured="{{ isFeatured }}">
+<div class="min-h-screen bg-gray-50 flex flex-col">
+  <div class="nav">{{ '{{#include src="/content/psg-demo-ue/nav.html"}}' }}</div>
+  <div class="min-h-screen bg-gray-50 flex flex-col">
+    <section class="container bg-gray-50 mx-auto px-4 py-12">
+      {% set colors = "" %}
+      {% set swatches = "" %}
+      {% set sizes = "" %}
+      {% set thumbnails = "" %}
+      {% for variant in variants %}
+        {% for attribute in variant.attributes %}
+          {% if attribute.name == 'color' and attribute.values|length > 0 %}
+            {% set colorsAsArray = colors|split(',') %}
+            {% if colorsAsArray contains attribute.values[0].label %}
+            {% else %}
+              {% set colors = colors ~ ',' ~ attribute.values[0].label %}
+              {% set swatches = swatches ~ ',' ~ attribute.values[0].swatch.value %}
+              {% set thumbnails = thumbnails ~ ',' ~ variant.primaryImage.url %}
+            {% endif %}
+          {% endif %}
+          {% if attribute.name == 'size' and attribute.values|length > 0 %}
+            {% set sizesAsArray = sizes|split(',') %}
+            {% if sizesAsArray contains attribute.values[0].label %}
+            {% else %}
+              {% set sizes = sizes ~ ',' ~ attribute.values[0].label %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div class="w-full aspect-square rounded-lg overflow-hidden">
+            <picture>
+              <img src="{{ primaryImage.url }}" alt="{{ primaryImage.alt }}"
+                   class="w-full h-full object-cover main-image" loading="eager" />
+            </picture>
+          </div>
+          <div class="grid grid-cols-4 gap-2 image-list-container">
+            {% set thumbnailsAsArray = thumbnails|split(',') %}
+            {% for image in gallery %}
+              {% if loop.index0 != 0 or thumbnailsAsArray|length == 1 %}
+                <div
+                  class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 hover:border-dsg-red transition-colors">
+                  <picture>
+                    <img class="w-full h-full object-cover image-list-item" src="{{ image.url }}" alt="{{ image.alt }}"
+                         loading="eager">
+                  </picture>
+                </div>
+              {% endif %}
+            {% endfor %}
+            {% for thumbnail in thumbnailsAsArray %}
+              {% if thumbnail %}
+                <div
+                  class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 hover:border-dsg-red transition-colors">
+                  <picture>
+                    <img class="w-full h-full object-cover image-list-item" src="{{ thumbnail }}"
+                         loading="eager">
+                  </picture>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h1 class="text-3xl font-bold">{{ name | raw }}</h1>
+          <div class="flex items-center product-rating">
+            {% set rating = 3 %}
+            {% set svgClass = 'lucide lucide-star w-5 h-5 fill-yellow-400 text-yellow-400' %}
+            {% for i in 1..5 %}
+              {% if i > rating %}
+                {% set svgClass = 'lucide lucide-star w-4 h-4 text-gray-300' %}
+              {% endif %}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   class="{{ svgClass }}">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+            {% endfor %}
+          </div>
+          {% if price.value %}
+            <p class="text-2xl font-bold">${{ price.value | numberformat("#.00") }}</p>
+          {% endif %}
+          {% set colorsAsArray = colors|split(',') %}
+          {% set swatchesAsArray = swatches|split(',') %}
+          {% set sizesAsArray = sizes|split(',') %}
+          {% if colorsAsArray|length %}
+            <div class="space-y-2">
+              <p class="font-medium">Color: <span class="swatch-label"></span></p>
+              <div class="flex gap-2">
+                {% for color in colorsAsArray %}
+                  {% if color %}
+                    <button class="w-8 h-8 rounded-full border-2 border-transparent" title="{{ color }}"
+                            style="background-color: {{ swatchesAsArray[loop.index0] }};"></button>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+          {% if sizesAsArray|length %}
+            <div class="space-y-2">
+              <p class="font-medium">Size: <span class="size-label"></span></p>
+              <div class="flex gap-2">
+                {% for size in sizesAsArray %}
+                  {% if size %}
+                    <button
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+                      title="{{ size }}" data-size="{{ size }}">
+                      {{ size }}
+                    </button>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+          <div class="space-y-2">
+            <p class="font-medium">Quantity:</p>
+            <div class="flex items-center gap-2 quantity-container">
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]  :pointer-events-none [&_svg]  :size-4 [&_svg]  :shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+                disabled>
+                -
+              </button>
+              <span class="quantity w-12 text-center">1</span>
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]  :pointer-events-none [&_svg]  :size-4 [&_svg]  :shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                +
+              </button>
+            </div>
+          </div>
+          <button
+            class="addToCart inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2 w-full md:w-auto bg-dsg-red hover:bg-dsg-red/90 text-white">
+            Add to Cart
+          </button>
+          <div class="space-y-4">
+            <h2 class="text-xl font-semibold">Product Description</h2>
+            <div class="space-y-2">
+              {{ description | raw }}
+            </div>
+          </div>
+          {% if reviews|length > 0 %}
+            <div class="space-y-4">
+              <h2 class="text-xl font-semibold">Reviews</h2>
+              {% for review in reviews %}
+                <div class="border-t pt-4">
+                  <div class="flex items-center gap-2">
+                    <span class="font-medium">{{ review.name }}</span>
+                    <div class="flex">
+                      {% for i in 1..5 %}
+                        {% if review.grade >= i %}
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+                               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                               class="lucide lucide-star w-5 h-5 fill-yellow-400 text-yellow-400">
+                            <path
+                              d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                          </svg>
+                        {% else %}
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+                               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                               class="lucide lucide-star w-5 h-5 text-gray-300">
+                            <path
+                              d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                          </svg>
+                        {% endif %}
+                      {% endfor %}
+                      <path
+                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <p class="mt-2">{{ review.description }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Related Products end -->
+
+{{ '{{#include src="/fragments/footer.html"}}' }}</body>
+</html>
