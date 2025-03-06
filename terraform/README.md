@@ -229,7 +229,7 @@ Prerequisites:
    >   **Note:** This command by default deploys streamx using `small` infrastructure setup. If you want to change this behavior you can pass environment size as a parameter
       ```
          ./scripts/deploy-streamx.sh medium
-      ``` for `medium` infrastructure setup.
+      ``` for `medium` infrastructure setup. `large` is also supported.
 2. Store and share [`.env`](../.env) with your team members. Values from this file are required for manual Cloud setup and Cloud data ingestion described in [README](../README.md).
 3. Publish data to cloud.
    ```shell
