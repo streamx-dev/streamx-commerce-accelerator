@@ -45,6 +45,7 @@
           {% endif %}
         {% endfor %}
       {% endfor %}
+      <h1>Swatches: {{ swatches }}</h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="space-y-4">
           <div class="w-full aspect-square rounded-lg overflow-hidden">
@@ -56,7 +57,7 @@
           <div class="grid grid-cols-4 gap-2 image-list-container">
             {% set thumbnailsAsArray = thumbnails|split(',') %}
             {% for image in gallery %}
-              {% if loop.index0 != 0 or thumbnailsAsArray|length == 1 %}
+              {% if loop.index != 0 or thumbnailsAsArray|length == 1 %}
                 <div
                   class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 hover:border-dsg-red transition-colors">
                   <picture>
@@ -109,7 +110,7 @@
                 {% for color in colorsAsArray %}
                   {% if color %}
                     <button class="w-8 h-8 rounded-full border-2 border-transparent" title="{{ color }}"
-                            style="background-color: {{ swatchesAsArray[loop.index0] }};"></button>
+                            style="background-color: {{ swatchesAsArray[loop.index] }};"></button>
                   {% endif %}
                 {% endfor %}
               </div>
