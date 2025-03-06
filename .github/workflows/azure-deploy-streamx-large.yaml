@@ -11,3 +11,18 @@ jobs:
     uses: ./.github/workflows/azure-deploy-streamx.yaml
     with:
       environment_size: "large"
+    secrets:
+      ARM_ACCESS_KEY:
+        ${{ secrets.ARM_ACCESS_KEY }}
+      ARM_CLIENT_ID:
+        ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET:
+        ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_TENANT_ID:
+        ${{ secrets.ARM_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID:
+        ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      TF_VAR_streamx_operator_image_pull_secret_registry_password:
+        ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
+      TF_VAR_monitoring_storage_access_key:
+        ${{ secrets.TF_VAR_monitoring_storage_access_key }}

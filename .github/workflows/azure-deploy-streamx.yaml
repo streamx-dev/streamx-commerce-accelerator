@@ -6,6 +6,21 @@ on:
       environment_size:
         required: true
         type: string
+    secrets:
+      ARM_ACCESS_KEY:
+        required: true
+      ARM_CLIENT_ID:
+        required: true
+      ARM_CLIENT_SECRET:
+        required: true
+      ARM_TENANT_ID:
+        required: true
+      ARM_SUBSCRIPTION_ID:
+        required: true
+      TF_VAR_streamx_operator_image_pull_secret_registry_password:
+        required: true
+      TF_VAR_monitoring_storage_access_key:
+        required: true
 
 permissions:
   contents: read
