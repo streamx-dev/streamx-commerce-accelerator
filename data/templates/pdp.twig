@@ -66,10 +66,12 @@
                 </div>
               {% endif %}
             {% endfor %}
+            {% set colorsAsArray = colors|split(',') %}
             {% for thumbnail in thumbnailsAsArray %}
               {% if thumbnail %}
                 <div
-                  class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 hover:border-dsg-red transition-colors">
+                  class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 hover:border-dsg-red transition-colors"
+                  data-sly-color="{{ colorsAsArray[loop.index] }}">
                   <picture>
                     <img class="w-full h-full object-cover image-list-item" src="{{ thumbnail }}"
                          loading="eager">
@@ -99,7 +101,6 @@
           {% if price.value %}
             <p class="text-2xl font-bold">${{ price.value | numberformat("#.00") }}</p>
           {% endif %}
-          <h1 class="text-3xl font-bold">Swatches: {{ swatches }}</h1>
           {% set colorsAsArray = colors|split(',') %}
           {% set swatchesAsArray = swatches|split(',') %}
           {% set sizesAsArray = sizes|split(',') %}
@@ -109,8 +110,9 @@
               <div class="flex gap-2">
                 {% for color in colorsAsArray %}
                   {% if color %}
+                    <p>Swatch Color: {{ swatchesAsArray[loop.index] }}</p>
                     <button class="w-8 h-8 rounded-full border-2 border-transparent" title="{{ color }}"
-                            style="background-color: {{ swatchesAsArray[loop.index] | raw }};"></button>
+                            style="background-color: {{ swatchesAsArray[loop.index] }};"></button>
                   {% endif %}
                 {% endfor %}
               </div>
