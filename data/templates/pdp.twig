@@ -104,7 +104,7 @@
           {% set colorsAsArray = colors|split(',') %}
           {% set swatchesAsArray = swatches|split(',') %}
           {% set sizesAsArray = sizes|split(',') %}
-          {% if colorsAsArray|length %}
+          {% if colorsAsArray|length > 0 %}
             <div class="space-y-2">
               <p class="font-medium">Color: <span class="swatch-label"></span></p>
               <div class="flex gap-2">
@@ -117,7 +117,7 @@
               </div>
             </div>
           {% endif %}
-          {% if sizesAsArray|length %}
+          {% if sizesAsArray|length > 0 %}
             <div class="space-y-2">
               <p class="font-medium">Size: <span class="size-label"></span></p>
               <div class="flex gap-2">
