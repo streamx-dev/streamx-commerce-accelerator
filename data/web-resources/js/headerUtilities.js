@@ -1,6 +1,7 @@
 import { utilities } from './graphQLMutations/utility.js';
 import { cartMutations } from './graphQLMutations/cartMutations.js';
 import { userMutations } from './graphQLMutations/userMutations.js';
+import { updateCartPage } from './decorators/decorate-cart.js';
 
 const updateToken = async (activeUserCreds) => {
     if (!utilities.getTokenFromLS()) {
@@ -41,13 +42,21 @@ const onLoginHandler = async (activeUser, activeUserCreds) => {
 
     await updateToken(activeUserCreds);
     await updateCartDetailsOnLoad(true);
+
+    if(location.href.includes('cart')){
+        await updateCartPage();
+    }
 }
 
-const onLogoutHandler = () => {
+const onLogoutHandler = async() => {
     utilities.removeCartQuantityFromLS();
     utilities.removeActiveUserFromLS();
     utilities.removeCartIDFromLS();
     updateCartDetailsOnLoad();
+
+    if(location.href.includes('cart')){
+       await updateCartPage();
+    }
 }
 
 async function signIn(user) {
@@ -137,12 +146,12 @@ function  createSignIn() {
         document.querySelector('.sign-in').classList.add('hidden');
     });
 
-    logOutBtn.addEventListener('click', () => {
+    logOutBtn.addEventListener('click', async () => {
         loggedTitle.innerHTML = 'Sign-In To Your Account';
         signInInfo.classList.remove('hidden');
         loggedUser.classList.add('hidden');
         logOutBtn.classList.add('hidden');
-        onLogoutHandler();
+        await onLogoutHandler();
     });
 }
 
