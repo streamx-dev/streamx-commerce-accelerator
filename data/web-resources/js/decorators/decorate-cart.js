@@ -37,9 +37,9 @@ const removeItem = (cartID) => {
                 updatePrice(el, price, 0);
                 const uid = el.closest(".item > div").dataset.uid;
                 el.closest('.item').remove();
-                
+
                 await removeItemFromCart(cartID, uid);
-                
+
                 if (utilities.getCartQuantityFromLS() == 0) {
                     document.querySelector('.no-products').classList.remove('hidden');
                     document.querySelector('.shopping-cart-content').classList.add('hidden');
@@ -48,9 +48,8 @@ const removeItem = (cartID) => {
                 }
             });
         });
-
     }
-}; 
+};
 
 const itemTemplate = (item) => `
 <div class="flex items-center space-x-4" data-uid="${item.uid}"><a class="shrink-0"
@@ -147,23 +146,25 @@ const addIncreaseDecreaseQuantityAction = () => {
 };
 
 export async function updateCartPage() {
-    // utilities.setCartIDtoLS("M1a2nvO253QEC1kDOYghjTSePf6iXpjv");
     const cartID = utilities.getCartIDFromLS();
 
     if (cartID == null) {
-        console.log("cartID.......", cartID);
-        document.querySelector('.no-products').classList.remove('hidden');
+        document.querySelector('.no-products') && document.querySelector('.no-products').classList.remove('hidden');
+        document.querySelector('.shopping-cart-content') && document.querySelector('.shopping-cart-content').classList.add('hidden');
+        document.querySelector('.shipping-information-content') && document.querySelector('.shipping-information-content').classList.add('hidden');
+        document.querySelector('.cart-items-container .item') && document.querySelector('.cart-items-container .item').remove();
     } else {
         document.querySelector('.loading-message').classList.remove('hidden');
         let cart = await fetchCartByID(cartID);
 
-        if(!cart || cart.items.length == 0) {
+        if (!cart || cart.items.length == 0) {
             document.querySelector('.no-products').classList.remove('hidden');
             document.querySelector('.loading-message').classList.add('hidden');
-        } else if(cart) {
+        } else if (cart) {
             document.querySelector('.shopping-cart-content').classList.remove('hidden');
             document.querySelector('.shipping-information-content').classList.remove('hidden');
             document.querySelector('.loading-message').classList.add('hidden');
+            document.querySelector('.no-products').classList.add('hidden');
 
             const items = cart.items;
             const itemsContainer = document.querySelector('.cart-items-container');

@@ -94,7 +94,7 @@ function  createSignIn() {
     let navTools = document.querySelector('.nav');
     let signInHtml = document.createElement("div");
 
-    signInHtml.classList.add(...['sign-in', 'absolute', 'md:right-4', 'w-full', 'md:w-100', 'z-10', 'bg-white', 'hidden']);
+    signInHtml.classList.add(...['sign-in', 'absolute', 'md:right-4', 'w-full', 'md:w-100', 'z-10', 'bg-white', 'hidden', 'shadow-sm']);
 
     signInHtml.innerHTML = `
       <div class ="sign-in-wrapper px-6 py-4 grid gap-4 w-full">
@@ -298,7 +298,7 @@ function initHeader() {
         document.querySelector('.sign-in').classList.toggle('hidden');
     })
 
-    const cartButton = document.createElement('button');
+    const cartButton = document.createElement('a');
 
     cartButton.classList.add(...buttonClassList, ...['relative']);
     cartButton.setAttribute('type', 'button');
@@ -353,10 +353,11 @@ function initHeader() {
 
     const cartQuantity = localStorage.getItem("shoppingCartQuantity");
     const cartQuantityBadge = document.createElement('label');
-    cartQuantityBadge.classList.add('cart-quantity', 'w-4', 'h-4', 'rounded-full', 'bg-red-600', 'text-white', 'text-[10px]', 'absolute', 'right-0.5', 'top-1');
+    cartQuantityBadge.classList.add('cart-quantity', 'w-4', 'h-4', 'rounded-full', 'bg-red-600', 'text-white', 'text-[10px]', 'absolute', 'right-0.5', 'top-1', 'text-center');
     cartQuantityBadge.innerText = cartQuantity ? cartQuantity : 0;
 
     cartButton.append(cartQuantityBadge);
+    cartButton.href = "/cart.html";
 
     const containerMob = document.createElement('div');
     containerMob.classList.add(...['hidden', 'mt-4', 'pb-4']);
