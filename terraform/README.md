@@ -268,3 +268,28 @@ Prerequisites:
 2. Click `Run workflow`
 3. Select branch which should be used for deployment.
 4. Click `Run workflow`
+
+## Troubleshooting
+
+### Import lost terraform state backend for [terraform/azure/state-backend](./azure/state-backend)   
+
+1. Initialize terraform
+   ```shell
+   source scripts/read-infra-env.sh azure/.env
+   terraform -chdir=./azure/state-backend init
+   ```
+2. Import storage account (please replace placeholder with your setup values)
+   ```shell
+   terraform -chdir=./azure/state-backend import terraform import module.tf_state_backend.azurerm_storage_account.tfstate <STORAGE_ACCOUNT_ID>
+   terraform -chdir=./azure/state-backendimport module.tf_state_backend.random_string.resource_code <5_LAST_CHARACTERS_FROM_ACCOUNT_NAME>
+   terraform -chdir=./azure/state-backendimport module.tf_state_backend.azurerm_storage_container.tfstate <STORAGE_ACCOUNT_ID>/blobServices/default/containers/<CONTAINER_NAME>
+   ```
+   > **Note:** Above values can be found on azure platform. Storage account id can be taken from 'JSON view' of your storage account. Just copy the resource id. Container name can be found in 'Container' section once you select you storage account 
+3. Open [terraform/azure/state-backend](./azure/state-backend/terraform.tfstate) and change two values in json file. Search fo random_string entry:
+   * set "special": false
+   * set "upper": false
+     
+4. Apply the changes 
+   ```shell
+   terraform -chdir=./azure/state-backend apply
+   ```
