@@ -13,7 +13,8 @@ const updateCartDetailsOnLoad = async (isLoggedIn = false) => {
     if (isLoggedIn) {
         let cartQuantity = 0;
         const cartID = utilities.getCartIDFromLS();
-        const cart = await cartMutations.getCustomerCart();
+        
+        let cart = await cartMutations.getCustomerCart();
 
         if (cart.errors) {
             if (cart.errors[0].extensions?.category == 'graphql-authorization') {
@@ -22,9 +23,9 @@ const updateCartDetailsOnLoad = async (isLoggedIn = false) => {
             }
             console.log(cart.errors[0].message);
         } else {
-            if (cartID && cart && cart.ID !== cartID) {
-                const newCart = await cartMutations.mergeCarts(cartID, cart.ID)
-                utilities.setCartIDtoLS(cart.ID);
+            utilities.setCartIDtoLS(cart.id);
+            if (cartID && cart && cart.id !== cartID) {
+                const newCart = await cartMutations.mergeCarts(cartID, cart.id)
                 cartQuantity = newCart.itemsV2.total_count;
             } else if (cart.total_quantity) {
                 cartQuantity = cart.total_quantity;
@@ -71,7 +72,7 @@ async function signIn(user) {
     }
 }
 
-function createSignIn() {
+function  createSignIn() {
     const activeUser = utilities.getActiveUserFromLS();
 
     let activeUserCreds, userName;
