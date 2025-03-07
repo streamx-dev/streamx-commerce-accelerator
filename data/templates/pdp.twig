@@ -24,14 +24,11 @@
       {% set colors = "" %}
       {% set swatches = "" %}
       {% set sizes = "" %}
-      {% set prices = "" %}
       {% set thumbnails = "" %}
       {% for variant in variants %}
-        {% set prices = prices ~ ',' ~ variant.price.value %}
         {% for attribute in variant.attributes %}
           {% if attribute.name == 'color' and attribute.values|length > 0 %}
             {% set colorsAsArray = colors|split(',') %}
-            {% set prices = prices ~ ':' ~ attribute.values[0].label %}
             {% if colorsAsArray contains attribute.values[0].label %}
             {% else %}
               {% set colors = colors ~ ',' ~ attribute.values[0].label %}
@@ -41,7 +38,6 @@
           {% endif %}
           {% if attribute.name == 'size' and attribute.values|length > 0 %}
             {% set sizesAsArray = sizes|split(',') %}
-            {% set prices = prices ~ ':' ~ attribute.values[0].label %}
             {% if sizesAsArray contains attribute.values[0].label %}
             {% else %}
               {% set sizes = sizes ~ ',' ~ attribute.values[0].label %}
@@ -103,7 +99,7 @@
             {% endfor %}
           </div>
           {% if price.value %}
-            <p class="text-2xl font-bold" data-prices="{{ prices }}">${{ price.value | numberformat("#.00") }}</p>
+            <p class="text-2xl font-bold">${{ price.value | numberformat("#.00") }}</p>
           {% endif %}
           {% set colorsAsArray = colors|split(',') %}
           {% set swatchesAsArray = swatches|split(',') %}
@@ -121,7 +117,7 @@
               </div>
             </div>
           {% endif %}
-          {% if sizesAsArray|length > 0 %}
+          {% if sizesAsArray|length > 1 %}
             <div class="space-y-2">
               <p class="font-medium">Size: <span class="size-label"></span></p>
               <div class="flex gap-2">
