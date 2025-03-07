@@ -9,7 +9,7 @@ locals {
 
 module "azure_platform" {
   source  = "streamx-dev/platform/azurerm"
-  version = "0.0.3"
+  version = "0.0.4"
 
   resource_group_enabled                   = false
   cluster_name                             = var.cluster_name
