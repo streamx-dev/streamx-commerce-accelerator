@@ -1,0 +1,598 @@
+{
+  "key": "review:'WP03':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Workout Essential\",\"content\":\"The Ida Workout Parachute Pant is super comfy for running or lounging, thanks to its soft fabric. The antimicrobial finish keeps it fresh after sweaty sessions!\",\"stars\":1,\"author\":\"Scarlett Gomez\",\"date\":\"November 11, 2021\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP04':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Versatile Comfort\",\"content\":\"The Cora Parachute Pant feels amazing for yoga or chilling, with a supportive mesh waistband. The internal pocket is a handy bonus!\",\"stars\":3,\"author\":\"Aiden Clark\",\"date\":\"April 27, 2023\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP05':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Stylish Leggings\",\"content\":\"The Sahara Leggings’ pinstripe design and stretchy fabric make them a go-to for workouts. The secret pocket is perfect for small essentials!\",\"stars\":4,\"author\":\"Harper Stewart\",\"date\":\"July 16, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP06':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Perfect Yoga Tights\",\"content\":\"The Diana Tights stretch beautifully for bikram, and the vented gusset keeps me cool. Flat-lock seams are a comfort game-changer!\",\"stars\":5,\"author\":\"Evelyn Ross\",\"date\":\"December 7, 2024\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP07':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Capri Coolness\",\"content\":\"The Aeon Capri’s moisture-wicking fabric keeps me dry, and the thick waistband is super flattering. Love the teal accents!\",\"stars\":2,\"author\":\"Wyatt King\",\"date\":\"September 20, 2022\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP08':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Basic but Decent\",\"content\":\"The Bardot Capri is comfy with its organic fabric and drawcord waist. It’s not the most exciting design, though.\",\"stars\":3,\"author\":\"Lila Jensen\",\"date\":\"March 8, 2021\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP09':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Practical Capri\",\"content\":\"The Carina Basic Capri’s cotton-spandex blend feels soft, and the reinforced seams hold up well. Great for layering or standalone wear!\",\"stars\":4,\"author\":\"Caleb Ortiz\",\"date\":\"January 23, 2025\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP10':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Yoga Bliss\",\"content\":\"The Daria Bikram Pant moves with me perfectly during stretches, and the flatlock seams are a dream. The pink stripe adds a fun touch!\",\"stars\":5,\"author\":\"Nora Baker\",\"date\":\"June 12, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP11':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Slimming Style\",\"content\":\"The Sylvia Capri’s support fabric gives a sleek look, and moisture-wicking keeps me fresh. The wide waistband is a comfy bonus!\",\"stars\":1,\"author\":\"Gabriel Stone\",\"date\":\"October 31, 2023\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP12':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Relaxed Perfection\",\"content\":\"The Deirdre Relaxed-Fit Capri is ideal for yoga with its stretchy, moisture-wicking fabric. The hidden pocket is a lifesaver!\",\"stars\":3,\"author\":\"Violet Hughes\",\"date\":\"February 4, 2022\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP13':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"All-Day Comfort\",\"content\":\"The Portia Capri’s high waist and relaxed fit make it perfect from yoga to lounging. The sporty stripes are a stylish win!\",\"stars\":4,\"author\":\"Elijah Cook\",\"date\":\"August 6, 2024\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH01':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Fitness Favorite\",\"content\":\"The Fiona Fitness Short’s wicking fabric keeps me cool during runs, and the cotton-spandex blend feels great. Simple but effective!\",\"stars\":2,\"author\":\"Aria Patel\",\"date\":\"May 28, 2021\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH02':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Laid-Back Style\",\"content\":\"The Maxima Drawstring Short is comfy for walks with its elastic waist and sporty design. The contrast binding adds a nice flair!\",\"stars\":5,\"author\":\"Owen Mitchell\",\"date\":\"November 19, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH03':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Bike Short Brilliance\",\"content\":\"The Gwen Drawstring Bike Short’s CoolTech fabric keeps me dry, and the adjustable waist is spot-on. Super modern look!\",\"stars\":3,\"author\":\"Stella Kim\",\"date\":\"July 25, 2023\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH04':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Running in Style\",\"content\":\"The Artemis Running Short’s maritime design is chic, and LumaTech wicking keeps me comfy on jogs. Lightweight perfection!\",\"stars\":4,\"author\":\"Isaac Lopez\",\"date\":\"March 9, 2025\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH05':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Bikram Bust\",\"content\":\"The Bess Yoga Short promises stretch for intense sessions, but the fabric feels stiff and traps heat. The vented gusset doesn’t help much.\",\"stars\":1,\"author\":\"Ruby Ellis\",\"date\":\"September 1, 2022\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH06':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Light and Breezy\",\"content\":\"The Angel Light Running Short’s Cocona fabric beats sweat and UV rays effortlessly. Ideal for long runs!\",\"stars\":5,\"author\":\"Leo Carter\",\"date\":\"December 22, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH07':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Compression Done Right\",\"content\":\"The Echo Fit Compression Short supports my muscles perfectly during workouts. Breathable and comfy all the way!\",\"stars\":2,\"author\":\"Hazel Nguyen\",\"date\":\"June 30, 2024\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH08':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Cute but Average\",\"content\":\"The Sybil Running Short’s color-blocked design is fun, and the mesh breathes okay. It’s not standout for performance, though.\",\"stars\":3,\"author\":\"Julian Brooks\",\"date\":\"April 15, 2021\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH09':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Multi-Sport Star\",\"content\":\"The Mimi All-Purpose Short is water-resistant and comfy for biking or swimming. The flatlock seams prevent any irritation!\",\"stars\":4,\"author\":\"Maya Evans\",\"date\":\"October 26, 2022\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH10':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Cool Running Companion\",\"content\":\"The Ana Running Short’s mesh panels keep me cool, and the lightweight fabric is a dream. Perfect for beating PRs!\",\"stars\":5,\"author\":\"Eli Parker\",\"date\":\"January 14, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH11':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Supportive Staple\",\"content\":\"The Ina Compression Short hugs perfectly for runs or reps, and the moisture-wicking fabric is a lifesaver. Anti-microbial is a big plus!\",\"stars\":2,\"author\":\"Sofia Reed\",\"date\":\"August 3, 2023\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH12':1",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Fitted Flop\",\"content\":\"The Erika Running Short’s snug design sounded great, but it’s too tight and restricts movement. The fabric isn’t breathable enough either.\",\"stars\":1,\"author\":\"Jasper Hayes\",\"date\":\"February 27, 2025\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP03':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Parachute Pant Party\",\"content\":\"The Ida Workout Pant feels plush for runs or relaxing, and the antimicrobial tech is a game-changer. So comfy!\",\"stars\":4,\"author\":\"Theo Parker\",\"date\":\"July 3, 2024\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP04':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Cora Cozy\",\"content\":\"The Cora Parachute Pant is a yoga dream with its mesh waist support. Pocket inside is a sweet perk!\",\"stars\":5,\"author\":\"Ruby Carter\",\"date\":\"March 22, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP05':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Legging Love\",\"content\":\"The Sahara Leggings stretch great and look cool with pinstripes. Secret pocket is a workout must-have!\",\"stars\":2,\"author\":\"Finn Brooks\",\"date\":\"November 7, 2022\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP06':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Tights Triumph\",\"content\":\"The Diana Tights move with me in bikram, and the vented gusset is clutch. Flat seams seal the deal!\",\"stars\":1,\"author\":\"Hazel Ortiz\",\"date\":\"August 28, 2021\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP07':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Capri Charm\",\"content\":\"The Aeon Capri wicks sweat away, and the wide waistband flatters my figure. Teal details are a vibe!\",\"stars\":3,\"author\":\"Eli Nguyen\",\"date\":\"February 14, 2023\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP08':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Simple Capri Snooze\",\"content\":\"The Bardot Capri is soft with organic fabric, but it’s kinda bland design-wise. Drawcord helps, I guess.\",\"stars\":4,\"author\":\"Stella Lee\",\"date\":\"December 25, 2024\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP09':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Capri Classic\",\"content\":\"The Carina Basic Capri’s spandex blend is soft, and seams hold strong. Perfect for layering up!\",\"stars\":5,\"author\":\"Leo Hayes\",\"date\":\"June 5, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP10':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Bikram Buddy\",\"content\":\"The Daria Bikram Pant flows with my poses, and flatlock seams feel amazing. Pink stripe pops!\",\"stars\":2,\"author\":\"Aria Patel\",\"date\":\"September 19, 2022\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP11':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Sleek Capri Sleuth\",\"content\":\"The Sylvia Capri’s fabric slims me down, and wicking keeps me cool. Wide waistband is a comfy touch!\",\"stars\":1,\"author\":\"Mason Kim\",\"date\":\"March 7, 2021\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP12':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Relaxed Royalty\",\"content\":\"The Deirdre Capri stretches perfectly for yoga, and the pocket is a lifesaver. Moisture-wicking is top-tier!\",\"stars\":3,\"author\":\"Ivy Brooks\",\"date\":\"October 24, 2023\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WP13':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Comfy All Day\",\"content\":\"The Portia Capri’s high waist rocks for yoga or chilling, and the stripes add flair. Relaxed fit is a win!\",\"stars\":4,\"author\":\"Noah Carter\",\"date\":\"January 31, 2025\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH01':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Fitness Short Fave\",\"content\":\"The Fiona Fitness Short wicks sweat like a pro, and the spandex feels great. Simple design shines!\",\"stars\":5,\"author\":\"Luna Ortiz\",\"date\":\"July 12, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH02':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Drawstring Dream\",\"content\":\"The Maxima Short’s elastic waist is comfy for walks, and the sporty look is a hit. Binding adds a cool edge!\",\"stars\":2,\"author\":\"Eli Reed\",\"date\":\"April 18, 2022\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH03':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Bike Short Bliss\",\"content\":\"The Gwen Bike Short’s CoolTech keeps me dry, and the adjustable waist fits perfect. Sleek and stylish!\",\"stars\":1,\"author\":\"Hazel Nguyen\",\"date\":\"November 3, 2021\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH04':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Running Chic\",\"content\":\"The Artemis Short’s maritime vibe is dope, and LumaTech wicking makes jogs a breeze. Light as a feather!\",\"stars\":3,\"author\":\"Finn Lee\",\"date\":\"August 9, 2023\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH05':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Yoga Short Yikes\",\"content\":\"The Bess Yoga Short should stretch for bikram, but it’s stiff and sweaty. Gusset doesn’t save it.\",\"stars\":4,\"author\":\"Stella Brooks\",\"date\":\"February 26, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH06':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Run Light\",\"content\":\"The Angel Light Short’s Cocona fabric kills sweat and UV, perfect for long runs. Feels like air!\",\"stars\":5,\"author\":\"Leo Patel\",\"date\":\"October 16, 2024\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH07':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Compression King\",\"content\":\"The Echo Fit Short hugs my muscles right for workouts, and it breathes easy. Total support win!\",\"stars\":2,\"author\":\"Aria Hayes\",\"date\":\"June 24, 2021\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH08':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Colorful Meh\",\"content\":\"The Sybil Running Short’s blocks are cute, but the mesh isn’t that breathable. Just okay for runs.\",\"stars\":1,\"author\":\"Mason Carter\",\"date\":\"December 1, 2022\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH09':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Multi-Move Marvel\",\"content\":\"The Mimi Short resists water for swims and feels great biking. Flatlock seams are a comfort king!\",\"stars\":3,\"author\":\"Ivy Ortiz\",\"date\":\"September 8, 2020\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH10':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Run Cool\",\"content\":\"The Ana Short’s mesh keeps me chill, and the light fabric flies on runs. PRs feel closer!\",\"stars\":4,\"author\":\"Noah Kim\",\"date\":\"March 9, 2025\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH11':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Compression Crush\",\"content\":\"The Ina Short supports runs and reps like a pro, and wicking saves me. Anti-microbial rocks!\",\"stars\":5,\"author\":\"Luna Nguyen\",\"date\":\"July 27, 2021\"}"
+      }
+    }
+  }
+}
+{
+  "key": "review:'WSH12':2",
+  "action": "publish",
+  "eventTime": null,
+  "properties": {},
+  "payload": {
+    "dev.streamx.blueprints.data.Data": {
+      "content": {
+        "bytes": "{\"title\":\"Tight Trouble\",\"content\":\"The Erika Short’s fit is too snug, choking my runs. Breathability’s a bust too.\",\"stars\":2,\"author\":\"Eli Brooks\",\"date\":\"November 14, 2023\"}"
+      }
+    }
+  }
+}
