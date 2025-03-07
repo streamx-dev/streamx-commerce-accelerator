@@ -24,11 +24,16 @@
       {% set colors = "" %}
       {% set swatches = "" %}
       {% set sizes = "" %}
+      {% set prices = "" %}
+      {% set productPrice = 0 %}
       {% set thumbnails = "" %}
       {% for variant in variants %}
+        {% set prices = prices ~ ',' ~ variant.price.value %}
+        {% set productPrice = variant.price.value %}
         {% for attribute in variant.attributes %}
           {% if attribute.name == 'color' and attribute.values|length > 0 %}
             {% set colorsAsArray = colors|split(',') %}
+            {% set prices = prices ~ ':' ~ attribute.values[0].label %}
             {% if colorsAsArray contains attribute.values[0].label %}
             {% else %}
               {% set colors = colors ~ ',' ~ attribute.values[0].label %}
@@ -38,6 +43,7 @@
           {% endif %}
           {% if attribute.name == 'size' and attribute.values|length > 0 %}
             {% set sizesAsArray = sizes|split(',') %}
+            {% set prices = prices ~ ':' ~ attribute.values[0].label %}
             {% if sizesAsArray contains attribute.values[0].label %}
             {% else %}
               {% set sizes = sizes ~ ',' ~ attribute.values[0].label %}
@@ -99,8 +105,15 @@
             {% endfor %}
           </div>
           {% if price.value %}
-            <p class="text-2xl font-bold">${{ price.value | numberformat("#.00") }}</p>
+            {% set productPrice = price.value %}
           {% endif %}
+          {% set pricesAsArray = prices|split(',', 2) %}
+          {% if pricesAsArray|length > 1 %}
+            {% set prices = pricesAsArray[1] %}
+          {% endif %}
+          <p class="text-2xl font-bold" data-prices="{{ prices }}">
+            ${{ productPrice | numberformat("#.00") }}
+          </p>
           {% set colorsAsArray = colors|split(',') %}
           {% set swatchesAsArray = swatches|split(',') %}
           {% set sizesAsArray = sizes|split(',') %}
