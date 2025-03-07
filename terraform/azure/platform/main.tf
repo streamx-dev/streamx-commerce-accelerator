@@ -49,6 +49,8 @@ module "monitoring_loki" {
   monitoring_storage_container_name = var.monitoring_storage_container_name
   monitoring_storage_account_name   = var.monitoring_storage_account_name
   monitoring_storage_access_key     = var.monitoring_storage_access_key
+
+  depends_on = [module.azure_platform]
 }
 
 module "streamx" {
@@ -89,5 +91,6 @@ module "streamx" {
 
 
   minio_enabled = false
+  depends_on    = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo]
 
 }
