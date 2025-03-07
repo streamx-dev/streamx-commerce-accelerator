@@ -284,6 +284,7 @@ Prerequisites:
    terraform -chdir=./azure/state-backendimport module.tf_state_backend.random_string.resource_code <5_LAST_CHARACTERS_FROM_ACCOUNT_NAME>
    terraform -chdir=./azure/state-backendimport module.tf_state_backend.azurerm_storage_container.tfstate <STORAGE_ACCOUNT_ID>/blobServices/default/containers/<CONTAINER_NAME>
    ```
+   > **Note:** Above values can be found on azure platform. Storage account id can be taken from 'JSON view' of your storage account. Just copy the resource id. Container name can be found in 'Container' section once you select you storage account 
 3. Open [terraform/azure/state-backend](./azure/state-backend/terraform.tfstate) and change two values in json file. Search fo random_string entry:
    * set "special": false
    * set "upper": false
