@@ -78,11 +78,13 @@ module "streamx" {
   ]
 
   prometheus_stack_settings = var.monitoring_grafana_host != null && var.monitoring_grafana_host != "" ? {
-    "grafana.ingress.enabled" : true
+    "grafana.ingress.enabled" : true,
     "grafana.ingress.hosts" : [var.monitoring_grafana_host]
     "grafana.ingress.paths" : ["/*"]
-    "grafana.ingress.tls[0].secretName" : "grafana-secret.crt"
-    "grafana.ingress.tls[0].hosts[0]" : var.monitoring_grafana_host
+    "grafana.ingress.tls" : [{
+      "secretName" : "grafana-secret.crt"
+      "hosts" : [var.monitoring_grafana_host]
+    }]
   } : {}
   prometheus_stack_grafana_admin_password = var.monitoring_grafana_admin_password
 
