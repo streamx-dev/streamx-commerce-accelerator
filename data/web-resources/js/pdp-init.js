@@ -55,6 +55,8 @@
         event.target.classList.add('border-black');
         event.target.classList.remove('border-transparent');
         const selectedColor = event.target.getAttribute('title');
+        const swatchLabel = document.querySelector('.swatch-label');
+        swatchLabel.textContent = selectedColor;
         const thumbnail = document.querySelector(
           `.image-list-container div[data-color="${selectedColor}"] .image-list-item`,
         );
@@ -108,6 +110,8 @@
         event.target.classList.add('border-black');
         event.target.classList.remove('border-input');
         const selectedSize = event.target.textContent.trim();
+        const sizeLabel = document.querySelector('.size-label');
+        sizeLabel.textContent = selectedSize;
 
         let selectedColor;
         let price;
