@@ -113,7 +113,34 @@ All commands in this document should be executed from the terraform directory.
         ```
     6. > ⚠️ **Important:** Use newly generated public ip address or the fully qualified domain name to update your domain zone with the entries form previous step (`streamx.accelerator.ingestion.host` and `streamx.accelerator.web.host`)
        with the new ip/cname
-8. Append StreamX Platform related variables to [`azure/.env`](azure/.env):
+8. Configure monitoring storage
+    1. Load Azurerm provider authentication data:
+       ```shell
+       source scripts/read-infra-env.sh azure/.env
+       ```    
+    2. Initialize Terraform script:
+        ```shell
+        terraform -chdir="azure/monitoring-storage" init
+        ```
+    3. Apply Terraform script:
+       ```shell
+       terraform -chdir="azure/monitoring-storage" apply
+       ```
+    4. Configure monitoring storage related variables
+       ```shell
+        echo "TF_VAR_monitoring_storage_access_key=$(terraform -chdir=azure/monitoring-storage output -raw access_key)" >> azure/.env
+        echo "TF_VAR_monitoring_storage_account_name=$(terraform -chdir=azure/monitoring-storage output -raw account_name)" >> azure/.env
+        echo "TF_VAR_monitoring_storage_container_name=$(terraform -chdir=azure/monitoring-storage output -raw container_name)" >> azure/.env
+        ```
+    5. Optionally setup grafana related variables
+       ```shell
+       echo "# Grafana variables
+       TF_VAR_monitoring_grafana_host=
+       TF_VAR_monitoring_grafana_admin_password=" >> azure/.env
+        ```
+    6. If you setup grafana variables configure it according to your needs. `TF_VAR_monitoring_grafana_host` is a domain used to expose grafana ui. If it is null or empty ingress for grafana is not created.
+   
+9. Append StreamX Platform related variables to [`azure/.env`](azure/.env):
     ```shell
     echo "# StreamX platform Artifact Registry authentication
     TF_VAR_streamx_operator_image_pull_secret_registry_email=
@@ -122,20 +149,20 @@ All commands in this document should be executed from the terraform directory.
     # Cert Manager - user email used by Let's Encrypt server for expiration notifications
     TF_VAR_cert_manager_lets_encrypt_issuer_acme_email=" >> azure/.env
     ```
-9. Configure StreamX Platform related variables in [`azure/.env`](azure/.env):
+10. Configure StreamX Platform related variables in [`azure/.env`](azure/.env):
    > **Variables:**
    > * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_EMAIL` - email provided by Dynamic
-       Solutions used for authentication
+        Solutions used for authentication
    > * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_PASSWORD` - key provided by Dynamic
-       Solutions used for authentication
+        Solutions used for authentication
    > * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL` - Cert Manager passes that email to
-       Let's Encrypt server.
-10. Optionally: Setup production Let's Encrypt certificate issuer append `TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server=true`
+        Let's Encrypt server.
+11. Optionally: Setup production Let's Encrypt certificate issuer append `TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server=true`
      ```shell
     echo "# Cert Manager - use Let's Encrypt production cert issuer
     TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server=true" >> azure/.env
     ```
-11. Setup GH
+12. Setup GH
     Action [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
     and [secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
     on repository level.
@@ -158,11 +185,14 @@ All commands in this document should be executed from the terraform directory.
              * `TF_VAR_PUBLIC_IP_ADDRESS`
              * `TF_VAR_PUBLIC_IP_ID`
              * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_PROD_LETSENCRYPT_SERVER`
+             * `TF_VAR_MONITORING_GRAFANA_HOST`
          * secrets:
            *  `SX_SEC_AUTH_PRIVATE_KEY`
            *  `BLUEPRINT_WEB_TLS_CERT`
            *  `BLUEPRINT_SEARCH_TLS_CERT`
            *  `REST_INGESTION_TLS_CERT`
+           *  `GRAFANA_TLS_CERT`
+           *  `TF_VAR_MONITORING_GRAFANA_ADMIN_PASSWORD`
    > **Note:** This step can be done manually using values from
    > [`azure/.env`](azure/.env) or using
    > [set-repo-secrets.sh](.github/scripts/set-repo-secrets.sh)
@@ -176,7 +206,7 @@ All commands in this document should be executed from the terraform directory.
    > source scripts/read-infra-env.sh azure/.env
    > scripts/set-repo-variables.sh
    > ```
-11. Store and share variables.
+13. Store and share variables.
     Once your cloud setup is done anyone who has access to variables from .env file will be able to work with cloud instance using his local instance. In order to do that variables should be shared with all interested parties.
 
 ## Cloud deploy
@@ -207,6 +237,10 @@ Prerequisites:
    ```shell
    ./scripts/deploy-streamx.sh
    ```
+    >   **Note:** This command by default will return error as you need to pass the size of environment. Supported values are `small`, `medium`, `large`. For medium setup run
+    ``` 
+   ./scripts/deploy-streamx.sh medium
+    ```
 2. Store and share [`.env`](../.env) with your team members. Values from this file are required for manual Cloud setup and Cloud data ingestion described in [README](../README.md).
 3. Publish data to cloud.
    ```shell
@@ -245,3 +279,28 @@ Prerequisites:
 2. Click `Run workflow`
 3. Select branch which should be used for deployment.
 4. Click `Run workflow`
+
+## Troubleshooting
+
+### Import lost terraform state backend for [terraform/azure/state-backend](./azure/state-backend)   
+
+1. Initialize terraform
+   ```shell
+   source scripts/read-infra-env.sh azure/.env
+   terraform -chdir=./azure/state-backend init
+   ```
+2. Import storage account (please replace placeholder with your setup values)
+   ```shell
+   terraform -chdir=./azure/state-backend import terraform import module.tf_state_backend.azurerm_storage_account.tfstate <STORAGE_ACCOUNT_ID>
+   terraform -chdir=./azure/state-backendimport module.tf_state_backend.random_string.resource_code <5_LAST_CHARACTERS_FROM_ACCOUNT_NAME>
+   terraform -chdir=./azure/state-backendimport module.tf_state_backend.azurerm_storage_container.tfstate <STORAGE_ACCOUNT_ID>/blobServices/default/containers/<CONTAINER_NAME>
+   ```
+   > **Note:** Above values can be found on azure platform. Storage account id can be taken from 'JSON view' of your storage account. Just copy the resource id. Container name can be found in 'Container' section once you select you storage account 
+3. Open [terraform/azure/state-backend](./azure/state-backend/terraform.tfstate) and change two values in json file. Search fo random_string entry:
+   * set "special": false
+   * set "upper": false
+     
+4. Apply the changes 
+   ```shell
+   terraform -chdir=./azure/state-backend apply
+   ```
