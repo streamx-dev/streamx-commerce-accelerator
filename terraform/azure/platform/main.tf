@@ -91,6 +91,6 @@ module "streamx" {
 
 
   minio_enabled = false
-  depends_on = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo]
+  depends_on    = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo]
 
 }
