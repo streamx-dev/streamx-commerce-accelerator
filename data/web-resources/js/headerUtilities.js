@@ -51,7 +51,7 @@ const onLogoutHandler = () => {
 
 async function signIn(user) {
     const activeUserCreds = user == 'user01' ? utilities.user01 : utilities.user02;
-    onLoginHandler(user, activeUserCreds);
+    await onLoginHandler(user, activeUserCreds);
     
     const userToken = utilities.getTokenFromLS();
     const firstname = activeUserCreds.firstname;
