@@ -132,6 +132,14 @@ All commands in this document should be executed from the terraform directory.
         echo "TF_VAR_monitoring_storage_account_name=$(terraform -chdir=azure/monitoring-storage output -raw account_name)" >> azure/.env
         echo "TF_VAR_monitoring_storage_container_name=$(terraform -chdir=azure/monitoring-storage output -raw container_name)" >> azure/.env
         ```
+    5. Optionally setup grafana related variables
+       ```shell
+        echo "# Grafana variables
+        TF_VAR_monitoring_grafana_host=
+        TF_VAR_monitoring_grafana_password=" >> azure/.env
+        ```
+    6. If you setup grafana variables configure it according to your needs.   
+   
 9. Append StreamX Platform related variables to [`azure/.env`](azure/.env):
     ```shell
     echo "# StreamX platform Artifact Registry authentication
@@ -177,11 +185,14 @@ All commands in this document should be executed from the terraform directory.
              * `TF_VAR_PUBLIC_IP_ADDRESS`
              * `TF_VAR_PUBLIC_IP_ID`
              * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_PROD_LETSENCRYPT_SERVER`
+             * `TF_VAR_MONITORING_GRAFANA_HOST`
          * secrets:
            *  `SX_SEC_AUTH_PRIVATE_KEY`
            *  `BLUEPRINT_WEB_TLS_CERT`
            *  `BLUEPRINT_SEARCH_TLS_CERT`
            *  `REST_INGESTION_TLS_CERT`
+           *  `GRAFANA_TLS_CERT`
+           *  `TF_VAR_MONITORING_GRAFANA_ADMIN_PASSWORD`
    > **Note:** This step can be done manually using values from
    > [`azure/.env`](azure/.env) or using
    > [set-repo-secrets.sh](.github/scripts/set-repo-secrets.sh)
