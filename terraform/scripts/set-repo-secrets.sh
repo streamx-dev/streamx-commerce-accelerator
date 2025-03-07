@@ -10,8 +10,6 @@ gh secret set ARM_TENANT_ID -b "$ARM_TENANT_ID"
 gh secret set ARM_SUBSCRIPTION_ID -b "$ARM_SUBSCRIPTION_ID"
 gh secret set TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_PASSWORD -b "$TF_VAR_streamx_operator_image_pull_secret_registry_password"
 gh secret set TF_VAR_MONITORING_STORAGE_ACCESS_KEY -b "$TF_VAR_monitoring_storage_access_key"
-gh secret set TF_VAR_MONITORING_GRAFANA_ADMIN_PASSWORD -b "$TF_VAR_monitoring_grafana_admin_password"
-
 
 if [ -f "$SETUP_REPO_SCRIPT_DIR/../../mesh/auth/sx-sec-auth-private-key.yaml" ]; then
     gh secret set SX_SEC_AUTH_PRIVATE_KEY --body "$(cat "$SETUP_REPO_SCRIPT_DIR/../../mesh/auth/sx-sec-auth-private-key.yaml")"

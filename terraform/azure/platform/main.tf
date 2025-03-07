@@ -83,6 +83,7 @@ module "streamx" {
     "grafana.ingress.paths[0]" : "/*"
     "grafana.ingress.tls[0].secretName" : "grafana.crt"
     "grafana.ingress.tls[0].hosts[0]" : var.monitoring_grafana_host
+    "grafana.ingress.annotations.cert-manager\\.io/cluster-issuer" : "letsencrypt-cert-cluster-issuer"
   } : {}
   prometheus_stack_grafana_admin_password = var.monitoring_grafana_admin_password
 
