@@ -154,6 +154,7 @@ export async function updateCartPage() {
         document.querySelector('.shipping-information-content') && document.querySelector('.shipping-information-content').classList.add('hidden');
         document.querySelector('.cart-items-container .item') && document.querySelector('.cart-items-container .item').remove();
     } else {
+        document.querySelector('.no-products').classList.add('hidden');
         document.querySelector('.loading-message').classList.remove('hidden');
         let cart = await fetchCartByID(cartID);
 
