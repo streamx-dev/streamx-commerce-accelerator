@@ -1,6 +1,6 @@
 module "tf_state_backend" {
   source  = "streamx-dev/platform/azurerm//modules/state-backend"
-  version = "0.0.3"
+  version = "0.0.4"
 
   resource_group_name            = var.resource_group_name
   location                       = var.location
