@@ -20,6 +20,8 @@ jobs:
         ${{ secrets.BLUEPRINT_SEARCH_TLS_CERT }}
       REST_INGESTION_TLS_CERT:
         ${{ secrets.REST_INGESTION_TLS_CERT }}
+      GRAFANA_TLS_CERT:
+        ${{ secrets.GRAFANA_TLS_CERT }}
       ARM_ACCESS_KEY:
         ${{ secrets.ARM_ACCESS_KEY }}
       ARM_CLIENT_ID:
@@ -34,3 +36,5 @@ jobs:
         ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
       TF_VAR_monitoring_storage_access_key:
         ${{ secrets.TF_VAR_monitoring_storage_access_key }}
+      TF_VAR_monitoring_grafana_admin_password:
+        ${{ secrets.TF_VAR_monitoring_grafana_admin_password }}

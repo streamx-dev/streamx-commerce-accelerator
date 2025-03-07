@@ -132,6 +132,14 @@ All commands in this document should be executed from the terraform directory.
         echo "TF_VAR_monitoring_storage_account_name=$(terraform -chdir=azure/monitoring-storage output -raw account_name)" >> azure/.env
         echo "TF_VAR_monitoring_storage_container_name=$(terraform -chdir=azure/monitoring-storage output -raw container_name)" >> azure/.env
         ```
+    5. Optionally setup grafana related variables
+       ```shell
+       echo "# Grafana variables
+       TF_VAR_monitoring_grafana_host=
+       TF_VAR_monitoring_grafana_admin_password=" >> azure/.env
+        ```
+    6. If you setup grafana variables configure it according to your needs. `TF_VAR_monitoring_grafana_host` is a domain used to expose grafana ui. If it is null or empty ingress for grafana is not created.
+   
 9. Append StreamX Platform related variables to [`azure/.env`](azure/.env):
     ```shell
     echo "# StreamX platform Artifact Registry authentication
@@ -177,11 +185,14 @@ All commands in this document should be executed from the terraform directory.
              * `TF_VAR_PUBLIC_IP_ADDRESS`
              * `TF_VAR_PUBLIC_IP_ID`
              * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_PROD_LETSENCRYPT_SERVER`
+             * `TF_VAR_MONITORING_GRAFANA_HOST`
          * secrets:
            *  `SX_SEC_AUTH_PRIVATE_KEY`
            *  `BLUEPRINT_WEB_TLS_CERT`
            *  `BLUEPRINT_SEARCH_TLS_CERT`
            *  `REST_INGESTION_TLS_CERT`
+           *  `GRAFANA_TLS_CERT`
+           *  `TF_VAR_MONITORING_GRAFANA_ADMIN_PASSWORD`
    > **Note:** This step can be done manually using values from
    > [`azure/.env`](azure/.env) or using
    > [set-repo-secrets.sh](.github/scripts/set-repo-secrets.sh)
@@ -268,3 +279,28 @@ Prerequisites:
 2. Click `Run workflow`
 3. Select branch which should be used for deployment.
 4. Click `Run workflow`
+
+## Troubleshooting
+
+### Import lost terraform state backend for [terraform/azure/state-backend](./azure/state-backend)   
+
+1. Initialize terraform
+   ```shell
+   source scripts/read-infra-env.sh azure/.env
+   terraform -chdir=./azure/state-backend init
+   ```
+2. Import storage account (please replace placeholder with your setup values)
+   ```shell
+   terraform -chdir=./azure/state-backend import terraform import module.tf_state_backend.azurerm_storage_account.tfstate <STORAGE_ACCOUNT_ID>
+   terraform -chdir=./azure/state-backendimport module.tf_state_backend.random_string.resource_code <5_LAST_CHARACTERS_FROM_ACCOUNT_NAME>
+   terraform -chdir=./azure/state-backendimport module.tf_state_backend.azurerm_storage_container.tfstate <STORAGE_ACCOUNT_ID>/blobServices/default/containers/<CONTAINER_NAME>
+   ```
+   > **Note:** Above values can be found on azure platform. Storage account id can be taken from 'JSON view' of your storage account. Just copy the resource id. Container name can be found in 'Container' section once you select you storage account 
+3. Open [terraform/azure/state-backend](./azure/state-backend/terraform.tfstate) and change two values in json file. Search fo random_string entry:
+   * set "special": false
+   * set "upper": false
+     
+4. Apply the changes 
+   ```shell
+   terraform -chdir=./azure/state-backend apply
+   ```

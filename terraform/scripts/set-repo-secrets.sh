@@ -26,3 +26,11 @@ fi
 if [ -f "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/rest-ingestion.crt.yaml" ]; then
     gh secret set REST_INGESTION_TLS_CERT --body "$(cat "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/rest-ingestion.crt.yaml")"
 fi
+
+if [ -f "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/grafana.crt.yaml" ]; then
+    gh secret set GRAFANA_TLS_CERT --body "$(cat "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/grafana.crt.yaml")"
+fi
+
+if [[ -n "$TF_VAR_monitoring_grafana_admin_password" ]]; then
+    gh secret set TF_VAR_MONITORING_GRAFANA_ADMIN_PASSWORD -b "$TF_VAR_monitoring_grafana_admin_password"
+fi
