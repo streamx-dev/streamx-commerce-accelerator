@@ -78,3 +78,14 @@ variable "monitoring_storage_access_key" {
   description = "Access key of the monitoring storage account"
   sensitive   = true
 }
+
+variable "monitoring_grafana_host" {
+  description = "Grafana host name"
+  type        = string
+}
+
+variable "monitoring_grafana_admin_password" {
+  description = "Grafana admin password"
+  sensitive   = true
+}
+
