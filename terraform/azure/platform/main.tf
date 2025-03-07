@@ -77,6 +77,17 @@ module "streamx" {
     file("${path.module}/config/monitoring/loki/values.yaml")
   ]
 
+  prometheus_stack_settings = var.monitoring_grafana_host != null && var.monitoring_grafana_host != "" ? {
+    "grafana.ingress.enabled" : true
+    "grafana.ingress.hosts[0]" : var.monitoring_grafana_host
+    "grafana.ingress.paths[0]" : "/*"
+    "grafana.ingress.tls[0].secretName" : "grafana.crt"
+    "grafana.ingress.tls[0].hosts[0]" : var.monitoring_grafana_host
+    "grafana.ingress.annotations.cert-manager\\.io/cluster-issuer" : "letsencrypt-cert-cluster-issuer"
+  } : {}
+  prometheus_stack_grafana_admin_password = var.monitoring_grafana_admin_password
+
+
   minio_enabled = false
 
 }

@@ -15,6 +15,8 @@ on:
         required: false
       REST_INGESTION_TLS_CERT:
         required: false
+      GRAFANA_TLS_CERT:
+        required: false
       ARM_ACCESS_KEY:
         required: true
       ARM_CLIENT_ID:
@@ -29,6 +31,9 @@ on:
         required: true
       TF_VAR_monitoring_storage_access_key:
         required: true
+      TF_VAR_monitoring_grafana_admin_password:
+        required: false
+
 
 permissions:
   contents: read
@@ -63,6 +68,7 @@ jobs:
           BLUEPRINT_WEB_TLS_CERT: ${{ secrets.BLUEPRINT_WEB_TLS_CERT }}
           BLUEPRINT_SEARCH_TLS_CERT: ${{ secrets.BLUEPRINT_SEARCH_TLS_CERT }}
           REST_INGESTION_TLS_CERT: ${{ secrets.REST_INGESTION_TLS_CERT }}
+          GRAFANA_TLS_CERT: ${{ secrets.GRAFANA_TLS_CERT }}
         run: |
           mkdir -p gateway/tls
           mkdir -p mesh/auth
@@ -81,7 +87,11 @@ jobs:
 
           if [ -n "$REST_INGESTION_TLS_CERT" ]; then
             echo "$REST_INGESTION_TLS_CERT" > gateway/tls/rest-ingestion.crt.yaml
-          fi    
+          fi
+          
+          if [ -n "$GRAFANA_TLS_CERT" ]; then
+            echo "$GRAFANA_TLS_CERT" > gateway/tls/grafana.crt.yaml
+          fi
 
       - name: "Deploy StreamX"
         id: deploy-streamx
@@ -120,6 +130,10 @@ jobs:
             ${{ vars.TF_VAR_monitoring_storage_container_name }}
           TF_VAR_monitoring_storage_access_key:
             ${{ secrets.TF_VAR_monitoring_storage_access_key }}
+          TF_VAR_monitoring_grafana_admin_password:
+            ${{ secrets.TF_VAR_monitoring_grafana_admin_password }}
+          TF_VAR_monitoring_grafana_host:
+            ${{ vars.TF_VAR_monitoring_grafana_host }}
           TF_VAR_streamx_environment_size: ${{ inputs.environment_size }}
         run: |
           terraform/scripts/deploy-streamx.sh
