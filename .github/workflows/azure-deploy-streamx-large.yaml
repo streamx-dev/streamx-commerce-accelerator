@@ -36,3 +36,5 @@ jobs:
         ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
       TF_VAR_monitoring_storage_access_key:
         ${{ secrets.TF_VAR_monitoring_storage_access_key }}
+      TF_VAR_monitoring_grafana_admin_password:
+        ${{ secrets.TF_VAR_monitoring_grafana_admin_password }}
