@@ -1,6 +1,5 @@
-import { updateItemQuantityInCart, removeItemFromCart } from "../productUtilities.js";
+import { updateItemQuantityInCart, removeItemFromCart, fetchCartByID } from "../productUtilities.js";
 import { utilities } from "../graphQLMutations/utility.js";
-import { cartMutations } from "../graphQLMutations/cartMutations.js";
 
 
 const updateSubtotalPriceItem = (quantity, price) => {
@@ -156,19 +155,12 @@ export async function updateCartPage() {
         document.querySelector('.no-products').classList.remove('hidden');
     } else {
         document.querySelector('.loading-message').classList.remove('hidden');
-        let cart = await cartMutations.getCartByID(cartID);
+        let cart = await fetchCartByID(cartID);
 
-        if (cart.errors) {
-            if (cart.errors[0].extensions?.category == 'graphql-authorization') {
-                await userMutations.regenerateUserToken();
-                cart = await cartMutations.getCartByID(cartID);
-            }
-            console.log(cart.errors[0].message);
-        }
-        if (cart.items.length == 0) {
+        if(!cart || cart.items.length == 0) {
             document.querySelector('.no-products').classList.remove('hidden');
             document.querySelector('.loading-message').classList.add('hidden');
-        } else {
+        } else if(cart) {
             document.querySelector('.shopping-cart-content').classList.remove('hidden');
             document.querySelector('.shipping-information-content').classList.remove('hidden');
             document.querySelector('.loading-message').classList.add('hidden');

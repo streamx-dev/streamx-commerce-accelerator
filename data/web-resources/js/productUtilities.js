@@ -64,3 +64,20 @@ export const updateItemQuantityInCart = async(cartID, uid, quantity) => {
         utilities.updateCartCountOnUI();
     }
 }
+
+export const fetchCartByID = async(cartID) => {
+    const response = await cartMutations.getCartByID(cartID);
+
+    if (response.errors) {
+        if (response.errors[0].extensions?.category == 'graphql-authorization') {
+            await userMutations.regenerateUserToken();
+            cart = await cartMutations.getCartByID(cartID);;
+        }
+        console.log(cart.errors[0].message);
+        return false;
+    } else {
+        utilities.setCartQuantityToLS(response.total_quantity);
+        utilities.updateCartCountOnUI();
+        return response;
+    }
+}
