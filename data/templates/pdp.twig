@@ -102,11 +102,8 @@
               </svg>
             {% endfor %}
           </div>
-          <h1 class="text-3xl font-bold">Price Value: {{ price.value }}</h1>
           {% if price.value %}
-            <p class="text-2xl font-bold product-price" data-prices="{{ prices }}">
-              ${{ price.value | numberformat("#.00") }}
-            </p>
+            <p class="text-2xl font-bold" data-prices="{{ prices }}">${{ price.value | numberformat("#.00") }}</p>
           {% endif %}
           {% set colorsAsArray = colors|split(',') %}
           {% set swatchesAsArray = swatches|split(',') %}
@@ -124,7 +121,7 @@
               </div>
             </div>
           {% endif %}
-          {% if sizesAsArray|length > 1 %}
+          {% if sizesAsArray|length > 0 %}
             <div class="space-y-2">
               <p class="font-medium">Size: <span class="size-label"></span></p>
               <div class="flex gap-2">
