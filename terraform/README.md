@@ -136,7 +136,7 @@ All commands in this document should be executed from the terraform directory.
        ```shell
        echo "# Grafana variables
        TF_VAR_monitoring_grafana_host=
-       TF_VAR_monitoring_grafana_password=" >> azure/.env
+       TF_VAR_monitoring_grafana_admin_password=" >> azure/.env
         ```
     6. If you setup grafana variables configure it according to your needs.   
    
