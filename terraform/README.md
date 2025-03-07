@@ -138,7 +138,7 @@ All commands in this document should be executed from the terraform directory.
        TF_VAR_monitoring_grafana_host=
        TF_VAR_monitoring_grafana_admin_password=" >> azure/.env
         ```
-    6. If you setup grafana variables configure it according to your needs.   
+    6. If you setup grafana variables configure it according to your needs. `TF_VAR_monitoring_grafana_host` is a domain used to expose grafana ui. If it is null or empty ingress for grafana is not created.
    
 9. Append StreamX Platform related variables to [`azure/.env`](azure/.env):
     ```shell

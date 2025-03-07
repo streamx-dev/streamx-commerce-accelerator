@@ -80,12 +80,14 @@ variable "monitoring_storage_access_key" {
 }
 
 variable "monitoring_grafana_host" {
-  description = "Grafana host name"
+  description = "Grafana host name. This settings creates ingress for grafana exposed on provided host. If null or empty ingress for grafana is not be created"
+  default     = null
   type        = string
 }
 
 variable "monitoring_grafana_admin_password" {
   description = "Grafana admin password"
+  default     = "sxadmin"
   sensitive   = true
 }
 
