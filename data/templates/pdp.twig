@@ -15,6 +15,8 @@
   {% endif %}
 {% endfor %}
 <body data-page-type='Product Detail'
+      data-sku="{{ sku }}"
+      data-base-sku="{{ sku }}"
       data-product-details='{"sku":"{{ sku }}","name": "{{ name }}","rating":"3","description":"{{ description }}","category":"{{ categoryName }}","brand":"LumaX","salesOrg":"Perficient","isFeatured":"{{ isFeatured }}",productPrice":"{{ price.value }}"}'
       data-product-category="{{ categoryName }}" data-product-featured="{{ isFeatured }}">
 <div class="min-h-screen bg-gray-50 flex flex-col">
@@ -29,7 +31,9 @@
       {% set thumbnails = "" %}
       {% for variant in variants %}
         {% set prices = prices ~ ',' ~ variant.price.value %}
-        {% set productPrice = variant.price.value %}
+        {% if productPrice == 0 %}
+          {% set productPrice = variant.price.value %}
+        {% endif %}
         {% for attribute in variant.attributes %}
           {% if attribute.name == 'color' and attribute.values|length > 0 %}
             {% set colorsAsArray = colors|split(',') %}
@@ -120,7 +124,7 @@
           {% if colorsAsArray|length > 1 %}
             <div class="space-y-2">
               <p class="font-medium">Color: <span class="swatch-label"></span></p>
-              <div class="flex gap-2">
+              <div class="flex gap-2 swatch-buttons">
                 {% for color in colorsAsArray %}
                   {% if color %}
                     <button class="w-8 h-8 rounded-full border-2 border-transparent" title="{{ color }}"
@@ -133,12 +137,11 @@
           {% if sizesAsArray|length > 1 %}
             <div class="space-y-2">
               <p class="font-medium">Size: <span class="size-label"></span></p>
-              <div class="flex gap-2">
+              <div class="flex gap-2 size-buttons">
                 {% for size in sizesAsArray %}
                   {% if size %}
                     <button
-                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
-                      title="{{ size }}" data-size="{{ size }}">
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
                       {{ size }}
                     </button>
                   {% endif %}
@@ -210,8 +213,10 @@
       </div>
     </section>
   </div>
+</div>
+<!-- Related Products end -->
 
-  <!-- Related Products end -->
-
-{{ '{{#include src="/fragments/footer.html"}}' }}</body>
+{{ '{{#include src="/fragments/footer.html"}}' }}
+<script defer src="../web-resources/js/pdp-init.js"></script>
+</body>
 </html>
