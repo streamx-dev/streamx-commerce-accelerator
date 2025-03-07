@@ -102,11 +102,8 @@
               </svg>
             {% endfor %}
           </div>
+          <h1 class="text-3xl font-bold">Price Value: {{ price.value }}</h1>
           {% if price.value %}
-            {% set pricesAsArray = prices|split(',', 2) %}
-            {% if pricesAsArray|length > 1 %}
-              {% set prices = pricesAsArray[1] %}
-            {% endif %}
             <p class="text-2xl font-bold product-price" data-prices="{{ prices }}">
               ${{ price.value | numberformat("#.00") }}
             </p>
