@@ -2,6 +2,21 @@
   const SEARCH_RESULTS_COUNT = 40;
   const SEARCH_URL = '/search/query';
 
+  const searchClick = (event) => {
+    adobeDataLayer = window.adobeDataLayer || {};
+    searchObj = adobeDataLayer.getState("_perficientincpartnersandbox.search") || {};
+    searchObj.allSearches = searchObj.allSearches ? searchObj.allSearches+1 : 1;
+    searchObj.searchTerm = document.getElementById("autocomplete-0-input")?.value;
+    searchObj.searchResultClicked = event.target?.innerText
+    adobeDataLayer.push({
+    "event":"searchClick",
+    "_perficientincpartnersandbox" : {
+      "search": searchObj
+      }
+    });
+    document.dispatchEvent(new CustomEvent("searchClick"));
+  }
+
   const buildUrl = (query, limit) => {
     return `${SEARCH_URL}?size=${limit}&query=${query}`;
   };
@@ -62,7 +77,7 @@
   };
 
   const getItemTemplate = (html, item) => {
-    return html`<a class="searchResult aa-ItemLink" href=${getAutocompleteItemUrl(item)}>
+    return html`<a class="searchResult aa-ItemLink" href=${getAutocompleteItemUrl(item)} onClick="${(event) => { searchClick(event) }}">
       <div class="aa-ItemContent">
         <div class="aa-ItemIcon aa-ItemIcon--alignTop">
           <svg

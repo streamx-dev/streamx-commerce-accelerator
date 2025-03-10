@@ -1,5 +1,5 @@
 **/.streamx/*
-
+.java-version
 # Local .terraform directories
 **/.terraform/*
 
