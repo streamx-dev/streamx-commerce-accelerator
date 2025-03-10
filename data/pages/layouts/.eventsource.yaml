@@ -1,6 +1,9 @@
 channel: layouts
 relativePathLevel: 0
 
+properties:
+  "sx:type": page/contentPage
+
 key: ${relativePath}
 payload:
   content:

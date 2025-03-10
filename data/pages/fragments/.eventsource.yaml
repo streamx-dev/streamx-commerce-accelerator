@@ -1,6 +1,9 @@
 channel: fragments
 relativePathLevel: 1
 
+properties:
+  "sx:type": page/fragment
+
 key: ${relativePath}
 payload:
   content:
