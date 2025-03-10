@@ -27,8 +27,13 @@ export const addProductToCart = async (sku, quantity) => {
 const featuredProductsList = document.querySelectorAll('.product-listing__product');
 featuredProductsList?.forEach(featuredProductEle => {
     const productSKU = JSON.parse(featuredProductEle.dataset.productDetails).sku;
+    console.log("ProductSku");
+    console.log(productSKU);
+
     const addToCartCTA = featuredProductEle.querySelector('.addToCart');
     addToCartCTA.addEventListener('click', () => {
+        console.log("CTA clicked");
+
         addProductToCart(productSKU, 1)
     });
 });

@@ -191,5 +191,7 @@ export async function updateCartPage() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    updateCartPage();
+    if (location.href.includes('cart')) {
+        updateCartPage();
+    }
 });
