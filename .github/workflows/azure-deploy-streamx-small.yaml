@@ -1,0 +1,40 @@
+name: 'Azure: Deploy StreamX Small'
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/azure-deploy-streamx.yaml
+    with:
+      environment_size: "small"
+    secrets:
+      SX_SEC_AUTH_PRIVATE_KEY:
+        ${{ secrets.SX_SEC_AUTH_PRIVATE_KEY }}
+      BLUEPRINT_WEB_TLS_CERT:
+        ${{ secrets.BLUEPRINT_WEB_TLS_CERT }}
+      BLUEPRINT_SEARCH_TLS_CERT:
+        ${{ secrets.BLUEPRINT_SEARCH_TLS_CERT }}
+      REST_INGESTION_TLS_CERT:
+        ${{ secrets.REST_INGESTION_TLS_CERT }}
+      GRAFANA_TLS_CERT:
+        ${{ secrets.GRAFANA_TLS_CERT }}
+      ARM_ACCESS_KEY:
+        ${{ secrets.ARM_ACCESS_KEY }}
+      ARM_CLIENT_ID:
+        ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET:
+        ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_TENANT_ID:
+        ${{ secrets.ARM_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID:
+        ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      TF_VAR_streamx_operator_image_pull_secret_registry_password:
+        ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
+      TF_VAR_monitoring_storage_access_key:
+        ${{ secrets.TF_VAR_monitoring_storage_access_key }}
+      TF_VAR_monitoring_grafana_admin_password:
+        ${{ secrets.TF_VAR_monitoring_grafana_admin_password }}

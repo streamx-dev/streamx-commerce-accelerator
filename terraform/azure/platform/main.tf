@@ -1,14 +1,27 @@
+locals {
+  vm_sizes = {
+    small  = "Standard_D3_v2"
+    medium = "Standard_D4_v2"
+    large  = "Standard_D5_v2"
+  }
+}
+
+
 module "azure_platform" {
   source  = "streamx-dev/platform/azurerm"
-  version = "0.0.2"
+  version = "0.0.4"
 
-  resource_group_enabled = false
-  cluster_name           = var.cluster_name
-  location               = var.location
-  resources_group_name   = var.resource_group_name
-  kubeconfig_path        = "${path.module}/.env/kubeconfig"
-  user_identity_id       = var.user_identity_id
-  public_ip_id           = var.public_ip_id
+  resource_group_enabled                   = false
+  cluster_name                             = var.cluster_name
+  cluster_default_node_pool_vm_size        = local.vm_sizes[var.streamx_environment_size]
+  cluster_default_node_pool_node_count     = 3
+  cluster_default_node_pool_node_max_count = 5
+
+  location             = var.location
+  resources_group_name = var.resource_group_name
+  kubeconfig_path      = "${path.module}/.env/kubeconfig"
+  user_identity_id     = var.user_identity_id
+  public_ip_id         = var.public_ip_id
 }
 
 module "apisix" {
@@ -24,9 +37,25 @@ module "apisix" {
   } : {}
 }
 
+module "monitoring_tempo" {
+  source                            = "./modules/monitoring-tempo"
+  monitoring_storage_container_name = var.monitoring_storage_container_name
+  monitoring_storage_account_name   = var.monitoring_storage_account_name
+  monitoring_storage_access_key     = var.monitoring_storage_access_key
+}
+
+module "monitoring_loki" {
+  source                            = "./modules/monitoring-loki"
+  monitoring_storage_container_name = var.monitoring_storage_container_name
+  monitoring_storage_account_name   = var.monitoring_storage_account_name
+  monitoring_storage_access_key     = var.monitoring_storage_access_key
+
+  depends_on = [module.azure_platform]
+}
+
 module "streamx" {
   source  = "streamx-dev/charts/helm"
-  version = "0.0.3"
+  version = "0.0.4"
 
   ingress_controller_nginx_enabled                         = false
   cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
@@ -39,4 +68,29 @@ module "streamx" {
   streamx_operator_image_pull_secret_registry_password = var.streamx_operator_image_pull_secret_registry_password
   streamx_operator_chart_repository_username           = "_json_key_base64"
   streamx_operator_chart_repository_password           = var.streamx_operator_image_pull_secret_registry_password
+
+  tempo_create_namespace = false
+  tempo_values = [
+    file("${path.module}/config/monitoring/tempo/values.yaml")
+  ]
+
+  loki_create_namespace = false
+  loki_values = [
+    file("${path.module}/config/monitoring/loki/values.yaml")
+  ]
+
+  prometheus_stack_settings = var.monitoring_grafana_host != null && var.monitoring_grafana_host != "" ? {
+    "grafana.ingress.enabled" : true
+    "grafana.ingress.hosts[0]" : var.monitoring_grafana_host
+    "grafana.ingress.paths[0]" : "/*"
+    "grafana.ingress.tls[0].secretName" : "grafana.crt"
+    "grafana.ingress.tls[0].hosts[0]" : var.monitoring_grafana_host
+    "grafana.ingress.annotations.cert-manager\\.io/cluster-issuer" : "letsencrypt-cert-cluster-issuer"
+  } : {}
+  prometheus_stack_grafana_admin_password = var.monitoring_grafana_admin_password
+
+
+  minio_enabled = false
+  depends_on    = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo]
+
 }

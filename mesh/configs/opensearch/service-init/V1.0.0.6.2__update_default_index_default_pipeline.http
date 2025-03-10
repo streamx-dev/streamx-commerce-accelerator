@@ -24,7 +24,7 @@ PUT /_ingest/pipeline/default-local
         "description": "Preprocessing of the categories items for category filter",
         "lang": "painless",
         "ignore_failure": true,
-        "source": "Set category = new HashSet(); if (ctx[\"payload\"][\"categories\"] != null) { for(item in ctx[\"payload\"][\"categories\"]) { String name = item.name; category.add(name); } if (category.size() > 0) { ctx[\"payload\"][\"category\"] = new ArrayList(category)  } } "
+        "source": "Set category = new HashSet(); if (ctx[\"payload\"][\"categories\"] != null) { for(item in ctx[\"payload\"][\"categories\"]) { String slug = item.slug; category.add(slug); } if (category.size() > 0) { ctx[\"payload\"][\"category\"] = new ArrayList(category)  } } "
       }
     }
   ]
