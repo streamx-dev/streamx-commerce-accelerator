@@ -10,6 +10,7 @@ spec:
           - lumax.streamx.com
         paths:
           - /homepage.html
+          - /cart.html
           - /sitemap.xml
           - /assets/*
           - /web-resources/*
