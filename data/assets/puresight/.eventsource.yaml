@@ -1,0 +1,7 @@
+channel: assets
+relativePathLevel: 0
+key: /assets/${relativePath}
+
+payload:
+  content:
+    bytes: file://${payloadPath}

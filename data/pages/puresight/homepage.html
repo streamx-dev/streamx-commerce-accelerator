@@ -1,0 +1,277 @@
+{{#define name="metaTitle"}}
+<title>Homepage</title>
+
+{{#define name="content.html"}}
+
+    <!-- Hero banner Start -->
+    <section class="banner-bg flex flex-col justify-between items-stretch overflow-x-hidden">
+      <div class="container mx-auto px-8">
+        <div class="flex flex-wrap items-center lg:mr-[calc(-50vw+5in)] xl:mr-[calc(-50vw+6in)] 2xl:mr-[calc(-50vw+7in-2rem)]">
+          <section class="text-balance py-[32px] inline-flex flex-col flex-1 md:basis-0 md:grow md:shrink">
+            <h3 id="new-collection" class="font-bold text-[2.5rem] leading-[4rem] xl:text-[4rem] xl:leading-[7rem] pb-5 text-gray-800">New Collection</h3>
+            <div class="pb-8">
+                <p class="xl:text-xl text-gray-500">Embrace the journey, and let your personality shine through.</p>
+            </div>
+            <a href="/products.html" class="w-fit banner-button px-4 py-2 rounded-sm font-xl font-medium cursor-pointer">
+              <span>Explore products</span>
+            </a>
+          </section>
+          <picture class="md:basis-0 md:grow md:shrink">
+            <source media="(max-width: 767px)" srcset="../assets/homepage/room_576_576.webp">
+            <source media="(min-width:768px) and (max-width: 1023px)" srcset="../assets/homepage/room_352_352.webp">
+            <source media="(min-width:1024px) and (max-width: 1279px)" srcset="../assets/homepage/room_496_496.webp">
+            <source media="(min-width:1280px) and (max-width: 1535px)" srcset="../assets/homepage/room_704_704.webp">
+            <source media="(min-width:1536px)" srcset="../assets/homepage/room_1056_1056.webp">
+            <img class="" src="../assets/homepage/room_1056_1056.webp" loading="eager"/>
+          </picture>
+        </div>
+      </div>
+    </section>
+    <!-- Hero banner End -->
+
+    {{#include src="/_fragments/collected:products:featured-by-category:Accent_Furniture.tiles.html"}}
+
+    <!-- Slider section start -->
+    <section class="container bg-white mx-auto">
+      <div class="glide py-16 sm:py-24 px-8" data-items-per-row-sm="1" data-items-per-row-md="2" data-items-per-row-lg="2">
+        <div data-glide-el="controls" class="flex justify-end mb-6 gap-3">
+          <button data-glide-dir="<" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-sm shadow" aria-label="Shift to the previous item">
+            <span class="icon">
+              <i class="mdi mdi-arrow-left"></i>
+            </span>
+          </button>
+          <button data-glide-dir=">" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-sm shadow" aria-label="Shift to the next item">
+            <span class="icon">
+              <i class="mdi mdi-arrow-right"></i>
+            </span>
+          </button>
+        </div>
+        <div class="glide__track" data-glide-el="track" tabindex="0">
+          <ul class="glide__slides">
+            <li class="glide__slide">
+              <div class="slider-main-bg flex flex-row items-center">
+                <figure class="basis-[60%]">
+                  <picture class="md:basis-0 md:grow md:shrink">
+                    <!--                    <source media="(max-width: 767px)" srcset="../assets/346x346.webp">-->
+                    <!--                    <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/423x423.webp">-->
+                    <!--                    <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/276x276.webp">-->
+                    <!--                    <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/352x352.webp">-->
+                    <!--                    <source media="(min-width: 1536px)" srcset="../assets/430x430.webp">-->
+                    <!--                    <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>-->
+
+                    <source media="(max-width: 767px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91R4eejU+TL.jpg">
+                    <source media="(min-width: 768px) and (max-width: 1023px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91R4eejU+TL.jpg">
+                    <source media="(min-width: 1024px) and (max-width: 1279px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91R4eejU+TL.jpg">
+                    <source media="(min-width: 1280px) and (max-width: 1535px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91R4eejU+TL.jpg">
+                    <source media="(min-width: 1536px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91R4eejU+TL.jpg">
+                    <img alt=""
+                         class=""
+                         loading="lazy" src="https://storage.googleapis.com/puresight-pim-images/original/91/91R4eejU+TL.jpg"/>
+                  </picture>
+                </figure>
+                <div class="basis-[40%] p-6">
+                  <p class="text-2xl font-bold text-zinc-800">Rivet Sloane</p>
+                  <div class="flex items-center flex-shrink-0 mb-6">
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+                  </div>
+                  <p class="price-text-color text-2xl font-bold mb-6">from 942&euro;</p>
+                  <a href="/products/rivet-sloane-mid-century-modern-loveseat-with-tufted-back-64-2-w-storm-b07p8srzs1.html" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center text-center">
+                    <span class="leading-[40px]">Buy now</span>
+                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="glide__slide">
+              <div class="slider-main-bg flex flex-row items-center">
+                <figure class="basis-[60%]">
+                  <picture class="md:basis-0 md:grow md:shrink">
+                    <source media="(max-width: 767px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/71/717AylYIi0L.jpg">
+                    <source media="(min-width: 768px) and (max-width: 1023px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/71/717AylYIi0L.jpg">
+                    <source media="(min-width: 1024px) and (max-width: 1279px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/71/717AylYIi0L.jpg">
+                    <source media="(min-width: 1280px) and (max-width: 1535px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/71/717AylYIi0L.jpg">
+                    <source media="(min-width: 1536px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/71/717AylYIi0L.jpg">
+                    <img alt=""
+                         class=""
+                         loading="lazy" src="https://storage.googleapis.com/puresight-pim-images/original/71/717AylYIi0L.jpg"/>
+                  </picture>
+                </figure>
+                <div class="basis-[40%] p-6">
+                  <p class="text-2xl font-bold text-zinc-800">Andover Studio Sofa</p>
+                  <div class="flex items-center flex-shrink-0 mb-6">
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+                  </div>
+                  <p class="price-text-color text-2xl font-bold mb-6">from 842&euro;</p>
+                  <a class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center text-center"
+                     href="/products/andover-studio-sofa-couch-78-w-driftwood-leather-b07b4fw7h5.html">
+                    <span class="leading-[40px]">Buy now</span>
+                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="glide__slide">
+              <div class="slider-main-bg flex flex-row items-center">
+                <figure class="basis-[60%]">
+                  <picture class="md:basis-0 md:grow md:shrink">
+                    <source media="(max-width: 767px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91Io2g9hvYL.jpg">
+                    <source media="(min-width: 768px) and (max-width: 1023px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91Io2g9hvYL.jpg">
+                    <source media="(min-width: 1024px) and (max-width: 1279px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91Io2g9hvYL.jpg">
+                    <source media="(min-width: 1280px) and (max-width: 1535px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91Io2g9hvYL.jpg">
+                    <source media="(min-width: 1536px)"
+                            srcset="https://storage.googleapis.com/puresight-pim-images/original/91/91Io2g9hvYL.jpg">
+                    <img alt=""
+                         class=""
+                         loading="lazy" src="https://storage.googleapis.com/puresight-pim-images/original/91/91Io2g9hvYL.jpg"/>
+                  </picture>
+                </figure>
+                <div class="basis-[40%] p-6">
+                  <p class="text-2xl font-bold text-zinc-800">Wood Kitchen Dining Table</p>
+                  <div class="flex items-center flex-shrink-0 mb-6">
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star " aria-hidden="true"></i>
+                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+                  </div>
+                  <p class="price-text-color text-2xl font-bold mb-6">from 765&euro;</p>
+                  <a class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center text-center"
+                     href="/products/alejandra-unfinished-wood-kitchen-dining-table-storage-brown-b07b7b6pj2.html">
+                    <span class="leading-[40px]">Buy now</span>
+                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- Slider section end -->
+
+    <!-- Picked For You -->
+{{#include src="/_fragments/collected:products:featured-by-category:Featured.hometiles.html"}}
+    <!-- Picked For You end -->
+
+    <!-- Articles section -->
+    <section class="container bg-white mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-16 sm:pb-24">
+        <div class="sm:pb-5 lg:pb-9 xl:pb-16 px-8 gap-y-4 flex flex-col">
+          <h3 class="text-3xl font-bold tracking-tight text-gray-800 lg:text-[64px] lg:leading-[96px]">
+            Articles</h3>
+          <p class="text-gray-600">Blogs to make shopping beneficial. Knowledge of your financial freedom and current market trends helps you live better - these blogs are for you.</p>
+          <a href="/blog.html" class="inline-block hover:m-[-1px] w-fit bg-white hover:border-2 hover:border-neutral-600 rounded-sm font-xl font-medium text-neutral-800 shadow-[0px_2px_4px_0px_rgba(51,_51,_51,_0.05)] border-[1px] border-neutral-400 px-4 py-2">
+            <span>See all articles</span>
+          </a>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6 px-8">
+          <div class="bg-white flex flex-col items-start">
+            <figure class="w-full mb-5">
+              <picture class="aspect-[2/3] object-cover">
+                <source media="(max-width: 639px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_575x863.webp">
+                <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_276x414.webp">
+                <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_340x510.webp">
+                <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_204x306.webp">
+                <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_268x402.webp">
+                <source media="(min-width: 1536px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_332x498.webp">
+                <img class="rounded" src="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_575x863.webp" loading="lazy" alt=""/>
+              </picture>
+            </figure>
+            <p class="text-lg font-bold text-gray-800 mb-5">
+              Work From Home Oasis: Creating a Productive Workspace
+            </p>
+            <p class="text-sm text-gray-600 mb-5">
+              To embark on a decluttering journey, start with a clear vision. Consider what truly matters to you and what you want your space to reflect. Begin with the basics: sorting through possessions and letting go of items that no longer serve a purpose. The "less is more" mantra becomes your guiding principle as you free your living area from excess.
+            </p>
+            <p class="text-sm text-gray-600 mb-5">
+              Susannah Meyer Jul 21 3 min read
+            </p>
+            <a href="/articles/article8.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+              <span class="inline-block w-auto">
+                <i class="mdi fa-lg mdi-arrow-right" aria-hidden="false"></i>
+              </span>
+            </a>
+          </div>
+
+          <div class="bg-white flex flex-col items-start">
+            <figure class="w-full mb-5">
+              <picture class="aspect-[2/3] object-cover">
+                <source media="(max-width: 639px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_575x863.webp">
+                <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_276x414.webp">
+                <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_340x510.webp">
+                <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_204x306.webp">
+                <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_268x402.webp">
+                <source media="(min-width: 1536px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_332x498.webp">
+                <img class="rounded" src="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_575x863.webp" loading="lazy" alt=""/>
+              </picture>
+            </figure>
+            <p class="text-lg font-bold text-gray-800 mb-5">
+              Apartment Therapy: Reversible Design Hacks for Renters
+            </p>
+            <p class="text-sm text-gray-600 mb-5">
+              In an ever-changing world, where life's pace often feels like a frenzied sprint, the minimalism movement has gained momentum. This trend towards simplifying life, both physically and mentally, has found its place in the hearts and homes of many. Join me on a journey to discover the art of decluttering and how it can transform your living spaces into havens of peace and serenity.
+            </p>
+            <p class="text-sm text-gray-600 mb-5">
+              Sarah Mitchell Mar 26 2025 3 min read
+            </p>
+            <a href="/articles/article7.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+              <span class="inline-block w-auto">
+                <i class="mdi fa-lg mdi-arrow-right" aria-hidden="false"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Hero banner with background Start -->
+    <section class="bg-[url('../assets/homepage/blue-chair.webp')] w-full h-auto bg-center bg-cover">
+      <div class="container mx-auto p-8 lg:py-14">
+        <div class="grid grid-cols-1 sm:grid-cols-2">
+          <div>
+            <h6 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-5 lg:mb-10">
+              Buy office furniture for min. EUR 600 and you will pay 15% less for them
+            </h6>
+            <div class="mb-5 sm:mb-6 lg:mb-8">
+              <p class="text-white text-base">
+                <span>Offer for Club Members Pure Sight Network. Equipment offer from 1/08/2023 to 16/09/2023 or while stocks last. Terms and Conditions at </span><a target="_blank" rel="noopener noreferrer nofollow" href="http://PureSight.io/terms"><span>PureSight.io/terms</span></a>
+              </p>
+            </div>
+            <a href="/blog.html" class="inline-block w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 py-2 rounded-sm font-xl font-medium">
+              <span>Learn more</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Hero banner with background End -->
+
+    <!-- glide slider -->
+    <script defer src="../web-resources/js/glide.min.js"></script>
+    <script defer src="../web-resources/js/glide-init.js"></script>
