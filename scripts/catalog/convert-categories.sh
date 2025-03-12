@@ -17,7 +17,7 @@ echo "$json_data" | jq -c '.[]' | while IFS= read -r category; do
       "action": "publish",
       "eventTime": null,
       "properties": {
-        "sx:type": "category"
+        "sx:type": "data/category"
       },
       "payload": {
         "dev.streamx.blueprints.data.Data": {

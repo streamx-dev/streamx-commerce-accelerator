@@ -17,10 +17,10 @@ ARCH=$(uname -m)
 
 if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
     echo "Detected ARM64 architecture. Using docker-compose-arm64.yml"
-    docker-compose -p docker-apisix -f "$SCRIPT_DIR"/docker-compose-arm64.yml up -d
+    docker compose -p docker-apisix -f "$SCRIPT_DIR"/docker-compose-arm64.yml up -d
 else
     echo "Detected non-ARM64 architecture. Using docker-compose.yml"
-    docker-compose -p docker-apisix -f "$SCRIPT_DIR"/docker-compose.yml up -d
+    docker compose -p docker-apisix -f "$SCRIPT_DIR"/docker-compose.yml up -d
 fi
 
 docker network connect docker-apisix_apisix blueprint-web.webserver  >/dev/null 2>&1
