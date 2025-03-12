@@ -8,342 +8,342 @@
   {{ '{{#include src="/fragments/headContent.html"}}' }}
 </head>
 
-  <body class="pt-24 overflow-scroll">
-    {{ '{{#include src="/fragments/header.html"}}' }}
+<body class="pt-24 overflow-scroll">
+{{ '{{#include src="/fragments/header.html"}}' }}
 
-    <section class="container bg-white mx-auto">
-      <div class="pb-16 sm:pb-24 px-8 mt-16">
-        <nav class="flex mb-6" aria-label="Breadcrumb">
-          <nav class="breadcrumb  is-medium" aria-label="breadcrumbs">
-            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-              <li><a> <span>Products</span> </a></li>
-            </ol>
-          </nav>
-         </nav>
-         <h1 class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6">{{name}}</h1>
-         <div class="lg:grid lg:grid-cols-5 lg:gap-5">
-          <div class="col-span-3 w-full p-4">
-            <figure>
-              <picture class="aspec-[5/3]">
-                <img class="m-auto max-h-[500px] object-contain" src="{{primaryImage.url}}" alt="{{primaryImage.alt}}" loading="eager"/>
-              </picture>
-            </figure>
-            <div class="flex flex-row gap-4 m-auto w-fit p-6">
-              {% for image in gallery %}
-                {% if loop.index <= 5 %}
-                <figure>
-                  <picture class="aspect-square w-20 flex">
-                    <img class="w-full object-contain" src="{{ image.url }}" alt="{{ image.alt }}" loading="eager">
-                  </picture>
-                </figure>
-                {% endif %}
-              {% endfor %}
-             </div>
-          </div>
-  
-          <div class="col-span-2 p-4 mt-6 sm:mt-8 lg:mt-0">
-            <p class="text-base text-zinc-500">
-              Pure Sight co.
-            </p>
-            <p class="text-base text-zinc-300">
-              {{id}}
-            </p>
-            <hr class="my-4 md:my-6 border-gray-200" />
-            <p class="text-gray-500">
-              {{description | raw}}
-            </p>
-            <hr class="my-4 md:my-6 border-gray-200" />
-            {% if price.value %}
-              <div class="flex flex-row py-4 items-center gap-3">
-                <p class="text-lg font-bold">
-                  <span class="text-zinc-700">from</span>
-                </p>
-                <h2 class="price-text-color text-5xl font-bold">{{price.value}}&euro;</h2>
-              </div>
-            {% endif %}
-            <button type="submit" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center">
-              <span class="leading-[40px]">Buy now</span>
-              <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
-              </span>
-            </button>
-            <p class="text-base text-zinc-300 mt-4">
-              {% for attribute in attributes %}
-                {{ attribute.label | default(attribute.name | capitalize) }}:
-                {% for value in attribute.values %}
-                  {{ value.valueLabel | default('') }}{% if not loop.last %}, {% endif %}
-                {% endfor %}
-              {% endfor %}
-            </p>
-          </div>
-         </div>
+<section class="container bg-white mx-auto">
+  <div class="pb-16 sm:pb-24 px-8 mt-16">
+    <nav class="flex mb-6" aria-label="Breadcrumb">
+      <nav class="breadcrumb  is-medium" aria-label="breadcrumbs">
+        <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+          <li><a> <span>Products</span> </a></li>
+        </ol>
+      </nav>
+    </nav>
+    <h1 class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6">{{name}}</h1>
+    <div class="lg:grid lg:grid-cols-5 lg:gap-5">
+      <div class="col-span-3 w-full p-4">
+        <figure>
+          <picture class="aspec-[5/3]">
+            <img class="m-auto max-h-[500px] object-contain" src="{{primaryImage.url}}" alt="{{primaryImage.alt}}" loading="eager"/>
+          </picture>
+        </figure>
+        <div class="flex flex-row gap-4 m-auto w-fit p-6">
+          {% for image in gallery %}
+          {% if loop.index <= 5 %}
+          <figure>
+            <picture class="aspect-square w-20 flex">
+              <img class="w-full object-contain" src="{{ image.url }}" alt="{{ image.alt }}" loading="eager">
+            </picture>
+          </figure>
+          {% endif %}
+          {% endfor %}
+        </div>
       </div>
-    </section>
 
-    <!-- Articles section -->
-    <section class="container bg-white mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 pb-16 sm:pb-24">
-        <div class="px-8">
-          <h4 class="text-3xl font-bold text-gray-800 mb-6">Reviews</h4>
-          <ul class="flex flex-col w-full bg-white flex flex-col items-start">
-            {% for review in reviews %}
-            <li class="w-full p-5 mb-6 shadow-md rounded-xl border-zinc-100 border">
-              <div class="grid sm:grid-cols-2 gap-4 text-neutral-700">
-                <div class="">
-                  <div class="flex items-center flex-shrink-0">
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                  </div>
-                  <p class="text-sm font-bold">{{review.title}}</p>
-                </div>
-                <div class="flex flex-col text-right mr-3 text-sm">
+      <div class="col-span-2 p-4 mt-6 sm:mt-8 lg:mt-0">
+        <p class="text-base text-zinc-500">
+          Pure Sight co.
+        </p>
+        <p class="text-base text-zinc-300">
+          {{id}}
+        </p>
+        <hr class="my-4 md:my-6 border-gray-200" />
+        <p class="text-gray-500">
+          {{description | raw}}
+        </p>
+        <hr class="my-4 md:my-6 border-gray-200" />
+        {% if price.value %}
+        <div class="flex flex-row py-4 items-center gap-3">
+          <p class="text-lg font-bold">
+            <span class="text-zinc-700">from</span>
+          </p>
+          <h2 class="price-text-color text-5xl font-bold">{{price.value}}&euro;</h2>
+        </div>
+        {% endif %}
+        <button type="submit" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center">
+          <span class="leading-[40px]">Buy now</span>
+          <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
+          </span>
+        </button>
+        <p class="text-base text-zinc-300 mt-4">
+          {% for attribute in attributes %}
+          {{ attribute.label | default(attribute.name | capitalize) }}:
+          {% for value in attribute.values %}
+          {{ value.value | default('') }}{% if not loop.last %}, {% endif %}
+          {% endfor %}
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Articles section -->
+<section class="container bg-white mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-2 pb-16 sm:pb-24">
+    <div class="px-8">
+      <h4 class="text-3xl font-bold text-gray-800 mb-6">Reviews</h4>
+      <ul class="flex flex-col w-full bg-white flex flex-col items-start">
+        {% for review in reviews %}
+        <li class="w-full p-5 mb-6 shadow-md rounded-xl border-zinc-100 border">
+          <div class="grid sm:grid-cols-2 gap-4 text-neutral-700">
+            <div class="">
+              <div class="flex items-center flex-shrink-0">
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+              </div>
+              <p class="text-sm font-bold">{{review.title}}</p>
+            </div>
+            <div class="flex flex-col text-right mr-3 text-sm">
                   <span class="mb-3">
                    {{review.author}}
                   </span>
-                  <span>
+              <span>
                     {{review.date}}
                   </span>
-                </div>
-              </div>
-              <p class="text-gray-500 mt-6">{{review.content}}</p>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="px-8">
-          <h4 class="text-3xl font-bold text-gray-800 mb-6">Related Articles</h2>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="bg-white flex flex-col items-start">
-              <figure class="w-full mb-5">
-                <picture class="aspect-[2/3] object-cover">
-                  <source media="(max-width: 639px)" srcset="../assets/575x863.webp">
-                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/276x414.webp">
-                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/340x510.webp">
-                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/204x306.webp">
-                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/268x402.webp">
-                  <source media="(min-width: 1536px)" srcset="../assets/332x498.webp">
-                  <img class="rounded" src="../assets/575x863.webp" loading="lazy" alt=""/>
-                </picture>
-              </figure>
-              <p class="text-lg font-bold text-gray-800 mb-5">
-                Make it feel like home
-              </p>
-              <p class="text-sm text-gray-600 mb-5">
-                Everything in your student room should bring you comfort. Choose a desk and bed that you’re happy to spend lots of time with, and display your trinkets proudly!
-              </p>
-              <p class="text-sm text-gray-600 mb-5">
-                Sarah Mitchell Jul 21 3 min read
-              </p>
-              <a href="/products/marin-studded-chair-33-w-tan-b075x5tn2k.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
-                <span class="inline-block w-auto">
-                  <i class="mdi fa-lg mdi-arrow-right" aria-hidden="false"></i>
-                </span>
-              </a>
             </div>
-            <div class="bg-white flex flex-col items-start">
-              <figure class="w-full mb-5">
-                <picture class="aspect-[2/3] object-cover">
-                  <source media="(max-width: 639px)" srcset="../assets/575x863.webp">
-                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/276x414.webp">
-                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/340x510.webp">
-                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/204x306.webp">
-                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/268x402.webp">
-                  <source media="(min-width: 1536px)" srcset="../assets/332x498.webp">
-                  <img class="rounded" src="../assets/575x863.webp" loading="lazy" alt=""/>
-                </picture>
-              </figure>
-              <p class="text-lg font-bold text-gray-800 mb-5">
-                Make it feel like home
-              </p>
-              <p class="text-sm text-gray-600 mb-5">
-                Everything in your student room should bring you comfort. Choose a desk and bed that you’re happy to spend lots of time with, and display your trinkets proudly!
-              </p>
-              <p class="text-sm text-gray-600 mb-5">
-                Sarah Mitchell Jul 21 3 min read
-              </p>
-              <a href="/products/marin-studded-chair-33-w-tan-b075x5tn2k.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+          </div>
+          <p class="text-gray-500 mt-6">{{review.content}}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="px-8">
+      <h4 class="text-3xl font-bold text-gray-800 mb-6">Related Articles</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-white flex flex-col items-start">
+            <figure class="w-full mb-5">
+              <picture class="aspect-[2/3] object-cover">
+                <source media="(max-width: 639px)" srcset="../assets/575x863.webp">
+                <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/276x414.webp">
+                <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/340x510.webp">
+                <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/204x306.webp">
+                <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/268x402.webp">
+                <source media="(min-width: 1536px)" srcset="../assets/332x498.webp">
+                <img class="rounded" src="../assets/575x863.webp" loading="lazy" alt=""/>
+              </picture>
+            </figure>
+            <p class="text-lg font-bold text-gray-800 mb-5">
+              Make it feel like home
+            </p>
+            <p class="text-sm text-gray-600 mb-5">
+              Everything in your student room should bring you comfort. Choose a desk and bed that you’re happy to spend lots of time with, and display your trinkets proudly!
+            </p>
+            <p class="text-sm text-gray-600 mb-5">
+              Sarah Mitchell Jul 21 3 min read
+            </p>
+            <a href="/products/marin-studded-chair-33-w-tan-b075x5tn2k.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
                 <span class="inline-block w-auto">
                   <i class="mdi fa-lg mdi-arrow-right" aria-hidden="false"></i>
                 </span>
+            </a>
+          </div>
+          <div class="bg-white flex flex-col items-start">
+            <figure class="w-full mb-5">
+              <picture class="aspect-[2/3] object-cover">
+                <source media="(max-width: 639px)" srcset="../assets/575x863.webp">
+                <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/276x414.webp">
+                <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/340x510.webp">
+                <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/204x306.webp">
+                <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/268x402.webp">
+                <source media="(min-width: 1536px)" srcset="../assets/332x498.webp">
+                <img class="rounded" src="../assets/575x863.webp" loading="lazy" alt=""/>
+              </picture>
+            </figure>
+            <p class="text-lg font-bold text-gray-800 mb-5">
+              Make it feel like home
+            </p>
+            <p class="text-sm text-gray-600 mb-5">
+              Everything in your student room should bring you comfort. Choose a desk and bed that you’re happy to spend lots of time with, and display your trinkets proudly!
+            </p>
+            <p class="text-sm text-gray-600 mb-5">
+              Sarah Mitchell Jul 21 3 min read
+            </p>
+            <a href="/products/marin-studded-chair-33-w-tan-b075x5tn2k.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+                <span class="inline-block w-auto">
+                  <i class="mdi fa-lg mdi-arrow-right" aria-hidden="false"></i>
+                </span>
+            </a>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</section>
+<!-- Articles End -->
+
+<!-- Related Products Start-->
+<section class="container bg-white mx-auto">
+  <div class="pb-16 sm:pb-24 px-8">
+    <h2 class="text-6xl font-bold leading-[72px] text-gray-900 mb-2">Related products</h2>
+
+    <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8">
+      <li>
+        <div class="flex flex-col">
+          <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
+            <picture class="m-auto w-full object-contain">
+              <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+              <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+            </picture>
+          </figure>
+          <div class="mt-4 flex gap-y-2 flex-wrap">
+            <div class="flex flex-row items-center flex-grow w-full">
+              <p class="text-base font-bold text-gray-700 truncate flex-grow">
+                SCOPIC ltd
+              </p>
+              <div class="flex items-center flex-shrink-0">
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="flex flex-row items-center flex-grow w-full">
+              <p class="text-base font-bold price-text-color truncate flex-grow">
+                4500&euro;
+              </p>
+              <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+                    <span class="inline-block w-auto">
+                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
+                    </span>
               </a>
             </div>
           </div>
         </div>
+      </li>
+      <li>
+        <div class="flex flex-col">
+          <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
+            <picture class="m-auto w-full object-contain">
+              <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+              <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+            </picture>
+          </figure>
+          <div class="mt-4 flex gap-y-2 flex-wrap">
+            <div class="flex flex-row items-center flex-grow w-full">
+              <p class="text-base font-bold text-gray-700 truncate flex-grow">
+                SCOPIC ltd
+              </p>
+              <div class="flex items-center flex-shrink-0">
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="flex flex-row items-center flex-grow w-full">
+              <p class="text-base font-bold price-text-color truncate flex-grow">
+                6700&euro;
+              </p>
+              <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+                    <span class="inline-block w-auto">
+                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
+                    </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex flex-col">
+          <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
+            <picture class="m-auto w-full object-contain">
+              <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+              <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+            </picture>
+          </figure>
+          <div class="mt-4 flex gap-y-2 flex-wrap">
+            <div class="flex flex-row items-center flex-grow w-full">
+              <p class="text-base font-bold text-gray-700 truncate flex-grow">
+                SCOPIC ltd
+              </p>
+              <div class="flex items-center flex-shrink-0">
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="flex flex-row items-center flex-grow w-full">
+              <p class="text-base font-bold price-text-color truncate flex-grow">
+                2500&euro;
+              </p>
+              <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+                    <span class="inline-block w-auto">
+                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
+                    </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="flex flex-col">
+          <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
+            <picture class="m-auto w-full object-contain">
+              <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
+              <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
+              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+            </picture>
+          </figure>
+          <div class="mt-4 flex gap-y-2 flex-wrap">
+            <div class="flex flex-row items-center flex-grow w-full">
+              <p class="text-base font-bold text-gray-700 truncate flex-grow">
+                SCOPIC ltd
+              </p>
+              <div class="flex items-center flex-shrink-0">
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star " aria-hidden="true"></i>
+                <i class="mdi mdi-star-outline " aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="flex flex-row items-center flex-grow w-full">
+              <p class="text-base font-bold price-text-color truncate flex-grow">
+                12500&euro;
+              </p>
+              <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+                    <span class="inline-block w-auto">
+                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
+                    </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<!-- Related Products end -->
 
-      </div>
-    </section>
-    <!-- Articles End -->
-
-    <!-- Related Products Start-->
-    <section class="container bg-white mx-auto">
-      <div class="pb-16 sm:pb-24 px-8">
-        <h2 class="text-6xl font-bold leading-[72px] text-gray-900 mb-2">Related products</h2>
-    
-        <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-4 xl:gap-x-8">
-          <li>
-            <div class="flex flex-col">
-              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
-                <picture class="m-auto w-full object-contain">
-                  <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
-                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
-                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
-                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-                  <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-                  <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
-                </picture>
-              </figure>
-              <div class="mt-4 flex gap-y-2 flex-wrap">
-                <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-gray-700 truncate flex-grow">
-                    SCOPIC ltd
-                  </p>
-                  <div class="flex items-center flex-shrink-0">
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
-                  </div>
-                </div>
-                <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold price-text-color truncate flex-grow">
-                    4500&euro;
-                  </p>
-                  <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
-                    <span class="inline-block w-auto">
-                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="flex flex-col">
-              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
-                <picture class="m-auto w-full object-contain">
-                  <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
-                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
-                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
-                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-                  <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-                  <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
-                </picture>
-              </figure>
-              <div class="mt-4 flex gap-y-2 flex-wrap">
-                <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-gray-700 truncate flex-grow">
-                    SCOPIC ltd
-                  </p>
-                  <div class="flex items-center flex-shrink-0">
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
-                  </div>
-                </div>
-                <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold price-text-color truncate flex-grow">
-                    6700&euro;
-                  </p>
-                  <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
-                    <span class="inline-block w-auto">
-                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="flex flex-col">
-              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
-                <picture class="m-auto w-full object-contain">
-                  <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
-                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
-                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
-                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-                  <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-                  <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
-                </picture>
-              </figure>
-              <div class="mt-4 flex gap-y-2 flex-wrap">
-                <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-gray-700 truncate flex-grow">
-                    SCOPIC ltd
-                  </p>
-                  <div class="flex items-center flex-shrink-0">
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
-                  </div>
-                </div>
-                <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold price-text-color truncate flex-grow">
-                    2500&euro;
-                  </p>
-                  <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
-                    <span class="inline-block w-auto">
-                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="flex flex-col">
-              <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
-                <picture class="m-auto w-full object-contain">
-                  <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
-                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
-                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
-                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-                  <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-                  <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
-                </picture>
-              </figure>
-              <div class="mt-4 flex gap-y-2 flex-wrap">
-                <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold text-gray-700 truncate flex-grow">
-                    SCOPIC ltd
-                  </p>
-                  <div class="flex items-center flex-shrink-0">
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star " aria-hidden="true"></i>
-                    <i class="mdi mdi-star-outline " aria-hidden="true"></i>
-                  </div>
-                </div>
-                <div class="flex flex-row items-center flex-grow w-full">
-                  <p class="text-base font-bold price-text-color truncate flex-grow">
-                    12500&euro;
-                  </p>
-                  <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
-                    <span class="inline-block w-auto">
-                      <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <!-- Related Products end -->
-
-    {{ '{{#include src="/fragments/footer.html"}}' }}
-  </body>
+{{ '{{#include src="/fragments/footer.html"}}' }}
+</body>
 
 </html>
