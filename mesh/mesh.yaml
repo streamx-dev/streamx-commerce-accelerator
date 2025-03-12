@@ -190,7 +190,7 @@ processing:
       # local test domain, see readme
       STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_BASE-URL: "${streamx.accelerator.web.url}"
       STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_OUTPUT-KEY: "/sitemap.xml"
-      STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_OUTPUT-TYPE: "sitemap"
+      STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_OUTPUT-TYPE: "web-resource/sitemap"
 
   blueprint-indexables-producer:
     image: indexables-producer-processing-service
