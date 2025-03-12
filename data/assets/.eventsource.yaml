@@ -3,7 +3,7 @@ relativePathLevel: 1
 key: /${relativePath}
 
 properties:
-  "sx:type": data/asset
+  "sx:type": asset
 
 payload:
   content:
