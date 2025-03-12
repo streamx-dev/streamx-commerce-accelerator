@@ -3,7 +3,7 @@ relativePathLevel: 1
 key: /${relativePath}
 
 properties:
-  "sx:type": data/web-resource
+  "sx:type": web-resource/static
 
 payload:
   content:
