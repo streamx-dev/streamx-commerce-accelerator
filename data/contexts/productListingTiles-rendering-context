@@ -3,6 +3,6 @@
   "dataKeyMatchPattern": { "string": ":collected:products:.*" },
   "dataTypeMatchPattern": null,
   "outputKeyTemplate": { "string": "/_fragments/{{key}}.tiles.html" },
-  "outputTypeTemplate": { "string": "page/products-tiles" },
+  "outputTypeTemplate": { "string": "fragment/products-tiles" },
   "outputFormat": { "dev.streamx.blueprints.data.RenderingContext.OutputFormat": "FRAGMENT" }
 }
