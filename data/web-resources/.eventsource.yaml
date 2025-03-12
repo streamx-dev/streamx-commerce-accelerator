@@ -2,6 +2,9 @@ channel: web-resources
 relativePathLevel: 1
 key: /${relativePath}
 
+properties:
+  "sx:type": data/webResource
+
 payload:
   content:
     bytes: file://${payloadPath}

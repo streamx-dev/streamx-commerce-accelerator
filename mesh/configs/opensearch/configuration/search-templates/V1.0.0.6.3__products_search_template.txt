@@ -11,7 +11,8 @@ Content-Type: application/json
       \"_source\": [
         \"_id\",
         \"payload.*\",
-        \"type\"
+        \"type\",
+        \"namespace\"
       ],
       \"track_total_hits\": true,
       \"query\": {
