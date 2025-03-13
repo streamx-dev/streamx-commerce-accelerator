@@ -1,0 +1,56 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixUpstream
+metadata:
+  name: eds-demo-upstream
+spec:
+  scheme: https
+  passHost: node
+  externalNodes:
+    - type: Domain
+      name: main--demo-puresight-eds-next--streamx-dev.aem.live
+
+---
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: eds-demo-route
+spec:
+  http:
+    - name: eds-demo-route
+      match:
+        hosts:
+          - demo-puresight-starter.streamx.site
+        paths:
+          - /edge-delivery-services-demo/*
+          - /assets/images/avatars/*
+          - /blocks/*
+          - /components/*
+          - /fonts/*
+          - /libs/*
+          - /scripts/*
+          - /styles/*
+          - /placeholders.json
+          - /templates/*
+          - /media*.png*
+          - /nav.plain.html
+          - /footer.plain.html
+          - /query-index.json
+      priority: 10
+      upstreams:
+        - name: eds-demo-upstream
+      plugins:
+        - name: proxy-rewrite
+          enable: true
+          config:
+            regex_uri:
+              - "^/edge-delivery-services-demo/(.*)"
+              - "/edge-delivery-services-demo-next/$1"
+        - name: response-rewrite
+          enable: true
+          config:
+            headers:
+              Cache-Control: "no-store, no-cache, must-revalidate"
+              Pragma: "no-cache"
+              Expires: "0"
+            vars:
+              - [ "sent_http_content_type", "~~", "text/html" ]
