@@ -1,5 +1,5 @@
 defaultRegistry: ghcr.io/streamx-dev/streamx-blueprints
-defaultImageTag: 1.0.6-jvm
+defaultImageTag: 2.0.0-jvm
 
 sources:
   pim:
@@ -53,11 +53,35 @@ processing:
       MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "asset-schema"
       MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "asset-schema"
 
+  blueprint-relay-pages:
+    image: relay-processing-service
+    incoming:
+      messages:
+        topic: inboxes/pages
+    outgoing:
+      relayed-messages:
+        topic: relays/pages
+    environment:
+      MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "page-schema"
+      MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "page-schema"
+
   blueprint-relay-fragments:
     image: relay-processing-service
     incoming:
       messages:
         topic: inboxes/fragments
+    outgoing:
+      relayed-messages:
+        topic: relays/fragments
+    environment:
+      MP_MESSAGING_INCOMING_MESSAGES_SCHEMA: "fragment-schema"
+      MP_MESSAGING_OUTGOING_RELAYED-MESSAGES_SCHEMA: "fragment-schema"
+
+  blueprint-outbox-relay-fragments:
+    image: relay-processing-service
+    incoming:
+      messages:
+        topic: relays/fragments
     outgoing:
       relayed-messages:
         topic: outboxes/fragments
@@ -71,7 +95,7 @@ processing:
       incoming-assets:
         topic: inboxes/assets
       incoming-pages:
-        topic: inboxes/pages
+        topic: relays/pages
     outgoing:
       optimized-assets:
         topic: inboxes/assets
@@ -101,7 +125,7 @@ processing:
     image: message-converter-processing-service
     incoming:
       data:
-        topic: inboxes/data
+        topic: inboxes/data,relays/aggregated-data
     outgoing:
       indexable-resources:
         topic: outboxes/indexable-resources
@@ -110,7 +134,7 @@ processing:
     image: rendering-engine-processing-service
     incoming:
       data:
-        topic: relays/aggregated-data
+        topic: relays/aggregated-data,relays/collected-data
       renderers:
         topic: inboxes/renderers
       rendering-contexts:
@@ -121,9 +145,9 @@ processing:
       outgoing-rendering-requests:
         topic: relays/rendering-requests
       pages:
-        topic: inboxes/pages
+        topic: relays/pages
       fragments:
-        topic: inboxes/fragments
+        topic: relays/fragments
 
   blueprint-composition-engine:
     image: composition-engine-processing-service
@@ -136,7 +160,7 @@ processing:
         topic: relays/page-compose-requests
     outgoing:
       pages:
-        topic: inboxes/pages
+        topic: relays/pages
       outgoing-page-compose-requests:
         topic: relays/page-compose-requests
 
@@ -144,12 +168,12 @@ processing:
     image: data-collector-processing-service
     incoming:
       data:
-        topic: relays/aggregated-data
+        topic: relays/aggregated-data,relays/collected-data
     outgoing:
       collected-data:
-        topic: relays/aggregated-data
+        topic: relays/collected-data
       web-resources:
-        topic: inboxes/web-resources
+        topic: outboxes/web-resources
     environmentFrom:
       configs:
         - "data-collector.properties"
@@ -158,7 +182,7 @@ processing:
     image: sitemap-generator-processing-service
     incoming:
       incoming-pages:
-        topic: inboxes/pages
+        topic: relays/pages
     outgoing:
       outgoing-sitemaps:
         topic: outboxes/web-resources
@@ -166,6 +190,7 @@ processing:
       # local test domain, see readme
       STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_BASE-URL: "${streamx.accelerator.web.url}"
       STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_OUTPUT-KEY: "/sitemap.xml"
+      STREAMX_BLUEPRINTS_SITEMAP-GENERATOR-PROCESSING-SERVICE_OUTPUT-TYPE: "web-resource/sitemap"
 
   blueprint-indexables-producer:
     image: indexables-producer-processing-service
@@ -173,9 +198,9 @@ processing:
       STREAMX_BLUEPRINTS_INDEXABLES_PRODUCER_PROCESSING_SERVICE_INDEX_FRAGMENTS: "true"
     incoming:
       pages:
-        topic: inboxes/pages
+        topic: relays/pages
       fragments:
-        topic: inboxes/fragments
+        topic: relays/fragments
     outgoing:
       indexable-resources:
         topic: outboxes/indexable-resources

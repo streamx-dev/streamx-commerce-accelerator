@@ -2,7 +2,9 @@
   "key": "cat:Accent Furniture",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -15,7 +17,9 @@
   "key": "cat:Bar & Serving Carts",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -28,7 +32,9 @@
   "key": "cat:Bar Cabinets",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -41,7 +47,9 @@
   "key": "cat:Bar Sets",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -54,7 +62,9 @@
   "key": "cat:Barstools",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -67,7 +77,9 @@
   "key": "cat:Bed Frames",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -80,7 +92,9 @@
   "key": "cat:Bedroom Armoires",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -93,7 +107,9 @@
   "key": "cat:Bedroom Furniture",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -106,7 +122,9 @@
   "key": "cat:Beds",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -119,7 +137,9 @@
   "key": "cat:Beds, Frames & Bases",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -132,7 +152,9 @@
   "key": "cat:Bookcases",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -145,7 +167,9 @@
   "key": "cat:Bookcases, Cabinets & Shelves",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -158,7 +182,9 @@
   "key": "cat:Box Springs",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -171,7 +197,9 @@
   "key": "cat:Buffets & Sideboards",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -184,7 +212,9 @@
   "key": "cat:Chairs",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -197,7 +227,9 @@
   "key": "cat:Chaise Lounges",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -210,7 +242,9 @@
   "key": "cat:China Cabinets",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -223,7 +257,9 @@
   "key": "cat:Coffee Tables",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -236,7 +272,9 @@
   "key": "cat:Dressers",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -249,7 +287,9 @@
   "key": "cat:End Tables",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -262,7 +302,9 @@
   "key": "cat:Entryway Furniture",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -275,7 +317,9 @@
   "key": "cat:Featured",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -288,7 +332,9 @@
   "key": "cat:Folding Chairs",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -301,7 +347,9 @@
   "key": "cat:Folding Tables",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -314,7 +362,9 @@
   "key": "cat:Furniture",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -327,7 +377,9 @@
   "key": "cat:Gliders",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -340,7 +392,9 @@
   "key": "cat:Headboards",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -353,7 +407,9 @@
   "key": "cat:Home Bar Furniture",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -366,7 +422,9 @@
   "key": "cat:Home Office Cabinets",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -379,7 +437,9 @@
   "key": "cat:Home Office Chairs",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -392,7 +452,9 @@
   "key": "cat:Home Office Desk Chairs",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -405,7 +467,9 @@
   "key": "cat:Home Office Desks",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -418,7 +482,9 @@
   "key": "cat:Home Office Furniture",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -431,7 +497,9 @@
   "key": "cat:Kids' Furniture",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -444,7 +512,9 @@
   "key": "cat:Kitchen & Dining Room Furniture",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -457,7 +527,9 @@
   "key": "cat:Kitchen Islands & Carts",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -470,7 +542,9 @@
   "key": "cat:Living Room Furniture",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -483,7 +557,9 @@
   "key": "cat:Living Room Sets",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -496,7 +572,9 @@
   "key": "cat:Mattresses",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -509,7 +587,9 @@
   "key": "cat:Mattresses & Box Springs",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -522,7 +602,9 @@
   "key": "cat:Media Storage",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -535,7 +617,9 @@
   "key": "cat:Nesting Tables",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -548,7 +632,9 @@
   "key": "cat:Nightstands",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -561,7 +647,9 @@
   "key": "cat:Ottomans",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -574,7 +662,9 @@
   "key": "cat:Recliners",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -587,7 +677,9 @@
   "key": "cat:Sofa & Console Tables",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -600,7 +692,9 @@
   "key": "cat:Sofas",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -613,7 +707,9 @@
   "key": "cat:Sofas & Couches",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -626,7 +722,9 @@
   "key": "cat:Storage Benches",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -639,7 +737,9 @@
   "key": "cat:Storage Cabinets",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -652,7 +752,9 @@
   "key": "cat:Storage Chests",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -665,7 +767,9 @@
   "key": "cat:Table & Chair Sets",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -678,7 +782,9 @@
   "key": "cat:Table Benches",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -691,7 +797,9 @@
   "key": "cat:Tables",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -704,7 +812,9 @@
   "key": "cat:Television Stands & Entertainment Centers",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -717,7 +827,9 @@
   "key": "cat:Vanities",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -730,7 +842,9 @@
   "key": "cat:Vanities & Vanity Benches",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -743,7 +857,9 @@
   "key": "cat:Vanity Benches",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {
@@ -756,7 +872,9 @@
   "key": "cat:Video Game Chairs",
   "action": "publish",
   "eventTime": null,
-  "properties": {},
+  "properties": {
+    "sx:type": "data/category"
+  },
   "payload": {
     "dev.streamx.blueprints.data.Data": {
       "content": {

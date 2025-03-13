@@ -2,6 +2,9 @@ channel: assets
 relativePathLevel: 1
 key: /${relativePath}
 
+properties:
+  "sx:type": asset
+
 payload:
   content:
     bytes: file://${payloadPath}

@@ -9,7 +9,8 @@ Content-Type: application/json
       \"_source\": [
         \"_id\",
         \"payload.*\",
-        \"type\"
+        \"type\",
+        \"namespace\"
       ],
       \"query\": {
         \"bool\": {
@@ -27,6 +28,16 @@ Content-Type: application/json
               }
             }
             {{/type}}
+            {{#namespace}},
+            {
+              \"prefix\": {
+                \"namespace.keyword\": {
+                  \"case_insensitive\":true,
+                  \"value\":\"{{namespace}}\"
+                }
+              }
+            }
+            {{/namespace}}
             {{#id}},
             {
               \"wildcard\": {
