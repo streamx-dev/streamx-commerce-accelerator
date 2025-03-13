@@ -1,6 +1,9 @@
 channel: compositions
 relativePathLevel: 0
 
+properties:
+  "sx:type": page/content-page
+
 key: /${relativePath}
 payload:
   content:
