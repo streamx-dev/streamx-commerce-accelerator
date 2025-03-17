@@ -1,26 +1,20 @@
 <section class="container bg-white mx-auto">
   <div class="py-16 sm:py-24 px-8">
 
-    {% capture random %}{{ 'now' | date: "%09N" | modulo: values|length - 1 }}{% endcapture %}
-
-    <h2 class="text-3xl font-bold tracking-tight text-gray-900">Picked for you {{random}}</h2>
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900">Picked for you</h2>
     <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
       {% for i in range(0, values|length - 1) %}
       <li>
         <div class="flex flex-col">
           <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
             <picture class="m-auto w-full object-contain">
-              <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-              <source media="(min-width: 640px) and (max-width: 767px)"
-                      srcset="../assets/274x366.webp">
-              <source media="(min-width: 768px) and (max-width: 1023px)"
-                      srcset="../assets/338x452.webp">
-              <source media="(min-width: 1024px) and (max-width: 1279px)"
-                      srcset="../assets/214x286.webp">
-              <source media="(min-width: 1280px) and (max-width: 1535px)"
-                      srcset="../assets/278x372.webp">
-              <source media="(min-width: 1536px)" srcset="{{ values[i].primaryImage.url }}">
-              <img alt="" class="" loading="lazy" src="../assets/573x765.webp"/>
+              <source media="(max-width: 639px)" srcset="{{ values[i].primaryImage.url | replace({'original': 'webp', '.jpg': '_573x765.webp'}) }}">
+              <source media="(min-width: 640px) and (max-width: 767px)" srcset="{{ values[i].primaryImage.url | replace({'original': 'webp', '.jpg': '_274x366.webp'}) }}">
+              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="{{ values[i].primaryImage.url | replace({'original': 'webp', '.jpg': '_338x452.webp'}) }}">
+              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="{{ values[i].primaryImage.url | replace({'original': 'webp', '.jpg': '_214x286.webp'}) }}">
+              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="{{ values[i].primaryImage.url | replace({'original': 'webp', '.jpg': '_278x372.webp'}) }}">
+              <source media="(min-width: 1536px)" srcset="{{ values[i].primaryImage.url | replace({'original': 'webp', '.jpg': '_573x765.webp'}) }}">
+              <img alt="" class="" loading="lazy" src="{{ values[i].primaryImage.url | replace({'original': 'webp', '.jpg': '_573x765.webp'}) }}"/>
             </picture>
           </figure>
           <div class="mt-4 flex gap-y-2 flex-wrap">

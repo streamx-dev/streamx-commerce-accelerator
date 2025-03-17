@@ -18,12 +18,14 @@
         </ol>
       </nav>
     </nav>
-    <h1 class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6">{{name | raw}}</h1>
+    <h1 class="text-4xl lg:text-[40px] leading-[60px] font-bold tracking-tight text-gray-800 mb-6">
+      {{name | raw}}</h1>
     <div class="lg:grid lg:grid-cols-5 lg:gap-5">
       <div class="col-span-3 w-full p-4">
         <figure>
-          <picture class="aspec-[5/3]">
-            <img class="m-auto max-h-[500px] object-contain" src="{{primaryImage.url}}" alt="{{primaryImage.alt}}" loading="eager"/>
+          <picture>
+            <img class="m-auto md:max-h-[700px] md:min-h-[700px] object-contain" src="{{primaryImage.url}}"
+                 alt="{{primaryImage.alt}}" loading="eager"/>
           </picture>
         </figure>
         <div class="flex flex-row gap-4 m-auto w-fit p-6">
@@ -31,7 +33,8 @@
           {% if loop.index <= 5 %}
           <figure>
             <picture class="aspect-square w-20 flex">
-              <img class="w-full object-contain" src="{{ image.url }}" alt="{{ image.alt }}" loading="eager">
+              <img class="w-full object-contain" src="{{ image.url }}" alt="{{ image.alt }}"
+                   loading="eager">
             </picture>
           </figure>
           {% endif %}
@@ -46,11 +49,11 @@
         <p class="text-base text-zinc-300">
           {{id}}
         </p>
-        <hr class="my-4 md:my-6 border-gray-200" />
+        <hr class="my-4 md:my-6 border-gray-200"/>
         <p class="text-gray-500">
           {{description | raw}}
         </p>
-        <hr class="my-4 md:my-6 border-gray-200" />
+        <hr class="my-4 md:my-6 border-gray-200"/>
         {% if price.value %}
         <div class="flex flex-row py-4 items-center gap-3">
           <p class="text-lg font-bold">
@@ -59,7 +62,8 @@
           <h2 class="price-text-color text-5xl font-bold">{{price.value}}&euro;</h2>
         </div>
         {% endif %}
-        <button type="submit" class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center">
+        <button type="submit"
+                class="inline-block w-full bg-neutral-700 hover:bg-neutral-800 text-neutral-100 px-4 rounded-sm font-xl font-medium items-center">
           <span class="leading-[40px]">Buy now</span>
           <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
           </span>
@@ -111,63 +115,88 @@
       </ul>
     </div>
     <div class="px-8">
-      <h4 class="text-3xl font-bold text-gray-800 mb-6">Related Articles</h2>
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div class="bg-white flex flex-col items-start">
-            <figure class="w-full mb-5">
-              <picture class="aspect-[2/3] object-cover">
-                  <source media="(max-width: 639px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_575x863.webp">
-                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_276x414.webp">
-                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_340x510.webp">
-                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_204x306.webp">
-                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_268x402.webp">
-                  <source media="(min-width: 1536px)" srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_332x498.webp">
-                  <img class="rounded" src="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_575x863.webp" loading="lazy" alt=""/>
-              </picture>
-            </figure>
-            <p class="text-lg font-bold text-gray-800 mb-5">
-                Work From Home Oasis: Creating a Productive Workspace
-            </p>
-            <p class="text-sm text-gray-600 mb-5">
-                To embark on a decluttering journey, start with a clear vision. Consider what truly matters to you and what you want your space to reflect. Begin with the basics: sorting through possessions and letting go of items that no longer serve a purpose. The "less is more" mantra becomes your guiding principle as you free your living area from excess.
-            </p>
-            <p class="text-sm text-gray-600 mb-5">
-                Susannah Meyer Jul 21 3 min read
-            </p>
-              <a href="/articles/article8.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+      <h4 class="text-3xl font-bold text-gray-800 mb-6">Related Articles</h4>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-white flex flex-col items-start">
+          <figure class="w-full mb-5">
+            <picture class="aspect-[2/3] object-cover">
+              <source media="(max-width: 639px)"
+                      srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_575x863.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)"
+                      srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_276x414.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)"
+                      srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_340x510.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)"
+                      srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_204x306.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)"
+                      srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_268x402.webp">
+              <source media="(min-width: 1536px)"
+                      srcset="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_332x498.webp">
+              <img class="rounded"
+                   src="../assets/blog/article8/media_17311eec63c8923e69ccd0b0b46bfa9784fc379a2_575x863.webp"
+                   loading="lazy" alt=""/>
+            </picture>
+          </figure>
+          <p class="text-lg font-bold text-gray-800 mb-5">
+            Work From Home Oasis: Creating a Productive Workspace
+          </p>
+          <p class="text-sm text-gray-600 mb-5">
+            To embark on a decluttering journey, start with a clear vision. Consider what truly
+            matters to you and what you want your space to reflect. Begin with the basics: sorting
+            through possessions and letting go of items that no longer serve a purpose. The "less is
+            more" mantra becomes your guiding principle as you free your living area from excess.
+          </p>
+          <p class="text-sm text-gray-600 mb-5">
+            Susannah Meyer Jul 21 3 min read
+          </p>
+          <a href="/articles/article8.html"
+             class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
                 <span class="inline-block w-auto">
                   <i class="mdi fa-lg mdi-arrow-right" aria-hidden="false"></i>
                 </span>
-            </a>
-          </div>
-          <div class="bg-white flex flex-col items-start">
-            <figure class="w-full mb-5">
-              <picture class="aspect-[2/3] object-cover">
-                  <source media="(max-width: 639px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_575x863.webp">
-                  <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_276x414.webp">
-                  <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_340x510.webp">
-                  <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_204x306.webp">
-                  <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_268x402.webp">
-                  <source media="(min-width: 1536px)" srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_332x498.webp">
-                  <img class="rounded" src="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_575x863.webp" loading="lazy" alt=""/>
-              </picture>
-            </figure>
-            <p class="text-lg font-bold text-gray-800 mb-5">
-                Apartment Therapy: Reversible Design Hacks for Renters
-            </p>
-            <p class="text-sm text-gray-600 mb-5">
-                In an ever-changing world, where life's pace often feels like a frenzied sprint, the minimalism movement has gained momentum. This trend towards simplifying life, both physically and mentally, has found its place in the hearts and homes of many. Join me on a journey to discover the art of decluttering and how it can transform your living spaces into havens of peace and serenity.
-            </p>
-            <p class="text-sm text-gray-600 mb-5">
-                Sarah Mitchell Mar 26 2025 3 min read
-            </p>
-              <a href="/articles/article7.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
-                <span class="inline-block w-auto">
-                  <i class="mdi fa-lg mdi-arrow-right" aria-hidden="false"></i>
-                </span>
-            </a>
-          </div>
+          </a>
         </div>
+        <div class="bg-white flex flex-col items-start">
+          <figure class="w-full mb-5">
+            <picture class="aspect-[2/3] object-cover">
+              <source media="(max-width: 639px)"
+                      srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_575x863.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)"
+                      srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_276x414.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)"
+                      srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_340x510.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)"
+                      srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_204x306.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)"
+                      srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_268x402.webp">
+              <source media="(min-width: 1536px)"
+                      srcset="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_332x498.webp">
+              <img class="rounded"
+                   src="../assets/blog/article7/media_1c28fdb7f15fec661809a916b0ff08bd5a02da5ec_575x863.webp"
+                   loading="lazy" alt=""/>
+            </picture>
+          </figure>
+          <p class="text-lg font-bold text-gray-800 mb-5">
+            Apartment Therapy: Reversible Design Hacks for Renters
+          </p>
+          <p class="text-sm text-gray-600 mb-5">
+            In an ever-changing world, where life's pace often feels like a frenzied sprint, the
+            minimalism movement has gained momentum. This trend towards simplifying life, both
+            physically and mentally, has found its place in the hearts and homes of many. Join me on
+            a journey to discover the art of decluttering and how it can transform your living
+            spaces into havens of peace and serenity.
+          </p>
+          <p class="text-sm text-gray-600 mb-5">
+            Sarah Mitchell Mar 26 2025 3 min read
+          </p>
+          <a href="/articles/article7.html"
+             class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+                <span class="inline-block w-auto">
+                  <i class="mdi fa-lg mdi-arrow-right" aria-hidden="false"></i>
+                </span>
+          </a>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -184,19 +213,26 @@
         <div class="flex flex-col">
           <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
             <picture class="m-auto w-full object-contain">
-              <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
-              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
-              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
-              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-              <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+              <source media="(max-width: 639px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/A1/A1oAzyyESmL_573x765.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/A1/A1oAzyyESmL_274x366.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/A1/A1oAzyyESmL_338x452.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/A1/A1oAzyyESmL_214x286.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/A1/A1oAzyyESmL_278x372.webp">
+              <source media="(min-width: 1536px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/A1/A1oAzyyESmL_573x765.webp">
+              <img alt="" class="" loading="lazy"
+                   src="https://storage.googleapis.com/puresight-pim-images/webp/A1/A1oAzyyESmL_573x765.webp">
             </picture>
           </figure>
           <div class="mt-4 flex gap-y-2 flex-wrap">
             <div class="flex flex-row items-center flex-grow w-full">
               <p class="text-base font-bold text-gray-700 truncate flex-grow">
-                SCOPIC ltd
+                Hoffman Down-Fill...
               </p>
               <div class="flex items-center flex-shrink-0">
                 <i class="mdi mdi-star " aria-hidden="true"></i>
@@ -208,9 +244,10 @@
             </div>
             <div class="flex flex-row items-center flex-grow w-full">
               <p class="text-base font-bold price-text-color truncate flex-grow">
-                4500&euro;
+                360&euro;
               </p>
-              <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+              <a href="/products/hoffman-down-filled-performance-fabric-oversized-arm-chair-59-w-grey-tweed-b0728nw8c4.html"
+                 class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
                     <span class="inline-block w-auto">
                       <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
                     </span>
@@ -223,19 +260,26 @@
         <div class="flex flex-col">
           <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
             <picture class="m-auto w-full object-contain">
-              <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
-              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
-              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
-              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-              <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+              <source media="(max-width: 639px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/91/91Af2N7XoiL_573x765.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/91/91Af2N7XoiL_274x366.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/91/91Af2N7XoiL_338x452.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/91/91Af2N7XoiL_214x286.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/91/91Af2N7XoiL_278x372.webp">
+              <source media="(min-width: 1536px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/91/91Af2N7XoiL_573x765.webp">
+              <img alt="" class="" loading="lazy"
+                   src="https://storage.googleapis.com/puresight-pim-images/webp/91/91Af2N7XoiL_573x765.webp">
             </picture>
           </figure>
           <div class="mt-4 flex gap-y-2 flex-wrap">
             <div class="flex flex-row items-center flex-grow w-full">
               <p class="text-base font-bold text-gray-700 truncate flex-grow">
-                SCOPIC ltd
+                Bradbury Chesterf...
               </p>
               <div class="flex items-center flex-shrink-0">
                 <i class="mdi mdi-star " aria-hidden="true"></i>
@@ -247,9 +291,10 @@
             </div>
             <div class="flex flex-row items-center flex-grow w-full">
               <p class="text-base font-bold price-text-color truncate flex-grow">
-                6700&euro;
+                211&euro;
               </p>
-              <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+              <a href="/products/bradbury-chesterfield-tufted-loveseat-sofa-couch-78-7-w-hemp-b0723h8jnn.html"
+                 class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
                     <span class="inline-block w-auto">
                       <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
                     </span>
@@ -262,19 +307,26 @@
         <div class="flex flex-col">
           <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
             <picture class="m-auto w-full object-contain">
-              <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
-              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
-              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
-              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-              <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+              <source media="(max-width: 639px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71E70RfLk7L_573x765.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71E70RfLk7L_274x366.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71E70RfLk7L_338x452.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71E70RfLk7L_214x286.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71E70RfLk7L_278x372.webp">
+              <source media="(min-width: 1536px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71E70RfLk7L_573x765.webp">
+              <img alt="" class="" loading="lazy"
+                   src="https://storage.googleapis.com/puresight-pim-images/webp/71/71E70RfLk7L_573x765.webp">
             </picture>
           </figure>
           <div class="mt-4 flex gap-y-2 flex-wrap">
             <div class="flex flex-row items-center flex-grow w-full">
               <p class="text-base font-bold text-gray-700 truncate flex-grow">
-                SCOPIC ltd
+                Leila Tufted Leat...
               </p>
               <div class="flex items-center flex-shrink-0">
                 <i class="mdi mdi-star " aria-hidden="true"></i>
@@ -286,9 +338,10 @@
             </div>
             <div class="flex flex-row items-center flex-grow w-full">
               <p class="text-base font-bold price-text-color truncate flex-grow">
-                2500&euro;
+                208&euro;
               </p>
-              <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+              <a href="/products/leila-tufted-leather-sofa-couch-88-w-sod-b07p5lmg2f.html"
+                 class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
                     <span class="inline-block w-auto">
                       <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
                     </span>
@@ -301,19 +354,26 @@
         <div class="flex flex-col">
           <figure class="w-full border-neutral-200 border aspect-[3/4] flex">
             <picture class="m-auto w-full object-contain">
-              <source media="(max-width: 639px)" srcset="../assets/573x765.webp">
-              <source media="(min-width: 640px) and (max-width: 767px)" srcset="../assets/274x366.webp">
-              <source media="(min-width: 768px) and (max-width: 1023px)" srcset="../assets/338x452.webp">
-              <source media="(min-width: 1024px) and (max-width: 1279px)" srcset="../assets/214x286.webp">
-              <source media="(min-width: 1280px) and (max-width: 1535px)" srcset="../assets/278x372.webp">
-              <source media="(min-width: 1536px)" srcset="../assets/342x457.webp">
-              <img class="" src="../assets/573x765.webp" loading="lazy" alt=""/>
+              <source media="(max-width: 639px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71UOS4lKTKL_573x765.webp">
+              <source media="(min-width: 640px) and (max-width: 767px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71UOS4lKTKL_274x366.webp">
+              <source media="(min-width: 768px) and (max-width: 1023px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71UOS4lKTKL_338x452.webp">
+              <source media="(min-width: 1024px) and (max-width: 1279px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71UOS4lKTKL_214x286.webp">
+              <source media="(min-width: 1280px) and (max-width: 1535px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71UOS4lKTKL_278x372.webp">
+              <source media="(min-width: 1536px)"
+                      srcset="https://storage.googleapis.com/puresight-pim-images/webp/71/71UOS4lKTKL_573x765.webp">
+              <img alt="" class="" loading="lazy"
+                   src="https://storage.googleapis.com/puresight-pim-images/webp/71/71UOS4lKTKL_573x765.webp">
             </picture>
           </figure>
           <div class="mt-4 flex gap-y-2 flex-wrap">
             <div class="flex flex-row items-center flex-grow w-full">
               <p class="text-base font-bold text-gray-700 truncate flex-grow">
-                SCOPIC ltd
+                Lauren Down-Fille...
               </p>
               <div class="flex items-center flex-shrink-0">
                 <i class="mdi mdi-star " aria-hidden="true"></i>
@@ -325,9 +385,10 @@
             </div>
             <div class="flex flex-row items-center flex-grow w-full">
               <p class="text-base font-bold price-text-color truncate flex-grow">
-                12500&euro;
+                483&euro;
               </p>
-              <a href="/products/hoffman-down-filled-performance-fabric-living-room-sectional-sofa-couch-127-w-ecru-b071fmsynh.html" class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
+              <a href="/products/lauren-down-filled-oversized-loveseat-with-hardwood-frame-74-w-pepper-b07p8sv586.html"
+                 class="flex-shrink-0 px-2 py-1 w-fit bg-neutral-700 hover:bg-neutral-800 text-neutral-100 rounded-sm">
                     <span class="inline-block w-auto">
                       <i class="mdi mdi-24px mdi-cart-outline" aria-hidden="false"></i>
                     </span>
