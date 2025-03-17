@@ -227,6 +227,7 @@ delivery:
       QUARKUS_ELASTICSEARCH_USERNAME: "admin"
       QUARKUS_ELASTICSEARCH_HOSTS: "blueprint-search.opensearch:9201"
       STREAMX_BLUEPRINTS_OPENSEARCH-DELIVERY-SERVICE_MIGRATION-SCRIPT-LOCATIONS: "classpath:opensearch/service-init,file:opensearch/service-init"
+      STREAMX_BLUEPRINTS_OPENSEARCH-DELIVERY-SERVICE_TYPE-REQUIRED: "false"
     environmentFrom:
       secrets:
         - "opensearch-secrets.properties"

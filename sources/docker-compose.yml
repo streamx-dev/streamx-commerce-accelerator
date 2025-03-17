@@ -1,0 +1,44 @@
+services:
+
+  aem-author-cloud:
+    environment:
+      AEM_DIR: /opt/aem/author
+      AEM_TYPE: cloud
+      RUN_MODES: author,nosamplecontent,local,author-local,docker
+      AEM_PORT: 4502
+      DEBUG_PORT: 8888
+      LICENSE_KEY: ${LICENSE_KEY:-}
+      SECRETS_DIR: /mnt/secrets
+      STREAMX_CLIENT_URL: ${STREAMX_CLIENT_URL:-http://host.docker.internal:8080}
+      STREAMX_CLIENT_AUTH_TOKEN: ${STREAMX_CLIENT_AUTH_TOKEN:-}
+      STREAMX_REFERENCES_SEARCH_REGEXES: "(/content[^\"'\\s]*\\.coreimg\\.[^\"'\\s]*),(/content/dam/puresight[^\"'\\s]*\\.png[^\"'\\s]*),url\\(&#39;(/content/dam[^\"'\\s]*\\.png[^\"'\\s]*)&#,(/[^\"'\\s]*etc\\.clientlibs[^\"'\\s]*)"
+      STREAMX_LOG_LEVEL: "DEBUG"
+    image: aem-author-cloud:latest
+    container_name: aem-author-cloud
+    volumes:
+      - type: volume
+        source: aem-author-cloud-data
+        target: /opt/aem/author/crx-quickstart
+    # exec is required in order to set the Java process as PID 1 inside the container, since Docker sends
+    # termination signals only to PID 1, and we need those signals to be handled by the java process:
+    entrypoint: [ "sh", "-c", "exec $$AEM_DIR/aem-starter.sh" ]
+    # Grace period should be long enough so that the JCR is closed correctly and doesn't get corrupted:
+    stop_grace_period: 300s
+    hostname: aem-author
+    networks:
+      - aem-network
+    ports:
+      - target: 4502
+        published: 4502
+        protocol: tcp
+        mode: host
+
+volumes:
+  aem-author-cloud-data:
+    name: "aem-author-cloud-data"
+
+networks:
+  aem-network:
+    driver: bridge
+    # This name is required to avoid name prefixing by Docker:
+    name: aem-network
