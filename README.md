@@ -2,6 +2,13 @@
 
 ## Overview
 
+The PureSight demo showcases an example usage of StreamX as a complete web solution.
+
+![Demo Architecture](./assets/demo.png "Demo Architecture")
+
+Source systems setup may be out of scope of this repository.
+The repo is based on StreamX Commerce Accelerator.
+
 StreamX Commerce Accelerator is a project designed to streamline the setup of new e-commerce
 projects, enabling the rapid creation and deployment of commerce websites. The project structure is
 modular and organized into specific directories and files to facilitate development, deployment, and
