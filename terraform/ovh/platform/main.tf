@@ -1,3 +1,19 @@
+# Copyright 2025 Dynamic Solutions Sp. z o.o. sp.k.
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+
 module "cluster" {
   source = "/Users/andrzej/repo/terraform-ovh-platform/modules/cluster"
   service_name            = var.service_name
@@ -21,7 +37,7 @@ locals {
 
 module "streamx" {
   source  = "streamx-dev/charts/helm"
-  version = "0.0.1"
+  version = "0.0.4"
 
   cert_manager_lets_encrypt_issuer_acme_email = var.cert_manager_lets_encrypt_issuer_acme_email
   ingress_controller_nginx_settings           = var.public_ip_address == null || var.public_ip_address == "" ? local.ingress_controller_nginx_settings_without_static_ip : local.ingress_controller_nginx_settings_with_static_ip
