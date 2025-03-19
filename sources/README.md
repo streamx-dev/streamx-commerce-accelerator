@@ -2,7 +2,7 @@
 
 The steps below show how to run locally an AEMaaCS image that has embedded PureSight, WKND, and the AEM Connector.
 
-1. Download the `aem-author-cloud.tar.gz` file with the image from Google Drive: https://drive.google.com/file/d/1-AE3_fdaJiZMxCvr9t5in6Ig3bhhPSPX/view?usp=drive_link.
+1. Download the `aem-author-cloud.tar.gz` file with the image from Google Drive: https://drive.google.com/file/d/1XJXIlGntz5h-cI0ltFPq-zrEjQNcPeMh/view?usp=drive_link.
 
 2. Load the downloaded image:
    ```bash

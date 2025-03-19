@@ -32,7 +32,7 @@ docker volume rm -f aem-author-cloud-data 2>/dev/null
 docker network rm aem-network 2>/dev/null
 
 echo "Starting AEM container with:"
-echo "  STREAMX_CLIENT_URL:       $STREAMX_CLIENT_URL"
+echo "  STREAMX_CLIENT_URL:        $STREAMX_CLIENT_URL"
 echo "  STREAMX_CLIENT_AUTH_TOKEN: [HIDDEN]"
 
 docker compose -f "$dockerComposeFile" up -d
