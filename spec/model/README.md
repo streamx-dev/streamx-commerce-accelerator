@@ -84,6 +84,7 @@ ref: "#/definitions/SxCategory"
 | slug          | String *         | URL friendly name, uniquely identifying category item                   |    
 | name          | String *         | title of the category                                                   |
 | label         | String           | label of the category                                                   |
+| path          | String           | full path of the category, including all parent category names          |
 | parent        | SxCategory       | parent category data, limited to required values only                   |
 | subcategories | \[ SxCategory \] | actual item sub-elements data (if any), limited to required values only |
 

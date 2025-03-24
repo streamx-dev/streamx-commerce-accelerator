@@ -147,7 +147,8 @@
       "required": [
         "id",
         "slug",
-        "name"
+        "name",
+        "path"
       ],
       "properties": {
         "id": {
@@ -160,6 +161,9 @@
           "type": "string"
         },
         "label": {
+          "type": "string"
+        },
+        "path": {
           "type": "string"
         },
         "parent": {
