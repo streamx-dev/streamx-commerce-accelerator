@@ -125,7 +125,7 @@ processing:
     image: message-converter-processing-service
     incoming:
       data:
-        topic: inboxes/data,relays/aggregated-data
+        topic: relays/aggregated-data
     outgoing:
       indexable-resources:
         topic: outboxes/indexable-resources

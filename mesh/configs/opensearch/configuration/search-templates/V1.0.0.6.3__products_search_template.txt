@@ -18,6 +18,9 @@ Content-Type: application/json
       \"query\": {
         \"bool\": {
           \"filter\": [
+            {
+              \"term\": { \"type.keyword\": \"data/product\" }
+            },
             {{#filter_category}}
             {
               \"terms\": {
