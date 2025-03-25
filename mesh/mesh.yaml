@@ -2,6 +2,17 @@ defaultRegistry: ghcr.io/streamx-dev/streamx-blueprints
 defaultImageTag: 2.0.0-jvm
 
 sources:
+  github:
+    outgoing:
+      - "pages"
+      - "fragments"
+      - "assets"
+      - "web-resources"
+      - "data"
+      - "renderers"
+      - "rendering-contexts"
+      - "layouts"
+      - "compositions"
   pim:
     outgoing:
       - "data"
