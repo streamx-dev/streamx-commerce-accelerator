@@ -31,4 +31,11 @@ jobs:
           STREAMX_GH_AUTH_TOKEN:
             ${{ secrets.STREAMX_GH_AUTH_TOKEN }}
         run: |
+          if [ -z "$STREAMX_GH_AUTH_TOKEN" ]; then
+            echo "Error: STREAMX_GH_AUTH_TOKEN is not set. Please configure the GitHub secret."
+            exit 1
+          fi
+
+          github_token=$(echo "$STREAMX_GH_AUTH_TOKEN" | yq e '.data.jwt' - | base64 --decode)
+          echo "%github.streamx.ingestion.auth-token=$github_token" >> .env
           terraform/scripts/cloud-publish-all.sh
