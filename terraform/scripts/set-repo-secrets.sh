@@ -34,3 +34,7 @@ fi
 if [[ -n "$TF_VAR_monitoring_grafana_admin_password" ]]; then
     gh secret set TF_VAR_MONITORING_GRAFANA_ADMIN_PASSWORD -b "$TF_VAR_monitoring_grafana_admin_password"
 fi
+
+if [[ -n "$STREAMX_GH_AUTH_TOKEN" ]]; then
+    gh secret set STREAMX_GH_AUTH_TOKEN -b "$STREAMX_GH_AUTH_TOKEN"
+fi
