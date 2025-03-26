@@ -11,7 +11,7 @@ if ! grep -q "%github.streamx.ingestion.auth-token" "$SCRIPT_DIR/../../.env"; th
     echo "STREAMX_GH_AUTH_TOKEN secret not present. Make sure your GH repository secret is configured"
     exit 1
   else
-    github_token=$(echo "$STREAMX_GH_AUTH_TOKEN" | yq e '.data.jwt' -)
+    github_token=$(echo "$STREAMX_GH_AUTH_TOKEN" | yq e '.data.jwt' - | base64 --decode)
     echo "%github.streamx.ingestion.auth-token=$github_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
   fi
 fi
