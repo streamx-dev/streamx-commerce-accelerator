@@ -6,12 +6,14 @@ if [ -e "$SCRIPT_DIR/../azure/.env" ]; then
   source "$SCRIPT_DIR/read-infra-env.sh" "$SCRIPT_DIR/../azure/.env"
 fi
 
-if [ -z "$STREAMX_GH_AUTH_TOKEN" ]; then
-  echo "STREAMX_GH_AUTH_TOKEN secret not present. Make sure your GH repository secret is configured"
-  exit 1
-else
-  github_token=$(echo "$STREAMX_GH_AUTH_TOKEN" | yq e '.data.jwt' -)
-  echo "%github.streamx.ingestion.auth-token=$github_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
+if ! grep -q "%github.streamx.ingestion.auth-token" "$SCRIPT_DIR/../../.env"; then
+  if [ -z "$STREAMX_GH_AUTH_TOKEN" ]; then
+    echo "STREAMX_GH_AUTH_TOKEN secret not present. Make sure your GH repository secret is configured"
+    exit 1
+  else
+    github_token=$(echo "$STREAMX_GH_AUTH_TOKEN" | yq e '.data.jwt' -)
+    echo "%github.streamx.ingestion.auth-token=$github_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
+  fi
 fi
 
 pushd "${SCRIPT_DIR}/../../" || exit
