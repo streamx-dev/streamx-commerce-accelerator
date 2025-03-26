@@ -6,6 +6,11 @@ on:
       environment_size:
         required: true
         type: string
+      load_initial_data:
+        description: "Load initial data"
+        required: false
+        type: boolean
+        default: false
     secrets:
       SX_SEC_AUTH_PRIVATE_KEY:
         required: false
@@ -141,7 +146,7 @@ jobs:
           echo "streamx_ingress_ip=$(terraform -chdir=./terraform/azure/platform output -raw loadbalancer_ip)" >> $GITHUB_OUTPUT
 
       - name: "Ingest content"
-        run: terraform/scripts/cloud-publish-all.sh
+        run: terraform/scripts/cloud-publish-initial.sh load-init-data=${{ inputs.load_initial_data }}
 
       - name: "Create Job Summary"
         env:

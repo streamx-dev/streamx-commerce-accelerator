@@ -193,6 +193,7 @@ All commands in this document should be executed from the terraform directory.
            *  `REST_INGESTION_TLS_CERT`
            *  `GRAFANA_TLS_CERT`
            *  `TF_VAR_MONITORING_GRAFANA_ADMIN_PASSWORD`
+           *  `STREAMX_GH_AUTH_TOKEN` - this can be setup after first streamx deployment
    > **Note:** This step can be done manually using values from
    > [`azure/.env`](azure/.env) or using
    > [set-repo-secrets.sh](.github/scripts/set-repo-secrets.sh)
@@ -259,8 +260,9 @@ Prerequisites:
 1. Select `Azure: Deploy StreamX` GH Action.
 2. Click `Run workflow`
 3. Select branch which should be used for deployment.
-4. Click `Run workflow`
-5. After successful deployment check GH Action Summary for site URL.
+4. Select `Load initial data` if you have initial data dump which needs to be ingested. To be used after cluster destroy.
+5. Click `Run workflow`
+6. After successful deployment check GH Action Summary for site URL.
 
 > **Note:** This GitHub Action can be run multiple times without issues. It ensures that your
 > infrastructure and StreamX Mesh are always up to date.
@@ -268,6 +270,7 @@ Prerequisites:
 > What It Does:
 > * Creates or updates infrastructure on Azure
 > * Creates or updates StreamX Mesh
+> * Ingest all initial data if needed
 > * Ingests all data from the source code
 >
 > This action is idempotent, meaning you can run it repeatedly to apply the latest changes without
@@ -278,6 +281,15 @@ Prerequisites:
 1. Select `Azure: Undeploy StreamX` GH Action.
 2. Click `Run workflow`
 3. Select branch which should be used for deployment.
+4. Click `Run workflow`
+
+### Content ingestion using GH Action
+
+This action requires `STREAMX_GH_AUTH_TOKEN` to be setup for GH repository secret.
+
+1. Select `Azure: Ingest content`
+2. Click `Run workflow`
+3. Select branch which should be used for ingestion.
 4. Click `Run workflow`
 
 ## Troubleshooting

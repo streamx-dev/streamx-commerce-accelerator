@@ -34,5 +34,7 @@ cms_token=$(kubectl get secrets sx-sec-auth-jwt-cms -o jsonpath  -o jsonpath="{.
 echo "%cms.streamx.ingestion.auth-token=$cms_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
 pim_token=$(kubectl get secrets sx-sec-auth-jwt-pim -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)
 echo "%pim.streamx.ingestion.auth-token=$pim_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
+github_token=$(kubectl get secrets sx-sec-auth-jwt-github -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)
+echo "%github.streamx.ingestion.auth-token=$github_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
 
 echo "Cloud environment is ready for data ingestion."

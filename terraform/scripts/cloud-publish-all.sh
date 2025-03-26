@@ -1,8 +1,33 @@
+#!/bin/bash
+set -e
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -e "$SCRIPT_DIR/../azure/.env" ]; then
+  source "$SCRIPT_DIR/read-infra-env.sh" "$SCRIPT_DIR/../azure/.env"
+fi
+
+if [ -z "$STREAMX_GH_AUTH_TOKEN" ]; then
+  echo "STREAMX_GH_AUTH_TOKEN secret not present. Make sure your GH repository secret is configured"
+  exit 1
+else
+  github_token=$(echo "$STREAMX_GH_AUTH_TOKEN" | yq e '.data.jwt' -)
+  echo "%github.streamx.ingestion.auth-token=$github_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
+fi
+
 pushd "${SCRIPT_DIR}/../../" || exit
 
-export QUARKUS_PROFILE=cloud,cms && streamx batch publish data
-export QUARKUS_PROFILE=cloud,pim && streamx stream data data/catalog/products.stream
-export QUARKUS_PROFILE=cloud,pim && streamx stream data data/catalog/categories.stream
+if [ "$1" == "load-init-data=true" ]; then
+  for file in data/initial/*; do
+    if [ -f "$file" ]; then
+      filename=$(basename "$file" .stream)
+      export QUARKUS_PROFILE=cloud,github && streamx stream "$filename" "$file"
+    fi
+  done
+  echo "Initial data ingestion completed"
+fi
+
+export QUARKUS_PROFILE=cloud,github && streamx batch publish data
+export QUARKUS_PROFILE=cloud,github && streamx stream data data/catalog/products.stream
+export QUARKUS_PROFILE=cloud,github && streamx stream data data/catalog/categories.stream
 
 popd || exit
