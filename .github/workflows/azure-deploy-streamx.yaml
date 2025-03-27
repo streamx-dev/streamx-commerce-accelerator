@@ -9,8 +9,8 @@ on:
       load_initial_data:
         description: "Load initial data"
         required: false
-        type: boolean
-        default: false
+        type: string
+        default: "false"
     secrets:
       SX_SEC_AUTH_PRIVATE_KEY:
         required: false
