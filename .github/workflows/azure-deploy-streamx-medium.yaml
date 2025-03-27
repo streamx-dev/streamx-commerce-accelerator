@@ -17,6 +17,7 @@ jobs:
     uses: ./.github/workflows/azure-deploy-streamx.yaml
     with:
       environment_size: "medium"
+      load_initial_data: ${{ github.event.inputs.load_initial_data }}
     secrets:
       SX_SEC_AUTH_PRIVATE_KEY:
         ${{ secrets.SX_SEC_AUTH_PRIVATE_KEY }}
