@@ -2,6 +2,12 @@ name: 'Azure: Deploy StreamX Large'
 
 on:
   workflow_dispatch:
+    inputs:
+      load_initial_data:
+        description: "Load initial data"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -11,6 +17,7 @@ jobs:
     uses: ./.github/workflows/azure-deploy-streamx.yaml
     with:
       environment_size: "large"
+      load_initial_data: ${{ github.event.inputs.load_initial_data }}
     secrets:
       SX_SEC_AUTH_PRIVATE_KEY:
         ${{ secrets.SX_SEC_AUTH_PRIVATE_KEY }}
