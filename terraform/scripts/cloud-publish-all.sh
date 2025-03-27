@@ -12,13 +12,13 @@ if [ "$1" == "load-init-data=true" ]; then
   for file in data/initial/*; do
     if [ -f "$file" ]; then
       filename=$(basename "$file" .stream)
-      export QUARKUS_PROFILE=cloud,github && streamx stream "$filename" "$file"
+      export QUARKUS_PROFILE=cloud,github && streamx --accept-license stream "$filename" "$file"
     fi
   done
   echo "Initial data ingestion completed"
 fi
 
-export QUARKUS_PROFILE=cloud,github && streamx batch publish data
+export QUARKUS_PROFILE=cloud,github && streamx --accept-license batch publish data
 export QUARKUS_PROFILE=cloud,github && streamx stream data data/catalog/products.stream
 export QUARKUS_PROFILE=cloud,github && streamx stream data data/catalog/categories.stream
 
