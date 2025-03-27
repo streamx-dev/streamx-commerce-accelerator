@@ -2,6 +2,12 @@ name: 'Azure: Deploy StreamX Large'
 
 on:
   workflow_dispatch:
+    inputs:
+      load_initial_data:
+        description: "Load initial data"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
