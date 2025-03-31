@@ -32,8 +32,8 @@ module "apisix" {
   ]
 
   settings = var.public_ip_address != null && var.public_ip_address != "" ? {
-    "service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
-    "service.loadBalancerIP" : var.public_ip_address
+    "gateway.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
+    "gateway.loadBalancerIP" : var.public_ip_address
   } : {}
 }
 
