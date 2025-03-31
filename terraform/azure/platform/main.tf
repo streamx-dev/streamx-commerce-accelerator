@@ -53,9 +53,18 @@ module "monitoring_loki" {
   depends_on = [module.azure_platform]
 }
 
+module "grafana_secret" {
+  source                         = "./modules/grafana-secret"
+  monitoring_grafana_cert_file   = "${path.module}/../../../gateway/tls/${var.monitoring_grafana_secret_name}.yaml"
+  monitoring_grafana_host        = var.monitoring_grafana_host
+  monitoring_grafana_secret_name = var.monitoring_grafana_secret_name
+
+  depends_on = [module.azure_platform]
+}
+
 module "streamx" {
   source  = "streamx-dev/charts/helm"
-  version = "0.0.4"
+  version = "0.0.6"
 
   ingress_controller_nginx_enabled                         = false
   cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
@@ -83,14 +92,15 @@ module "streamx" {
     "grafana.ingress.enabled" : true
     "grafana.ingress.hosts[0]" : var.monitoring_grafana_host
     "grafana.ingress.paths[0]" : "/*"
-    "grafana.ingress.tls[0].secretName" : "grafana.crt"
+    "grafana.ingress.tls[0].secretName" : var.monitoring_grafana_secret_name
     "grafana.ingress.tls[0].hosts[0]" : var.monitoring_grafana_host
     "grafana.ingress.annotations.cert-manager\\.io/cluster-issuer" : "letsencrypt-cert-cluster-issuer"
   } : {}
+  prometheus_stack_create_namespace       = false
   prometheus_stack_grafana_admin_password = var.monitoring_grafana_admin_password
 
 
   minio_enabled = false
-  depends_on    = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo]
+  depends_on    = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo, module.grafana_secret]
 
 }

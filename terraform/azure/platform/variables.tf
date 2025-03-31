@@ -85,6 +85,12 @@ variable "monitoring_grafana_host" {
   type        = string
 }
 
+variable "monitoring_grafana_secret_name" {
+  description = "Kubernetes secret name of grafana certificate"
+  default     = "grafana.crt"
+  type        = string
+}
+
 variable "monitoring_grafana_admin_password" {
   description = "Grafana admin password"
   default     = "sxadmin"
