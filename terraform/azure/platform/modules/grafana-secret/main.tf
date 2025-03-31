@@ -5,13 +5,13 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: "${var.monitoring_grafana_secret_name}"
-  namespace: "prometheus-stack"
+  namespace: ${var.monitoring_grafana_secret_namespace}
 EOT
 }
 
 resource "kubernetes_namespace" "prometheus_stack" {
   metadata {
-    name = "prometheus-stack"
+    name = var.monitoring_grafana_secret_namespace
   }
 }
 

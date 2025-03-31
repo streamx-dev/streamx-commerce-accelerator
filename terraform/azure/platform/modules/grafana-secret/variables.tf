@@ -15,3 +15,9 @@ variable "monitoring_grafana_cert_file" {
   default     = null
   type        = string
 }
+
+variable "monitoring_grafana_secret_namespace" {
+  description = "Namespace for grafana secret"
+  default     = "prometheus-stack"
+  type        = string
+}
