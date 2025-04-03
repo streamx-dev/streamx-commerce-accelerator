@@ -18,6 +18,9 @@ Content-Type: application/json
       \"query\": {
         \"bool\": {
           \"filter\": [
+            {
+              \"regexp\": { \"type.keyword\": \".*product.*\" }
+            }{{#filter_query}},{{/filter_query}}
             {{#filter_category}}
             {
               \"terms\": {

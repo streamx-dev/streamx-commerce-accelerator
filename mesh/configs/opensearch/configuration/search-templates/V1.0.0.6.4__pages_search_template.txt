@@ -1,0 +1,96 @@
+POST /_scripts/pages
+Content-Type: application/json
+
+{
+  "script": {
+    "lang": "mustache",
+    "source": "
+    {
+      \"_source\": [
+      \"_id\",
+      \"payload.title\",
+      \"fragments.*\",
+      \"type\",
+      \"namespace\"
+     ],
+     {{#size}}\"size\":\"{{size}}\",
+     {{/size}}
+     {{^size}}\"size\":\"50\",
+     {{/size}}
+     \"query\":
+      {
+        \"bool\":{\"filter\": [
+         {
+         \"regexp\":
+          { \"type.keyword\": \"page/.*\"
+            }
+          }
+         ],
+         \"must\":[
+          {
+            \"match_all\": {}
+          }
+          {{#namespace}} ,
+          {
+            \"prefix\": {
+              \"namespace.keyword\":{
+                \"case_insensitive\":true,
+                \"value\":\"{{namespace}}\"
+              }
+            }
+          }
+          {{/namespace}}
+          {{#query}},
+          {
+            \"bool\": {
+              \"should\": [
+                {
+                  \"match_bool_prefix\": {
+                    \"payload.title\": {
+                      \"query\": \"{{query}}\"
+                    }
+                  }
+                },
+                {
+                  \"match_bool_prefix\": {
+                    \"payload.content\": {
+                      \"query\": \"{{query}}\"
+                    }
+                 }
+                },
+                {
+                  \"nested\": {
+                    \"path\": \"fragments\",
+                    \"query\": {
+                      \"bool\": {
+                        \"should\": [
+                          {
+                            \"match_bool_prefix\": {
+                              \"fragments.payload.content\": {
+                                \"query\": \"{{query}}\"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+             ]
+            }
+          }
+          {{/query}}
+          ]
+      }
+    },
+      \"highlight\": {
+        \"fields\": {
+          \"payload.title\": {},
+          \"payload.*\": {},
+          \"fragments.payload.content\": {}
+        }
+      },
+      \"track_scores\": true
+   }"
+  }
+}
