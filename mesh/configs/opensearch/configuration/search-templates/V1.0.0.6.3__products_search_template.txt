@@ -20,8 +20,8 @@ Content-Type: application/json
           \"filter\": [
             {
               \"regexp\": { \"type.keyword\": \".*product.*\" }
-            }{{#filter_query}},{{/filter_query}}
-            {{#filter_category}}
+            }
+            {{#filter_category}},
             {
               \"terms\": {
                 \"payload.category.keyword\": {{#toJson}}fields{{/toJson}}
