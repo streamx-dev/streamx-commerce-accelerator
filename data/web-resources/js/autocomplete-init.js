@@ -1,6 +1,6 @@
 !function() {
     const SEARCH_RESULTS_COUNT = 40;
-    const SEARCH_URL = '/search/query';
+    const SEARCH_URL = '/search/pages';
 
     const buildUrl = (query, limit) => {
         return `${SEARCH_URL}?size=${limit}&query=${query}`;
