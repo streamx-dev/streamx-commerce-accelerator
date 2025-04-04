@@ -4,6 +4,8 @@ locals {
     medium = "Standard_D4_v2"
     large  = "Standard_D5_v2"
   }
+
+  grafana_host_provided = var.monitoring_grafana_host != null && var.monitoring_grafana_host != "" ? true : false
 }
 
 
@@ -54,12 +56,14 @@ module "monitoring_loki" {
 }
 
 module "grafana_secret" {
-  source                         = "./modules/grafana-secret"
-  monitoring_grafana_cert_file   = "${path.module}/../../../gateway/tls/${var.monitoring_grafana_secret_name}.yaml"
-  monitoring_grafana_host        = var.monitoring_grafana_host
-  monitoring_grafana_secret_name = var.monitoring_grafana_secret_name
+  count = local.grafana_host_provided ? 1 : 0
 
-  depends_on = [module.azure_platform]
+  source           = "./modules/yaml-secret"
+  create_namespace = true
+  secret_namespace = "prometheus-stack"
+  secret_name      = var.monitoring_grafana_secret_name
+  cert_file        = "${path.module}/../../../gateway/tls/${var.monitoring_grafana_secret_name}.yaml"
+  depends_on       = [module.azure_platform]
 }
 
 module "streamx" {
@@ -88,7 +92,7 @@ module "streamx" {
     file("${path.module}/config/monitoring/loki/values.yaml")
   ]
 
-  prometheus_stack_settings = var.monitoring_grafana_host != null && var.monitoring_grafana_host != "" ? {
+  prometheus_stack_settings = local.grafana_host_provided ? {
     "grafana.ingress.enabled" : true
     "grafana.ingress.hosts[0]" : var.monitoring_grafana_host
     "grafana.ingress.paths[0]" : "/*"
@@ -96,7 +100,7 @@ module "streamx" {
     "grafana.ingress.tls[0].hosts[0]" : var.monitoring_grafana_host
     "grafana.ingress.annotations.cert-manager\\.io/cluster-issuer" : "letsencrypt-cert-cluster-issuer"
   } : {}
-  prometheus_stack_create_namespace       = false
+  prometheus_stack_create_namespace       = local.grafana_host_provided ? false : true
   prometheus_stack_grafana_admin_password = var.monitoring_grafana_admin_password
 
 
