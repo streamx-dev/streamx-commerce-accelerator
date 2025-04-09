@@ -26,7 +26,7 @@ variable "atomic" {
 }
 
 variable "chart_name" {
-  default     = "apisix"
+  default     = "apisix-ingress-controller"
   description = "The name of the Helm chart to install"
   type        = string
 }
@@ -38,7 +38,7 @@ variable "chart_repository" {
 }
 
 variable "chart_version" {
-  default     = "2.10.0"
+  default     = "0.14.0"
   description = "The version of the Helm chart to install"
   type        = string
 }
