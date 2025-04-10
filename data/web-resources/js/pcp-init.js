@@ -47,16 +47,15 @@
 
     const buildQuery = (category, facets) => {
 
-      const query  = {
-        'id': 'products',
-        'params': {
-          'from': PER_PAGE*currentPage,
-          'size': PER_PAGE,
-          'filter_category': {
-            'fields': [category]
-          },
-        }
-      };
+     const query = {
+       id: 'products',
+       params: {
+         from: PER_PAGE * currentPage,
+         size: PER_PAGE,
+         ...(category ? { filter_category: { fields: [category] } } : {})
+       }
+     };
+
 
       if (facets && facets.length > 0) {
         const facetsWithoutCategory = facets.filter(f => Object.keys(f)[0] !== 'category');
