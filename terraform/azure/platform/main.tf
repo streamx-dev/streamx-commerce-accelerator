@@ -58,11 +58,11 @@ module "monitoring_loki" {
 module "grafana_secret" {
   count = local.grafana_host_provided ? 1 : 0
 
-  source           = "./modules/yaml-secret"
+  source           = "./modules/secret-init"
   create_namespace = true
-  secret_namespace = "prometheus-stack"
+  namespace        = "prometheus-stack"
   secret_name      = var.monitoring_grafana_secret_name
-  cert_file        = "${path.module}/../../../gateway/tls/${var.monitoring_grafana_secret_name}.yaml"
+  secret_file      = "${path.module}/../../../gateway/tls/${var.monitoring_grafana_secret_name}.yaml"
   depends_on       = [module.azure_platform]
 }
 

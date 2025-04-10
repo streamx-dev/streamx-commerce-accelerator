@@ -4,7 +4,7 @@ variable "create_namespace" {
   type        = bool
 }
 
-variable "secret_namespace" {
+variable "namespace" {
   description = "Namespace of the secret"
   type        = string
 }
@@ -14,7 +14,7 @@ variable "secret_name" {
   type        = string
 }
 
-variable "cert_file" {
+variable "secret_file" {
   description = "Yaml file with secret content"
   default     = null
   type        = string
