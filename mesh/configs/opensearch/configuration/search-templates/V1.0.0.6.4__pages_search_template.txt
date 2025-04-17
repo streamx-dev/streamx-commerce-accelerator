@@ -22,13 +22,22 @@ Content-Type: application/json
         \"bool\":{\"filter\": [
          {
          \"regexp\":
-          { \"type.keyword\": \"page/.*\"
+          { \"type.keyword\": \".*page.*\"
             }
           }
          ],
          \"must\":[
           {
             \"match_all\": {}
+          },
+          {
+            \"bool\": {
+              \"must_not\": {
+                \"regexp\": {
+                  \"type.keyword\": \".*fragment.*\"
+                }
+              }
+            }
           }
           {{#namespace}} ,
           {
