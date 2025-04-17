@@ -1,17 +1,40 @@
-useDaemonSet: true
 replicaCount: 3
 
-service:
+image:
+  repository: apache/apisix-ingress-controller
+  tag: "1.8.0"
+
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+                - apisix-ingress-controller
+        topologyKey: "kubernetes.io/hostname"
+
+config:
+  etcdserver:
+    enabled: true
+    image:
+      repository: apache/apisix
+      tag: 3.8.0-debian
+  kubernetes:
+    apisixRouteVersion: "apisix.apache.org/v2beta3"
+    apiVersion: "apisix.apache.org/v2beta3"
+
+podDisruptionBudget:
+  enabled: true
+  maxUnavailable: 1
+
+gateway:
   type: LoadBalancer
-
-ingress-controller:
-  enabled: true
-  config:
-    ingressPublishService: ingress-apisix/apisix-gateway
-
-dashboard:
-  enabled: true
+  tls:
+    enabled: true
+    servicePort: 443
+    containerPort: 9443
 
 apisix:
-  ssl:
-    enabled: true
+  adminAPIVersion: "v3"

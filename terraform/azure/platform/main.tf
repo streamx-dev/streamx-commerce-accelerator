@@ -4,6 +4,8 @@ locals {
     medium = "Standard_D4_v2"
     large  = "Standard_D5_v2"
   }
+
+  grafana_host_provided = var.monitoring_grafana_host != null && var.monitoring_grafana_host != "" ? true : false
 }
 
 
@@ -32,8 +34,8 @@ module "apisix" {
   ]
 
   settings = var.public_ip_address != null && var.public_ip_address != "" ? {
-    "service.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
-    "service.loadBalancerIP" : var.public_ip_address
+    "gateway.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
+    "gateway.loadBalancerIP" : var.public_ip_address
   } : {}
 }
 
@@ -53,9 +55,20 @@ module "monitoring_loki" {
   depends_on = [module.azure_platform]
 }
 
+module "grafana_secret" {
+  count = local.grafana_host_provided ? 1 : 0
+
+  source           = "./modules/secret-init"
+  create_namespace = true
+  namespace        = "prometheus-stack"
+  secret_name      = var.monitoring_grafana_secret_name
+  secret_file      = "${path.module}/../../../gateway/tls/${var.monitoring_grafana_secret_name}.yaml"
+  depends_on       = [module.azure_platform]
+}
+
 module "streamx" {
   source  = "streamx-dev/charts/helm"
-  version = "0.0.4"
+  version = "0.0.6"
 
   ingress_controller_nginx_enabled                         = false
   cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
@@ -79,18 +92,19 @@ module "streamx" {
     file("${path.module}/config/monitoring/loki/values.yaml")
   ]
 
-  prometheus_stack_settings = var.monitoring_grafana_host != null && var.monitoring_grafana_host != "" ? {
+  prometheus_stack_settings = local.grafana_host_provided ? {
     "grafana.ingress.enabled" : true
     "grafana.ingress.hosts[0]" : var.monitoring_grafana_host
     "grafana.ingress.paths[0]" : "/*"
-    "grafana.ingress.tls[0].secretName" : "grafana.crt"
+    "grafana.ingress.tls[0].secretName" : var.monitoring_grafana_secret_name
     "grafana.ingress.tls[0].hosts[0]" : var.monitoring_grafana_host
     "grafana.ingress.annotations.cert-manager\\.io/cluster-issuer" : "letsencrypt-cert-cluster-issuer"
   } : {}
+  prometheus_stack_create_namespace       = local.grafana_host_provided ? false : true
   prometheus_stack_grafana_admin_password = var.monitoring_grafana_admin_password
 
 
   minio_enabled = false
-  depends_on    = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo]
+  depends_on    = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo, module.grafana_secret]
 
 }

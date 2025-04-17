@@ -18,7 +18,10 @@ Content-Type: application/json
       \"query\": {
         \"bool\": {
           \"filter\": [
-            {{#filter_category}}
+            {
+              \"regexp\": { \"type.keyword\": \".*product.*\" }
+            }
+            {{#filter_category}},
             {
               \"terms\": {
                 \"payload.category.keyword\": {{#toJson}}fields{{/toJson}}
