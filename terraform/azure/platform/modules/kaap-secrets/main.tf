@@ -1,12 +1,12 @@
 resource "kubernetes_namespace" "kaap" {
   metadata {
-    name      = "kaap"
+    name = "kaap"
   }
 }
 
 resource "kubernetes_namespace" "token_secret_namespace" {
   metadata {
-    name      = var.superuser_token_secret_namespace
+    name = var.superuser_token_secret_namespace
   }
 }
 
@@ -80,10 +80,10 @@ resource "kubernetes_manifest" "kaap_token_public_key_secret" {
 
 resource "jwt_signed_token" "superuser_token" {
   algorithm = "RS256"
-  key = tls_private_key.kaap_token_private_key.private_key_pem
+  key       = tls_private_key.kaap_token_private_key.private_key_pem
 
   claims_json = jsonencode({
-    sub = "superuser"})
+  sub = "superuser" })
 }
 
 resource "kubernetes_secret_v1" "superuser_token_secret" {

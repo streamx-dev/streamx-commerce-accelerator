@@ -69,7 +69,7 @@ module "grafana_secret" {
 module "kaap_secrets" {
   count = var.streamx_operator_use_pulsar_proxy ? 1 : 0
 
-  source = "./modules/kaap-secrets"
+  source     = "./modules/kaap-secrets"
   depends_on = [module.azure_platform]
 }
 
@@ -82,7 +82,7 @@ module "streamx" {
   cert_manager_lets_encrypt_issuer_prod_letsencrypt_server = var.cert_manager_lets_encrypt_issuer_prod_letsencrypt_server
   cert_manager_lets_encrypt_issuer_ingress_class           = "apisix"
 
-  pulsar_kaap_create_namespace                             = !var.streamx_operator_use_pulsar_proxy
+  pulsar_kaap_create_namespace = !var.streamx_operator_use_pulsar_proxy
   pulsar_kaap_settings = var.streamx_operator_use_pulsar_proxy ? {
     "cluster.spec.global.auth.enabled" : true
     "cluster.spec.global.auth.token.initialize" : false
@@ -93,7 +93,7 @@ module "streamx" {
     file("${path.module}/config/pulsar-kaap/values.yaml")
   ]
 
-  streamx_operator_create_namespace = !var.streamx_operator_use_pulsar_proxy
+  streamx_operator_create_namespace                    = !var.streamx_operator_use_pulsar_proxy
   streamx_operator_image_pull_secret_registry_email    = var.streamx_operator_image_pull_secret_registry_email
   streamx_operator_image_pull_secret_registry_password = var.streamx_operator_image_pull_secret_registry_password
   streamx_operator_chart_repository_username           = "_json_key_base64"
@@ -126,6 +126,6 @@ module "streamx" {
 
 
   minio_enabled = false
-  depends_on    = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo, module.grafana_secret]
+  depends_on    = [module.azure_platform, module.monitoring_loki, module.monitoring_tempo, module.grafana_secret, module.kaap_secrets]
 
 }
