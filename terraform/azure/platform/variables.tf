@@ -48,6 +48,12 @@ variable "streamx_operator_image_pull_secret_registry_password" {
   sensitive   = true
 }
 
+variable "streamx_operator_use_pulsar_proxy" {
+  description = "Pulsar proxy enable flag"
+  type        = bool
+  default     = false
+}
+
 variable "public_ip_id" {
   default     = null
   description = "Public IP id for kubernetes cluster"

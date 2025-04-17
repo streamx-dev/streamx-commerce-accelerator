@@ -23,6 +23,10 @@ fi
 if [[ -n "$TF_VAR_monitoring_grafana_host" ]]; then
 gh variable set TF_VAR_MONITORING_GRAFANA_HOST -b "$TF_VAR_monitoring_grafana_host"
 fi
+if [[ -n "$TF_VAR_streamx_operator_use_pulsar_proxy" ]]; then
+gh variable set TF_VAR_STREAMX_OPERATOR_USE_PULSAR_PROXY -b "$TF_VAR_streamx_operator_use_pulsar_proxy"
+fi
+
 
 
 

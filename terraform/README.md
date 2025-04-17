@@ -145,18 +145,20 @@ All commands in this document should be executed from the terraform directory.
     echo "# StreamX platform Artifact Registry authentication
     TF_VAR_streamx_operator_image_pull_secret_registry_email=
     TF_VAR_streamx_operator_image_pull_secret_registry_password=
+    TF_VAR_streamx_operator_use_pulsar_proxy=false
 
     # Cert Manager - user email used by Let's Encrypt server for expiration notifications
     TF_VAR_cert_manager_lets_encrypt_issuer_acme_email=" >> azure/.env
     ```
 10. Configure StreamX Platform related variables in [`azure/.env`](azure/.env):
    > **Variables:**
-   > * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_EMAIL` - email provided by Dynamic
+   > * `TF_VAR_streamx_operator_image_pull_secret_registry_email` - email provided by Dynamic
         Solutions used for authentication
-   > * `TF_VAR_STREAMX_OPERATOR_IMAGE_PULL_SECRET_REGISTRY_PASSWORD` - key provided by Dynamic
+   > * `TF_VAR_streamx_operator_image_pull_secret_registry_password` - key provided by Dynamic
         Solutions used for authentication
-   > * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_ACME_EMAIL` - Cert Manager passes that email to
+   > * `TF_VAR_cert_manager_lets_encrypt_issuer_acme_email` - Cert Manager passes that email to
         Let's Encrypt server.
+   > * `TF_VAR_streamx_operator_use_pulsar_proxy` - Enables pulsar proxy and secure connection with JWT token. By default it's disabled.
 11. Optionally: Setup production Let's Encrypt certificate issuer append `TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server=true`
      ```shell
     echo "# Cert Manager - use Let's Encrypt production cert issuer
@@ -186,6 +188,7 @@ All commands in this document should be executed from the terraform directory.
              * `TF_VAR_PUBLIC_IP_ID`
              * `TF_VAR_CERT_MANAGER_LETS_ENCRYPT_ISSUER_PROD_LETSENCRYPT_SERVER`
              * `TF_VAR_MONITORING_GRAFANA_HOST`
+             * `TF_VAR_STREAMX_OPERATOR_USE_PULSAR_PROXY`
          * secrets:
            *  `SX_SEC_AUTH_PRIVATE_KEY`
            *  `BLUEPRINT_WEB_TLS_CERT`

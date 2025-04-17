@@ -3,7 +3,7 @@ cluster:
   spec:
     global:
       name: pulsar
-      image: apachepulsar/pulsar:4.0.0
+      image: datastax/lunastreaming-all:4.0_3.2
       restartOnConfigMapChange: true
       storage:
         existingStorageClassName: default
