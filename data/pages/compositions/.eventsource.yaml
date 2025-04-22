@@ -1,7 +1,7 @@
 channel: compositions
 relativePathLevel: 0
 
-key: ${relativePath}
+key: /${relativePath}
 payload:
   content:
     bytes: file://${payloadPath}

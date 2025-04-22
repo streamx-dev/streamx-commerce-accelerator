@@ -36,7 +36,13 @@ validate_cert_expire() {
     expiry_date=$(echo "$tls_crt_base64" | base64 --decode | openssl x509 -enddate -noout)
     expiry_date=$(echo "$expiry_date" | sed 's/^notAfter=//' | sed 's/ GMT//')
 
-    expiry_timestamp=$(date -j -f "%b %d %T %Y" "$expiry_date"  +%s)
+    if date --version >/dev/null 2>&1; then
+      # Linux (GNU date)
+      expiry_timestamp=$(date -d "$expiry_date" +%s)
+    else
+      # macOS (BSD date)
+      expiry_timestamp=$(date -j -f "%b %d %T %Y" "$expiry_date" +%s)
+    fi
     current_timestamp=$(date +%s)
 
     if [ "$current_timestamp" -gt "$expiry_timestamp" ]; then
