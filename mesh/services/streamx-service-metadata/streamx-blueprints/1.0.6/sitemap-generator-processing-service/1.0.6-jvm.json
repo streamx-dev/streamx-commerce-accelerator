@@ -1,0 +1,42 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/sitemap-generator-processing-service:1.0.6-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "incoming-pages",
+      "defaultSchemaId": "Page_AVROSchema_2992f018904ff5575d143305f18a8c81bce9d0ab",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "outgoing-sitemaps",
+      "defaultSchemaId": "WebResource_AVROSchema_e7fdbddba18259ba34955d7a0ebf287a9bc7c432",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "Page_AVROSchema_2992f018904ff5575d143305f18a8c81bce9d0ab": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "WebResource_AVROSchema_e7fdbddba18259ba34955d7a0ebf287a9bc7c432": {
+      "type": "record",
+      "name": "WebResource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}

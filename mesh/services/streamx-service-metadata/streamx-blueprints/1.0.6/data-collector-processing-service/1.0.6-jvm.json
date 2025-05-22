@@ -1,0 +1,47 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/data-collector-processing-service:1.0.6-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "data",
+      "defaultSchemaId": "Data_AVROSchema_08fcc5fa1a58ed88c269708da6c0332b32c9ee73",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "web-resources",
+      "defaultSchemaId": "WebResource_AVROSchema_0a363792b8147d139dce1652126e50d979a3c20d",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "collected-data",
+      "defaultSchemaId": "Data_AVROSchema_08fcc5fa1a58ed88c269708da6c0332b32c9ee73",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "WebResource_AVROSchema_0a363792b8147d139dce1652126e50d979a3c20d": {
+      "type": "record",
+      "name": "WebResource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Data_AVROSchema_08fcc5fa1a58ed88c269708da6c0332b32c9ee73": {
+      "type": "record",
+      "name": "Data",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}

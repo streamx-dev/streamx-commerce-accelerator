@@ -1,0 +1,48 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/opensearch-delivery-service:1.0.6-jvm",
+  "type": "delivery",
+  "incoming": [
+    {
+      "name": "indexable-resources",
+      "defaultSchemaId": "IndexableResource_AVROSchema_7870bef817a5fc220eacd406c7560b5a1858deca",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "indexable-resource-fragments",
+      "defaultSchemaId": "IndexableResourceFragment_AVROSchema_4e3eef033a101c6347ac3de2dbf36ab2308d4aad",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "IndexableResource_AVROSchema_7870bef817a5fc220eacd406c7560b5a1858deca": {
+      "type": "record",
+      "name": "IndexableResource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "fragmentKeys",
+          "type": {
+            "type": "array",
+            "items": "string",
+            "java-class": "java.util.Set"
+          }
+        },
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "IndexableResourceFragment_AVROSchema_4e3eef033a101c6347ac3de2dbf36ab2308d4aad": {
+      "type": "record",
+      "name": "IndexableResourceFragment",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}

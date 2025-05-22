@@ -21,6 +21,11 @@ As a prerequisite, ensure that you have StreamX CLI installed in latest preview 
   brew upgrade streamx-dev/preview-tap/streamx
   brew install streamx-dev/preview-tap/streamx
   ```
+Publishing requires also `yq` and `envsubst` commands. To install these run:
+  ```shell
+  brew install yq
+  brew install gettext
+  ```
 
 1. **Start StreamX**
     

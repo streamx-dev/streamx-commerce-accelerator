@@ -1,0 +1,151 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/rendering-engine-processing-service:1.0.6-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "incoming-rendering-requests",
+      "defaultSchemaId": "RenderingRequest_AVROSchema_3da9e670fc4e7f4daed5f5ef81ef7a106d4337a5",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "rendering-contexts",
+      "defaultSchemaId": "rendering-contexts",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "data",
+      "defaultSchemaId": "Data_AVROSchema_9d064ddf699c57de7f6289a1a08332b1706e918d",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "renderers",
+      "defaultSchemaId": "Renderer_AVROSchema_f0982b34c004a31f3078610b7831bcd2cb6e0d1f",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "pages",
+      "defaultSchemaId": "pages",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "fragments",
+      "defaultSchemaId": "fragments",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "outgoing-rendering-requests",
+      "defaultSchemaId": "RenderingRequest_AVROSchema_3da9e670fc4e7f4daed5f5ef81ef7a106d4337a5",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "rendering-contexts": {
+      "type": "record",
+      "name": "RenderingContext",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "dataKeyMatchPattern",
+          "type": "string"
+        },
+        {
+          "name": "outputKeyTemplate",
+          "type": "string"
+        },
+        {
+          "name": "outputType",
+          "type": {
+            "type": "enum",
+            "name": "OutputType",
+            "namespace": "dev.streamx.blueprints.data.RenderingContext",
+            "symbols": [
+              "PAGE",
+              "FRAGMENT"
+            ]
+          }
+        },
+        {
+          "name": "rendererKey",
+          "type": "string"
+        }
+      ]
+    },
+    "fragments": {
+      "type": "record",
+      "name": "Fragment",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "pages": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "RenderingRequest_AVROSchema_3da9e670fc4e7f4daed5f5ef81ef7a106d4337a5": {
+      "type": "record",
+      "name": "RenderingRequest",
+      "namespace": "dev.streamx.blueprints.rendering.engine",
+      "fields": [
+        {
+          "name": "dataKey",
+          "type": "string"
+        },
+        {
+          "name": "outputKeyTemplate",
+          "type": "string"
+        },
+        {
+          "name": "outputType",
+          "type": {
+            "type": "enum",
+            "name": "OutputType",
+            "namespace": "dev.streamx.blueprints.data.RenderingContext",
+            "symbols": [
+              "PAGE",
+              "FRAGMENT"
+            ]
+          }
+        },
+        {
+          "name": "rendererKey",
+          "type": "string"
+        }
+      ]
+    },
+    "Renderer_AVROSchema_f0982b34c004a31f3078610b7831bcd2cb6e0d1f": {
+      "type": "record",
+      "name": "Renderer",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "template",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Data_AVROSchema_9d064ddf699c57de7f6289a1a08332b1706e918d": {
+      "type": "record",
+      "name": "Data",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}

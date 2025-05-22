@@ -1,0 +1,87 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/composition-engine-processing-service:2.0.0-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "compositions",
+      "defaultSchemaId": "Composition_AVROSchema_bbf68f92760c44c80bb9e99920808ce28a13bd7b",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "layouts",
+      "defaultSchemaId": "Layout_AVROSchema_1022ea40d231155594d21d20cb51929c7165f11f",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "incoming-page-compose-requests",
+      "defaultSchemaId": "PageComposeRequest_AVROSchema_9739fd8cbb16d26030fd1ef6b75b79cacbb11b03",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "outgoing-page-compose-requests",
+      "defaultSchemaId": "PageComposeRequest_AVROSchema_9739fd8cbb16d26030fd1ef6b75b79cacbb11b03",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "pages",
+      "defaultSchemaId": "Page_AVROSchema_b0b1294e06f8ab10892594723d6db7b22bae4d40",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "Layout_AVROSchema_1022ea40d231155594d21d20cb51929c7165f11f": {
+      "type": "record",
+      "name": "Layout",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Page_AVROSchema_b0b1294e06f8ab10892594723d6db7b22bae4d40": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "PageComposeRequest_AVROSchema_9739fd8cbb16d26030fd1ef6b75b79cacbb11b03": {
+      "type": "record",
+      "name": "PageComposeRequest",
+      "namespace": "dev.streamx.blueprints.composition",
+      "fields": [
+        {
+          "name": "compositionKey",
+          "type": "string"
+        },
+        {
+          "name": "layoutKey",
+          "type": "string"
+        }
+      ]
+    },
+    "Composition_AVROSchema_bbf68f92760c44c80bb9e99920808ce28a13bd7b": {
+      "type": "record",
+      "name": "Composition",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "layoutKey",
+          "type": "string"
+        },
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}

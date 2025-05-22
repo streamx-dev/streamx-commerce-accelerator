@@ -1,0 +1,82 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/indexables-producer-processing-service:1.0.6-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "fragments",
+      "defaultSchemaId": "Fragment_AVROSchema_5eac45050951cef8b417c226d2cff3c1f49ce6d2",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "pages",
+      "defaultSchemaId": "Page_AVROSchema_0a2f8c6eafd97738c21436f6db82fe7fe9d1a26b",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "indexable-resource-fragments",
+      "defaultSchemaId": "IndexableResourceFragment_AVROSchema_e8fd6322bf14817b3514d63132019e441084f4f5",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "indexable-resources",
+      "defaultSchemaId": "IndexableResource_AVROSchema_1355c7f1c44f8e0e386c6995ca2bd6a342ef07a3",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "Fragment_AVROSchema_5eac45050951cef8b417c226d2cff3c1f49ce6d2": {
+      "type": "record",
+      "name": "Fragment",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Page_AVROSchema_0a2f8c6eafd97738c21436f6db82fe7fe9d1a26b": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "IndexableResourceFragment_AVROSchema_e8fd6322bf14817b3514d63132019e441084f4f5": {
+      "type": "record",
+      "name": "IndexableResourceFragment",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "IndexableResource_AVROSchema_1355c7f1c44f8e0e386c6995ca2bd6a342ef07a3": {
+      "type": "record",
+      "name": "IndexableResource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "fragmentKeys",
+          "type": {
+            "type": "array",
+            "items": "string",
+            "java-class": "java.util.Set"
+          }
+        },
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}
