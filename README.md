@@ -38,6 +38,9 @@ Publishing requires also `yq` and `envsubst` commands. To install these run:
    > **Note:** For local development you can also use mesh-light.yaml which comes with the basic
    functionality only that allows to run on limited resources.
 
+   Alternatively, instead of the `streamx run` you can use the `streamx dev` command. 
+   This allows you to view the mesh in graphic mode within the local instance of [StreamX Dashboard](http://localhost:9088/mesh). 
+
 2. **Run the Proxy**
 
    Start the local proxy for serving the website:
