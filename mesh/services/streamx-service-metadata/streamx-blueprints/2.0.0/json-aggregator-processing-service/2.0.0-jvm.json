@@ -1,0 +1,41 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/json-aggregator-processing-service:2.0.0-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "data",
+      "defaultSchemaId": "Data_AVROSchema_ec296f1a28dd9ebf1d7ccfea59cbe8c44c860f4b",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "multivalued-data",
+      "defaultSchemaId": "Data_AVROSchema_ec296f1a28dd9ebf1d7ccfea59cbe8c44c860f4b",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "aggregated-data",
+      "defaultSchemaId": "Data_AVROSchema_ec296f1a28dd9ebf1d7ccfea59cbe8c44c860f4b",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "aggregated-multivalued-data",
+      "defaultSchemaId": "Data_AVROSchema_ec296f1a28dd9ebf1d7ccfea59cbe8c44c860f4b",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "Data_AVROSchema_ec296f1a28dd9ebf1d7ccfea59cbe8c44c860f4b": {
+      "type": "record",
+      "name": "Data",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}

@@ -28,6 +28,11 @@ As a prerequisite, ensure that you have StreamX CLI installed in latest preview 
   brew upgrade streamx-dev/preview-tap/streamx
   brew install streamx-dev/preview-tap/streamx
   ```
+Publishing requires also `yq` and `envsubst` commands. To install these run:
+  ```shell
+  brew install yq
+  brew install gettext
+  ```
 
 1. **Start StreamX**
     
@@ -39,6 +44,9 @@ As a prerequisite, ensure that you have StreamX CLI installed in latest preview 
 
    > **Note:** For local development you can also use mesh-light.yaml which comes with the basic
    functionality only that allows to run on limited resources.
+
+   Alternatively, instead of the `streamx run` you can use the `streamx dev` command. 
+   This allows you to view the mesh in graphic mode within the local instance of [StreamX Dashboard](http://localhost:9088/mesh). 
 
 2. **Run the Proxy**
 
