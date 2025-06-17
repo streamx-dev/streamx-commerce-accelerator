@@ -19,6 +19,8 @@ if [ "$1" == "load-init-data=true" ]; then
 fi
 
 export QUARKUS_PROFILE=cloud,github && streamx --accept-license batch publish data
+export QUARKUS_PROFILE=cloud,github && streamx --accept-license batch publish data/pages/puresight
+export QUARKUS_PROFILE=cloud,github && streamx --accept-license batch publish data/assets/puresight
 export QUARKUS_PROFILE=cloud,github && streamx stream data data/catalog/products-no-prices.stream
 export QUARKUS_PROFILE=cloud,github && streamx stream data data/catalog/products.stream
 export QUARKUS_PROFILE=cloud,github && streamx stream data data/catalog/categories.stream
