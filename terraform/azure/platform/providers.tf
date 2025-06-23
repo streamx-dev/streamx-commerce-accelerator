@@ -6,7 +6,7 @@ provider "kubernetes" {
 }
 
 provider "helm" {
-  kubernetes = {
+  kubernetes {
     host                   = module.azure_platform.kubeconfig.host
     client_certificate     = base64decode(module.azure_platform.kubeconfig.client_certificate)
     client_key             = base64decode(module.azure_platform.kubeconfig.client_key)
