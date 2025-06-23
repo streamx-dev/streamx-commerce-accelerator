@@ -26,19 +26,6 @@ module "azure_platform" {
   public_ip_id         = var.public_ip_id
 }
 
-module "apisix" {
-  source = "./modules/apisix"
-
-  values = [
-    file("${path.module}/config/gateway/values.yaml")
-  ]
-
-  settings = var.public_ip_address != null && var.public_ip_address != "" ? {
-    "gateway.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
-    "gateway.loadBalancerIP" : var.public_ip_address
-  } : {}
-}
-
 module "monitoring_tempo" {
   source                            = "./modules/monitoring-tempo"
   monitoring_storage_container_name = var.monitoring_storage_container_name
@@ -81,6 +68,14 @@ module "streamx" {
   streamx_operator_image_pull_secret_registry_password = var.streamx_operator_image_pull_secret_registry_password
   streamx_operator_chart_repository_username           = "_json_key_base64"
   streamx_operator_chart_repository_password           = var.streamx_operator_image_pull_secret_registry_password
+
+  ingress_controller_apisix_settings = var.public_ip_address != null && var.public_ip_address != "" ? {
+    "gateway.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
+    "gateway.loadBalancerIP" : var.public_ip_address
+  } : {}
+  ingress_controller_apisix_values= [
+    file("${path.module}/config/gateway/values.yaml")
+  ]
 
   tempo_create_namespace = false
   tempo_values = [
