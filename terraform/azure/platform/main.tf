@@ -73,7 +73,7 @@ module "streamx" {
     "gateway.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
     "gateway.loadBalancerIP" : var.public_ip_address
   } : {}
-  ingress_controller_apisix_values= [
+  ingress_controller_apisix_values = [
     file("${path.module}/config/gateway/values.yaml")
   ]
 
