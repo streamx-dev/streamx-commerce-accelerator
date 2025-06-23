@@ -55,7 +55,7 @@ module "grafana_secret" {
 
 module "streamx" {
   source  = "streamx-dev/charts/helm"
-  version = "0.0.6"
+  version = "0.0.13"
 
   ingress_controller_nginx_enabled                         = false
   cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
@@ -73,7 +73,7 @@ module "streamx" {
     "gateway.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
     "gateway.loadBalancerIP" : var.public_ip_address
   } : {}
-  ingress_controller_apisix_values= [
+  ingress_controller_apisix_values = [
     file("${path.module}/config/gateway/values.yaml")
   ]
 
