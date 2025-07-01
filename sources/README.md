@@ -18,6 +18,11 @@ The steps below show how to run locally an AEMaaCS image that has embedded PureS
    You can optionally pass a **StreamX client URL** as the first argument and a **StreamX client auth token** as the second argument.  
    - If the second argument is not provided, it defaults to an empty token (no authentication is attempted).  
    - You can also **explicitly** pass an empty token by placing `""` as the second argument.
+   - When running together with apisix make sure you connect the network 
+   ```bash
+   docker network connect docker-apisix_apisix aem-author-cloud  >/dev/null 2>&1
+   ```
+
 
    **Examples:**
    ```bash

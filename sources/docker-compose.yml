@@ -13,7 +13,7 @@ services:
       STREAMX_CLIENT_AUTH_TOKEN: ${STREAMX_CLIENT_AUTH_TOKEN:-}
       STREAMX_REFERENCES_SEARCH_REGEXES: "(/content[^\"'\\s]*\\.coreimg\\.[^\"'\\s]*),(/content/dam/puresight[^\"'\\s]*\\.png[^\"'\\s]*),url\\(&#39;(/content/dam[^\"'\\s]*\\.png[^\"'\\s]*)&#,(/[^\"'\\s]*etc\\.clientlibs[^\"'\\s]*)"
       STREAMX_LOG_LEVEL: "DEBUG"
-    image: aem-author-cloud:latest
+    image: streamx/aem-author-cloud:latest
     container_name: aem-author-cloud
     volumes:
       - type: volume
