@@ -1,0 +1,52 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/image-optimization-processing-service:2.0.4-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "incoming-pages",
+      "defaultSchemaId": "Page_AVROSchema_692a4be2160a8fd0652bb2d5504c674b3484014d",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "incoming-assets",
+      "defaultSchemaId": "Asset_AVROSchema_c63c289a2b77e5139c6760bacd226683da8628cd",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "outgoing-pages",
+      "defaultSchemaId": "Page_AVROSchema_692a4be2160a8fd0652bb2d5504c674b3484014d",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "optimized-assets",
+      "defaultSchemaId": "Asset_AVROSchema_c63c289a2b77e5139c6760bacd226683da8628cd",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "Page_AVROSchema_692a4be2160a8fd0652bb2d5504c674b3484014d": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Asset_AVROSchema_c63c289a2b77e5139c6760bacd226683da8628cd": {
+      "type": "record",
+      "name": "Asset",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}
