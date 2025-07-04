@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/streamx-dev/streamx-blueprints/relay-processing-service:2.0.0-jvm",
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/relay-processing-service:2.0.4-jvm",
   "type": "processing",
   "incoming": [
     {

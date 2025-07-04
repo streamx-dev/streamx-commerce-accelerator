@@ -1,22 +1,22 @@
 {
-  "image": "ghcr.io/streamx-dev/streamx-blueprints/sitemap-generator-processing-service:2.0.0-jvm",
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/sitemap-generator-processing-service:2.0.4-jvm",
   "type": "processing",
   "incoming": [
     {
       "name": "incoming-pages",
-      "defaultSchemaId": "Page_AVROSchema_3618e74b710f3e53032beb490930d2e86df40a8c",
+      "defaultSchemaId": "Page_AVROSchema_715029fc48b1b23a819547419aec107a0e807a26",
       "connector": "smallrye-pulsar"
     }
   ],
   "outgoing": [
     {
       "name": "outgoing-sitemaps",
-      "defaultSchemaId": "WebResource_AVROSchema_b7b7f432fe75c2634ef2461479490a7c313323d4",
+      "defaultSchemaId": "WebResource_AVROSchema_b1c8c7ef62d9da299b75e26fc7b322459175b25a",
       "connector": "smallrye-pulsar"
     }
   ],
   "schemas": {
-    "Page_AVROSchema_3618e74b710f3e53032beb490930d2e86df40a8c": {
+    "Page_AVROSchema_715029fc48b1b23a819547419aec107a0e807a26": {
       "type": "record",
       "name": "Page",
       "namespace": "dev.streamx.blueprints.data",
@@ -27,7 +27,7 @@
         }
       ]
     },
-    "WebResource_AVROSchema_b7b7f432fe75c2634ef2461479490a7c313323d4": {
+    "WebResource_AVROSchema_b1c8c7ef62d9da299b75e26fc7b322459175b25a": {
       "type": "record",
       "name": "WebResource",
       "namespace": "dev.streamx.blueprints.data",
