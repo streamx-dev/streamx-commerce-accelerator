@@ -1,1 +1,47 @@
-{"image":"ghcr.io/streamx-dev/streamx-blueprints/data-collector-processing-service:2.0.5-jvm","type":"processing","incoming":[{"name":"data","defaultSchemaId":"Data_AVROSchema_c31ea22fda1259b3adf554b2730ffcc08e18757e","connector":"smallrye-pulsar"}],"outgoing":[{"name":"web-resources","defaultSchemaId":"WebResource_AVROSchema_e1ac32cdcea747d007b56f7ff1e9f56e0dee8b41","connector":"smallrye-pulsar"},{"name":"collected-data","defaultSchemaId":"Data_AVROSchema_c31ea22fda1259b3adf554b2730ffcc08e18757e","connector":"smallrye-pulsar"}],"schemas":{"Data_AVROSchema_c31ea22fda1259b3adf554b2730ffcc08e18757e":{"type":"record","name":"Data","namespace":"dev.streamx.blueprints.data","fields":[{"name":"content","type":"bytes"}]},"WebResource_AVROSchema_e1ac32cdcea747d007b56f7ff1e9f56e0dee8b41":{"type":"record","name":"WebResource","namespace":"dev.streamx.blueprints.data","fields":[{"name":"content","type":"bytes"}]}}}
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/data-collector-processing-service:2.0.5-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "data",
+      "defaultSchemaId": "Data_AVROSchema_c31ea22fda1259b3adf554b2730ffcc08e18757e",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "web-resources",
+      "defaultSchemaId": "WebResource_AVROSchema_e1ac32cdcea747d007b56f7ff1e9f56e0dee8b41",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "collected-data",
+      "defaultSchemaId": "Data_AVROSchema_c31ea22fda1259b3adf554b2730ffcc08e18757e",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "Data_AVROSchema_c31ea22fda1259b3adf554b2730ffcc08e18757e": {
+      "type": "record",
+      "name": "Data",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "WebResource_AVROSchema_e1ac32cdcea747d007b56f7ff1e9f56e0dee8b41": {
+      "type": "record",
+      "name": "WebResource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}
