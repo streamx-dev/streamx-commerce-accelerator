@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/streamx-dev/streamx-blueprints/rendering-engine-processing-service:2.0.4-jvm",
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/rendering-engine-processing-service:2.0.5-jvm",
   "type": "processing",
   "incoming": [
     {
@@ -9,24 +9,24 @@
     },
     {
       "name": "data",
-      "defaultSchemaId": "Data_AVROSchema_82b5943c8a36c612a5b3ddaf45b1179e15a549d7",
+      "defaultSchemaId": "Data_AVROSchema_12c23cdf64de4d3b65fdb200674369a9af2214a7",
       "connector": "smallrye-pulsar"
     },
     {
       "name": "renderers",
-      "defaultSchemaId": "Renderer_AVROSchema_b8ee334878ad1e259840f80a46da5442a68e23c9",
+      "defaultSchemaId": "Renderer_AVROSchema_7f10efb49110f3ceac7000e665e9b043f87ce969",
       "connector": "smallrye-pulsar"
     },
     {
       "name": "incoming-rendering-requests",
-      "defaultSchemaId": "RenderingRequest_AVROSchema_7c1f001051c16fdb7dbf26522612d0c01f638559",
+      "defaultSchemaId": "RenderingRequest_AVROSchema_6f6dcb3398cd8c5831a46c6e16db07472adbb7ab",
       "connector": "smallrye-pulsar"
     }
   ],
   "outgoing": [
     {
       "name": "outgoing-rendering-requests",
-      "defaultSchemaId": "RenderingRequest_AVROSchema_7c1f001051c16fdb7dbf26522612d0c01f638559",
+      "defaultSchemaId": "RenderingRequest_AVROSchema_6f6dcb3398cd8c5831a46c6e16db07472adbb7ab",
       "connector": "smallrye-pulsar"
     },
     {
@@ -91,17 +91,6 @@
         }
       ]
     },
-    "Data_AVROSchema_82b5943c8a36c612a5b3ddaf45b1179e15a549d7": {
-      "type": "record",
-      "name": "Data",
-      "namespace": "dev.streamx.blueprints.data",
-      "fields": [
-        {
-          "name": "content",
-          "type": "bytes"
-        }
-      ]
-    },
     "pages": {
       "type": "record",
       "name": "Page",
@@ -113,7 +102,7 @@
         }
       ]
     },
-    "Renderer_AVROSchema_b8ee334878ad1e259840f80a46da5442a68e23c9": {
+    "Renderer_AVROSchema_7f10efb49110f3ceac7000e665e9b043f87ce969": {
       "type": "record",
       "name": "Renderer",
       "namespace": "dev.streamx.blueprints.data",
@@ -124,7 +113,18 @@
         }
       ]
     },
-    "RenderingRequest_AVROSchema_7c1f001051c16fdb7dbf26522612d0c01f638559": {
+    "Data_AVROSchema_12c23cdf64de4d3b65fdb200674369a9af2214a7": {
+      "type": "record",
+      "name": "Data",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "RenderingRequest_AVROSchema_6f6dcb3398cd8c5831a46c6e16db07472adbb7ab": {
       "type": "record",
       "name": "RenderingRequest",
       "namespace": "dev.streamx.blueprints.rendering.engine",
