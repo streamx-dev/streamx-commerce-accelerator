@@ -1,10 +1,10 @@
 {
-  "image": "ghcr.io/streamx-dev/streamx-blueprints/rendering-engine-processing-service:2.0.0-jvm",
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/rendering-engine-processing-service:2.0.6-jvm",
   "type": "processing",
   "incoming": [
     {
       "name": "incoming-rendering-requests",
-      "defaultSchemaId": "RenderingRequest_AVROSchema_eb6d2a76294dbec99385016289ab9a1601314eb8",
+      "defaultSchemaId": "RenderingRequest_AVROSchema_ab026bcc24942e49501e3a434e771f9b119438f7",
       "connector": "smallrye-pulsar"
     },
     {
@@ -14,12 +14,12 @@
     },
     {
       "name": "data",
-      "defaultSchemaId": "Data_AVROSchema_d3653723966482c11272acbbda20a9fb504c8cd8",
+      "defaultSchemaId": "Data_AVROSchema_188ddb7e32a8532588d92a9f029ffa69ba15c92a",
       "connector": "smallrye-pulsar"
     },
     {
       "name": "renderers",
-      "defaultSchemaId": "Renderer_AVROSchema_0f903180f31eb9946264a126db51787b9c682d1e",
+      "defaultSchemaId": "Renderer_AVROSchema_857ad06b1d61cb2e017c797986d8371d7b46e588",
       "connector": "smallrye-pulsar"
     }
   ],
@@ -36,19 +36,54 @@
     },
     {
       "name": "outgoing-rendering-requests",
-      "defaultSchemaId": "RenderingRequest_AVROSchema_eb6d2a76294dbec99385016289ab9a1601314eb8",
+      "defaultSchemaId": "RenderingRequest_AVROSchema_ab026bcc24942e49501e3a434e771f9b119438f7",
       "connector": "smallrye-pulsar"
     }
   ],
   "schemas": {
-    "Data_AVROSchema_d3653723966482c11272acbbda20a9fb504c8cd8": {
+    "Renderer_AVROSchema_857ad06b1d61cb2e017c797986d8371d7b46e588": {
       "type": "record",
-      "name": "Data",
+      "name": "Renderer",
       "namespace": "dev.streamx.blueprints.data",
       "fields": [
         {
-          "name": "content",
+          "name": "template",
           "type": "bytes"
+        }
+      ]
+    },
+    "RenderingRequest_AVROSchema_ab026bcc24942e49501e3a434e771f9b119438f7": {
+      "type": "record",
+      "name": "RenderingRequest",
+      "namespace": "dev.streamx.blueprints.rendering.engine",
+      "fields": [
+        {
+          "name": "dataKey",
+          "type": "string"
+        },
+        {
+          "name": "outputFormat",
+          "type": {
+            "type": "enum",
+            "name": "OutputFormat",
+            "namespace": "dev.streamx.blueprints.data.RenderingContext",
+            "symbols": [
+              "PAGE",
+              "FRAGMENT"
+            ]
+          }
+        },
+        {
+          "name": "outputKeyTemplate",
+          "type": "string"
+        },
+        {
+          "name": "outputTypeTemplate",
+          "type": "string"
+        },
+        {
+          "name": "rendererKey",
+          "type": "string"
         }
       ]
     },
@@ -113,49 +148,14 @@
         }
       ]
     },
-    "Renderer_AVROSchema_0f903180f31eb9946264a126db51787b9c682d1e": {
+    "Data_AVROSchema_188ddb7e32a8532588d92a9f029ffa69ba15c92a": {
       "type": "record",
-      "name": "Renderer",
+      "name": "Data",
       "namespace": "dev.streamx.blueprints.data",
       "fields": [
         {
-          "name": "template",
+          "name": "content",
           "type": "bytes"
-        }
-      ]
-    },
-    "RenderingRequest_AVROSchema_eb6d2a76294dbec99385016289ab9a1601314eb8": {
-      "type": "record",
-      "name": "RenderingRequest",
-      "namespace": "dev.streamx.blueprints.rendering.engine",
-      "fields": [
-        {
-          "name": "dataKey",
-          "type": "string"
-        },
-        {
-          "name": "outputFormat",
-          "type": {
-            "type": "enum",
-            "name": "OutputFormat",
-            "namespace": "dev.streamx.blueprints.data.RenderingContext",
-            "symbols": [
-              "PAGE",
-              "FRAGMENT"
-            ]
-          }
-        },
-        {
-          "name": "outputKeyTemplate",
-          "type": "string"
-        },
-        {
-          "name": "outputTypeTemplate",
-          "type": "string"
-        },
-        {
-          "name": "rendererKey",
-          "type": "string"
         }
       ]
     }

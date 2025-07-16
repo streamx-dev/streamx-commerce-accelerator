@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/streamx-dev/streamx-blueprints/relay-processing-service:2.0.0-jvm",
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/relay-processing-service:2.0.6-jvm",
   "type": "processing",
   "incoming": [
     {
@@ -64,6 +64,39 @@
         }
       ]
     },
+    "page-schema": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "layout-schema": {
+      "type": "record",
+      "name": "Layout",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "fragment-schema": {
+      "type": "record",
+      "name": "Fragment",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
     "composition-schema": {
       "type": "record",
       "name": "Composition",
@@ -82,17 +115,6 @@
     "data-schema": {
       "type": "record",
       "name": "Data",
-      "namespace": "dev.streamx.blueprints.data",
-      "fields": [
-        {
-          "name": "content",
-          "type": "bytes"
-        }
-      ]
-    },
-    "page-schema": {
-      "type": "record",
-      "name": "Page",
       "namespace": "dev.streamx.blueprints.data",
       "fields": [
         {
@@ -145,28 +167,6 @@
     "resource-schema": {
       "type": "record",
       "name": "Resource",
-      "namespace": "dev.streamx.blueprints.data",
-      "fields": [
-        {
-          "name": "content",
-          "type": "bytes"
-        }
-      ]
-    },
-    "layout-schema": {
-      "type": "record",
-      "name": "Layout",
-      "namespace": "dev.streamx.blueprints.data",
-      "fields": [
-        {
-          "name": "content",
-          "type": "bytes"
-        }
-      ]
-    },
-    "fragment-schema": {
-      "type": "record",
-      "name": "Fragment",
       "namespace": "dev.streamx.blueprints.data",
       "fields": [
         {
