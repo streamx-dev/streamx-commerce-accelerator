@@ -1,5 +1,5 @@
 defaultRegistry: ghcr.io/streamx-dev/streamx-blueprints
-defaultImageTag: 2.0.5-jvm
+defaultImageTag: 2.0.6-jvm
 
 sources:
   github:
@@ -228,6 +228,7 @@ delivery:
       indexable-resource-fragments:
         topic: outboxes/indexable-resource-fragments
     port: 8082
+    repositoryVolume: "/usr/share/opensearch/data"
     volumesFrom:
       configs:
         - "opensearch/service-init:/deployments/opensearch/service-init"
@@ -243,6 +244,7 @@ delivery:
         image: "docker.io/opensearchproject/opensearch:2.16.0"
         ports:
           - 9201:9201
+        repositoryVolume: "/usr/share/opensearch/data"
         environment:
           network.host: "0.0.0.0"
           http.port: "9201"
@@ -264,6 +266,7 @@ delivery:
         topic: outboxes/web-resources
     environment:
       STREAMX_BLUEPRINTS_WEB-DELIVERY-SERVICE_RESOURCES_DIRECTORY: "/srv/www"
+      STREAMX_URL-INCLUDE-REPLACEMENT-PROVIDER_SSI-INCLUDE-FALLBACK-CONTENT: "<!-- Include Not Found -->"
     repositoryVolume: "/srv/www"
     port: 8083
     components:
