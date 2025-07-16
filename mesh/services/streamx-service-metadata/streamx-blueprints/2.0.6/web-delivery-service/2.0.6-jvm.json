@@ -1,52 +1,30 @@
 {
-  "image": "ghcr.io/streamx-dev/streamx-blueprints/web-delivery-service:2.0.5-jvm",
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/web-delivery-service:2.0.6-jvm",
   "type": "delivery",
   "incoming": [
     {
       "name": "assets",
-      "defaultSchemaId": "Asset_AVROSchema_b4a96bb2834ab35b7c2e26b36d450f62fbcc8032",
+      "defaultSchemaId": "Asset_AVROSchema_6263aa75231e83b94a7e9456da9ee41630907826",
       "connector": "smallrye-pulsar"
     },
     {
       "name": "fragments",
-      "defaultSchemaId": "Fragment_AVROSchema_b2b67ba194a48bbad51654eaf7422a370c23d583",
+      "defaultSchemaId": "Fragment_AVROSchema_31b3b73771d0eaa9f347d766f73eb313120682e3",
       "connector": "smallrye-pulsar"
     },
     {
       "name": "pages",
-      "defaultSchemaId": "Page_AVROSchema_e376ab55963c71b2e4b6d5947d465609e574c8a0",
+      "defaultSchemaId": "Page_AVROSchema_74d8daedd6d7401f28757aedf3fffa50983226ab",
       "connector": "smallrye-pulsar"
     },
     {
       "name": "web-resources",
-      "defaultSchemaId": "WebResource_AVROSchema_d59c889a83adbad43ddf851bc9acfa4650f9ace1",
+      "defaultSchemaId": "WebResource_AVROSchema_e61099b67e2db7901f7a48a3b3d1cb6659a287b8",
       "connector": "smallrye-pulsar"
     }
   ],
   "schemas": {
-    "Fragment_AVROSchema_b2b67ba194a48bbad51654eaf7422a370c23d583": {
-      "type": "record",
-      "name": "Fragment",
-      "namespace": "dev.streamx.blueprints.data",
-      "fields": [
-        {
-          "name": "content",
-          "type": "bytes"
-        }
-      ]
-    },
-    "Asset_AVROSchema_b4a96bb2834ab35b7c2e26b36d450f62fbcc8032": {
-      "type": "record",
-      "name": "Asset",
-      "namespace": "dev.streamx.blueprints.data",
-      "fields": [
-        {
-          "name": "content",
-          "type": "bytes"
-        }
-      ]
-    },
-    "Page_AVROSchema_e376ab55963c71b2e4b6d5947d465609e574c8a0": {
+    "Page_AVROSchema_74d8daedd6d7401f28757aedf3fffa50983226ab": {
       "type": "record",
       "name": "Page",
       "namespace": "dev.streamx.blueprints.data",
@@ -57,9 +35,31 @@
         }
       ]
     },
-    "WebResource_AVROSchema_d59c889a83adbad43ddf851bc9acfa4650f9ace1": {
+    "WebResource_AVROSchema_e61099b67e2db7901f7a48a3b3d1cb6659a287b8": {
       "type": "record",
       "name": "WebResource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Fragment_AVROSchema_31b3b73771d0eaa9f347d766f73eb313120682e3": {
+      "type": "record",
+      "name": "Fragment",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Asset_AVROSchema_6263aa75231e83b94a7e9456da9ee41630907826": {
+      "type": "record",
+      "name": "Asset",
       "namespace": "dev.streamx.blueprints.data",
       "fields": [
         {

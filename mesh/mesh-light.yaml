@@ -1,5 +1,5 @@
 defaultRegistry: ghcr.io/streamx-dev/streamx-blueprints
-defaultImageTag: 2.0.5-jvm
+defaultImageTag: 2.0.6-jvm
 
 sources:
   pim:
@@ -152,6 +152,7 @@ delivery:
         topic: outboxes/web-resources
     environment:
       STREAMX_BLUEPRINTS_WEB-DELIVERY-SERVICE_RESOURCES_DIRECTORY: "/srv/www"
+      STREAMX_DELIVERY_SERVICE_READINESS_CHECK_ENABLED: "false"
     repositoryVolume: "/srv/www"
     port: 8083
     components:

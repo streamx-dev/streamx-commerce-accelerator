@@ -1,32 +1,43 @@
 {
-  "image": "ghcr.io/streamx-dev/streamx-blueprints/indexables-producer-processing-service:2.0.5-jvm",
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/indexables-producer-processing-service:2.0.6-jvm",
   "type": "processing",
   "incoming": [
     {
-      "name": "fragments",
-      "defaultSchemaId": "Fragment_AVROSchema_ac07404dd3b59ff43ccf3269eae2cfed571a954a",
+      "name": "pages",
+      "defaultSchemaId": "Page_AVROSchema_22243973044c2459f2b7bb5777c8b2f8eefaa4f6",
       "connector": "smallrye-pulsar"
     },
     {
-      "name": "pages",
-      "defaultSchemaId": "Page_AVROSchema_308c351f244518df7e2c890a4b093c513e6641a9",
+      "name": "fragments",
+      "defaultSchemaId": "Fragment_AVROSchema_0c7d13dae63d42fb03026e8f8c33cd7f84eab97b",
       "connector": "smallrye-pulsar"
     }
   ],
   "outgoing": [
     {
-      "name": "indexable-resource-fragments",
-      "defaultSchemaId": "IndexableResourceFragment_AVROSchema_806f2f63ccc3ef2a2814ca4f906151b7343c1f94",
+      "name": "indexable-resources",
+      "defaultSchemaId": "IndexableResource_AVROSchema_f397cd3dd5ca58e83ee1f18c22aa1484892630a6",
       "connector": "smallrye-pulsar"
     },
     {
-      "name": "indexable-resources",
-      "defaultSchemaId": "IndexableResource_AVROSchema_1a0994413163f367b74b577e955574e3ee20e1a5",
+      "name": "indexable-resource-fragments",
+      "defaultSchemaId": "IndexableResourceFragment_AVROSchema_7dd962f8a824d6720824f2511a8c15065baa0bda",
       "connector": "smallrye-pulsar"
     }
   ],
   "schemas": {
-    "Fragment_AVROSchema_ac07404dd3b59ff43ccf3269eae2cfed571a954a": {
+    "Page_AVROSchema_22243973044c2459f2b7bb5777c8b2f8eefaa4f6": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Fragment_AVROSchema_0c7d13dae63d42fb03026e8f8c33cd7f84eab97b": {
       "type": "record",
       "name": "Fragment",
       "namespace": "dev.streamx.blueprints.data",
@@ -37,7 +48,7 @@
         }
       ]
     },
-    "IndexableResource_AVROSchema_1a0994413163f367b74b577e955574e3ee20e1a5": {
+    "IndexableResource_AVROSchema_f397cd3dd5ca58e83ee1f18c22aa1484892630a6": {
       "type": "record",
       "name": "IndexableResource",
       "namespace": "dev.streamx.blueprints.data",
@@ -56,18 +67,7 @@
         }
       ]
     },
-    "Page_AVROSchema_308c351f244518df7e2c890a4b093c513e6641a9": {
-      "type": "record",
-      "name": "Page",
-      "namespace": "dev.streamx.blueprints.data",
-      "fields": [
-        {
-          "name": "content",
-          "type": "bytes"
-        }
-      ]
-    },
-    "IndexableResourceFragment_AVROSchema_806f2f63ccc3ef2a2814ca4f906151b7343c1f94": {
+    "IndexableResourceFragment_AVROSchema_7dd962f8a824d6720824f2511a8c15065baa0bda": {
       "type": "record",
       "name": "IndexableResourceFragment",
       "namespace": "dev.streamx.blueprints.data",
