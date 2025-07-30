@@ -19,10 +19,6 @@ if [ -f "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/blueprint-web.crt.yaml" ]; the
     gh secret set BLUEPRINT_WEB_TLS_CERT --body "$(cat "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/blueprint-web.crt.yaml")"
 fi
 
-if [ -f "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/blueprint-search.crt.yaml" ]; then
-    gh secret set BLUEPRINT_SEARCH_TLS_CERT --body "$(cat "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/blueprint-search.crt.yaml")"
-fi
-
 if [ -f "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/rest-ingestion.crt.yaml" ]; then
     gh secret set REST_INGESTION_TLS_CERT --body "$(cat "$SETUP_REPO_SCRIPT_DIR/../../gateway/tls/rest-ingestion.crt.yaml")"
 fi
