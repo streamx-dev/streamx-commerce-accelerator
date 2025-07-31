@@ -189,7 +189,6 @@ All commands in this document should be executed from the terraform directory.
          * secrets:
            *  `SX_SEC_AUTH_PRIVATE_KEY`
            *  `BLUEPRINT_WEB_TLS_CERT`
-           *  `BLUEPRINT_SEARCH_TLS_CERT`
            *  `REST_INGESTION_TLS_CERT`
            *  `GRAFANA_TLS_CERT`
            *  `TF_VAR_MONITORING_GRAFANA_ADMIN_PASSWORD`
