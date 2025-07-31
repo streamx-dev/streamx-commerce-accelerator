@@ -110,9 +110,7 @@ delivery:
       tls:
         - hosts:
             - ${streamx.accelerator.web.host}
-          secretName: blueprint-search.crt
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-cert-cluster-issuer"
+          secretName: blueprint-web.crt
     probes:
       readiness:
         httpGet:
