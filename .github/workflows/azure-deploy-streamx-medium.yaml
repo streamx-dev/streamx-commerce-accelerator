@@ -23,8 +23,6 @@ jobs:
         ${{ secrets.SX_SEC_AUTH_PRIVATE_KEY }}
       BLUEPRINT_WEB_TLS_CERT:
         ${{ secrets.BLUEPRINT_WEB_TLS_CERT }}
-      BLUEPRINT_SEARCH_TLS_CERT:
-        ${{ secrets.BLUEPRINT_SEARCH_TLS_CERT }}
       REST_INGESTION_TLS_CERT:
         ${{ secrets.REST_INGESTION_TLS_CERT }}
       GRAFANA_TLS_CERT:
