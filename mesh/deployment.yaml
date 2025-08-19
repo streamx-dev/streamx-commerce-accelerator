@@ -35,6 +35,13 @@ ingestion:
           secretName: rest-ingestion.crt
 delivery:
   blueprint-web:
+    stateful: true
+    volumes:
+      repository-volume:
+        size: 10Gi
+      rocksdb:
+        mountPath: /var/lib/rocksdb
+        size: 5Gi
     ingress:
       enabled: true
       hosts:
@@ -101,6 +108,11 @@ delivery:
             successThreshold: 1
             failureThreshold: 3
   blueprint-search:
+    stateful: true
+    volumes:
+      rocksdb:
+        mountPath: /var/lib/rocksdb
+        size: 5Gi
     ingress:
       enabled: true
       hosts:
@@ -133,6 +145,10 @@ delivery:
     components:
       opensearch:
         sidecar: true
+        volumes:
+          opensearch-data:
+            mountPath: /usr/share/opensearch/data
+            size: 10Gi
         probes:
           readiness:
             httpGet:
