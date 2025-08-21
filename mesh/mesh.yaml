@@ -228,7 +228,6 @@ delivery:
       indexable-resource-fragments:
         topic: outboxes/indexable-resource-fragments
     port: 8082
-    repositoryVolume: "/usr/share/opensearch/data"
     volumesFrom:
       configs:
         - "opensearch/service-init:/deployments/opensearch/service-init"
@@ -238,7 +237,7 @@ delivery:
       STREAMX_BLUEPRINTS_OPENSEARCH-DELIVERY-SERVICE_MIGRATION-SCRIPT-LOCATIONS: "classpath:opensearch/service-init,file:opensearch/service-init"
       # Keep stores up to date when container inside a pod restarts
       QUASAR_MESSAGING_STORE_BACKEND: "rocksdb"
-      QUASAR_MESSAGING_STORE_ROCKSDB_PATH: "/usr/share/opensearch/data"
+      QUASAR_MESSAGING_STORE_ROCKSDB_PATH: "/var/lib/rocksdb"
     environmentFrom:
       secrets:
         - "opensearch-secrets.properties"
@@ -247,7 +246,6 @@ delivery:
         image: "docker.io/opensearchproject/opensearch:2.16.0"
         ports:
           - 9201:9201
-        repositoryVolume: "/usr/share/opensearch/data"
         environment:
           network.host: "0.0.0.0"
           http.port: "9201"
@@ -272,7 +270,7 @@ delivery:
       STREAMX_URL-INCLUDE-REPLACEMENT-PROVIDER_SSI-INCLUDE-FALLBACK-CONTENT: "<!-- Include Not Found -->"
       # Keep stores up to date when container inside a pod restarts
       QUASAR_MESSAGING_STORE_BACKEND: "rocksdb"
-      QUASAR_MESSAGING_STORE_ROCKSDB_PATH: "/srv/www"
+      QUASAR_MESSAGING_STORE_ROCKSDB_PATH: "/var/lib/rocksdb"
     repositoryVolume: "/srv/www"
     port: 8083
     components:

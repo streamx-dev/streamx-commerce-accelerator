@@ -55,7 +55,7 @@ module "grafana_secret" {
 
 module "streamx" {
   source  = "streamx-dev/charts/helm"
-  version = "0.0.13"
+  version = "0.0.15"
 
   ingress_controller_nginx_enabled                         = false
   cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
@@ -64,10 +64,14 @@ module "streamx" {
   pulsar_kaap_values = [
     file("${path.module}/config/pulsar-kaap/values.yaml")
   ]
+
   streamx_operator_image_pull_secret_registry_email    = var.streamx_operator_image_pull_secret_registry_email
   streamx_operator_image_pull_secret_registry_password = var.streamx_operator_image_pull_secret_registry_password
   streamx_operator_chart_repository_username           = "_json_key_base64"
   streamx_operator_chart_repository_password           = var.streamx_operator_image_pull_secret_registry_password
+  streamx_operator_settings = {
+    "image.tag" : "0.0.17-jvm"
+  }
 
   ingress_controller_apisix_settings = var.public_ip_address != null && var.public_ip_address != "" ? {
     "gateway.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
