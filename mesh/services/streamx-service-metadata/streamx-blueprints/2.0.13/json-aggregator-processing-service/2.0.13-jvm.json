@@ -1,32 +1,32 @@
 {
-  "image": "ghcr.io/streamx-dev/streamx-blueprints/json-aggregator-processing-service:2.0.6-jvm",
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/json-aggregator-processing-service:2.0.13-jvm",
   "type": "processing",
   "incoming": [
     {
       "name": "data",
-      "defaultSchemaId": "Data_AVROSchema_145ec9cbcc259266d058062f4b7ee5d7315b3f05",
+      "defaultSchemaId": "Data_AVROSchema_c342790b2299e92380a967a5dfc7de843e0f35f8",
       "connector": "smallrye-pulsar"
     },
     {
       "name": "multivalued-data",
-      "defaultSchemaId": "Data_AVROSchema_145ec9cbcc259266d058062f4b7ee5d7315b3f05",
+      "defaultSchemaId": "Data_AVROSchema_c342790b2299e92380a967a5dfc7de843e0f35f8",
       "connector": "smallrye-pulsar"
     }
   ],
   "outgoing": [
     {
       "name": "aggregated-data",
-      "defaultSchemaId": "Data_AVROSchema_145ec9cbcc259266d058062f4b7ee5d7315b3f05",
+      "defaultSchemaId": "Data_AVROSchema_c342790b2299e92380a967a5dfc7de843e0f35f8",
       "connector": "smallrye-pulsar"
     },
     {
       "name": "aggregated-multivalued-data",
-      "defaultSchemaId": "Data_AVROSchema_145ec9cbcc259266d058062f4b7ee5d7315b3f05",
+      "defaultSchemaId": "Data_AVROSchema_c342790b2299e92380a967a5dfc7de843e0f35f8",
       "connector": "smallrye-pulsar"
     }
   ],
   "schemas": {
-    "Data_AVROSchema_145ec9cbcc259266d058062f4b7ee5d7315b3f05": {
+    "Data_AVROSchema_c342790b2299e92380a967a5dfc7de843e0f35f8": {
       "type": "record",
       "name": "Data",
       "namespace": "dev.streamx.blueprints.data",

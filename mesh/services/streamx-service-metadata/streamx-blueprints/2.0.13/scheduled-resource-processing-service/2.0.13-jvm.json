@@ -1,0 +1,31 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/scheduled-resource-processing-service:2.0.13-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "scheduling-triggers",
+      "defaultSchemaId": "WebResource_AVROSchema_c5d0b0e64d67b3e065c3da5ec63b01b39444da10",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "fetched-resources",
+      "defaultSchemaId": "WebResource_AVROSchema_c5d0b0e64d67b3e065c3da5ec63b01b39444da10",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "WebResource_AVROSchema_c5d0b0e64d67b3e065c3da5ec63b01b39444da10": {
+      "type": "record",
+      "name": "WebResource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}
