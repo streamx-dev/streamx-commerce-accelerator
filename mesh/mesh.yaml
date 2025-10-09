@@ -1,5 +1,5 @@
 defaultRegistry: ghcr.io/streamx-dev/streamx-blueprints
-defaultImageTag: 2.0.7-jvm
+defaultImageTag: 2.0.13-jvm
 
 sources:
   github:
@@ -117,18 +117,42 @@ processing:
       configs:
         - "image-optimization.properties"
 
+
+  blueprint-data-deps-rewriter:
+    image: external-resources-processing-service
+    incoming:
+      incoming-data:
+        topic: inboxes/data
+      incoming-pages:
+        topic: relays/fake-pages-channel
+      incoming-web-resources:
+        topic: relays/fake-web-resources
+    outgoing:
+      outgoing-data:
+        topic: relays/data
+      outgoing-assets:
+        topic: outboxes/assets
+      outgoing-pages:
+        topic: relays/fake-pages-channel
+      outgoing-web-resources:
+        topic: relays/fake-web-resources-channel
+    environment:
+      STREAMX_BLUEPRINTS_EXTERNAL_RESOURCES_PROCESSING_SERVICE_BASE_URL_FOR_RELATIVE_PATHS: "${streamx.accelerator.web.url}"
+      STREAMX_BLUEPRINTS_EXTERNAL_RESOURCES_PROCESSING_SERVICE_PROCESSABLE_SX_TYPES: "data/product_with_images"
+      STREAMX_BLUEPRINTS_EXTERNAL_RESOURCES_PROCESSING_SERVICE_JSON_EXTERNAL_RESOURCE_JSONPATH_SELECTORS: "$..primaryImage.url"
+
   blueprint-json-aggregator:
     image: json-aggregator-processing-service
     incoming:
       data:
-        topic: inboxes/data
+        topic: relays/data
       multivalued-data:
-        topic: inboxes/data
+        topic: relays/data
     outgoing:
       aggregated-data:
         topic: relays/aggregated-data
       aggregated-multivalued-data:
-        topic: inboxes/data
+        topic: relays/data
     environmentFrom:
       configs:
         - "aggregator.properties"
@@ -237,7 +261,7 @@ delivery:
       STREAMX_BLUEPRINTS_OPENSEARCH-DELIVERY-SERVICE_MIGRATION-SCRIPT-LOCATIONS: "classpath:opensearch/service-init,file:opensearch/service-init"
       # Keep stores up to date when container inside a pod restarts
       QUASAR_MESSAGING_STORE_BACKEND: "rocksdb"
-      QUASAR_MESSAGING_STORE_ROCKSDB_PATH: "/var/lib/rocksdb"
+      QUASAR_MESSAGING_STORE_ROCKSDB_PATH: "${streamx.rocksdb.path}"
     environmentFrom:
       secrets:
         - "opensearch-secrets.properties"
@@ -270,7 +294,7 @@ delivery:
       STREAMX_URL-INCLUDE-REPLACEMENT-PROVIDER_SSI-INCLUDE-FALLBACK-CONTENT: "<!-- Include Not Found -->"
       # Keep stores up to date when container inside a pod restarts
       QUASAR_MESSAGING_STORE_BACKEND: "rocksdb"
-      QUASAR_MESSAGING_STORE_ROCKSDB_PATH: "/var/lib/rocksdb"
+      QUASAR_MESSAGING_STORE_ROCKSDB_PATH: "${streamx.rocksdb.path}"
     repositoryVolume: "/srv/www"
     port: 8083
     components:

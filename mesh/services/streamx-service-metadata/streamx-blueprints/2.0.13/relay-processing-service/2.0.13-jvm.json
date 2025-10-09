@@ -1,0 +1,198 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/relay-processing-service:2.0.13-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "messages",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "relayed-messages",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "rendering-context-schema": {
+      "type": "record",
+      "name": "RenderingContext",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "dataKeyMatchPattern",
+          "type": [
+            "null",
+            "string"
+          ],
+          "default": null
+        },
+        {
+          "name": "dataTypeMatchPattern",
+          "type": [
+            "null",
+            "string"
+          ],
+          "default": null
+        },
+        {
+          "name": "outputFormat",
+          "type": {
+            "type": "enum",
+            "name": "OutputFormat",
+            "namespace": "dev.streamx.blueprints.data.RenderingContext",
+            "symbols": [
+              "PAGE",
+              "FRAGMENT"
+            ]
+          }
+        },
+        {
+          "name": "outputKeyTemplate",
+          "type": "string"
+        },
+        {
+          "name": "outputTypeTemplate",
+          "type": "string"
+        },
+        {
+          "name": "rendererKey",
+          "type": "string"
+        }
+      ]
+    },
+    "web-resource-schema": {
+      "type": "record",
+      "name": "WebResource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "composition-schema": {
+      "type": "record",
+      "name": "Composition",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "layoutKey",
+          "type": "string"
+        },
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "data-schema": {
+      "type": "record",
+      "name": "Data",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "page-schema": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "asset-schema": {
+      "type": "record",
+      "name": "Asset",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "indexable-resource-schema": {
+      "type": "record",
+      "name": "IndexableResource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "fragmentKeys",
+          "type": {
+            "type": "array",
+            "items": "string",
+            "java-class": "java.util.Set"
+          }
+        },
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "indexable-resource-fragment-schema": {
+      "type": "record",
+      "name": "IndexableResourceFragment",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "resource-schema": {
+      "type": "record",
+      "name": "Resource",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "layout-schema": {
+      "type": "record",
+      "name": "Layout",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "fragment-schema": {
+      "type": "record",
+      "name": "Fragment",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "renderer-schema": {
+      "type": "record",
+      "name": "Renderer",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "template",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}

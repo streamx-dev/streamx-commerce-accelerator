@@ -1,0 +1,52 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/image-optimization-processing-service:2.0.13-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "incoming-assets",
+      "defaultSchemaId": "Asset_AVROSchema_c5ec0ea9532a206c8425e4f408e616e6770ab00e",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "incoming-pages",
+      "defaultSchemaId": "Page_AVROSchema_bf4bda261b3d2aa4c4cba247699ca235a59e86a0",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "optimized-assets",
+      "defaultSchemaId": "Asset_AVROSchema_c5ec0ea9532a206c8425e4f408e616e6770ab00e",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "outgoing-pages",
+      "defaultSchemaId": "Page_AVROSchema_bf4bda261b3d2aa4c4cba247699ca235a59e86a0",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "Page_AVROSchema_bf4bda261b3d2aa4c4cba247699ca235a59e86a0": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Asset_AVROSchema_c5ec0ea9532a206c8425e4f408e616e6770ab00e": {
+      "type": "record",
+      "name": "Asset",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    }
+  }
+}

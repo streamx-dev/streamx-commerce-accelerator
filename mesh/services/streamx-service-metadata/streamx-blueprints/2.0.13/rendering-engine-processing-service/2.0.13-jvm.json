@@ -1,0 +1,171 @@
+{
+  "image": "ghcr.io/streamx-dev/streamx-blueprints/rendering-engine-processing-service:2.0.13-jvm",
+  "type": "processing",
+  "incoming": [
+    {
+      "name": "rendering-contexts",
+      "defaultSchemaId": "rendering-contexts",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "data",
+      "defaultSchemaId": "Data_AVROSchema_2ed153a325e408d01ce4b1d417f848a330c8003a",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "renderers",
+      "defaultSchemaId": "Renderer_AVROSchema_7c8e2dca8030baf4ff49280b627d3cd5a23bfd37",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "incoming-rendering-requests",
+      "defaultSchemaId": "RenderingRequest_AVROSchema_fcf87243206d579fa2ad7664aa634a8cb04bc8ba",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "outgoing": [
+    {
+      "name": "outgoing-rendering-requests",
+      "defaultSchemaId": "RenderingRequest_AVROSchema_fcf87243206d579fa2ad7664aa634a8cb04bc8ba",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "pages",
+      "defaultSchemaId": "pages",
+      "connector": "smallrye-pulsar"
+    },
+    {
+      "name": "fragments",
+      "defaultSchemaId": "fragments",
+      "connector": "smallrye-pulsar"
+    }
+  ],
+  "schemas": {
+    "Data_AVROSchema_2ed153a325e408d01ce4b1d417f848a330c8003a": {
+      "type": "record",
+      "name": "Data",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "rendering-contexts": {
+      "type": "record",
+      "name": "RenderingContext",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "dataKeyMatchPattern",
+          "type": [
+            "null",
+            "string"
+          ],
+          "default": null
+        },
+        {
+          "name": "dataTypeMatchPattern",
+          "type": [
+            "null",
+            "string"
+          ],
+          "default": null
+        },
+        {
+          "name": "outputFormat",
+          "type": {
+            "type": "enum",
+            "name": "OutputFormat",
+            "namespace": "dev.streamx.blueprints.data.RenderingContext",
+            "symbols": [
+              "PAGE",
+              "FRAGMENT"
+            ]
+          }
+        },
+        {
+          "name": "outputKeyTemplate",
+          "type": "string"
+        },
+        {
+          "name": "outputTypeTemplate",
+          "type": "string"
+        },
+        {
+          "name": "rendererKey",
+          "type": "string"
+        }
+      ]
+    },
+    "fragments": {
+      "type": "record",
+      "name": "Fragment",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "pages": {
+      "type": "record",
+      "name": "Page",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "content",
+          "type": "bytes"
+        }
+      ]
+    },
+    "Renderer_AVROSchema_7c8e2dca8030baf4ff49280b627d3cd5a23bfd37": {
+      "type": "record",
+      "name": "Renderer",
+      "namespace": "dev.streamx.blueprints.data",
+      "fields": [
+        {
+          "name": "template",
+          "type": "bytes"
+        }
+      ]
+    },
+    "RenderingRequest_AVROSchema_fcf87243206d579fa2ad7664aa634a8cb04bc8ba": {
+      "type": "record",
+      "name": "RenderingRequest",
+      "namespace": "dev.streamx.blueprints.rendering.engine",
+      "fields": [
+        {
+          "name": "dataKey",
+          "type": "string"
+        },
+        {
+          "name": "outputFormat",
+          "type": {
+            "type": "enum",
+            "name": "OutputFormat",
+            "namespace": "dev.streamx.blueprints.data.RenderingContext",
+            "symbols": [
+              "PAGE",
+              "FRAGMENT"
+            ]
+          }
+        },
+        {
+          "name": "outputKeyTemplate",
+          "type": "string"
+        },
+        {
+          "name": "outputTypeTemplate",
+          "type": "string"
+        },
+        {
+          "name": "rendererKey",
+          "type": "string"
+        }
+      ]
+    }
+  }
+}
