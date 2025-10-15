@@ -80,8 +80,8 @@ Follow steps described in [README](terraform/README.md).
    ```
    > **Properties:**
    > * `%cloud.streamx.accelerator.ip` - Kubernetes cluster Load Balancer IP. Uncomment and set this property value if `streamx.accelerator.ingestion.host` or `streamx.accelerator.web.host` contains `${streamx.accelerator.ip}` placeholder.
-   > * `%cms.streamx.ingestion.auth-token` - CMS source authentication token. Value should be taken from Kubernetes cluster `sx-sec-auth-jwt-cms` secret.
-   > * `%pim.streamx.ingestion.auth-token` - PIM source authentication token. Value should be taken from Kubernetes cluster `sx-sec-auth-jwt-pim` secret.
+   > * `%cms.streamx.ingestion.auth-token` - CMS source authentication token. Value should be taken from Kubernetes cluster `sx-ing-auth-jwt-cms` secret.
+   > * `%pim.streamx.ingestion.auth-token` - PIM source authentication token. Value should be taken from Kubernetes cluster `sx-ing-auth-jwt-pim` secret.
 3. Deploy Accelerator StreamX Mesh:
    ```bash
    export KUBECONFIG=<path_to_kubeconfig> && export QUARKUS_PROFILE=cloud && streamx --accept-license deploy -f mesh/mesh.yaml
