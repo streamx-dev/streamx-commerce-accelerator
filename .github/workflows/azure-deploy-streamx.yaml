@@ -76,7 +76,7 @@ jobs:
           mkdir -p mesh/auth
           
           if [ -n "$SX_SEC_AUTH_PRIVATE_KEY" ]; then
-            echo "$SX_SEC_AUTH_PRIVATE_KEY" > mesh/auth/sx-sec-auth-private-key.yaml
+            echo "$SX_SEC_AUTH_PRIVATE_KEY" > mesh/auth/sx-ing-sources-auth-private-key.yaml
           fi
 
           if [ -n "$BLUEPRINT_WEB_TLS_CERT" ]; then

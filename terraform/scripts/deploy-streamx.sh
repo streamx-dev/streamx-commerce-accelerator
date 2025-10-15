@@ -30,11 +30,11 @@ popd || exit
 echo ""
 "$SETUP_ENV_SCRIPT_DIR"/wait-for-mesh.sh
 
-cms_token=$(kubectl get secrets sx-sec-auth-jwt-cms -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)
+cms_token=$(kubectl get secrets sx-ing-auth-jwt-cms -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)
 echo "%cms.streamx.ingestion.auth-token=$cms_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
-pim_token=$(kubectl get secrets sx-sec-auth-jwt-pim -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)
+pim_token=$(kubectl get secrets sx-ing-auth-jwt-pim -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)
 echo "%pim.streamx.ingestion.auth-token=$pim_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
-github_token=$(kubectl get secrets sx-sec-auth-jwt-github -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)
+github_token=$(kubectl get secrets sx-ing-auth-jwt-github -o jsonpath  -o jsonpath="{.data.jwt}" | base64 --decode)
 echo "%github.streamx.ingestion.auth-token=$github_token" >> "$SETUP_ENV_SCRIPT_DIR/../../.env"
 
 echo "Cloud environment is ready for data ingestion."
