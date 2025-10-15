@@ -11,8 +11,10 @@ defaults:
       minAvailable: 1
   processing:
     replicas: ${streamx.default.processing.replicas}
+    stateful: true
   delivery:
     replicas: ${streamx.default.delivery.replicas}
+    stateful: true
     podDisruptionBudget:
       enabled: true
       minAvailable: 1
@@ -33,6 +35,48 @@ ingestion:
         - hosts:
             - ${streamx.accelerator.ingestion.host}
           secretName: rest-ingestion.crt
+
+processing:
+  blueprint-image-optimization:
+    volumes:
+      rocksdb:
+        mountPath: "${streamx.rocksdb.path}"
+        size: 5Gi
+  blueprint-data-deps-rewriter:
+    volumes:
+      rocksdb:
+        mountPath: "${streamx.rocksdb.path}"
+        size: 5Gi
+  blueprint-json-aggregator:
+    volumes:
+      rocksdb:
+        mountPath: "${streamx.rocksdb.path}"
+        size: 5Gi
+  blueprint-rendering-engine:
+    volumes:
+      rocksdb:
+        mountPath: "${streamx.rocksdb.path}"
+        size: 5Gi
+  blueprint-composition-engine:
+    volumes:
+      rocksdb:
+        mountPath: "${streamx.rocksdb.path}"
+        size: 5Gi
+  blueprint-data-collector:
+    volumes:
+      rocksdb:
+        mountPath: "${streamx.rocksdb.path}"
+        size: 5Gi
+  blueprint-sitemap-generator:
+    volumes:
+      rocksdb:
+        mountPath: "${streamx.rocksdb.path}"
+        size: 5Gi
+  blueprint-indexables-producer:
+    volumes:
+      rocksdb:
+        mountPath: "${streamx.rocksdb.path}"
+        size: 5Gi
 delivery:
   blueprint-web:
     stateful: true
