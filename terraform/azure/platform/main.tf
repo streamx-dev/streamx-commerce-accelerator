@@ -71,6 +71,9 @@ module "streamx" {
   streamx_operator_image_pull_secret_registry_password = var.streamx_operator_image_pull_secret_registry_password
   streamx_operator_chart_repository_username           = "_json_key_base64"
   streamx_operator_chart_repository_password           = var.streamx_operator_image_pull_secret_registry_password
+  streamx_operator_settings = {
+    "sources-auth.image.tag" : "0.1.9-jvm"
+  }
 
   ingress_controller_apisix_settings = var.public_ip_address != null && var.public_ip_address != "" ? {
     "gateway.annotations.service\\.beta\\.kubernetes\\.io/azure-load-balancer-resource-group" : var.resource_group_name
