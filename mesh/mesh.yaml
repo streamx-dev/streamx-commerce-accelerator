@@ -1,5 +1,5 @@
 defaultRegistry: ghcr.io/streamx-dev/streamx-blueprints
-defaultImageTag: 2.0.13-jvm
+defaultImageTag: 2.0.14-jvm
 environment:
   # Favor throughput and connection quality over latency
   PULSAR_CLIENT_USETCPNODELAY: "false"
