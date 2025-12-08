@@ -55,7 +55,7 @@ module "grafana_secret" {
 
 module "streamx" {
   source  = "streamx-dev/charts/helm"
-  version = "0.1.3"
+  version = "0.1.3-fix1"
 
   ingress_controller_nginx_enabled                         = false
   cert_manager_lets_encrypt_issuer_acme_email              = var.cert_manager_lets_encrypt_issuer_acme_email
