@@ -82,7 +82,7 @@ memory=80%
 swap=4GB
 ```
 
-For the changes to take effect - stop WSL using the `wsl --shutdown` command, and restart WSL.
+For the changes to take effect - stop WSL using the `wsl --shutdown` command, and start `wsl` again.
 
 ---
 
