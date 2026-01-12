@@ -25,7 +25,7 @@ which could cause unexpected errors while parsing and running the scripts.
 
 ### External Docker images
 
-If you are running the below commands on Windows, replace `image: bitnami/etcd` in `gateway/local/docker-compose.yaml`
+If you are running the below commands on Windows, replace `image: bitnami/etcd` in `gateway/local/docker-compose.yml`
 to `image: bitnamilegacy/etcd`.
 
 ### Install Homebrew and java inside WSL
