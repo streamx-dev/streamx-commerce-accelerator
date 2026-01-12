@@ -22,7 +22,7 @@ services:
     image: apache/apisix:${APISIX_IMAGE_TAG:-3.11.0-debian}
     restart: always
     volumes:
-      - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:rw
+      - ./config.yaml:/usr/local/apisix/conf/config.yaml:rw
     depends_on:
       - etcd
     ##network_mode: host
