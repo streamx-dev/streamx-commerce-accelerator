@@ -1,0 +1,244 @@
+name: 'Release StreamX Commerce Accelerator'
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-version:
+        description: "Release Version"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  check-repo:
+    if: github.repository == github.event.repository.full_name
+    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
+    needs: check-repo
+    outputs:
+      web-host: ${{ steps.summary.outputs.web-host }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Setup Terraform"
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.10.4"
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      - name: Set up homebrew
+        uses: 'Homebrew/actions/setup-homebrew@master'
+
+      - name: Install StreamX via Homebrew
+        run: |
+          brew install streamx-dev/preview-tap/streamx
+
+      - name: Prepare Kubernetes secrets
+        env:
+          SX_SEC_AUTH_PRIVATE_KEY: ${{ secrets.SX_SEC_AUTH_PRIVATE_KEY }}
+          BLUEPRINT_WEB_TLS_CERT: ${{ secrets.BLUEPRINT_WEB_TLS_CERT }}
+          BLUEPRINT_SEARCH_TLS_CERT: ${{ secrets.BLUEPRINT_SEARCH_TLS_CERT }}
+          REST_INGESTION_TLS_CERT: ${{ secrets.REST_INGESTION_TLS_CERT }}
+          GRAFANA_TLS_CERT: ${{ secrets.GRAFANA_TLS_CERT }}
+          TF_STATE_BACKEND: ${{ secrets.TF_STATE_BACKEND }}
+        run: |
+          mkdir -p gateway/tls
+          mkdir -p mesh/auth
+
+          if [ -n "$SX_SEC_AUTH_PRIVATE_KEY" ]; then
+            echo "$SX_SEC_AUTH_PRIVATE_KEY" > mesh/auth/sx-sec-auth-private-key.yaml
+          fi
+
+          if [ -n "$BLUEPRINT_WEB_TLS_CERT" ]; then
+            echo "$BLUEPRINT_WEB_TLS_CERT" > gateway/tls/blueprint-web.crt.yaml
+          fi
+
+          if [ -n "$BLUEPRINT_SEARCH_TLS_CERT" ]; then
+            echo "$BLUEPRINT_SEARCH_TLS_CERT" > gateway/tls/blueprint-search.crt.yaml
+          fi
+
+          if [ -n "$REST_INGESTION_TLS_CERT" ]; then
+            echo "$REST_INGESTION_TLS_CERT" > gateway/tls/rest-ingestion.crt.yaml
+          fi
+
+          if [ -n "$GRAFANA_TLS_CERT" ]; then
+            echo "$GRAFANA_TLS_CERT" > gateway/tls/grafana.crt.yaml
+          fi
+          
+          if [ -n "$TF_STATE_BACKEND" ]; then
+            echo "$TF_STATE_BACKEND" > terraform/azure/platform/backend.tf
+            echo "$TF_STATE_BACKEND" > terraform/azure/network/backend.tf
+          fi
+
+      - name: "Deploy StreamX"
+        id: deploy-streamx
+        env:
+          ARM_ACCESS_KEY:
+            ${{ secrets.ARM_ACCESS_KEY }}
+          ARM_CLIENT_ID:
+            ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET:
+            ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID:
+            ${{ secrets.ARM_TENANT_ID }}
+          ARM_SUBSCRIPTION_ID:
+            ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          TF_VAR_resource_group_name:
+            ${{ vars.TF_VAR_RESOURCE_GROUP_NAME }}
+          TF_VAR_location:
+            ${{ vars.TF_VAR_location }}
+          TF_VAR_user_identity_id:
+            ${{ vars.TF_VAR_USER_IDENTITY_ID }}
+          TF_VAR_public_ip_address:
+            ${{ vars.TF_VAR_PUBLIC_IP_ADDRESS }}
+          TF_VAR_public_ip_id:
+            ${{ vars.TF_VAR_PUBLIC_IP_ID }}
+          TF_VAR_cert_manager_lets_encrypt_issuer_acme_email:
+            ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_acme_email }}
+          TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server:
+            ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server }}
+          TF_VAR_streamx_operator_image_pull_secret_registry_email:
+            ${{ vars.TF_VAR_streamx_operator_image_pull_secret_registry_email }}
+          TF_VAR_streamx_operator_image_pull_secret_registry_password:
+            ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
+          TF_VAR_monitoring_storage_account_name:
+            ${{ vars.TF_VAR_monitoring_storage_account_name }}
+          TF_VAR_monitoring_storage_container_name:
+            ${{ vars.TF_VAR_monitoring_storage_container_name }}
+          TF_VAR_monitoring_storage_access_key:
+            ${{ secrets.TF_VAR_monitoring_storage_access_key }}
+          TF_VAR_monitoring_grafana_admin_password:
+            ${{ secrets.TF_VAR_monitoring_grafana_admin_password }}
+          TF_VAR_monitoring_grafana_host:
+            ${{ vars.TF_VAR_monitoring_grafana_host }}
+          TF_VAR_streamx_environment_size: ${{ inputs.environment_size }}
+        run: |
+          terraform/scripts/deploy-streamx.sh
+          echo "kubeconfig_path=$(terraform -chdir=./terraform/azure/platform output -raw kubeconfig_path)" >> $GITHUB_OUTPUT
+
+      - name: "Ingest content"
+        run: terraform/scripts/cloud-publish-all.sh load-init-data=true
+
+      - name: "Create Job Summary"
+        id: summary
+        env:
+          KUBECONFIG: ${{ steps.deploy-streamx.outputs.kubeconfig_path }}
+        run: |
+          WEB_HOST=$(kubectl get ingress sx-del-blueprint-web -o jsonpath='{.spec.rules[0].host}')
+          echo "web-host=$WEB_HOST" >> $GITHUB_OUTPUT
+  test:
+    runs-on: ubuntu-latest
+    needs: deploy
+    env:
+      WEB-HOST: ${{ needs.deploy.outputs.web-host }}
+    steps:
+      - name: Test homepage
+        run: |
+          STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" $WEB-HOST)
+          if [ "$STATUS_CODE" -ne 200 ]; then
+            echo "Homepage is not reachable! Status code: $STATUS_CODE"
+            exit 1
+          else
+            echo "Homepage is up! Status code: $STATUS_CODE"
+          fi
+      - name: Test search
+        run: |
+          RESULT_COUNT=$(curl -sS $WEB-HOST/search/pages?query=table | jq '.hits.total.value')
+          if [ "$RESULT_COUNT" -gt 0 ]; then
+            echo "Search page is up and running! Results count: $RESULT_COUNT"
+          else
+            echo "Search page is down!
+            exit 1
+          fi
+      - name: Test sitemap
+        run: |
+          STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" $WEB-HOST/sitemap.xml)
+          if [ "$STATUS_CODE" -ne 200 ]; then
+            echo "Sitemap is not reachable! Status code: $STATUS_CODE"
+            exit 1
+          else
+            echo "Sitemap is up! Status code: $STATUS_CODE"
+          fi
+  undeploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Setup Terraform"
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.10.4"
+
+      - name: "Undeploy StreamX"
+        env:
+          ARM_ACCESS_KEY:
+            ${{ secrets.ARM_ACCESS_KEY }}
+          ARM_CLIENT_ID:
+            ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET:
+            ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID:
+            ${{ secrets.ARM_TENANT_ID }}
+          ARM_SUBSCRIPTION_ID:
+            ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          TF_VAR_resource_group_name:
+            ${{ vars.TF_VAR_RESOURCE_GROUP_NAME }}
+          TF_VAR_location:
+            ${{ vars.TF_VAR_location }}
+          TF_VAR_user_identity_id:
+            ${{ vars.TF_VAR_USER_IDENTITY_ID }}
+          TF_VAR_public_ip_address:
+            ${{ vars.TF_VAR_PUBLIC_IP_ADDRESS }}
+          TF_VAR_public_ip_id:
+            ${{ vars.TF_VAR_PUBLIC_IP_ID }}
+          TF_VAR_cert_manager_lets_encrypt_issuer_acme_email:
+            ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_acme_email }}
+          TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server:
+            ${{ vars.TF_VAR_cert_manager_lets_encrypt_issuer_prod_letsencrypt_server }}
+          TF_VAR_streamx_operator_image_pull_secret_registry_email:
+            ${{ vars.TF_VAR_streamx_operator_image_pull_secret_registry_email }}
+          TF_VAR_streamx_operator_image_pull_secret_registry_password:
+            ${{ secrets.TF_VAR_streamx_operator_image_pull_secret_registry_password }}
+          TF_VAR_monitoring_storage_account_name:
+            ${{ vars.TF_VAR_monitoring_storage_account_name }}
+          TF_VAR_monitoring_storage_container_name:
+            ${{ vars.TF_VAR_monitoring_storage_container_name }}
+          TF_VAR_monitoring_storage_access_key:
+            ${{ secrets.TF_VAR_monitoring_storage_access_key }}
+          TF_VAR_streamx_environment_size: "small"
+        run: terraform/scripts/undeploy-streamx.sh
+  release:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@ds.pl"
+          
+      - name: Create Git Tag
+        run: |
+          git tag "v${{ github.event.inputs.release_version }}"
+          git push origin "v${{ github.event.inputs.release_version }}"
+          
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.event.inputs.release_version }}
+        run: |
+          gh release create "v$tag" \
+              --title="${GITHUB_REPOSITORY#*/} v$tag" \
+              --generate-notes
